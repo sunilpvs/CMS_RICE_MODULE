@@ -1,0 +1,160 @@
+[04-Jul-2023 18:40:33 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php on line 3
+[04-Jul-2023 18:40:33 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(5): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php on line 3
+[04-Jul-2023 18:41:16 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT b.Name a...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(89): DBController->runBaseQuery('SELECT b.Name a...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(80): Costcenter->getAllcostcenter()
+#3 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 18:42:35 Asia/Kolkata] PHP Warning:  Undefined array key "Entity" in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/vCostcenter.php on line 41
+[04-Jul-2023 18:44:45 Asia/Kolkata] PHP Warning:  Undefined array key "Name" in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/vCostcenter.php on line 41
+[04-Jul-2023 18:45:34 Asia/Kolkata] PHP Warning:  Undefined array key "Name" in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/vCostcenter.php on line 41
+[04-Jul-2023 18:45:35 Asia/Kolkata] PHP Warning:  Undefined array key "Name" in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/vCostcenter.php on line 41
+[04-Jul-2023 18:47:41 Asia/Kolkata] PHP Warning:  Undefined array key "Entity" in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/vCostcenter.php on line 41
+[04-Jul-2023 18:48:04 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-edit.php on line 3
+[04-Jul-2023 18:48:04 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-edit.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(67): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-edit.php on line 3
+[04-Jul-2023 18:48:44 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(95): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-edit.php(38): Costcenter->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(67): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 18:53:36 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(95): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-edit.php(38): Costcenter->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(67): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 18:56:03 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(95): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-edit.php(38): Costcenter->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(67): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 18:56:06 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(95): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-edit.php(38): Costcenter->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(67): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 18:56:29 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(95): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-edit.php(38): Costcenter->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(67): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 18:56:32 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(95): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-edit.php(38): Costcenter->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(67): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 18:57:50 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(95): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-edit.php(38): Costcenter->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(67): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 18:59:02 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(95): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-edit.php(38): Costcenter->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(67): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 18:59:05 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(95): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-edit.php(38): Costcenter->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(67): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 18:59:09 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(95): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-edit.php(38): Costcenter->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(67): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 18:59:35 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(95): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-edit.php(38): Costcenter->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(67): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 19:00:03 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(95): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-edit.php(38): Costcenter->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(67): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 19:31:25 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(95): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-add.php(37): Costcenter->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(44): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 19:31:47 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(95): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-edit.php(38): Costcenter->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(67): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 19:31:51 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(95): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-add.php(37): Costcenter->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(44): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 19:31:59 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Entity' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(95): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-add.php(37): Costcenter->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(44): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 19:33:54 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'pvscoqq5_devsc_cms.tbl_Contact' doesn't exist in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('Select id, f_na...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/Costcenter.php(101): DBController->runBaseQuery('Select id, f_na...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/costcenter-add.php(92): Costcenter->getContactList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/costcenter/cCostcenter.php(44): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21

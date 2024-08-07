@@ -1,0 +1,9 @@
+{
+    "require": {
+        "adnanhussainturki/microsoft-api-php": "^0.04.0",
+        "league/flysystem": "^2.0",
+        "league/oauth2-client": "^2.7",
+        "ralouphie/getallheaders": "^3.0"
+        
+    }
+}

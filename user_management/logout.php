@@ -1,0 +1,15 @@
+<?php
+    session_start();
+    unset($_SESSION['id']);
+    unset($_SESSION['user_id']);
+    unset($_SESSION['f_name']);
+    unset($_SESSION['l_name']);
+    unset($_SESSION['phone']);
+    unset($_SESSION['email']);
+    unset($_SESSION['user_type']);
+    unset($_SESSION['code']);
+    unset($_SESSION['status']);
+    session_unset();
+    session_destroy();
+    header("Location:../../login");
+?>

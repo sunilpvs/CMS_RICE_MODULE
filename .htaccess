@@ -1,0 +1,56 @@
+# Turn Rewrite Engine On
+RewriteEngine on
+
+# Rewrite for URL redirection for example login.php
+# [NC , L] NC - makes the rule non case sensitive
+# L makes tis the last rule that this specific condition will match
+RewriteRule ^login login.php [L,QSA,NC]
+RewriteRule ^home index.php [L,QSA,NC]
+RewriteRule ^callback Callback.php [L,QSA,NC]
+
+# User Profile/Settings
+RewriteRule ^profile configurations/profile/cProfile.php [L,QSA,NC]
+RewriteRule ^activity configurations/activity/cActivity.php [L,QSA,NC]
+RewriteRule ^logout user_management/logout.php [L,QSA,NC]
+
+
+#User Management
+RewriteRule ^contact user_management/contact/cContact.php [L,QSA,NC]
+RewriteRule ^employ user_management/employee/cEmployee.php [L,QSA,NC]
+RewriteRule ^users user_management/user/cUser.php [L,QSA,NC]
+
+#Configurations
+RewriteRule ^entity configurations/entity/cEntity.php [L,QSA,NC]
+RewriteRule ^costcenter configurations/costcenter/cCostcenter.php [L,QSA,NC]
+RewriteRule ^department configurations/department/cDepartment.php [L,QSA,NC]
+RewriteRule ^designation configurations/designation/cDesignation.php [L,QSA,NC]
+RewriteRule ^customer configurations/customer/cCustomer.php [L,QSA,NC]
+RewriteRule ^vendor configurations/vendor/cVendor.php [L,QSA,NC]
+
+#Lease Management
+RewriteRule ^lessor lease_management/lessor/cLessor.php [L,QSA,NC]
+RewriteRule ^warehouse lease_management/warehouse/cWarehouse.php [L,QSA,NC]
+RewriteRule ^inward-lease lease_management/inwardlease/cInwardlease.php [L,QSA,NC]
+RewriteRule ^outward-lease lease_management/outwardlease/cOutwardlease.php [L,QSA,NC]
+RewriteRule ^manage-compartment lease_management/compartment/cCompartment.php [L,QSA,NC]
+
+RewriteRule ^miller lease_management/miller/cMiller.php [L,QSA,NC]
+RewriteRule ^commodity lease_management/commodity/cCommodity.php [L,QSA,NC]
+RewriteRule ^delivery lease_management/delivery/cDelivery.php [L,QSA,NC]
+
+#Stock Management
+RewriteRule ^inward-stock stock_management/inwardstock/cInwardstock.php [L,QSA,NC]
+RewriteRule ^outward-stock stock_management/outwardstock/cOutwardstock.php [L,QSA,NC]
+
+#Security
+RewriteRule ^user-permissions security/userpermissions/cUserpermissions.php [L,QSA,NC]
+RewriteRule ^user-roles security/userroles/cUserroles.php [L,QSA,NC]
+
+#Reports
+RewriteRule ^stock-rpt reports/stock_report/cStock_report.php [L,QSA,NC]
+#RewriteRule ^currentstock-rpt reports/current_stock/cCurrent_stock.php [L,QSA,NC]
+#RewriteRule ^inwardstock-rpt reports/inward_stock/cinwardstock_rpt.php [L,QSA,NC]
+#RewriteRule ^outwardstock-rpt reports/outward_stock/coutwardstock_rpt.php [L,QSA,NC]
+RewriteRule ^outwardleases-rpt reports/outward_leases/coutwardlease_stock.php [L,QSA,NC]
+RewriteRule ^inwardleases-rpt reports/inward_leases/cinwardlease_stock.php [L,QSA,NC]
+RewriteRule ^contact/([0-9]+)$ contact?action=contact-edit/id=$1 [L,QSA,NC]

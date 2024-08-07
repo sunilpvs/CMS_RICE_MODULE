@@ -1,0 +1,79 @@
+[05-Sep-2023 12:47:58 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'test2022'@'localhost' (using password: YES) in /home1/shric8ey/demo.shrichandragroup.com/masters/activity/vActivity.php:35
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/masters/activity/vActivity.php(35): mysqli_connect('localhost', 'test2022', Object(SensitiveParameterValue), 'test2022')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/activity/cActivity.php(18): require_once('/home1/shric8ey...')
+#2 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/masters/activity/vActivity.php on line 35
+[05-Sep-2023 12:48:27 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'test2022'@'localhost' (using password: YES) in /home1/shric8ey/demo.shrichandragroup.com/masters/activity/vActivity.php:35
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/masters/activity/vActivity.php(35): mysqli_connect('localhost', 'test2022', Object(SensitiveParameterValue), 'test2022')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/activity/cActivity.php(18): require_once('/home1/shric8ey...')
+#2 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/masters/activity/vActivity.php on line 35
+[05-Sep-2023 12:50:06 Asia/Kolkata] PHP Warning:  Undefined variable $id in /home1/shric8ey/demo.shrichandragroup.com/masters/activity/vActivity.php on line 28
+[05-Sep-2023 12:51:47 Asia/Kolkata] PHP Warning:  Undefined variable $id in /home1/shric8ey/demo.shrichandragroup.com/masters/activity/vActivity.php on line 32
+[05-Sep-2023 12:53:11 Asia/Kolkata] PHP Warning:  Undefined variable $id in /home1/shric8ey/demo.shrichandragroup.com/masters/activity/vActivity.php on line 32
+[05-Sep-2023 12:53:40 Asia/Kolkata] PHP Warning:  Undefined variable $id in /home1/shric8ey/demo.shrichandragroup.com/masters/activity/vActivity.php on line 32
+[05-Sep-2023 14:03:24 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'test2022'@'localhost' (using password: YES) in /home1/shric8ey/demo.shrichandragroup.com/masters/activity/vActivity.php:35
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/masters/activity/vActivity.php(35): mysqli_connect('localhost', 'test2022', Object(SensitiveParameterValue), 'test2022')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/activity/cActivity.php(18): require_once('/home1/shric8ey...')
+#2 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/masters/activity/vActivity.php on line 35
+[05-Sep-2023 14:03:59 Asia/Kolkata] PHP Warning:  Undefined variable $city_name in /home1/shric8ey/demo.shrichandragroup.com/masters/activity/vActivity.php on line 35
+[05-Sep-2023 16:49:47 Asia/Kolkata] PHP Warning:  Undefined array key "id" in /home1/shric8ey/demo.shrichandragroup.com/includes/Generic.php on line 198
+[05-Sep-2023 16:49:47 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 50' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT * FROM v...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/includes/Generic.php(200): DBController->runBaseQuery('SELECT * FROM v...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/activity/cActivity.php(17): Generic->getActivityLog()
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[05-Sep-2023 16:49:47 Asia/Kolkata] PHP Warning:  Undefined array key "id" in /home1/shric8ey/demo.shrichandragroup.com/includes/Generic.php on line 198
+[05-Sep-2023 16:49:47 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 50' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT * FROM v...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/includes/Generic.php(200): DBController->runBaseQuery('SELECT * FROM v...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/activity/cActivity.php(17): Generic->getActivityLog()
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[05-Sep-2023 16:49:48 Asia/Kolkata] PHP Warning:  Undefined array key "id" in /home1/shric8ey/demo.shrichandragroup.com/includes/Generic.php on line 198
+[05-Sep-2023 16:49:48 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 50' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT * FROM v...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/includes/Generic.php(200): DBController->runBaseQuery('SELECT * FROM v...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/activity/cActivity.php(17): Generic->getActivityLog()
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[05-Sep-2023 16:49:50 Asia/Kolkata] PHP Warning:  Undefined array key "id" in /home1/shric8ey/demo.shrichandragroup.com/includes/Generic.php on line 198
+[05-Sep-2023 16:49:50 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 50' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT * FROM v...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/includes/Generic.php(200): DBController->runBaseQuery('SELECT * FROM v...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/activity/cActivity.php(17): Generic->getActivityLog()
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[05-Sep-2023 16:49:51 Asia/Kolkata] PHP Warning:  Undefined array key "id" in /home1/shric8ey/demo.shrichandragroup.com/includes/Generic.php on line 198
+[05-Sep-2023 16:49:51 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 50' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT * FROM v...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/includes/Generic.php(200): DBController->runBaseQuery('SELECT * FROM v...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/activity/cActivity.php(17): Generic->getActivityLog()
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[05-Sep-2023 16:49:52 Asia/Kolkata] PHP Warning:  Undefined array key "id" in /home1/shric8ey/demo.shrichandragroup.com/includes/Generic.php on line 198
+[05-Sep-2023 16:49:52 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 50' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT * FROM v...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/includes/Generic.php(200): DBController->runBaseQuery('SELECT * FROM v...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/activity/cActivity.php(17): Generic->getActivityLog()
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[05-Sep-2023 16:49:53 Asia/Kolkata] PHP Warning:  Undefined array key "id" in /home1/shric8ey/demo.shrichandragroup.com/includes/Generic.php on line 198
+[05-Sep-2023 16:49:53 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 50' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT * FROM v...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/includes/Generic.php(200): DBController->runBaseQuery('SELECT * FROM v...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/activity/cActivity.php(17): Generic->getActivityLog()
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26

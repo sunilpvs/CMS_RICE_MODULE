@@ -1,0 +1,97 @@
+[04-Jul-2023 18:16:06 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 3
+[04-Jul-2023 18:16:06 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/cEntity.php(5): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 3
+[04-Jul-2023 18:16:45 Asia/Kolkata] PHP Warning:  require_once(\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 3
+[04-Jul-2023 18:16:45 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/cEntity.php(5): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 3
+[04-Jul-2023 18:17:20 Asia/Kolkata] PHP Warning:  require_once(class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 3
+[04-Jul-2023 18:17:20 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required 'class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/cEntity.php(5): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 3
+[04-Jul-2023 18:17:46 Asia/Kolkata] PHP Warning:  require_once(../class/DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 3
+[04-Jul-2023 18:17:46 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '../class/DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/cEntity.php(5): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 3
+[04-Jul-2023 18:18:06 Asia/Kolkata] PHP Warning:  require_once(/../class/DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 3
+[04-Jul-2023 18:18:06 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/../class/DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/cEntity.php(5): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 3
+[04-Jul-2023 18:18:34 Asia/Kolkata] PHP Warning:  require_once(/../DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 3
+[04-Jul-2023 18:18:34 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/../DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/cEntity.php(5): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 3
+[04-Jul-2023 18:19:02 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 3
+[04-Jul-2023 18:19:02 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/cEntity.php(5): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 3
+[04-Jul-2023 18:19:37 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/entity-add.php on line 3
+[04-Jul-2023 18:19:37 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/entity-add.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/cEntity.php(41): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/entity-add.php on line 3
+[04-Jul-2023 18:20:55 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/entity-edit.php on line 3
+[04-Jul-2023 18:20:55 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/entity-edit.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/cEntity.php(58): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/entity-edit.php on line 3
+[04-Jul-2023 18:21:44 Asia/Kolkata] PHP Warning:  Undefined variable $last_Updated in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 47
+[04-Jul-2023 18:21:44 Asia/Kolkata] PHP Warning:  Undefined variable $last_UpdatedDateTime in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 48
+[04-Jul-2023 18:21:44 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php:47) in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/cEntity.php on line 55
+[04-Jul-2023 18:38:52 Asia/Kolkata] PHP Warning:  Undefined variable $last_Updated in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 47
+[04-Jul-2023 18:38:52 Asia/Kolkata] PHP Warning:  Undefined variable $last_UpdatedDateTime in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php on line 48
+[04-Jul-2023 18:38:52 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/Entity.php:47) in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/cEntity.php on line 55
+[06-Jul-2023 09:42:28 Asia/Kolkata] PHP Warning:  Undefined variable $conn in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/vEntity.php on line 11
+[06-Jul-2023 09:42:28 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/vEntity.php:11
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/vEntity.php(11): mysqli_query(NULL, 'SELECT * FROM t...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/cEntity.php(72): require_once('/home4/pvscoqq5...')
+#2 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/vEntity.php on line 11
+[06-Jul-2023 09:43:09 Asia/Kolkata] PHP Fatal error:  Uncaught ArgumentCountError: mysqli_query() expects at least 2 arguments, 1 given in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/vEntity.php:11
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/vEntity.php(11): mysqli_query('SELECT * FROM t...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/cEntity.php(72): require_once('/home4/pvscoqq5...')
+#2 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/entity/vEntity.php on line 11
+[26-Sep-2023 09:40:38 Asia/Kolkata] PHP Warning:  Undefined variable $entity_id in /home1/shric8ey/demo.shrichandragroup.com/masters/entity/Entity.php on line 96
+[26-Sep-2023 09:40:38 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND entity_name = ''' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT entity_n...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/entity/Entity.php(97): DBController->runBaseQuery('SELECT entity_n...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/entity/check-entityname.php(5): Entity->validateEntitynameEdit('')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[26-Sep-2023 09:40:40 Asia/Kolkata] PHP Warning:  Undefined variable $entity_id in /home1/shric8ey/demo.shrichandragroup.com/masters/entity/Entity.php on line 96
+[26-Sep-2023 09:40:40 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND entity_name = ''' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT entity_n...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/entity/Entity.php(97): DBController->runBaseQuery('SELECT entity_n...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/entity/check-entityname.php(5): Entity->validateEntitynameEdit('')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[26-Sep-2023 09:40:50 Asia/Kolkata] PHP Warning:  Undefined variable $entity_id in /home1/shric8ey/demo.shrichandragroup.com/masters/entity/Entity.php on line 96
+[26-Sep-2023 09:40:50 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND entity_name = 'SHRI CHANDRA BULK CARGO SERVICES PRIVATE LIMITED'' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT entity_n...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/entity/Entity.php(97): DBController->runBaseQuery('SELECT entity_n...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/entity/check-entityname.php(5): Entity->validateEntitynameEdit('SHRI CHANDRA BU...')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26

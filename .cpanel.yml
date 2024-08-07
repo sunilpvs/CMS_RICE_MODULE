@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home1/shric8ey/demo.shrichandragroup.com
+    - /bin/cp -r * $DEPLOYPATH

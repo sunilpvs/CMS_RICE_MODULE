@@ -1,0 +1,81 @@
+[05-Jul-2023 08:24:11 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/Leases.php on line 3
+[05-Jul-2023 08:24:11 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/Leases.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/cLeases.php(5): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/Leases.php on line 3
+[05-Jul-2023 13:18:42 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/Leases.php on line 3
+[05-Jul-2023 13:18:42 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/Leases.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/cLeases.php(5): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/Leases.php on line 3
+[05-Jul-2023 13:19:33 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/leases-add.php on line 3
+[05-Jul-2023 13:19:33 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/leases-add.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/cLeases.php(42): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/leases-add.php on line 3
+[05-Jul-2023 13:21:43 Asia/Kolkata] PHP Warning:  Undefined array key "id" in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/cLeases.php on line 27
+[05-Jul-2023 13:21:43 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'Created_By' cannot be null in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:63
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(63): mysqli_stmt->execute()
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/Leases.php(31): DBController->insert('INSERT INTO tbl...', 'iiissiiiiii', Array)
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/cLeases.php(30): Leases->addLeases('1', '2', '3', '2023-07-07', '2023-07-19', '2000', '30003', '20', '30', '50000', NULL)
+#3 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 63
+[05-Jul-2023 13:34:27 Asia/Kolkata] PHP Warning:  Undefined array key "id" in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/cLeases.php on line 27
+[05-Jul-2023 13:34:27 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/cLeases.php:27) in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/cLeases.php on line 39
+[05-Jul-2023 13:37:25 Asia/Kolkata] PHP Warning:  Undefined array key "id" in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/cLeases.php on line 27
+[05-Jul-2023 13:37:25 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'Created_By' cannot be null in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:63
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(63): mysqli_stmt->execute()
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/Leases.php(31): DBController->insert('INSERT INTO tbl...', 'iiissiiiiii', Array)
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/cLeases.php(30): Leases->addLeases('1', '2', '3', '2023-07-07', '2023-07-19', '2000', '30003', '20', '30', '50000', NULL)
+#3 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 63
+[05-Jul-2023 13:38:29 Asia/Kolkata] PHP Warning:  Undefined array key "id" in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/cLeases.php on line 27
+[05-Jul-2023 13:38:29 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'Created_By' cannot be null in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:63
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(63): mysqli_stmt->execute()
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/Leases.php(31): DBController->insert('INSERT INTO tbl...', 'iiissiiiiii', Array)
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/cLeases.php(30): Leases->addLeases('1', '2', '3', '2023-07-07', '2023-07-19', '2000', '30003', '20', '30', '50000', NULL)
+#3 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 63
+[05-Jul-2023 13:41:15 Asia/Kolkata] PHP Warning:  Undefined array key "Rate/Day" in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/vLeases.php on line 49
+[05-Jul-2023 13:42:18 Asia/Kolkata] PHP Warning:  Undefined array key "id" in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/Leases.php on line 36
+[05-Jul-2023 13:42:18 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/Leases.php:36) in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/cLeases.php on line 60
+[05-Jul-2023 13:44:06 Asia/Kolkata] PHP Warning:  Undefined array key "id" in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/Leases.php on line 36
+[05-Jul-2023 13:44:06 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/Leases.php:36) in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/leases/cLeases.php on line 60
+[26-Sep-2023 09:43:44 Asia/Kolkata] PHP Warning:  Undefined variable $lessor_id in /home1/shric8ey/demo.shrichandragroup.com/bulk_ops/lessor/Lessor.php on line 118
+[26-Sep-2023 09:43:44 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND lessor_name = 'MMTC1'' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT lessor_n...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/bulk_ops/lessor/Lessor.php(119): DBController->runBaseQuery('SELECT lessor_n...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/bulk_ops/lessor/check-lessorname-edit.php(6): Lessor->validateLessornameEdit('MMTC1')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[26-Sep-2023 09:44:20 Asia/Kolkata] PHP Warning:  Undefined variable $lessor_id in /home1/shric8ey/demo.shrichandragroup.com/bulk_ops/lessor/Lessor.php on line 118
+[26-Sep-2023 09:44:20 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND lessor_name = 'MMTC'' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT lessor_n...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/bulk_ops/lessor/Lessor.php(119): DBController->runBaseQuery('SELECT lessor_n...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/bulk_ops/lessor/check-lessorname-edit.php(6): Lessor->validateLessornameEdit('MMTC')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[26-Sep-2023 09:44:27 Asia/Kolkata] PHP Warning:  Undefined variable $lessor_id in /home1/shric8ey/demo.shrichandragroup.com/bulk_ops/lessor/Lessor.php on line 118
+[26-Sep-2023 09:44:27 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND lessor_name = 'MMTC'' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT lessor_n...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/bulk_ops/lessor/Lessor.php(119): DBController->runBaseQuery('SELECT lessor_n...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/bulk_ops/lessor/check-lessorname-edit.php(6): Lessor->validateLessornameEdit('MMTC')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[26-Sep-2023 11:22:21 Asia/Kolkata] PHP Warning:  Undefined variable $lessor_id in /home1/shric8ey/demo.shrichandragroup.com/bulk_ops/lessor/Lessor.php on line 118
+[26-Sep-2023 11:22:21 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND lessor_name = 'SATHVIK LOGISTICS'' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT lessor_n...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/bulk_ops/lessor/Lessor.php(119): DBController->runBaseQuery('SELECT lessor_n...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/bulk_ops/lessor/check-lessorname-edit.php(6): Lessor->validateLessornameEdit('SATHVIK LOGISTI...')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
