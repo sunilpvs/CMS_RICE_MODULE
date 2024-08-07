@@ -1,5 +1,4 @@
 <?php
-  ## Testing Github Sync
   ##Testing updates   Tessting Githhub
   if(session_status() === PHP_SESSION_NONE) 
   { 
