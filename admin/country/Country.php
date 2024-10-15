@@ -2,7 +2,7 @@
 date_default_timezone_set('Asia/Kolkata');
 #require_once ("class/DBController.php");
 require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
-class Country
+class Countri
 {
     private $db_handle;
     

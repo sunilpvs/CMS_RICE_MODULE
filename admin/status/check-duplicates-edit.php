@@ -1,11 +1,12 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] .'/configurations/designation/Designation.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/status/Status.php');
     $desid = $_POST['id'];
-    $desname = $_POST['name'];
     $descode = $_POST['code'];
+    $desstatus = $_POST['status'];
+    $desmod = $_POST['module'];
     
-    $des = new Designation();
-    $result = $des->validateDuplicates_Edit($desid, $desname, $descode);
+    $des = new Status();
+    $result = $des->validateDuplicates_Edit($descode, $desstatus, $desmod, $desid);
     if(!$result)
     {
         echo "<span style='color:red'> *duplicate record.</span>";

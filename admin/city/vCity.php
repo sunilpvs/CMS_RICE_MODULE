@@ -37,7 +37,7 @@
                               <td><?php echo $row["country"]; ?></td>
                               
                               <td><a class="btnEditAction"
-                                  href="../../admin/city/cCity.php?action=city-edit&id=<?php echo $row["id"]; ?>">
+                                  href="../../admin/city/cCity.php?action=citi-edit&id=<?php echo $row["id"]; ?>">
                                   <img src="/assests/img/icon-edit.png" />
                                   </a>
                                   <!--<a class="btnDeleteAction" 

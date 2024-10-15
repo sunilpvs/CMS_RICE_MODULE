@@ -50,28 +50,34 @@ switch ($action) {
         break;
     
     case "status-edit":
-        $status_id = $_GET["id"];
+        $id = $_GET["id"];
         $sta = new Status();
         if (isset($_POST['add']))
         {
             $code = $_POST['code'];
             $status = $_POST['status'];
             $module = $_POST['module'];
-            $sta->editStatus($code, $status, $module, $module_id);
-            header("Location: ../../admin/status/cStatus.php");
+            $bool = $sta->validateDuplicates_Edit($code, $status, $module, $id);
+            if($bool == FALSE)
+            {
+                // Duplicate Record Existis.
+                $response = array(
+                    "message" => "Duplicate record. Problem in Adding New Record",
+                    "type" => "error"
+                );                
+            }
+            else 
+            {
+                $sta->editStatus($code, $status, $module, $id);
+                header("Location: ../../admin/status/cStatus.php");    
+            }
         }
-        $result = $status->getStatusById($status_id);
+        $result = $sta->getStatusById($id);
         require_once "../../admin/status/status-edit.php";
         break;
     
     case "status-delete":
-        $status_id = $_GET["id"];
-        $status = new Status();
-        $status->deleteStatus($status_id);
-        $result = $status->getAllStatus();
-        require_once "../../admin/status/vStatus.php";
-        break;
-    
+            
     default:
         $status = new Status();
         $result = $status->getAllStatus();

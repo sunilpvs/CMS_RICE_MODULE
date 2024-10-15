@@ -34,7 +34,7 @@ switch ($action) {
         require_once "../../admin/city/city-add.php";
         break;
     
-    case "city-edit":
+    case "citi-edit":
         $citi_id = $_GET["id"];
         $citi = new Citi();
         if (isset($_POST['add'])){

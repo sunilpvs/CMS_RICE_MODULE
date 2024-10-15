@@ -20,7 +20,7 @@
         <hr class="sidebar-divider my-0">
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-          <a class="nav-link" href="../../admin/adm_index.php">
+          <a class="nav-link" href="../../admhome">
             <i class="fas fa-fw fa-tachometer-alt" style="color:grey"></i>
             <span style="color:grey">Dashboard</span></a>
         </li>
@@ -44,14 +44,14 @@
           </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="../admstatus">Status</a>
-                <a class="collapse-item" href="../admctype">Contact Type</a>
-                <a class="collapse-item" href="../admcctype">Cost Center Type</a>
-                <a class="collapse-item" href="../admcountry">Country</a>
-                <a class="collapse-item" href="../admstate">State</a>
-                <a class="collapse-item" href="../admcity">City</a>
-                <a class="collapse-item" href="../admdept">Department</a>
-                <a class="collapse-item" href="../admdesig">Designation</a>
+                <a class="collapse-item" href="../../admstatus">Status</a>
+                <a class="collapse-item" href="../../admctype">Contact Type</a>
+                <a class="collapse-item" href="../../admcctype">Cost Center Type</a>
+                <a class="collapse-item" href="../../admcountry">Country</a>
+                <a class="collapse-item" href="../../admstate">State</a>
+                <a class="collapse-item" href="../../admcity">City</a>
+                <a class="collapse-item" href="../../admdept">Department</a>
+                <a class="collapse-item" href="../../admdesig">Designation</a>
               </div>
             </div>
         </li>         
@@ -69,9 +69,9 @@
           </a>
           <div id="collapselease" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <a class="collapse-item" href="../admpages">Pages</a>
-              <a class="collapse-item" href="../admroles">Roles</a>      
-              <a class="collapse-item" href="../admperm">Permissions</a>
+              <a class="collapse-item" href="../../admpages">Pages</a>
+              <a class="collapse-item" href="../../admroles">Roles</a>      
+              <a class="collapse-item" href="../../admperm">Permissions</a>
             </div>
           </div>
         </li>

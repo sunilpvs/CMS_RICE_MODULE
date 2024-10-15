@@ -38,21 +38,24 @@
     <script>      
         function validateDuplicates()
         {
-            var desid = $("#designation_id").val();
-            var desname = $("#name").val();
-            var descode = $("#code").val();  
-            if(desname != "" && descode != "")
+            var desid = $("#id").val();
+            var descode = $("#code").val();
+            var desstatus = $("#status").val();
+            var desmodule = $("#module").val();
+            
+            if(desmodule != "" && desstatus != "" && descode != "")
             {
                 //alert("Name and Code entered for validation");
                 $.ajax(
                 {
                     url:"check-duplicates-edit.php",
                     type:"POST",
-                    data:{id:desid,name:desname,code:descode},
+                    data:{id:desid,code:descode,status:desstatus,module:desmodule},
                     success:function(mydata)
                     {
-                        $("#name-info").html(mydata);
                         $("#code-info").html(mydata);
+                        $("#status-info").html(mydata);
+                        $("#module-info").html(mydata);
                     } 
                 }
                 )
@@ -62,7 +65,7 @@
 
 
     <div class="col-md-4 mb-3">
-          <input type="hidden" class="form-control demoInputBox" id="designation_id" name= "designation_id" placeholder="Commodity" value="<?php echo $row1["id"]; ?>">
+          <input type="hidden" class="form-control demoInputBox" id="id" name= "id" placeholder="id" value="<?php echo $row1["id"]; ?>">
     </div>
 
   </div>

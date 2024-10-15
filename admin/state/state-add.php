@@ -1,6 +1,8 @@
 <?php 
   include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
   include($_SERVER['DOCUMENT_ROOT'] .'/includes/adm-navbar.php');
+  include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
+
 ?>
 
 <div class="container-fluid">
@@ -23,7 +25,20 @@
     
     <div class="col-md-4 mb-3">
       <label for="validationDefault02">Country</label><span id="country-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="country" name= "country" placeholder="Country"  required>
+      <select id="country" name="country" class="form-control demoInputBox">
+            <?php
+                $emp = new Generic();
+                $result2 = $emp->getCountryList();
+                if (!empty($result2)) {
+                    while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+                    {   
+            ?> 
+            <option value=<?php echo $row2['id']; ?> > <?php echo $row2["country"]; ?></option>
+            <?php   } 
+                }
+            ?>
+            ?>   
+        </select>
     </div>
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

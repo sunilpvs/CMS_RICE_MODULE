@@ -10,17 +10,16 @@ class Citi
         $this->db_handle = new DBController();
     }
     
-    function addCiti( $city, $state, $country, $createdBy) {
+    function addCiti( $city, $state, $country) {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
             $this->db_handle->beginTrans();
             try{
-        $query = "INSERT INTO tbl_city (city,state,country,createdBy) VALUES (?, ?, ?, ?)";
-        $paramType = "siii";
+        $query = "INSERT INTO tbl_city (city,state,country) VALUES (?, ?, ?)";
+        $paramType = "sii";
         $paramValue = array(
             $city, 
             $state, 
-            $country,
-            $createdBy
+            $country
         );
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
 

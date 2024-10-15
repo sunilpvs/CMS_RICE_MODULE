@@ -2,7 +2,8 @@
     date_default_timezone_set('Asia/Kolkata');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/adm-navbar.php');
-    require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/state/State.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/city/City.php');
+      include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
     if (!empty($result))
     {
         $row1 = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -33,7 +34,20 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault02" class="info">Country</label><span id="country-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="country" name= "country" placeholder="Country" value="<?php echo $row1["country"]; ?>" onchange="validateDuplicates()" required>
+      <select id="country" name="country" class="form-control demoInputBox">
+            <?php
+                $emp = new Generic();
+                $result2 = $emp->getCountryList();
+                if (!empty($result2)) {
+                    while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+                    {   
+            ?> 
+            <option value=<?php echo $row2['id']; ?> > <?php echo $row2["country"]; ?></option>
+            <?php   } 
+                }
+            ?>
+            ?>   
+        </select>
     </div>
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

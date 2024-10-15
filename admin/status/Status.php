@@ -16,13 +16,12 @@ class Status
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
         $this->db_handle->beginTrans();
         try{
-                $query = "INSERT INTO tbl_status (code,status,module,createdBy) VALUES (?, ?, ?, ?)";
-                $paramType = "sssi";
+                $query = "INSERT INTO tbl_status (code,status,module) VALUES (?, ?, ?)";
+                $paramType = "sss";
                 $paramValue = array(
                     $code,
                     $status,
-                    $module,
-                    $createdBy
+                    $module
                 );
                 $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
                 $activity = "New Status is added with ID: $insertId";
@@ -49,14 +48,12 @@ class Status
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
        
-        $query = "UPDATE tbl_status SET code = ?,status = ?,module=?, last_updated = ?, last_updatedDateTime = ? WHERE id = ?";
-        $paramType = "sssssi";
+        $query = "UPDATE tbl_status SET code=?, status=?, module=? WHERE id = ?";
+        $paramType = "sssi";
         $paramValue = array(
             $code,
             $status,
             $module,
-            $last_updated,
-            $last_updatedDateTime,
             $id
         );        
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
@@ -85,9 +82,9 @@ class Status
         }
     }
 
-    function validateDuplicates_Edit($id, $name, $code) 
+    function validateDuplicates_Edit($code, $status, $module, $id) 
     {
-        $sql = "SELECT name FROM tbl_designation WHERE id != $id AND (code = '$code' OR name = '$name');";
+        $sql = "SELECT * FROM tbl_status WHERE id != $id AND module = '$module' AND (code = '$code' OR status = '$status');";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);
         if($count>0){ //Record Exists with same Name or Code

@@ -20,8 +20,8 @@ switch ($action) {
             $code = $_POST['code'];
             $currency = $_POST['currency'];
             $id = $_SESSION['id'];
-            $status = new Country();
-            $insertId = $country->addCountry($country, $code, $currency, $id);
+            $countri = new Countri();
+            $insertId = $countri->addCountry($country, $code, $currency, $id);
             if (empty($insertId)) {
                 $response = array(
                     "message" => "Problem in Adding New Record",
