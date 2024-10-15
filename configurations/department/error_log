@@ -1,0 +1,129 @@
+[04-Jul-2023 19:02:38 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/department/department-edit.php on line 3
+[04-Jul-2023 19:02:38 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/department/department-edit.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/department/cDepartment.php(49): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/department/department-edit.php on line 3
+[04-Jul-2023 19:03:11 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/customer/Customer.php on line 3
+[04-Jul-2023 19:03:11 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/customer/Customer.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/department/department-edit.php(4): require_once()
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/department/cDepartment.php(49): require_once('/home4/pvscoqq5...')
+#2 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/customer/Customer.php on line 3
+[04-Jul-2023 19:03:55 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/customer/Customer.php on line 3
+[04-Jul-2023 19:03:55 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/customer/Customer.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/department/department-edit.php(4): require_once()
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/department/cDepartment.php(49): require_once('/home4/pvscoqq5...')
+#2 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/customer/Customer.php on line 3
+[04-Jul-2023 19:05:26 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/customer/Customer.php on line 3
+[04-Jul-2023 19:05:26 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/customer/Customer.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/department/department-edit.php(4): require_once()
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/department/cDepartment.php(49): require_once('/home4/pvscoqq5...')
+#2 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/customer/Customer.php on line 3
+[04-Jul-2023 19:05:29 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/customer/Customer.php on line 3
+[04-Jul-2023 19:05:29 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/customer/Customer.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/department/department-edit.php(4): require_once()
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/department/cDepartment.php(49): require_once('/home4/pvscoqq5...')
+#2 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/customer/Customer.php on line 3
+[26-Sep-2023 09:41:55 Asia/Kolkata] PHP Warning:  Undefined array key "department_id" in /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-name-edit.php on line 3
+[26-Sep-2023 09:41:55 Asia/Kolkata] PHP Warning:  Undefined variable $department_id in /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php on line 87
+[26-Sep-2023 09:41:55 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND name = 'ADMINISTRATION'' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT name FRO...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php(88): DBController->runBaseQuery('SELECT name FRO...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-name-edit.php(6): Department->validateNameEdit('ADMINISTRATION')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[26-Sep-2023 09:41:58 Asia/Kolkata] PHP Warning:  Undefined variable $department_id in /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php on line 112
+[26-Sep-2023 09:41:58 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND code = 'AD'' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT code FRO...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php(113): DBController->runBaseQuery('SELECT code FRO...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-code-edit.php(6): Department->validateCodeEdit('AD')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[26-Sep-2023 09:42:03 Asia/Kolkata] PHP Warning:  Undefined array key "department_id" in /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-name-edit.php on line 3
+[26-Sep-2023 09:42:03 Asia/Kolkata] PHP Warning:  Undefined variable $department_id in /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php on line 87
+[26-Sep-2023 09:42:03 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND name = 'ADMINISTRATION'' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT name FRO...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php(88): DBController->runBaseQuery('SELECT name FRO...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-name-edit.php(6): Department->validateNameEdit('ADMINISTRATION')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[26-Sep-2023 09:42:36 Asia/Kolkata] PHP Warning:  Undefined array key "department_id" in /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-name-edit.php on line 3
+[26-Sep-2023 09:42:36 Asia/Kolkata] PHP Warning:  Undefined variable $department_id in /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php on line 87
+[26-Sep-2023 09:42:36 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND name = 'ADMINISTRATION'' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT name FRO...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php(88): DBController->runBaseQuery('SELECT name FRO...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-name-edit.php(6): Department->validateNameEdit('ADMINISTRATION')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[26-Sep-2023 09:43:00 Asia/Kolkata] PHP Warning:  Undefined array key "department_id" in /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-name-edit.php on line 3
+[26-Sep-2023 09:43:00 Asia/Kolkata] PHP Warning:  Undefined variable $department_id in /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php on line 87
+[26-Sep-2023 09:43:00 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND name = 'ADMINISTRATION1'' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT name FRO...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php(88): DBController->runBaseQuery('SELECT name FRO...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-name-edit.php(6): Department->validateNameEdit('ADMINISTRATION1')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[26-Sep-2023 09:43:02 Asia/Kolkata] PHP Warning:  Undefined variable $department_id in /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php on line 112
+[26-Sep-2023 09:43:02 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND code = 'AD'' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT code FRO...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php(113): DBController->runBaseQuery('SELECT code FRO...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-code-edit.php(6): Department->validateCodeEdit('AD')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[26-Sep-2023 09:43:04 Asia/Kolkata] PHP Warning:  Undefined array key "department_id" in /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-name-edit.php on line 3
+[26-Sep-2023 09:43:04 Asia/Kolkata] PHP Warning:  Undefined variable $department_id in /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php on line 87
+[26-Sep-2023 09:43:04 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND name = 'ADMINISTRATION'' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT name FRO...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php(88): DBController->runBaseQuery('SELECT name FRO...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-name-edit.php(6): Department->validateNameEdit('ADMINISTRATION')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[26-Sep-2023 09:43:06 Asia/Kolkata] PHP Warning:  Undefined variable $department_id in /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php on line 112
+[26-Sep-2023 09:43:06 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND code = 'AD'' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT code FRO...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php(113): DBController->runBaseQuery('SELECT code FRO...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-code-edit.php(6): Department->validateCodeEdit('AD')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[26-Sep-2023 09:43:13 Asia/Kolkata] PHP Warning:  Undefined array key "department_id" in /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-name-edit.php on line 3
+[26-Sep-2023 09:43:13 Asia/Kolkata] PHP Warning:  Undefined variable $department_id in /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php on line 87
+[26-Sep-2023 09:43:13 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND name = 'ADMINISTRATION'' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT name FRO...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php(88): DBController->runBaseQuery('SELECT name FRO...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-name-edit.php(6): Department->validateNameEdit('ADMINISTRATION')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[26-Sep-2023 09:43:23 Asia/Kolkata] PHP Warning:  Undefined array key "department_id" in /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-name-edit.php on line 3
+[26-Sep-2023 09:43:23 Asia/Kolkata] PHP Warning:  Undefined variable $department_id in /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php on line 87
+[26-Sep-2023 09:43:23 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND name = 'ACCOUNTS'' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT name FRO...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php(88): DBController->runBaseQuery('SELECT name FRO...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-name-edit.php(6): Department->validateNameEdit('ACCOUNTS')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26
+[26-Sep-2023 09:43:25 Asia/Kolkata] PHP Warning:  Undefined variable $department_id in /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php on line 112
+[26-Sep-2023 09:43:25 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND code = 'AD'' at line 1 in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php:26
+Stack trace:
+#0 /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php(26): mysqli->query('SELECT code FRO...')
+#1 /home1/shric8ey/demo.shrichandragroup.com/masters/department/Department.php(113): DBController->runBaseQuery('SELECT code FRO...')
+#2 /home1/shric8ey/demo.shrichandragroup.com/masters/department/check-code-edit.php(6): Department->validateCodeEdit('AD')
+#3 {main}
+  thrown in /home1/shric8ey/demo.shrichandragroup.com/class/DBController.php on line 26

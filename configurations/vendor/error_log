@@ -1,0 +1,78 @@
+[04-Jul-2023 19:21:22 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/vendor-add.php on line 3
+[04-Jul-2023 19:21:22 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/vendor-add.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/cVendor.php(40): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/vendor-add.php on line 3
+[04-Jul-2023 19:21:51 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'com_name' in 'field list' in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT id,com_n...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/Vendor.php(82): DBController->runBaseQuery('SELECT id,com_n...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/vendor-add.php(55): Vendor->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/cVendor.php(40): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 20:14:32 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'com_name' in 'field list' in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT id,com_n...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/Vendor.php(82): DBController->runBaseQuery('SELECT id,com_n...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/vendor-add.php(55): Vendor->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/cVendor.php(40): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 20:17:16 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'com_name' in 'field list' in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT id,com_n...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/Vendor.php(82): DBController->runBaseQuery('SELECT id,com_n...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/vendor-add.php(55): Vendor->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/cVendor.php(40): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 20:18:36 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'com_name' in 'field list' in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT id,com_n...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/Vendor.php(82): DBController->runBaseQuery('SELECT id,com_n...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/vendor-add.php(55): Vendor->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/cVendor.php(40): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 20:20:35 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'parent_id' in 'where clause' in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT ID,Name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/Vendor.php(82): DBController->runBaseQuery('SELECT ID,Name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/vendor-add.php(55): Vendor->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/cVendor.php(40): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[04-Jul-2023 20:21:55 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'parent_id' in 'where clause' in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT id,name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/Vendor.php(82): DBController->runBaseQuery('SELECT id,name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/vendor-add.php(55): Vendor->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/cVendor.php(40): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[05-Jul-2023 08:23:19 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'parent_id' in 'where clause' in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT id,name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/Vendor.php(82): DBController->runBaseQuery('SELECT id,name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/vendor-add.php(55): Vendor->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/cVendor.php(40): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[05-Jul-2023 22:17:22 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'parent_id' in 'where clause' in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT id,name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/Vendor.php(82): DBController->runBaseQuery('SELECT id,name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/vendor-add.php(55): Vendor->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/cVendor.php(40): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21
+[06-Jul-2023 13:26:04 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'parent_id' in 'where clause' in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:21
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(21): mysqli->query('SELECT id,name ...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/Vendor.php(82): DBController->runBaseQuery('SELECT id,name ...')
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/vendor-add.php(55): Vendor->getCompanyList()
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/vendor/cVendor.php(40): require_once('/home4/pvscoqq5...')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 21

@@ -1,0 +1,98 @@
+[04-Jul-2023 19:34:07 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php on line 4
+[04-Jul-2023 19:34:07 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php:4
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/cWarehouse.php(4): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php on line 4
+[04-Jul-2023 19:38:55 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php on line 4
+[04-Jul-2023 19:38:55 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php:4
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/cWarehouse.php(4): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php on line 4
+[04-Jul-2023 20:26:27 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php on line 4
+[04-Jul-2023 20:26:27 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php:4
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/cWarehouse.php(4): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php on line 4
+[04-Jul-2023 20:27:50 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php on line 4
+[04-Jul-2023 20:27:50 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php:4
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/cWarehouse.php(4): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php on line 4
+[04-Jul-2023 20:28:47 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php on line 4
+[04-Jul-2023 20:28:47 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php:4
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/cWarehouse.php(4): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php on line 4
+[04-Jul-2023 20:30:46 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/warehouse-add.php on line 2
+[04-Jul-2023 20:30:46 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/warehouse-add.php:2
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/cWarehouse.php(42): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/warehouse-add.php on line 2
+[04-Jul-2023 20:31:52 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/warehouse-edit.php on line 3
+[04-Jul-2023 20:31:52 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/warehouse-edit.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/cWarehouse.php(66): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/warehouse-edit.php on line 3
+[04-Jul-2023 20:32:39 Asia/Kolkata] PHP Warning:  Undefined variable $Primary_Contact in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php on line 56
+[04-Jul-2023 20:32:39 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Complete_Date = ?, Lease_Cost_Sft = ?, Capacity_Sft= ?,Primary_Contact,Last_Upda' at line 1 in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:69
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(69): mysqli->prepare('UPDATE tbl_ware...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php(62): DBController->update('UPDATE tbl_ware...', 'sssisiii', Array)
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/cWarehouse.php(62): Warehouse->editWarehouse('scbc', 'SCBC', 'private', '2', '2023-07-06', '2023-07-28', '5', '5', '200000', '8', '1')
+#3 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 69
+[04-Jul-2023 20:34:25 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Complete_Date = ?, Lease_Cost_Sft = ?, Capacity_Sft= ?,Primary_Contact=?,Last_Up' at line 1 in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:69
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(69): mysqli->prepare('UPDATE tbl_ware...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php(62): DBController->update('UPDATE tbl_ware...', 'sssisiii', Array)
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/cWarehouse.php(62): Warehouse->editWarehouse('scbc', 'SCBC', 'private', '2', '2023-07-06', '2023-07-28', '5', '5', '200000', '8', '1')
+#3 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 69
+[04-Jul-2023 20:36:54 Asia/Kolkata] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Complete_Date = ?, Lease_Cost_Sft = ?, Capacity_Sft= ?,Primary_Contact=?,Last_Up' at line 1 in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:69
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(69): mysqli->prepare('UPDATE tbl_ware...')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php(62): DBController->update('UPDATE tbl_ware...', 'sssissiiiiisi', Array)
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/cWarehouse.php(62): Warehouse->editWarehouse('scbc', 'SCBC', 'private', '2', '2023-07-06', '2023-07-28', '5', '5', '200000', '8', '1')
+#3 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 69
+[04-Jul-2023 20:37:53 Asia/Kolkata] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:57
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(57): mysqli_stmt->bind_param('sssissiiiiisi', 'scbc', 'SCBC', 'private', '2', '2023-07-06', '2023-07-28', '5', '5', '8', '200000', 1, '2023-07-04 20:3...', '1')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(70): DBController->bindQueryParams(Object(mysqli_stmt), 'sssissiiiiisi', Array)
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php(62): DBController->update('UPDATE tbl_ware...', 'sssissiiiiisi', Array)
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/cWarehouse.php(62): Warehouse->editWarehouse('scbc', 'SCBC', 'private', '2', '2023-07-06', '2023-07-28', '5', '5', '200000', '8', '1')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 57
+[05-Jul-2023 13:06:18 Asia/Kolkata] PHP Warning:  Undefined array key "id" in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php on line 37
+[05-Jul-2023 13:06:18 Asia/Kolkata] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:57
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(57): mysqli_stmt->bind_param('sssissiiiiisi', 'scbc', 'SCBC', 'private', '2', '2023-07-06', '2023-07-28', '5', '5', '8', '200000', NULL, '2023-07-05 13:0...', '1')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(70): DBController->bindQueryParams(Object(mysqli_stmt), 'sssissiiiiisi', Array)
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php(62): DBController->update('UPDATE tbl_ware...', 'sssissiiiiisi', Array)
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/cWarehouse.php(62): Warehouse->editWarehouse('scbc', 'SCBC', 'private', '2', '2023-07-06', '2023-07-28', '5', '5', '200000', '8', '1')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 57
+[05-Jul-2023 13:18:06 Asia/Kolkata] PHP Warning:  Undefined array key "id" in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php on line 37
+[05-Jul-2023 13:18:06 Asia/Kolkata] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:57
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(57): mysqli_stmt->bind_param('sssissiiiiisi', 'scbc', 'SCBC', 'private', '2', '2023-07-06', '2023-07-28', '5', '5', '8', '200000', NULL, '2023-07-05 13:1...', '1')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(70): DBController->bindQueryParams(Object(mysqli_stmt), 'sssissiiiiisi', Array)
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php(62): DBController->update('UPDATE tbl_ware...', 'sssissiiiiisi', Array)
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/cWarehouse.php(62): Warehouse->editWarehouse('scbc', 'SCBC', 'private', '2', '2023-07-06', '2023-07-28', '5', '5', '200000', '8', '1')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 57
+[05-Jul-2023 14:15:36 Asia/Kolkata] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php:57
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(57): mysqli_stmt->bind_param('sssissiiiiisi', 'sri chandra', 'SCBC', 'govt', '3', '2023-07-17', '2023-07-24', '300', '5000', '8', '70000', 1, '2023-07-05 14:1...', '2')
+#1 /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php(70): DBController->bindQueryParams(Object(mysqli_stmt), 'sssissiiiiisi', Array)
+#2 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/Warehouse.php(62): DBController->update('UPDATE tbl_ware...', 'sssissiiiiisi', Array)
+#3 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/warehouse/cWarehouse.php(62): Warehouse->editWarehouse('sri chandra', 'SCBC', 'govt', '3', '2023-07-17', '2023-07-24', '300', '5000', '70000', '8', '2')
+#4 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/class/DBController.php on line 57

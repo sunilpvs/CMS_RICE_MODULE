@@ -1,0 +1,68 @@
+[05-Jul-2023 08:24:22 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/Compartment.php on line 4
+[05-Jul-2023 08:24:22 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/Compartment.php:4
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php(4): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/Compartment.php on line 4
+[05-Jul-2023 14:04:00 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/Compartment.php on line 4
+[05-Jul-2023 14:04:00 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\class\DBController.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/Compartment.php:4
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php(4): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/Compartment.php on line 4
+[05-Jul-2023 14:04:37 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-add.php on line 3
+[05-Jul-2023 14:04:37 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-add.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php(39): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-add.php on line 3
+[05-Jul-2023 14:05:39 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class "Contact" not found in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php:44
+Stack trace:
+#0 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php on line 44
+[05-Jul-2023 14:06:28 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php on line 3
+[05-Jul-2023 14:06:28 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com\web\header.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php:3
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php(58): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php on line 3
+[05-Jul-2023 14:07:16 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/compartment/Compartment.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php on line 4
+[05-Jul-2023 14:07:16 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/compartment/Compartment.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php:4
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php(58): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php on line 4
+[05-Jul-2023 14:07:54 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/compartment/Compartment.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php on line 4
+[05-Jul-2023 14:07:54 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/compartment/Compartment.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php:4
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php(58): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php on line 4
+[05-Jul-2023 14:07:58 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/compartment/Compartment.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php on line 4
+[05-Jul-2023 14:07:58 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/compartment/Compartment.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php:4
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php(58): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php on line 4
+[05-Jul-2023 14:08:26 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/compartment/Compartment.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php on line 4
+[05-Jul-2023 14:08:26 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/compartment/Compartment.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php:4
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php(58): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php on line 4
+[05-Jul-2023 14:08:29 Asia/Kolkata] PHP Warning:  require_once(/home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/compartment/Compartment.php): Failed to open stream: No such file or directory in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php on line 4
+[05-Jul-2023 14:08:29 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/pvscoqq5/devsccms.pvs-consultancy.com/masters/compartment/Compartment.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php:4
+Stack trace:
+#0 /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php(58): require_once()
+#1 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/compartment-edit.php on line 4
+[05-Jul-2023 14:10:09 Asia/Kolkata] PHP Warning:  Undefined variable $contact in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php on line 54
+[05-Jul-2023 14:10:09 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to a member function editCompartment() on null in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php:54
+Stack trace:
+#0 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php on line 54
+[05-Jul-2023 14:11:47 Asia/Kolkata] PHP Warning:  Undefined variable $cmpartment in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php on line 54
+[05-Jul-2023 14:11:47 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to a member function editCompartment() on null in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php:54
+Stack trace:
+#0 {main}
+  thrown in /home4/pvscoqq5/devsccms.pvs-consultancy.com/rice_module/compartment/cCompartment.php on line 54

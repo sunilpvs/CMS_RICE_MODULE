@@ -1,0 +1,7 @@
+[05-Sep-2023 14:50:11 Asia/Kolkata] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home1/shric8ey/demo.shrichandragroup.com/includes/header.php on line 6
+[05-Sep-2023 14:50:11 Asia/Kolkata] PHP Warning:  Undefined global variable $_SESSION in /home1/shric8ey/demo.shrichandragroup.com/includes/navbar.php on line 5
+[05-Sep-2023 14:50:11 Asia/Kolkata] PHP Warning:  Trying to access array offset on value of type null in /home1/shric8ey/demo.shrichandragroup.com/includes/navbar.php on line 5
+[05-Sep-2023 14:50:11 Asia/Kolkata] PHP Warning:  Undefined global variable $_SESSION in /home1/shric8ey/demo.shrichandragroup.com/includes/navbar.php on line 255
+[05-Sep-2023 14:50:11 Asia/Kolkata] PHP Warning:  Trying to access array offset on value of type null in /home1/shric8ey/demo.shrichandragroup.com/includes/navbar.php on line 255
+[05-Sep-2023 14:50:11 Asia/Kolkata] PHP Warning:  Undefined global variable $_SESSION in /home1/shric8ey/demo.shrichandragroup.com/includes/navbar.php on line 255
+[05-Sep-2023 14:50:11 Asia/Kolkata] PHP Warning:  Trying to access array offset on value of type null in /home1/shric8ey/demo.shrichandragroup.com/includes/navbar.php on line 255
