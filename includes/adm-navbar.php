@@ -1,8 +1,15 @@
 <?php
     date_default_timezone_set('Asia/Kolkata');
     require_once($_SERVER['DOCUMENT_ROOT'] .'/includes/DBController.php');
-
-    $myrole = $_SESSION['user_role_id'];
+    if(isset($_SESSION['id']))
+    {
+      $myrole = $_SESSION['user_role_id'];
+    }
+    else
+    {
+      header("Location:../../login");
+    }
+    
       //$myrole
         //1	System/SUPER USER
         //2	IT ADMIN

@@ -6,13 +6,15 @@ require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
 
 //$db_handle = new DBController();
 // $action = "";
-if (! empty($_GET["action"])) {
+if (! empty($_GET["action"])) 
+{
     $action = $_GET["action"];
 }
 else
 {
  $action = "default";}   //test
-switch ($action) {    
+ switch ($action) 
+ {
     case "status-add":
         if (isset($_POST['add'])) 
         {
@@ -46,8 +48,8 @@ switch ($action) {
                 }
             }
         }
-        require_once "../../admin/status/status-add.php";
-        break;
+    require_once "../../admin/status/status-add.php";
+    break;
     
     case "status-edit":
         $id = $_GET["id"];
@@ -73,8 +75,8 @@ switch ($action) {
             }
         }
         $result = $sta->getStatusById($id);
-        require_once "../../admin/status/status-edit.php";
-        break;
+    require_once "../../admin/status/status-edit.php";
+    break;
     
     case "status-delete":
             
