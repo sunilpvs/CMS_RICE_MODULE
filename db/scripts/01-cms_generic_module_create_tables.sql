@@ -24,15 +24,13 @@ DROP TABLE IF EXISTS `tbl_user_role`;
 DROP TABLE IF EXISTS `tbl_userroles`;
 DROP TABLE IF EXISTS `tbl_pagemaster`;
 DROP TABLE IF EXISTS `tbl_userpermissions`;
-DROP TABLE IF EXISTS `tbl_users`;
-
-
 DROP TABLE IF EXISTS `tbl_transaction_log`;
 DROP TABLE IF EXISTS `tbl_vendor`;
 DROP TABLE IF EXISTS `tbl_customer`;
 DROP TABLE IF EXISTS `tbl_costcenter`;
 DROP TABLE IF EXISTS `tbl_entity`;
 DROP TABLE IF EXISTS `tbl_contact`;
+DROP TABLE IF EXISTS `tbl_users`;
 DROP TABLE IF EXISTS `tbl_designation`;
 DROP TABLE IF EXISTS `tbl_department`;
 DROP TABLE IF EXISTS `tbl_city`;
