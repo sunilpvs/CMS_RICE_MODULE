@@ -23,12 +23,13 @@
             <th><strong>Commencement Date</strong></th> 
             <th><strong>Expiry Date</strong></th>
             <th><strong>Status</strong></th>
-            <!-- <th><strong>Actions</strong></th>    -->
+            <th><strong>Actions</strong></th>
         </tr>
     </thead>
     <tbody style="background-color:#ffffff; color: #000000;">
         <?php
         $dt_now = date("d-M-Y");
+        $st="";
         if (! empty($result)) {
             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
             {    
@@ -42,18 +43,33 @@
             <td><?php 
                    if(strtotime($row["expiry_date"]) >= strtotime(date("d-M-Y")))
                     {
+                        $st="Active";
                         echo "Active";
                     } 
                     else
                     { 
+                        $st="Expired";
                         echo "Expired";
                     } 
                 ?>
-            </td> 
-            <!--
-            <td><a class="btnEditAction" href="../../bulk_ops/inwardlease/cInwardlease.php?action=inwardlease-edit&id=<?php //echo $row["id"]; ?>">
-                    <img src="../../img/icon-edit.png" />
-                </a>
+            </td>
+            <?php
+                if ($st == "Expired")
+                {
+                    $id = $row["id"];
+                    echo "<td>
+                          <a class='btnEditAction' href='../../lease_management/inwardlease/cInwardlease.php?action=inwardlease-extend&id=$id'>
+                            <img src='../../assests/img/icon-edit.png' />
+                          </a>
+                          </td>    
+                         "; 
+                }
+                else if ($st == "Active")
+                {
+                    echo "<td> </td>";
+                }
+            ?>
+                <!--
                 <a class="btnDeleteAction" href="../../buk_ops/inwardlease/cInwardlease.php?action=inwardlease-delete&id=<?php //echo $row["id"]; ?>">
                     <img src="../../img/icon-delete.png" />
                 </a> 

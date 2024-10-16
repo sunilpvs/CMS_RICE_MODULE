@@ -36,10 +36,11 @@ CREATE OR REPLACE VIEW `vw_compartments` AS
 
 # 	Inward Lease page:
 	CREATE OR REPLACE VIEW `vw_inwardleases` AS 
-	SELECT a.id,concat(a.prefix,a.id) as contract_id, b.warehouse_name,c.ltype, date_format(a.start_date,'%d-%b-%Y') as start_date, 
-			date_format(a.expiry_date,'%d-%b-%Y') as expiry_date, d.status
-	FROM tbl_inwardlease a, tbl_warehouse b, tbl_leasetype c, tbl_status d
-	WHERE a.warehouse_id = b.id AND c.id = a.lease_type AND a.status = d.id
+	SELECT a.id,concat(a.prefix,a.id) as contract_id, b.warehouse_name,c.ltype, date_format(e.start_date,'%d-%b-%Y') as start_date, 
+			date_format(e.end_date,'%d-%b-%Y') as expiry_date, d.status
+	FROM tbl_inwardlease a, tbl_warehouse b, tbl_leasetype c, tbl_status d, tbl_lease_dates e
+	WHERE a.warehouse_id = b.id AND c.id = e.lease_type AND a.status = d.id AND e.lease_ref = a.id 
+		AND e.id in (SELECT max(id) FROM tbl_lease_dates WHERE lease_ref = a.id)
 	ORDER BY a.id;
 
 # Outward Lease

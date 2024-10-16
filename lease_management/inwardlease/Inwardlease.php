@@ -12,82 +12,113 @@ class Inwardlease
     }
     
    								
-    function addInwardlease($warehouse_id, $lease_type, $start_date, $expiry_date, $status, $created_by) 
+    function addInwardlease($warehouse_id, $lease_type, $start_date, $expiry_date, $status, $entity_id, $created_by) 
     {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
-            $this->db_handle->beginTrans();
-            try{
-        $query = "INSERT INTO tbl_inwardlease (warehouse_id, lease_type, start_date, expiry_date, status, created_by)  VALUES (?, ?, ?, ?, ?,?)";
-        $paramType = "iissii";
-        $paramValue = array(
-            $warehouse_id,
-            $lease_type,
-            $start_date,
-            $expiry_date,    
-            $status,
-            $created_by
-        );
-        $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
-        //Update Contract_Id of Inward Lease for  new Inserted Row
-        $result = $this->getInwardleaseById($insertId);
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        $prefix = $row['prefix'];
-        $id = $row['id'];
-        $contract = $prefix . $id;
-        $query = "UPDATE tbl_inwardlease SET contract_id = '$contract' WHERE id = $id;";
-        $this->db_handle->runBaseQuery($query);
-        //Adding Transaction Log
-        $activity = "New Inward lease entry created for Contract ID: $insertId and WarehouseID: $warehouse_id";
-        $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
-        $paramType = "sii";
-        $paramValue = array(
-            $activity,
-            $created_by,
-            $warehouse_id
-        );
-        $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-         $this->db_handle->commitTrans();
+        $this->db_handle->beginTrans();
+        try{
+            $query = "INSERT INTO tbl_inwardlease (warehouse_id, lease_type, start_date, expiry_date, status, entity_id, created_by)  VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $paramType = "iissiii";
+            $paramValue = array(
+                $warehouse_id,
+                $lease_type,
+                $start_date,
+                $expiry_date,    
+                $status,
+                $entity_id,
+                $created_by
+            );
+            $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
+            //Make entry into Lease Dates table;
+            $query = "INSERT INTO tbl_lease_dates (lease,lease_type,start_date,end_date,lease_ref)  VALUES (?, ?, ?, ?, ?)";
+            $paramType = "sissi";
+            $paramValue = array(
+                "Inward",
+                $lease_type,
+                $start_date,
+                $expiry_date,
+                $insertId    
+            );
+            $insertId1 = $this->db_handle->insert($query, $paramType, $paramValue);
+            //Update Contract_Id of Inward Lease for  new Inserted Row
+            $result = $this->getInwardleaseById($insertId);
+            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+            $prefix = $row['prefix'];
+            $id = $row['id'];
+            $contract = $prefix . $id;
+            $query = "UPDATE tbl_inwardlease SET contract_id = '$contract' WHERE id = $id;";
+            $this->db_handle->runBaseQuery($query);
+            //Adding Transaction Log
+            $activity = "New Inward lease entry created for Contract ID: $insertId and WarehouseID: $warehouse_id";
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
+            $paramType = "sii";
+            $paramValue = array(
+                $activity,
+                $created_by,
+                $warehouse_id
+            );
+            $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+            $this->db_handle->commitTrans();
             return $insertId;
             }catch (\Throwable $e){
             // An exception has been thrown
             // We must rollback the transaction
             $this->db_handle->rollbackTrans();
             throw $e; // but the error must be handled anyway
-        }
+            }
         }
 
     
     
-    function editInwardlease($warehouse_id, $lease_type, $start_date, $expiry_date, $status, $id) 
+    function extendInwardlease($warehouse_id, $lease_type, $start_date, $expiry_date, $status, $id) 
     {
         $last_updated=$_SESSION['id'];
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
-        
-        $query = "UPDATE tbl_inwardlease SET warehouse_id = ?,lease_type = ?,start_date= ?, expiry_date = ?, status = ?, last_updated = ? ,last_updateddatetime = ? WHERE id = ?";
-        $paramType = "iissiisi";
-        $paramValue = array(
-            $warehouse_id,
-            $lease_type,
-            $start_date,
-            $expiry_date,
-            $status,
-            $last_updated,
-            $last_UpdatedDateTime,
-            $id
-        );
-        $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
 
-        //Adding Transaction Log
-        $activity = "Inward lease entry updated for Contract ID: $id";
-        $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
-        $paramType = "sii";
-        $paramValue = array(
-            $activity,
-            $last_updated,
-            $warehouse_id
-        );
-        $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-        return $insertId;
+        $this->db_handle->beginTrans();
+        try{       
+            $query = "INSERT INTO tbl_lease_dates (lease,lease_type,start_date,end_date,lease_ref)  VALUES (?, ?, ?, ?, ?)";
+            $paramType = "sissi";
+            $paramValue = array(
+                "Inward",
+                $lease_type,
+                $start_date,
+                $expiry_date,
+                $id    
+            );
+            $insertId1 = $this->db_handle->insert($query, $paramType, $paramValue);
+
+            $query = "UPDATE tbl_inwardlease SET lease_type = ?,start_date= ?, expiry_date = ?, status = ?, last_updated = ? ,last_updateddatetime = ? WHERE id = ?";
+            $paramType = "issiisi";
+            $paramValue = array(
+                $lease_type,
+                $start_date,
+                $expiry_date,
+                $status,
+                $last_updated,
+                $last_UpdatedDateTime,
+                $id
+            );
+            $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
+
+            //Adding Transaction Log
+            $activity = "Extension for Inward lease performed on Contract ID: $id";
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
+            $paramType = "sii";
+            $paramValue = array(
+                $activity,
+                $last_updated,
+                $warehouse_id
+            );
+            $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+            $this->db_handle->commitTrans();
+            return $insertId1;
+        }catch (\Throwable $e){
+            // An exception has been thrown
+            // We must rollback the transaction
+            $this->db_handle->rollbackTrans();
+            throw $e; // but the error must be handled anyway
+            }
     }
        
     function validateLeasecontact($contract_id) {
@@ -114,8 +145,12 @@ class Inwardlease
         }
     }
 
-    function getInwardleaseById($id) {
-        $query = "SELECT * FROM tbl_inwardlease WHERE id = ?";
+    function getInwardleaseById($id) 
+    {
+        $query = "SELECT a.id, a.warehouse_id , c.warehouse_name, b.start_date, b.end_date, d.ltype ";
+        $query .= "FROM tbl_inwardlease a, tbl_lease_dates b, tbl_warehouse c, tbl_leasetype d ";
+        $query .= "WHERE b.lease_ref = a.id AND b.id in (SELECT MAX(id) FROM tbl_lease_dates WHERE lease_ref = a.id) "; 
+        $query .= "AND a.warehouse_id = c.id AND b.lease_type = d.id AND  a.id = ? ";
         $paramType = "s";
         $paramValue = array(
             $id

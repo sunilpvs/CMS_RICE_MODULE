@@ -23,9 +23,9 @@
         {
             if (empty($module)) 
             {           
-                $module = 'Gen';
+                $module = 'GEN';
             }
-            $sql = "SELECT id,status FROM vw_mod_status WHERE module = '$module';";
+            $sql = "SELECT id, status FROM vw_status WHERE module = '$module';";
             $result = $this->db_handle->runBaseQuery($sql);
             return $result;
         }

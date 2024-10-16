@@ -1,6 +1,6 @@
 <?php 
     date_default_timezone_set('Asia/Kolkata');
-include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
 ?>
@@ -35,23 +35,6 @@ include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
           ?>         
       </select>
     </div>
-
-    <div class="col-md-4 mb-3"> 
-      <label for="validationDefault03" class="info">Lease Type</label><span id="lease_type-info" class="info"></span>
-      <select id="lease_type" name="lease_type" class="form-control demoInputBox">
-          <?php
-              $gen = new Generic();
-              $result = $gen->getLeaseTypeList();
-              if (!empty($result)) {
-                  while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-                  {   
-          ?> 
-          <option value=<?php echo $row['id']; ?>> <?php echo $row["ltype"];?></option>
-          <?php   } 
-              }
-          ?>         
-      </select>
-    </div>
     
    <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Inward Lease Start Date</label><span id="start_date-info" class="info"></span>
@@ -63,23 +46,6 @@ include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
       <input type="date" class="form-control demoInputBox" id="expiry_date" name= "expiry_date" placeholder="dd-mmm-yyyy" value="<?= date('Y-m-d') ?>" required>
     </div>    
    
-    <div class="col-md-4 mb-3"> 
-      <label for="validationDefault03" class="info">Status</label><span id="status-info" class="info"></span>
-      <select id="status" name="status" class="form-control demoInputBox">
-          <?php
-              $gen = new Generic();
-              $result = $gen->getModStatusList("Lease");
-              if (!empty($result)) {
-                  while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-                  {   
-          ?> 
-          <option value=<?php echo $row['id']; ?>> <?php echo $row["status"];?></option>
-          <?php   } 
-              }
-          ?>         
-      </select>
-    </div>
-
 </div>
 </div>
 
