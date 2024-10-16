@@ -29,7 +29,20 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">State</label><span id="state-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="state" name= "state" placeholder="State" value="<?php echo $row1["state"]; ?>" required>
+      <select id="state" name="state" class="form-control demoInputBox">
+            <?php
+                $emp = new Generic();
+                $result2 = $emp->getStateList();
+                if (!empty($result2)) {
+                    while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+                    {   
+            ?> 
+            <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1["state"] ){ echo "Selected"; } ?> > <?php echo $row2["state"]; ?></option>
+            <?php   } 
+                }
+            ?>
+            ?>   
+        </select>
     </div>
 
     <div class="col-md-4 mb-3">
@@ -42,7 +55,7 @@
                     while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
                     {   
             ?> 
-            <option value=<?php echo $row2['id']; ?> > <?php echo $row2["country"]; ?></option>
+            <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1["country"] ){ echo "Selected"; } ?> > <?php echo $row2["country"]; ?></option>
             <?php   } 
                 }
             ?>
@@ -87,7 +100,7 @@
  <div class="container">  
     <div class="col-md-4 mb-3">
         <button class="btn btn-primary" type="submit" name="add" id="btnSubmit" value="Add">Update</button>
-        <button class="btn btn-primary" type="cancel" name="cancel" id="btnCancel" value="Cancel" ><a style="color:white;" href ="../../admin/state/cState.php">Cancel</a></button> 
+        <button class="btn btn-primary" type="cancel" name="cancel" id="btnCancel" value="Cancel" ><a style="color:white;" href ="../../admin/city/cCity.php">Cancel</a></button> 
     </div>
   </div>
 </form>

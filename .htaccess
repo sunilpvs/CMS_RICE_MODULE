@@ -62,13 +62,7 @@ RewriteRule ^inwardleases-rpt reports/inward_leases/cinwardlease_stock.php [L,QS
 RewriteRule ^contact/([0-9]+)$ contact?action=contact-edit/id=$1 [L,QSA,NC]
 
 ### Admin Pages 
-#Admin pages
-#RewriteRule ^admin admin/adm_index.php  [L,QSA,NC]
-#RewriteRule ^admlogin admin/adm_login.php [L,QSA,NC]
-#RewriteRule ^adminhome admin/adminindex.php [L,QSA,NC]
-
 #Admin - Masters
-
 RewriteRule ^admstatus admin/status/cStatus.php [L,QSA,NC]
 RewriteRule ^admctype admin/contacttype/cContacttype.php [L,QSA,NC]
 RewriteRule ^admcctype admin/costcentertype/cCostcentertype.php [L,QSA,NC]
@@ -81,4 +75,7 @@ RewriteRule ^admdesig admin/designation/cDesignation.php [L,QSA,NC]
 RewriteRule ^admpages admin/pages/cPages.php [L,QSA,NC]
 RewriteRule ^admroles admin/userroles/cUserroles.php [L,QSA,NC]
 RewriteRule ^admperm admin/userpermissions/cUserpermissions.php [L,QSA,NC]
+#Admin pages
 RewriteRule ^admhome admin/adm_index.php  [L,QSA,NC]
+#RewriteRule ^admlogin admin/adm_login.php [L,QSA,NC]
+#RewriteRule ^adminhome admin/adminindex.php [L,QSA,NC]

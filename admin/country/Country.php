@@ -2,7 +2,7 @@
 date_default_timezone_set('Asia/Kolkata');
 #require_once ("class/DBController.php");
 require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
-class Countri
+class Country
 {
     private $db_handle;
     
@@ -82,9 +82,9 @@ class Countri
         $this->db_handle->update($query, $paramType, $paramValue);
     }
 
-    function validateDuplicates_Add($name, $code) 
+    function validateDuplicates_Add($country, $code, $currency)
     {
-        $sql = "SELECT name FROM tbl_country WHERE code = '$code' OR name = '$name'";
+        $sql = "SELECT * FROM tbl_country WHERE (country = '$country' OR code = '$code' OR currency = '$currency')";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);
         if($count>0){ //Record Exists with same Name or Code
@@ -95,9 +95,9 @@ class Countri
         }
     }
 
-    function validateDuplicates_Edit($id, $name, $code) 
+    function validateDuplicates_Edit($country, $code, $currency, $id)
     {
-        $sql = "SELECT name FROM tbl_country WHERE id != $id AND (code = '$code' OR name = '$name');";
+        $sql = "SELECT * FROM tbl_country WHERE id != $id AND (country = '$country' OR code = '$code' OR currency = '$currency')";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);
         if($count>0){ //Record Exists with same Name or Code
@@ -114,7 +114,6 @@ class Countri
         $paramValue = array(
             $id
         );
-        
         $result = $this->db_handle->runQuery($query, $paramType, $paramValue);
         return $result;
     }

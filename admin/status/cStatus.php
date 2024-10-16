@@ -12,9 +12,11 @@ if (! empty($_GET["action"]))
 }
 else
 {
- $action = "default";}   //test
- switch ($action) 
- {
+ $action = "default";
+}
+
+switch ($action) 
+{
     case "status-add":
         if (isset($_POST['add'])) 
         {

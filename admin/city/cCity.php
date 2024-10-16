@@ -12,42 +12,68 @@ else
  $action = "default";}
 switch ($action) {    
     case "citi-add":
-        if (isset($_POST['add'])) {
-            
+        if (isset($_POST['add'])) 
+        {
             $city = $_POST['city'];
             $state = $_POST['state'];
             $country = $_POST['country'];
             $id = $_SESSION['id'];
             $citi = new Citi();
-            $insertId = $citi->addCiti($city, $state, $country,$id);
-            if (empty($insertId)) {
+            $bool = $citi->validateDuplicates_Add($city, $state, $country);
+            if($bool == FALSE)
+            {
+                // Duplicate Record Existis.
                 $response = array(
-                    "message" => "Problem in Adding New Record",
+                    "message" => "Duplicate record. Problem in Adding New Record",
                     "type" => "error"
                 );
-            } 
-            else 
+            }
+            else
             {
-                header("Location:../../admin/city/cCity.php");
+                $insertId = $citi->addCiti($city, $state, $country, $id);
+                if (empty($insertId)) 
+                {
+                    $response = array(
+                        "message" => "Problem in Adding New Record",
+                        "type" => "error"
+                    );
+                } 
+                else 
+                {
+                    header("Location:../../admin/city/cCity.php");
+                }
             }
         }
-        require_once "../../admin/city/city-add.php";
-        break;
+    require_once "../../admin/city/city-add.php";
+    break;
     
-    case "citi-edit":
-        $citi_id = $_GET["id"];
-        $citi = new Citi();
-        if (isset($_POST['add'])){
-            $city = $_POST['city'];
-            $state = $_POST['state'];
-            $country = $_POST['country'];
-            
-        $citi->editCiti($city, $state, $country, $citi_id);
-        header("Location: ../../admin/city/cCity.php");
-        }
-        $result = $citi->getCitiById($citi_id);
+        case "citi-edit":
+            $id = $_GET["id"];
+            $citi = new Citi();
+            if (isset($_POST['add']))
+            {
+                $city = $_POST['city'];
+                $state = $_POST['state'];
+                $country = $_POST['country'];
+                $bool = $citi->validateDuplicates_Edit($city, $state, $country, $id);
+                if($bool == FALSE)
+                {
+                    // Duplicate Record Existis.
+                    $response = array(
+                        "message" => "Duplicate record. Problem in Adding New Record",
+                        "type" => "error"
+                    );                
+                }
+                else 
+                {
+                    $citi->editCiti($city, $state, $country, $id);
+                    header("Location: ../../admin/city/cCity.php");    
+                }
+            }
+            $result = $citi->getCitiById($id);
         require_once "../../admin/city/city-edit.php";
         break;
+        
     
     case "citi-delete":
         $citi_id = $_GET["id"];

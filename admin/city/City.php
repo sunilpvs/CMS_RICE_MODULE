@@ -47,14 +47,13 @@ class Citi
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
        
-        $query = "UPDATE tbl_city SET city = ?,state=?,country=?, last_updated = ?, last_updatedDateTime = ? WHERE id = ?";
-        $paramType = "sssssi";
+        $query = "UPDATE tbl_city SET city = ?,state=?,country=? WHERE id = ?";
+        $paramType = "siii";
         $paramValue = array(
             $city, 
             $state, 
             $country,
-            $last_updated,
-            $last_updatedDateTime,
+            
             $id
         );        
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
@@ -79,9 +78,9 @@ class Citi
         $this->db_handle->update($query, $paramType, $paramValue);
     }
 
-    function validateDuplicates_Add($name, $code) 
+    function validateDuplicates_Add($city, $state, $country) 
     {
-        $sql = "SELECT name FROM tbl_city WHERE code = '$code' OR name = '$name'";
+        $sql = "SELECT * FROM tbl_city WHERE city = '$city' AND (state = '$state' OR country = '$country');";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);
         if($count>0){ //Record Exists with same Name or Code
@@ -92,9 +91,9 @@ class Citi
         }
     }
 
-    function validateDuplicates_Edit($id, $name, $code) 
+    function validateDuplicates_Edit($city, $state, $country, $id) 
     {
-        $sql = "SELECT name FROM tbl_state WHERE id != $id AND (code = '$code' OR name = '$name');";
+        $sql = "SELECT * FROM tbl_city WHERE id != $id AND city = '$city' AND state = '$state' AND country = '$country'";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);
         if($count>0){ //Record Exists with same Name or Code
