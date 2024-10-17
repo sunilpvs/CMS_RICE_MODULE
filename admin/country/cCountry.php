@@ -14,17 +14,16 @@ else
  $action = "default";
 }
 
-switch ($action) 
-{
-    case "country-add":
+switch ($action) {    
+    case "countri-add":
         if (isset($_POST['add'])) 
-        {            
+        {
             $country = $_POST['country'];
             $code = $_POST['code'];
             $currency = $_POST['currency'];
             $id = $_SESSION['id'];
-            $c = new Country();
-            $bool = $c->validateDuplicates_Add($country, $code, $currency);
+            $countri = new Countri();
+            $bool = $countri->validateDuplicates_Add($country, $code, $currency);
             if($bool == FALSE)
             {
                 // Duplicate Record Existis.
@@ -35,7 +34,7 @@ switch ($action)
             }
             else
             {
-                $insertId = $c->addCountry($country, $code, $currency, $id);
+                $insertId = $countri->addCountri($country, $code, $currency, $id);
                 if (empty($insertId)) 
                 {
                     $response = array(
@@ -49,24 +48,35 @@ switch ($action)
                 }
             }
         }
-        require_once "../../admin/country/country-add.php";
-        break;
+    require_once "../../admin/country/country-add.php";
+    break;
 
-    case "country-edit":
-        $country_id = $_GET["id"];
-        $c = new country();
+    case "countri-edit":
+        $id = $_GET["id"];
+        $countri = new Countri();
         if (isset($_POST['add']))
-        {      
+        {
             $country = $_POST['country'];
             $code = $_POST['code'];
             $currency = $_POST['currency'];
-            
-            $c->editcountry($country, $code, $currency, $country_id);
-            header("Location: ../../admin/country/ccountry.php");
+            $bool = $countri->validateDuplicates_Edit($country, $code, $currency, $id);
+            if($bool == FALSE)
+            {
+                // Duplicate Record Existis.
+                $response = array(
+                    "message" => "Duplicate record. Problem in Adding New Record",
+                    "type" => "error"
+                );                
+            }
+            else 
+            {
+                $countri->editCountri($country, $code, $currency, $id);
+                header("Location: ../../admin/country/cCountry.php");    
+            }
         }
-        $result = $country->getcountryById($country_id);
-        require_once "../../admin/country/country-edit.php";
-        break;
+        $result = $countri->getCountriById($id);
+    require_once "../../admin/country/country-edit.php";
+    break;
     
     case "country-delete":
         // $country_id = $_GET["id"];
@@ -77,8 +87,8 @@ switch ($action)
         // break;
     
     default:
-        $country = new Country();
-        $result = $country->getAllCountry();
+        $countri = new Countri();
+        $result = $countri->getAllCountri();
         require_once "../../admin/country/vCountry.php";
         break;
 }

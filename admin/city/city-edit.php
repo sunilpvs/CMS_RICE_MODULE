@@ -13,7 +13,7 @@
 <div class="container-fluid">
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h3 class="m-0 font-weight-bold text-primary">Status</h3>
+    <h3 class="m-0 font-weight-bold text-primary">City</h3>
   </div>
 <div class="card-body">
 <form name="frmAdd" method="post" action="" id="frmAdd" onSubmit="return validate();">
@@ -24,12 +24,12 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault02" class="info">City</label><span id="city-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="city" name= "city" placeholder="City" value="<?php echo $row1["city"]; ?>"  required>
+      <input type="text" class="form-control demoInputBox" id="city" name= "city" placeholder="City" value="<?php echo $row1["city"]; ?>" onchange="validateDuplicates()" required>
     </div>
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">State</label><span id="state-info" class="info"></span>
-      <select id="state" name="state" class="form-control demoInputBox">
+      <select id="state" name="state" class="form-control demoInputBox" onchange="validateDuplicates()">
             <?php
                 $emp = new Generic();
                 $result2 = $emp->getStateList();
@@ -47,7 +47,7 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault02" class="info">Country</label><span id="country-info" class="info"></span>
-      <select id="country" name="country" class="form-control demoInputBox">
+      <select id="country" name="country" class="form-control demoInputBox" onchange="validateDuplicates()">
             <?php
                 $emp = new Generic();
                 $result2 = $emp->getCountryList();
@@ -63,35 +63,37 @@
         </select>
     </div>
 
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>      
         function validateDuplicates()
         {
-            var desid = $("#designation_id").val();
-            var desname = $("#name").val();
-            var descode = $("#code").val();  
-            if(desname != "" && descode != "")
+            var cityid = $("#id").val();
+            var city = $("#city").val();
+            var state = $("#state").val(); 
+            var country = $("#country").val();  
+            if(city != "" && state != "" && country !="")
             {
                 //alert("Name and Code entered for validation");
                 $.ajax(
                 {
                     url:"check-duplicates-edit.php",
                     type:"POST",
-                    data:{id:desid,name:desname,code:descode},
+                    data:{id:cityid,city:city,state:state,country:country},
                     success:function(mydata)
                     {
-                        $("#name-info").html(mydata);
-                        $("#code-info").html(mydata);
+                        $("#city-info").html(mydata);
+                        $("#state-info").html(mydata);
+                        $("#country-info").html(mydata);
                     } 
                 }
                 )
             }
         }
-    </script> -->
+    </script>
 
 
-    <div class="col-md-4 mb-3">
-          <input type="hidden" class="form-control demoInputBox" id="designation_id" name= "designation_id" placeholder="Commodity" value="<?php echo $row1["id"]; ?>">
+<div class="col-md-4 mb-3">
+          <input type="hidden" class="form-control demoInputBox" id="id" name= "id" placeholder="id" value="<?php echo $row1["id"]; ?>">
     </div>
 
   </div>

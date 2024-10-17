@@ -18,14 +18,14 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault02">City</label><span id="city-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="city" name= "city" placeholder="City"  required>
+      <input type="text" class="form-control demoInputBox" id="city" name= "city" placeholder="City" onchange="validateDuplicates()" required>
     </div>
 
      
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">State</label><span id="state-info" class="info"></span>
       
-      <select id="state" name="state" class="form-control demoInputBox">
+      <select id="state" name="state" class="form-control demoInputBox" onchange="validateDuplicates()">
             <?php
                 $emp = new Generic();
                 $result2 = $emp->getStateList();
@@ -44,7 +44,7 @@
     
     <div class="col-md-4 mb-3">
       <label for="validationDefault02">Country</label><span id="country-info" class="info"></span>
-      <select id="country" name="country" class="form-control demoInputBox">
+      <select id="country" name="country" class="form-control demoInputBox" onchange="validateDuplicates()">
             <?php
                 $emp = new Generic();
                 $result2 = $emp->getCountryList();
@@ -60,30 +60,32 @@
         </select>
     </div>
 
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>      
         function validateDuplicates()
         {
-            var desname = $("#name").val();
-            var descode = $("#code").val();  
-            if(desname != "" && descode != "")
+            var city = $("#city").val();
+            var state = $("#state").val();  
+            var country = $("#country").val();
+            if(city != "" && state != "" && country!= "")
             {
                 //alert("Name and Code entered for validation");
                 $.ajax(
                 {
                     url:"check-duplicates.php",
                     type:"POST",
-                    data:{name:desname,code:descode},
+                    data:{city:city,state:state,country:country},
                     success:function(mydata)
                     {
-                        $("#name-info").html(mydata);
-                        $("#code-info").html(mydata);
+                        $("#city-info").html(mydata);
+                        $("#state-info").html(mydata);
+                        $("#country-info").html(mydata);
                     } 
                 }
                 )
             }
         }
-    </script> -->
+    </script>
     
    
 

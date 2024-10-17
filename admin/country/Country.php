@@ -2,7 +2,7 @@
 date_default_timezone_set('Asia/Kolkata');
 #require_once ("class/DBController.php");
 require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
-class Country
+class Countri
 {
     private $db_handle;
     
@@ -10,18 +10,17 @@ class Country
         $this->db_handle = new DBController();
     }
     
-    function addCountry($country, $code, $currency, $createdBy) {
+    function addCountri($country, $code, $currency) {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
             $this->db_handle->beginTrans();
             try{
-        $query = "INSERT INTO tbl_country (country,code,currency,createdBy) VALUES (?, ?, ?, ?)";
-        $paramType = "sssi";
+        $query = "INSERT INTO tbl_country (country,code,currency) VALUES (?, ?, ?)";
+        $paramType = "sss";
         $paramValue = array(
-            
             $country,
             $code,
             $currency,
-            $createdBy
+           
         );
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
 
@@ -44,20 +43,19 @@ class Country
         }
         }
     
-    function editDesignation($country, $code, $currency, $id) 
+    function editCountri($country, $code, $currency, $id) 
     {
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
        
-        $query = "UPDATE tbl_country SET country = ?,code = ?,currency=?, last_updated = ?, last_updatedDateTime = ? WHERE id = ?";
-        $paramType = "sssssi";
+        $query = "UPDATE tbl_country SET country = ?,code = ?,currency=? WHERE id = ?";
+        $paramType = "sssi";
         $paramValue = array(
             
             $country,
             $code,
             $currency,
-            $last_updated,
-            $last_updatedDateTime,
+          
             $id
         );        
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
@@ -108,7 +106,7 @@ class Country
         }
     }
         
-    function getcountryById($id) {
+    function getcountriById($id) {
         $query = "SELECT * FROM tbl_country WHERE id = ?";
         $paramType = "i";
         $paramValue = array(
@@ -118,7 +116,7 @@ class Country
         return $result;
     }
     
-    function getAllCountry() {
+    function getAllCountri() {
         $sql = "SELECT * FROM tbl_country ORDER BY id";
         $result = $this->db_handle->runBaseQuery($sql);
         return $result;

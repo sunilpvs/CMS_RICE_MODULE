@@ -1,11 +1,12 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] .'/configurations/designation/Designation.php');
-    $desid = $_POST['id'];
-    $desname = $_POST['name'];
-    $descode = $_POST['code'];
+    require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/city/City.php');
+    $cityid = $_POST['id'];
+    $city = $_POST['city'];
+    $state = $_POST['state'];
+    $country = $_POST['country'];
     
-    $des = new Designation();
-    $result = $des->validateDuplicates_Edit($desid, $desname, $descode);
+    $des = new Citi();
+    $result = $des->validateDuplicates_Edit($city, $state, $country, $cityid);
     if(!$result)
     {
         echo "<span style='color:red'> *duplicate record.</span>";

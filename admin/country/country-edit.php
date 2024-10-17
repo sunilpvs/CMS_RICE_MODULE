@@ -40,33 +40,34 @@
     <script>      
         function validateDuplicates()
         {
-            var desid = $("#designation_id").val();
-            var desname = $("#name").val();
-            var descode = $("#code").val();  
-            if(desname != "" && descode != "")
+            var countryid = $("#id").val();
+            var country = $("#country").val();
+            var code = $("#code").val(); 
+            var currency = $("#currency").val();  
+            if(country != "" && code != "" && currency !="")
             {
                 //alert("Name and Code entered for validation");
                 $.ajax(
                 {
                     url:"check-duplicates-edit.php",
                     type:"POST",
-                    data:{id:desid,name:desname,code:descode},
+                    data:{id:cityid,country:country,code:code,currency:currency},
                     success:function(mydata)
                     {
-                        $("#name-info").html(mydata);
+                        $("#country-info").html(mydata);
                         $("#code-info").html(mydata);
+                        $("#currency-info").html(mydata);
                     } 
                 }
                 )
             }
         }
-    </script> 
+    </script>
 
 
-    <div class="col-md-4 mb-3">
-          <input type="hidden" class="form-control demoInputBox" id="designation_id" name= "designation_id" placeholder="Commodity" value="<?php echo $row1["id"]; ?>">
+<div class="col-md-4 mb-3">
+          <input type="hidden" class="form-control demoInputBox" id="id" name= "id" placeholder="id" value="<?php echo $row1["id"]; ?>">
     </div>
-
   </div>
  </div>
  

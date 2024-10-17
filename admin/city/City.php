@@ -93,7 +93,7 @@ class Citi
 
     function validateDuplicates_Edit($city, $state, $country, $id) 
     {
-        $sql = "SELECT * FROM tbl_city WHERE id != $id AND city = '$city' AND state = '$state' AND country = '$country'";
+        $sql = "SELECT * FROM tbl_city WHERE id != $id AND city = '$city' AND (state = '$state' OR country = '$country');";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);
         if($count>0){ //Record Exists with same Name or Code

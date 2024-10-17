@@ -9,7 +9,7 @@
  <div class="card shadow mb-4">
  <div class="card-header py-3">
     <h3 class="m-0 font-weight-bold text-primary">Country Master          
-            <a href="/admin/country/cCountry.php?action=country-add" class="btn btn-primary btn-md float-right" role="button">Add Country</a>
+            <a href="/admin/country/cCountry.php?action=countri-add" class="btn btn-primary btn-md float-right" role="button">Add Country</a>
     </h3>
   </div>
 
@@ -39,7 +39,7 @@
                               <td><?php echo $row["currency"]; ?></td>
                               
                               <td><a class="btnEditAction"
-                                  href="../../admin/country/cCountry.php?action=country-edit&id=<?php echo $row["id"]; ?>">
+                                  href="../../admin/country/cCountry.php?action=countri-edit&id=<?php echo $row["id"]; ?>">
                                   <img src="/assests/img/icon-edit.png" />
                                   </a>
                                  <!-- <a class="btnDeleteAction" 

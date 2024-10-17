@@ -2,7 +2,7 @@
 date_default_timezone_set('Asia/Kolkata');
 #require_once ("class/DBController.php");
 require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
-class State
+class States
 {
     private $db_handle;
     
@@ -10,17 +10,15 @@ class State
         $this->db_handle = new DBController();
     }
     
-    function addStates($state, $country, $createdBy) {
+    function addStates($state, $country) {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
             $this->db_handle->beginTrans();
             try{
-        $query = "INSERT INTO tbl_state (state,country,createdBy) VALUES (?, ?, ?)";
-        $paramType = "ssi";
+        $query = "INSERT INTO tbl_state (state,country) VALUES (?, ?)";
+        $paramType = "ss";
         $paramValue = array(
-           
             $state,
             $country,
-            $createdBy
         );
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
 
@@ -43,19 +41,16 @@ class State
         }
         }
     
-    function editState($state, $country, $id) 
+    function editStates($state, $country, $id) 
     {
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
        
-        $query = "UPDATE tbl_state SET state = ?,country=?, last_updated = ?, last_updatedDateTime = ? WHERE id = ?";
-        $paramType = "ssssi";
+        $query = "UPDATE tbl_state SET state = ?,country=? WHERE id = ?";
+        $paramType = "ssi";
         $paramValue = array(
-           
             $state,
             $country,
-            $last_updated,
-            $last_updatedDateTime,
             $id
         );        
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);

@@ -18,43 +18,45 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault02">country</label><span id="country-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="country" name= "country" placeholder="Country"  required>
+      <input type="text" class="form-control demoInputBox" id="country" name= "country" placeholder="Country" onchange="validateDuplicates()" required>
     </div>
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Code</label><span id="code-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="code" name= "code" placeholder="Code"required>
+      <input type="text" class="form-control demoInputBox" id="code" name= "code" placeholder="Code" onchange="validateDuplicates()" required>
     </div>
     
     <div class="col-md-4 mb-3">
       <label for="validationDefault02">Currency</label><span id="currency-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="currency" name= "currency" placeholder="Currency" required>
+      <input type="text" class="form-control demoInputBox" id="currency" name= "currency" placeholder="Currency" onchange="validateDuplicates()" required>
     </div>
 
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>      
         function validateDuplicates()
         {
-            var desname = $("#name").val();
-            var descode = $("#code").val();  
-            if(desname != "" && descode != "")
+            var country = $("#country").val();
+            var code= $("#code").val();  
+            var currency= $("#currency").val(); 
+            if(country != "" && code != ""  && currency != "")
             {
                 //alert("Name and Code entered for validation");
                 $.ajax(
                 {
                     url:"check-duplicates.php",
                     type:"POST",
-                    data:{name:desname,code:descode},
+                    data:{country:country,code:code,currency:currency},
                     success:function(mydata)
                     {
-                        $("#name-info").html(mydata);
+                      $("#country-info").html(mydata);
                         $("#code-info").html(mydata);
+                        $("#currency-info").html(mydata);
                     } 
                 }
                 )
             }
         }
-    </script> -->
+    </script>
     
    
 

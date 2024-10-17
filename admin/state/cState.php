@@ -2,7 +2,7 @@
 session_start();
 require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
 require_once($_SERVER['DOCUMENT_ROOT'] ."/admin/state/State.php");
-require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
+
 
 //$db_handle = new DBController();
 // $action = "";
@@ -13,15 +13,14 @@ else
 {
  $action = "default";}   //test
 switch ($action) {    
-    case "state-add":
+    case "states-add":
         if (isset($_POST['add'])) {
            
             $state = $_POST['state'];
             $country = $_POST['country'];
-            
             $id = $_SESSION['id'];
-            $status = new State();
-            $insertId = $state->addState($state, $country, $id);
+            $states = new States();
+            $insertId = $states->addStates($state, $country, $id);
             if (empty($insertId)) {
                 $response = array(
                     "message" => "Problem in Adding New Record",
@@ -36,31 +35,31 @@ switch ($action) {
         require_once "../../admin/state/state-add.php";
         break;
     
-    case "state-edit":
+    case "states-edit":
         $state_id = $_GET["id"];
         $status = new State();
         if (isset($_POST['add'])){
         
             $state = $_POST['state'];
             $country = $_POST['country'];
-        $status->editState($state,  $country, $state_id);
+        $states->editStates($state,  $country, $state_id);
         header("Location: ../../admin/state/cState.php");
         }
-        $result = $state->getStateById($State_id);
+        $result = $states->getStatesById($State_id);
         require_once "../../admin/state/state-edit.php";
         break;
     
     case "state-delete":
-        $state_id = $_GET["id"];
-        $state = new State();
-        $status->deleteState($state_id);
-        $result = $state->getAllState();
-        require_once "../../admin/state/vState.php";
-        break;
+        //$state_id = $_GET["id"];
+        //$state = new States();
+        //$status->deleteState($state_id);
+        //$result = $state->getAllState();
+        //require_once "../../admin/state/vState.php";
+        //break;
     
     default:
-        $state = new State();
-        $result = $state->getAllState();
+        $state = new States();
+        $result = $state->getAllStates();
         require_once "../../admin/state/vState.php";
         break;
 }
