@@ -30,10 +30,9 @@ class Inwardlease
             );
             $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
             //Make entry into Lease Dates table;
-            $query = "INSERT INTO tbl_lease_dates (lease,lease_type,start_date,end_date,lease_ref)  VALUES (?, ?, ?, ?, ?)";
-            $paramType = "sissi";
+            $query = "INSERT INTO tbl_inwarddates (lease_type,start_date,end_date,lease_ref)  VALUES (?, ?, ?, ?)";
+            $paramType = "issi";
             $paramValue = array(
-                "Inward",
                 $lease_type,
                 $start_date,
                 $expiry_date,
@@ -77,10 +76,9 @@ class Inwardlease
 
         $this->db_handle->beginTrans();
         try{       
-            $query = "INSERT INTO tbl_lease_dates (lease,lease_type,start_date,end_date,lease_ref)  VALUES (?, ?, ?, ?, ?)";
-            $paramType = "sissi";
+            $query = "INSERT INTO tbl_inwarddates (lease_type,start_date,end_date,lease_ref)  VALUES (?, ?, ?, ?)";
+            $paramType = "issi";
             $paramValue = array(
-                "Inward",
                 $lease_type,
                 $start_date,
                 $expiry_date,
@@ -148,8 +146,8 @@ class Inwardlease
     function getInwardleaseById($id) 
     {
         $query = "SELECT a.id, a.warehouse_id , c.warehouse_name, b.start_date, b.end_date, d.ltype ";
-        $query .= "FROM tbl_inwardlease a, tbl_lease_dates b, tbl_warehouse c, tbl_leasetype d ";
-        $query .= "WHERE b.lease_ref = a.id AND b.id in (SELECT MAX(id) FROM tbl_lease_dates WHERE lease_ref = a.id) "; 
+        $query .= "FROM tbl_inwardlease a, tbl_inwarddates b, tbl_warehouse c, tbl_leasetype d ";
+        $query .= "WHERE b.lease_ref = a.id AND b.id in (SELECT MAX(id) FROM tbl_inwarddates WHERE lease_ref = a.id) "; 
         $query .= "AND a.warehouse_id = c.id AND b.lease_type = d.id AND  a.id = ? ";
         $paramType = "s";
         $paramValue = array(
