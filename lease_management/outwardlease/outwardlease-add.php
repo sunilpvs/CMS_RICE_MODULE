@@ -1,12 +1,13 @@
 <?php 
-    date_default_timezone_set('Asia/Kolkata');
-    require_once($_SERVER['DOCUMENT_ROOT'] .'/lease_management/outwardlease/Outwardlease.php');
-include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
-    include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
-    include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
-    if (!empty($result)){
-        $row1 = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    }
+  date_default_timezone_set('Asia/Kolkata');
+  require_once($_SERVER['DOCUMENT_ROOT'] .'/lease_management/outwardlease/Outwardlease.php');
+  include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+  include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
+  include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
+  if (!empty($result))
+  {
+    $row1 = mysqli_fetch_array($result, MYSQLI_ASSOC);
+  }
 ?>
 
 <div class="container-fluid">
@@ -18,6 +19,7 @@ include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
 <form name="frmAdd" method="post" action="" id="frmAdd" onSubmit="return validate();">
   <div class="container">
   <div class="form-row">
+    
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Warehouse</label><span id="warehouse_id-info" class="info"></span>
       <select id="warehouse_id" name="warehouse_id" class="form-control demoInputBox" onchange="myLoadFunction()">

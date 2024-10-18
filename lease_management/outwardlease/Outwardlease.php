@@ -16,147 +16,242 @@ class Outwardlease
                 $lease_capacity_sqft, $lease_capacity_mton, $daily_rate_sqft, $daily_rate_mton, $lease_status, $lease_days, $cost_sqft, $cost_mton, $total_cost, $created_By) 
     {   
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
-            $this->db_handle->beginTrans();
-            try{
-        $sql = "SELECT used_sqft,used_mton,avl_sqft,avl_mton FROM tbl_warehouse WHERE id = $warehouse_id;";
-        $result = $this->db_handle->runBaseQuery($sql);
-        if (!empty($result))
+        $this->db_handle->beginTrans();
+        try
         {
+            $sql = "SELECT used_sqft,used_mton,avl_sqft,avl_mton FROM tbl_warehouse WHERE id = $warehouse_id;";
+            $result = $this->db_handle->runBaseQuery($sql);
+            if (!empty($result))
+            {
+                $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+            }
+            $used_sqft = $row['used_sqft'];
+            $used_mton = $row['used_mton'];
+            $avl_sqft = $row['avl_sqft'];
+            $avl_mton = $row['avl_mton'];
+
+            if ($lease_model == 1) //Dedicated
+            {
+                $before_capacity_sqft = $avl_sqft; 
+                $before_capacity_mton = $avl_mton;
+                $tmp_sqft = $lease_capacity_sqft;
+                $lease_capacity_mton = $tmp_sqft /=4; 
+                $used_sqft = $used_sqft + $lease_capacity_sqft; 
+                $tmp_sqft = $used_sqft;
+                $used_mton = $tmp_sqft /=4; 
+                $avl_sqft = $avl_sqft - $lease_capacity_sqft;
+                $tmp_sqft = $avl_sqft;
+                $avl_mton = $tmp_sqft /=4;
+            }
+            elseif($lease_model == 2) //Common)
+            {
+                $before_capacity_sqft = $avl_sqft; 
+                $before_capacity_mton = $avl_mton;
+                $tmp_mton = $lease_capacity_mton;
+                $lease_capacity_sqft = ($tmp_mton*4);
+                $used_mton = $used_mton + $lease_capacity_mton; 
+                $tmp_mton = $used_mton;
+                $used_sqft = ($tmp_mton*4);
+                $avl_mton = $avl_mton - $lease_capacity_mton;
+                $tmp_mton = $avl_mton;
+                $avl_sqft = ($tmp_mton*4);
+            }
+
+            $query = "INSERT INTO tbl_outwardlease (warehouse_id, customer_id, lease_model, lease_start, lease_end,";
+            $query .= " before_capacity_sqft,lease_capacity_sqft,after_capacity_sqft,before_capacity_mton,lease_capacity_mton,after_capacity_mton,";
+            $query .= " daily_rate_sqft, daily_rate_mton, lease_status, lease_days,cost_sqft, cost_mton,total_cost, created_by)";
+            $query .= " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+            $paramType = "iiisssssssssssisssi";
+            $paramValue = array(
+                $warehouse_id,
+                $customer_id,
+                $lease_model,
+                $lease_start,
+                $lease_end,
+                $before_capacity_sqft,
+                $lease_capacity_sqft,
+                $avl_sqft,
+                $before_capacity_mton,
+                $lease_capacity_mton,
+                $avl_mton,
+                $daily_rate_sqft,
+                $daily_rate_mton,
+                $lease_status,
+                $lease_days,
+                $cost_sqft, 
+                $cost_mton,
+                $total_cost,
+                $created_By
+            );
+            $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
+            //Updating Outward Dates Table
+            $query = "INSERT INTO tbl_outwarddates (lease_type,start_date,end_date,lease_ref)  VALUES (?, ?, ?, ?)";
+            $paramType = "issi";
+            $paramValue = array(
+                1, // 1 - Initial
+                $lease_start,
+                $lease_end,
+                $insertId    
+            );
+            $insertId1 = $this->db_handle->insert($query, $paramType, $paramValue);
+            //Updating Capacities in Warehouse table
+            $sql = "UPDATE tbl_warehouse SET used_sqft = $used_sqft, used_mton = $used_mton, avl_sqft = $avl_sqft, avl_mton = $avl_mton  WHERE id = $warehouse_id;"; 
+            $result = $this->db_handle->runBaseQuery($sql);
+            //Update Contract_Id of Inward Lease for  new Inserted Row
+            $query = "SELECT id,prefix FROM tbl_outwardlease WHERE id =?;";
+            $paramType = "i";
+            $paramValue = array(
+                $insertId
+            );
+            $result = $this->db_handle->runQuery($query, $paramType, $paramValue);
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        }
-        $used_sqft = $row['used_sqft'];
-        $used_mton = $row['used_mton'];
-        $avl_sqft = $row['avl_sqft'];
-        $avl_mton = $row['avl_mton'];
+            $prefix = $row['prefix'];
+            $id = $row['id'];
+            $contract = $prefix . $id;
+            $query = "UPDATE tbl_outwardlease SET lease_contract_id = '$contract' WHERE id = $id;";
+            $this->db_handle->runBaseQuery($query);
 
-        if ($lease_model == 1) //Dedicated
-        {
-            $before_capacity_sqft = $avl_sqft; 
-            $before_capacity_mton = $avl_mton;
-            $tmp_sqft = $lease_capacity_sqft;
-            $lease_capacity_mton = $tmp_sqft /=4; 
-            $used_sqft = $used_sqft + $lease_capacity_sqft; 
-            $tmp_sqft = $used_sqft;
-            $used_mton = $tmp_sqft /=4; 
-            $avl_sqft = $avl_sqft - $lease_capacity_sqft;
-            $tmp_sqft = $avl_sqft;
-            $avl_mton = $tmp_sqft /=4;
-        }
-        elseif($lease_model == 2) //Common)
-        {
-            $before_capacity_sqft = $avl_sqft; 
-            $before_capacity_mton = $avl_mton;
-            $tmp_mton = $lease_capacity_mton;
-            $lease_capacity_sqft = ($tmp_mton*4);
-            $used_mton = $used_mton + $lease_capacity_mton; 
-            $tmp_mton = $used_mton;
-            $used_sqft = ($tmp_mton*4);
-            $avl_mton = $avl_mton - $lease_capacity_mton;
-            $tmp_mton = $avl_mton;
-            $avl_sqft = ($tmp_mton*4);
-        }
-
-        $query = "INSERT INTO tbl_outwardlease (warehouse_id, customer_id, lease_model, lease_start, lease_end,";
-        $query .= " before_capacity_sqft,lease_capacity_sqft,after_capacity_sqft,before_capacity_mton,lease_capacity_mton,after_capacity_mton,";
-        $query .= " daily_rate_sqft, daily_rate_mton, lease_status, lease_days,cost_sqft, cost_mton,total_cost, created_by)";
-        $query .= " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
-        $paramType = "iiisssssssssssisssi";
-        $paramValue = array(
-            $warehouse_id,
-            $customer_id,
-            $lease_model,
-            $lease_start,
-            $lease_end,
-            $before_capacity_sqft,
-            $lease_capacity_sqft,
-            $avl_sqft,
-            $before_capacity_mton,
-            $lease_capacity_mton,
-            $avl_mton,
-            $daily_rate_sqft,
-            $daily_rate_mton,
-            $lease_status,
-            $lease_days,
-            $cost_sqft, 
-            $cost_mton,
-            $total_cost,
-            $created_By
-        );
-        $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
-        //Updating Capacities in Warehouse table
-        $sql = "UPDATE tbl_warehouse SET used_sqft = $used_sqft, used_mton = $used_mton, avl_sqft = $avl_sqft, avl_mton = $avl_mton  WHERE id = $warehouse_id;"; 
-        $result = $this->db_handle->runBaseQuery($sql);
-        //Update Contract_Id of Inward Lease for  new Inserted Row
-        $query = "SELECT id,prefix FROM tbl_outwardlease WHERE id =?;";
-        $paramType = "i";
-        $paramValue = array(
-            $insertId
-        );
-        $result = $this->db_handle->runQuery($query, $paramType, $paramValue);
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        $prefix = $row['prefix'];
-        $id = $row['id'];
-        $contract = $prefix . $id;
-        $query = "UPDATE tbl_outwardlease SET lease_contract_id = '$contract' WHERE id = $id;";
-        $this->db_handle->runBaseQuery($query);
-        //Updating Transaction Audit
-        $activity = "New Outward Lease is added with ID: $insertId";
-        $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
-        $paramType = "sii";
-        $paramValue = array(
-            $activity,
-            $created_By,
-			$insertId
-        );
-		$transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-         $this->db_handle->commitTrans();
+            //Updating Transaction Audit
+            $activity = "New Outward Lease is added with ID: $insertId";
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
+            $paramType = "sii";
+            $paramValue = array(
+                $activity,
+                $created_By,
+                $insertId
+            );
+            $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+            $this->db_handle->commitTrans();
             return $insertId;
             }catch (\Throwable $e){
             // An exception has been thrown
             // We must rollback the transaction
             $this->db_handle->rollbackTrans();
             throw $e; // but the error must be handled anyway
-        }
+            }
         }
 
-    
-    
-    function editOutwardlease($warehouse_id, $customer_id, $lease_contract_id, $lease_model, $compartment_code, $lease_start, $lease_end, 
-    $lease_capacity_sqft, $lease_capacity_mton, $daily_rate_sqft, $daily_rate_mton, $lease_status, $id) {
+    function extendOutwardLease($start_date, $end_date, $lease_status, $id)
+    {
         $last_updated=$_SESSION['id'];
         $last_updateddatetime =  date("Y-m-d H:i:s");
+
+        $this->db_handle->beginTrans();
+        try
+        {
+            //Updating Outward Dates Table
+            $query = "INSERT INTO tbl_outwarddates (lease_type,start_date,end_date,lease_ref)  VALUES (?, ?, ?, ?)";
+            $paramType = "issi";
+            $paramValue = array(
+                2, // 2 - Extension
+                $start_date,
+                $end_date,
+                $id    
+            );
+            $insertId1 = $this->db_handle->insert($query, $paramType, $paramValue);
+
+            $query = "UPDATE tbl_outwardlease SET lease_start = ?, lease_end = ?, lease_status = ?, last_updated = ? ,last_updateddatetime = ? WHERE id = ?";
+            $paramType = "ssiisi";
+            $paramValue = array(
+                $start_date,
+                $end_date,
+                $lease_status,
+                $last_updated,
+                $last_updateddatetime,
+                $id
+            );    
+            $this->db_handle->update($query, $paramType, $paramValue);
+            //Adding Transaction Log
+            $activity = "Extension of Outward lease on Contract ID: $id";
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
+            $paramType = "sii";
+            $paramValue = array(
+                $activity,
+                $last_updated,
+                $id
+            );
+            $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+
+            $this->db_handle->commitTrans();
+            return $insertId1;
+        }catch (\Throwable $e){
+            // An exception has been thrown
+            // We must rollback the transaction
+            $this->db_handle->rollbackTrans();
+            throw $e; // but the error must be handled anyway
+        }
+    }
+
+    
+    function editOutwardlease($warehouse_id, $customer_id, $lease_contract_id, $lease_model, $compartment_code, $lease_start, $lease_end, 
+                                    $lease_capacity_sqft, $lease_capacity_mton, $daily_rate_sqft, $daily_rate_mton, $lease_status, $id) 
+    {
+        $last_updated=$_SESSION['id'];
+        $last_updateddatetime =  date("Y-m-d H:i:s");
+
+        $this->db_handle->beginTrans();
+        try
+        {
+            //Updating Outward Dates Table
+            $query = "INSERT INTO tbl_outwarddates (lease_type,start_date,end_date,lease_ref)  VALUES (?, ?, ?, ?)";
+            $paramType = "issi";
+            $paramValue = array(
+                2, // 2 - Extension
+                $lease_start,
+                $lease_end,
+                $id    
+            );
+            $insertId1 = $this->db_handle->insert($query, $paramType, $paramValue);
+
+            $query = "UPDATE tbl_outwardlease SET warehouse_id = ?,customer_id = ?,lease_contract_id = ?,lease_model= ?, compartment_code = ?, lease_start = ?, lease_end = ?, lease_capacity_sqft=?, lease_capacity_mton = ?, daily_rate_sqft = ?, daily_rate_mton = ?, lease_status = ?, lease_days =?,cost_sqft = ?, cost_mton = ?,total_cost = ?,last_updated = ? ,last_updateddatetime = ? WHERE id = ?";
         
-        $query = "UPDATE tbl_outwardlease SET warehouse_id = ?,customer_id = ?,lease_contract_id = ?,lease_model= ?, compartment_code = ?, lease_start = ?, lease_end = ?, lease_capacity_sqft=?, lease_capacity_mton = ?, daily_rate_sqft = ?, daily_rate_mton = ?, lease_status = ?, lease_days =?,cost_sqft = ?, cost_mton = ?,total_cost = ?,last_updated = ? ,last_updateddatetime = ? WHERE id = ?";
-        
-        $paramType = "iisisssssssiiiiiisi";
-        $paramValue = array(
-            $warehouse_id,
-            $customer_id,
-            $lease_contract_id,
-            $lease_model,
-            $compartment_code,
-            $lease_start,
-            $lease_end,
-            $lease_capacity_sqft,
-            $lease_capacity_mton,
-            $daily_rate_sqft,
-            $daily_rate_mton,
-            $lease_status, 
-            $lease_days,
-            $cost_sqft, 
-            $cost_mton,
-            $total_cost,
-            $last_updated,
-            $last_updateddatetime,
-            $id
-        );
-        
-        $this->db_handle->update($query, $paramType, $paramValue);
+            $paramType = "iisisssssssiiiiiisi";
+            $paramValue = array(
+                $warehouse_id,
+                $customer_id,
+                $lease_contract_id,
+                $lease_model,
+                $compartment_code,
+                $lease_start,
+                $lease_end,
+                $lease_capacity_sqft,
+                $lease_capacity_mton,
+                $daily_rate_sqft,
+                $daily_rate_mton,
+                $lease_status, 
+                $lease_days,
+                $cost_sqft, 
+                $cost_mton,
+                $total_cost,
+                $last_updated,
+                $last_updateddatetime,
+                $id
+            );
+            $this->db_handle->update($query, $paramType, $paramValue);
+
+            //Adding Transaction Log
+            $activity = "Extension of Outward lease on Contract ID: $id";
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
+            $paramType = "sii";
+            $paramValue = array(
+                $activity,
+                $last_updated,
+                $warehouse_id
+            );
+            $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+            $this->db_handle->commitTrans();
+            return $insertId1;
+        }catch (\Throwable $e){
+            // An exception has been thrown
+            // We must rollback the transaction
+            $this->db_handle->rollbackTrans();
+            throw $e; // but the error must be handled anyway
+            }       
     }
     
     function getOutwardleaseById($id) 
     {
-        $query = "SELECT * FROM tbl_outwardlease WHERE id = ?";
+        $query = "SELECT * FROM vw_outwardleases WHERE id = ?";
         $paramType = "s";
         $paramValue = array(
             $id

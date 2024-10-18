@@ -160,7 +160,8 @@
             return $result;
         }    
 
-        function getWarehouseLeases() {
+        function getWarehouseLeases() 
+        {
             $sql = "SELECT * FROM vw_warehouse_leases;";
             $result = $this->db_handle->runBaseQuery($sql);
             return $result;
