@@ -1,10 +1,10 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] .'/configurations/designation/Designation.php');
-    $desname = $_POST['name'];
-    $descode = $_POST['code'];
+    require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/costcentertype/Costcentertype.php');
+    $cc_type = $_POST['cc_type'];
     
-    $des = new Designation();
-    $result = $des->validateDuplicates_Add($desname,$descode);
+    
+    $des = new Costcentertype();
+    $result = $des->validateDuplicates_Add($cc_type);
     if(!$result)
     {
         echo "<span style='color:red'> *duplicate record.</span>";

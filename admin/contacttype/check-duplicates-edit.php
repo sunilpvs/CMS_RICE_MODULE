@@ -1,11 +1,11 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] .'/configurations/designation/Designation.php');
-    $desid = $_POST['id'];
-    $desname = $_POST['name'];
-    $descode = $_POST['code'];
+    require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/contacttype/Contacttype.php');
+    $conid = $_POST['id'];
+    $name = $_POST['name'];
+    $status = $_POST['status'];
     
-    $des = new Designation();
-    $result = $des->validateDuplicates_Edit($desid, $desname, $descode);
+    $des = new Contacttype();
+    $result = $des->validateDuplicates_Edit($name, $status ,$conid);
     if(!$result)
     {
         echo "<span style='color:red'> *duplicate record.</span>";

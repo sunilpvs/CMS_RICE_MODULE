@@ -23,45 +23,58 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault02" class="info">Name</label><span id="name-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="name" name= "name" placeholder="Name" value="<?php echo $row1["name"]; ?>"  required>
+      <input type="text" class="form-control demoInputBox" id="name" name= "name" placeholder="Name" value="<?php echo $row1["name"]; ?>" onchange="validateDuplicates()" required>
     </div>
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Status</label><span id="status-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="status" name= "status" placeholder="Status" value="<?php echo $row1["status"]; ?>" required>
+      <select id="status" name="status" class="form-control demoInputBox" onchange="validateDuplicates()">
+            <?php
+                $emp = new Generic();
+                $result2 = $emp->getStatusList();
+                if (!empty($result2)) {
+                    while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+                    {   
+            ?> 
+            <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1["status"] ){ echo "Selected"; } ?> > <?php echo $row2["status"]; ?></option>
+            <?php   } 
+                }
+            ?>
+            ?>   
+        </select>
     </div>
 
   
 
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>      
         function validateDuplicates()
         {
-            var desid = $("#designation_id").val();
-            var desname = $("#name").val();
-            var descode = $("#code").val();  
-            if(desname != "" && descode != "")
+            var conid = $("#id").val();
+            var name = $("#name").val();
+            var status = $("#status").val();  
+            if(name != "" && status != "")
             {
                 //alert("Name and Code entered for validation");
                 $.ajax(
                 {
                     url:"check-duplicates-edit.php",
                     type:"POST",
-                    data:{id:desid,name:desname,code:descode},
+                    data:{id:conid,name:name,status:status},
                     success:function(mydata)
                     {
                         $("#name-info").html(mydata);
-                        $("#code-info").html(mydata);
+                        $("#status-info").html(mydata);
                     } 
                 }
                 )
             }
         }
-    </script> -->
+    </script> 
 
 
     <div class="col-md-4 mb-3">
-          <input type="hidden" class="form-control demoInputBox" id="designation_id" name= "designation_id" placeholder="Commodity" value="<?php echo $row1["id"]; ?>">
+          <input type="hidden" class="form-control demoInputBox" id="id" name= "id" placeholder="Commodity" value="<?php echo $row1["id"]; ?>">
     </div>
 
   </div>

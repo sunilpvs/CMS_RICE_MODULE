@@ -9,7 +9,7 @@
  <div class="card shadow mb-4">
  <div class="card-header py-3">
     <h3 class="m-0 font-weight-bold text-primary">State Master          
-            <a href="/admin/state/cState.php?action=state-add" class="btn btn-primary btn-md float-right" role="button">Add State</a>
+            <a href="/admin/state/cState.php?action=states-add" class="btn btn-primary btn-md float-right" role="button">Add State</a>
     </h3>
   </div>
 
@@ -39,7 +39,7 @@
                              
                               
                               <td><a class="btnEditAction"
-                                  href="../../admin/state/cState.php?action=state-edit&id=<?php echo $row["id"]; ?>">
+                                  href="../../admin/state/cState.php?action=states-edit&id=<?php echo $row["id"]; ?>">
                                   <img src="/assests/img/icon-edit.png" />
                                   </a>
                                   <!--<a class="btnDeleteAction" 

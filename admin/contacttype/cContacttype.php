@@ -14,44 +14,67 @@ else
  $action = "default";
 }
 
-switch ($action) 
-{
+switch ($action) {    
     case "contacttype-add":
         if (isset($_POST['add'])) 
-        {   
+        {
             $name = $_POST['name'];
-            $status = $_POST['status']; 
+            $status = $_POST['status'];
             $id = $_SESSION['id'];
             $contacttype = new Contacttype();
-            $insertId = $city->addContacttype($name, $status, $id);
-            if (empty($insertId)) 
+            $bool = $contacttype->validateDuplicates_Add($name, $status);
+            if($bool == FALSE)
             {
+                // Duplicate Record Existis.
                 $response = array(
-                    "message" => "Problem in Adding New Record",
+                    "message" => "Duplicate record. Problem in Adding New Record",
                     "type" => "error"
                 );
-            } 
-            else 
+            }
+            else
             {
-                header("Location: ../../admin/contacttype/cContacttype.php");
+                $insertId = $contacttype->addContacttype($name, $status, $id);
+                if (empty($insertId)) 
+                {
+                    $response = array(
+                        "message" => "Problem in Adding New Record",
+                        "type" => "error"
+                    );
+                } 
+                else 
+                {
+                    header("Location:../../admin/contacttype/cContacttype.php");
+                }
             }
         }
-        require_once "../../admin/contacttype/contacttype-add.php";
-        break;
+    require_once "../../admin/contacttype/contacttype-add.php";
+    break;
 
     case "contacttype-edit":
-        $contacttype_id = $_GET["id"];
-        $contacttype  = new Contacttype ();
+        $id = $_GET["id"];
+        $contacttype = new Contacttype();
         if (isset($_POST['add']))
         {
             $name = $_POST['name'];
             $status = $_POST['status'];
-            $contact_type->editContacttype($name, $status,  $module_id);
-            header("Location: ../../admin/contacttype/cContacttype.php");
+            $bool = $contacttype->validateDuplicates_Edit($name, $status, $id);
+            if($bool == FALSE)
+            {
+                // Duplicate Record Existis.
+                $response = array(
+                    "message" => "Duplicate record. Problem in Adding New Record",
+                    "type" => "error"
+                );                
+            }
+            else 
+            {
+                $contacttype->editContacttype($name, $status,  $id);
+                header("Location: ../../admin/contacttype/cContacttype.php");    
+            }
         }
-        $result = $contacttype->getcontacttypeById($contacttype_id);
-        require_once "../../admin/contacttype/contacttype-edit.php";
-        break;
+        $result = $contacttype->getContacttypeById($id);
+    require_once "../../admin/contacttype/contacttype-edit.php";
+    break;
     
     case "contacttype-delete":
         $ccontacttype = $_GET["id"];

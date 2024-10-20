@@ -1,6 +1,7 @@
 <?php 
   include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
   include($_SERVER['DOCUMENT_ROOT'] .'/includes/adm-navbar.php');
+ 
 ?>
 
 <div class="container-fluid">
@@ -17,41 +18,54 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault02">Name</label><span id="name-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="name" name= "name" placeholder="Name"  required>
+      <input type="text" class="form-control demoInputBox" id="name" name= "name" placeholder="Name" onchange="validateDuplicates()" required>
     </div>
 
      
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Status</label><span id="status-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="status" name= "status" placeholder="Status"  required>
+      <select id="status" name="status" class="form-control demoInputBox" onchange="validateDuplicates()">
+            <?php
+                $emp = new Generic();
+                $result2 = $emp->getStatusList();
+                if (!empty($result2)) {
+                    while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+                    {   
+            ?> 
+            <option value=<?php echo $row2['id']; ?> > <?php echo $row2["status"]; ?></option>
+            <?php   } 
+                }
+            ?>
+            ?>   
+        </select>
     </div>
     
   
 
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>      
         function validateDuplicates()
         {
-            var desname = $("#name").val();
-            var descode = $("#code").val();  
-            if(desname != "" && descode != "")
+            var name = $("#name").val();
+            var status = $("#status").val();  
+            if(name != "" && status != "")
             {
                 //alert("Name and Code entered for validation");
                 $.ajax(
                 {
                     url:"check-duplicates.php",
                     type:"POST",
-                    data:{name:desname,code:descode},
+                    data:{name:name,status:status},
                     success:function(mydata)
                     {
                         $("#name-info").html(mydata);
-                        $("#code-info").html(mydata);
+                        $("#status-info").html(mydata);
                     } 
                 }
                 )
             }
         }
-    </script> -->
+    </script>
     
    
 

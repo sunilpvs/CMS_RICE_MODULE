@@ -17,37 +17,33 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault02">Costcenter Type</label><span id="cc_type-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="cc_type" name= "cc_type" placeholder="Costcenter Type"  required>
+      <input type="text" class="form-control demoInputBox" id="cc_type" name= "cc_type" placeholder="Costcenter Type"  onchange="validateDuplicates()" required>
     </div>
 
-  
-    
-  
-
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>      
         function validateDuplicates()
         {
-            var desname = $("#name").val();
-            var descode = $("#code").val();  
-            if(desname != "" && descode != "")
+            var cc_type = $("#cc_type").val();
+             
+            if(cc_type != "")
             {
                 //alert("Name and Code entered for validation");
                 $.ajax(
                 {
                     url:"check-duplicates.php",
                     type:"POST",
-                    data:{name:desname,code:descode},
+                    data:{cc_type:cc_type},
                     success:function(mydata)
                     {
-                        $("#name-info").html(mydata);
-                        $("#code-info").html(mydata);
+                        $("#cc_type-info").html(mydata);
+                        
                     } 
                 }
                 )
             }
         }
-    </script> -->
+    </script>
     
    
 

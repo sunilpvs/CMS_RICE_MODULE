@@ -76,12 +76,12 @@ switch ($action) {
         
     
     case "citi-delete":
-        $citi_id = $_GET["id"];
-        $citi = new Citi();
-        $citi->deleteCiti($citi_id);
-        $result = $department->getAllCiti();
-        require_once "../../admin/city/vCity.php";
-        break;
+        //$citi_id = $_GET["id"];
+        //$citi = new Citi();
+        //$citi->deleteCiti($citi_id);
+        //$result = $department->getAllCiti();
+        //require_once "../../admin/city/vCity.php";
+        //break;
     
     default:
         $citi = new Citi();

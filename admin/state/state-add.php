@@ -20,12 +20,12 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault02">state</label><span id="state-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="state" name= "state" placeholder="State"  required>
+      <input type="text" class="form-control demoInputBox" id="state" name= "state" placeholder="State"  onchange="validateDuplicates()" srequired>
     </div>
     
     <div class="col-md-4 mb-3">
       <label for="validationDefault02">Country</label><span id="country-info" class="info"></span>
-      <select id="country" name="country" class="form-control demoInputBox">
+      <select id="country" name="country" class="form-control demoInputBox" onchange="validateDuplicates()">
             <?php
                 $emp = new Generic();
                 $result2 = $emp->getCountryList();
@@ -41,30 +41,30 @@
         </select>
     </div>
 
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>      
         function validateDuplicates()
         {
-            var desname = $("#name").val();
-            var descode = $("#code").val();  
-            if(desname != "" && descode != "")
+            var state = $("#state").val();
+            var country = $("#country").val();  
+            if(state != "" && country != "")
             {
                 //alert("Name and Code entered for validation");
                 $.ajax(
                 {
                     url:"check-duplicates.php",
                     type:"POST",
-                    data:{name:desname,code:descode},
+                    data:{state:state,country:country},
                     success:function(mydata)
                     {
-                        $("#name-info").html(mydata);
-                        $("#code-info").html(mydata);
+                        $("#state-info").html(mydata);
+                        $("#country-info").html(mydata);
                     } 
                 }
                 )
             }
         }
-    </script>--> 
+    </script>
     
    
 

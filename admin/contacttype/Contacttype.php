@@ -10,17 +10,16 @@ class Contacttype
         $this->db_handle = new DBController();
     }
     
-    function addContacttype ( $name, $status,  $createdBy) {
+    function addContacttype ( $name, $status) {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
             $this->db_handle->beginTrans();
             try{
-        $query = "INSERT INTO tbl_contacttype (name,status,createdBy) VALUES (?, ?, ?)";
-        $paramType = "sssi";
+        $query = "INSERT INTO tbl_contacttype (name,status) VALUES (?, ?)";
+        $paramType = "ss";
         $paramValue = array(
             $name, 
-            $status, 
-           
-            $createdBy
+            $status
+          
         );
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
 
@@ -48,14 +47,11 @@ class Contacttype
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
        
-        $query = "UPDATE tbl_contacttype SET name = ?,status=?, last_updated = ?, last_updatedDateTime = ? WHERE id = ?";
-        $paramType = "ssssi";
+        $query = "UPDATE tbl_contacttype SET name = ?,status=? WHERE id = ?";
+        $paramType = "ssi";
         $paramValue = array(
             $name, 
             $status, 
-            
-            $last_updated,
-            $last_updatedDateTime,
             $id
         );        
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
@@ -80,9 +76,9 @@ class Contacttype
         $this->db_handle->update($query, $paramType, $paramValue);
     }
 
-    function validateDuplicates_Add($name, $code) 
+    function validateDuplicates_Add($name, $status) 
     {
-        $sql = "SELECT name FROM tbl_contacttype  WHERE code = '$code' OR name = '$name'";
+        $sql = "SELECT name FROM tbl_contacttype  WHERE name = '$name' AND status = '$status'";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);
         if($count>0){ //Record Exists with same Name or Code
@@ -93,9 +89,9 @@ class Contacttype
         }
     }
 
-    function validateDuplicates_Edit($id, $name, $code) 
+    function validateDuplicates_Edit( $name, $status,$id) 
     {
-        $sql = "SELECT name FROM tbl_contacttype  WHERE id != $id AND (code = '$code' OR name = '$name');";
+        $sql = "SELECT name FROM tbl_contacttype  WHERE id != $id AND name = '$name' AND status = '$status';";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);
         if($count>0){ //Record Exists with same Name or Code

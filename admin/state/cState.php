@@ -36,16 +36,16 @@ switch ($action) {
         break;
     
     case "states-edit":
-        $state_id = $_GET["id"];
-        $status = new State();
+        $id = $_GET["id"];
+        $states = new States();
         if (isset($_POST['add'])){
         
             $state = $_POST['state'];
             $country = $_POST['country'];
-        $states->editStates($state,  $country, $state_id);
+        $states->editStates($state,  $country, $id);
         header("Location: ../../admin/state/cState.php");
         }
-        $result = $states->getStatesById($State_id);
+        $result = $states->getStatesById($id);
         require_once "../../admin/state/state-edit.php";
         break;
     

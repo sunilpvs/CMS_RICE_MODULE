@@ -10,15 +10,14 @@ class Costcentertype
         $this->db_handle = new DBController();
     }
     
-    function addCostcentertype( $cc_type,  $createdBy) {
+    function addCostcentertype($cc_type) {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
             $this->db_handle->beginTrans();
             try{
-        $query = "INSERT INTO tbl_city (city,state,country,createdBy) VALUES (?, ?)";
-        $paramType = "si";
+        $query = "INSERT INTO tbl_costcentertype (cc_type) VALUES (?)";
+        $paramType = "s";
         $paramValue = array(
-            $cc_type, 
-            $createdBy
+            $cc_type
         );
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
 
@@ -46,12 +45,10 @@ class Costcentertype
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
        
-        $query = "UPDATE tbl_costcentertype SET cc_type = ?,last_updated = ?, last_updatedDateTime = ? WHERE id = ?";
-        $paramType = "sssi";
+        $query = "UPDATE tbl_costcentertype SET cc_type = ? WHERE id = ?";
+        $paramType = "si";
         $paramValue = array(
             $cc_type, 
-            $last_updated,
-            $last_updatedDateTime,
             $id
         );        
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
@@ -76,9 +73,9 @@ class Costcentertype
         $this->db_handle->update($query, $paramType, $paramValue);
     }
 
-    function validateDuplicates_Add($name, $code) 
+    function validateDuplicates_Add($cc_type) 
     {
-        $sql = "SELECT name FROM tbl_city WHERE code = '$code' OR name = '$name'";
+        $sql = "SELECT * FROM tbl_costcentertype WHERE cc_type = '$cc_type'";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);
         if($count>0){ //Record Exists with same Name or Code
@@ -89,9 +86,9 @@ class Costcentertype
         }
     }
 
-    function validateDuplicates_Edit($id, $name, $code) 
+    function validateDuplicates_Edit($cc_type, $id) 
     {
-        $sql = "SELECT name FROM tbl_state WHERE id != $id AND (code = '$code' OR name = '$name');";
+        $sql = "SELECT * FROM tbl_costcentertype WHERE id != $id AND cc_type = '$cc_type' ";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);
         if($count>0){ //Record Exists with same Name or Code

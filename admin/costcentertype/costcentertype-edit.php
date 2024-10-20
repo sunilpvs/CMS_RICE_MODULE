@@ -23,38 +23,36 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault02" class="info">Costcenter Type</label><span id="cc_type-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="cc_type" name= "city" placeholder="Costcenter Type" value="<?php echo $row1["cc_type"]; ?>"  required>
+      <input type="text" class="form-control demoInputBox" id="cc_type" name= "cc_type" placeholder="Costcenter Type" value="<?php echo $row1["cc_type"]; ?>"  onchange="validateDuplicates()" required>
     </div>
 
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>      
         function validateDuplicates()
         {
-            var desid = $("#designation_id").val();
-            var desname = $("#name").val();
-            var descode = $("#code").val();  
-            if(desname != "" && descode != "")
+            var costid = $("#id").val();
+            var cc_type = $("#cc_type").val();  
+            if(cc_type != "" )
             {
                 //alert("Name and Code entered for validation");
                 $.ajax(
                 {
                     url:"check-duplicates-edit.php",
                     type:"POST",
-                    data:{id:desid,name:desname,code:descode},
+                    data:{id:costid,cc_type:cc_type},
                     success:function(mydata)
                     {
-                        $("#name-info").html(mydata);
-                        $("#code-info").html(mydata);
+                        $("#cc_type-info").html(mydata);
                     } 
                 }
                 )
             }
         }
-    </script> -->
+    </script>
 
 
     <div class="col-md-4 mb-3">
-          <input type="hidden" class="form-control demoInputBox" id="designation_id" name= "designation_id" placeholder="Commodity" value="<?php echo $row1["id"]; ?>">
+          <input type="hidden" class="form-control demoInputBox" id="id" name= "id" placeholder="id" value="<?php echo $row1["id"]; ?>">
     </div>
 
   </div>

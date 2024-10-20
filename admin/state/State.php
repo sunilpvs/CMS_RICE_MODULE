@@ -75,9 +75,9 @@ class States
         $this->db_handle->update($query, $paramType, $paramValue);
     }
 
-    function validateDuplicates_Add($name, $code) 
+    function validateDuplicates_Add($state, $country) 
     {
-        $sql = "SELECT name FROM tbl_state WHERE code = '$code' OR name = '$name'";
+         $sql = "SELECT * FROM tbl_state WHERE state = '$state' AND country = '$country';";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);
         if($count>0){ //Record Exists with same Name or Code
@@ -88,9 +88,9 @@ class States
         }
     }
 
-    function validateDuplicates_Edit($id, $name, $code) 
+    function validateDuplicates_Edit($state, $country, $id) 
     {
-        $sql = "SELECT name FROM tbl_designation WHERE id != $id AND (code = '$code' OR name = '$name');";
+        $sql = "SELECT * FROM tbl_city WHERE id != $id AND state = '$state' AND country = '$country');";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);
         if($count>0){ //Record Exists with same Name or Code
@@ -101,7 +101,7 @@ class States
         }
     }
         
-    function getStateById($id) {
+    function getStatesById($id) {
         $query = "SELECT * FROM tbl_state WHERE id = ?";
         $paramType = "i";
         $paramValue = array(
@@ -112,7 +112,7 @@ class States
         return $result;
     }
     
-    function getAllstate() {
+    function getAllstates() {
         $sql = "SELECT * FROM tbl_state ORDER BY id";
         $result = $this->db_handle->runBaseQuery($sql);
         return $result;

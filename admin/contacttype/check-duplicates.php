@@ -1,10 +1,10 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] .'/configurations/designation/Designation.php');
-    $desname = $_POST['name'];
-    $descode = $_POST['code'];
+    require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/contacttype/Contacttype.php');
+    $name = $_POST['name'];
+    $status = $_POST['status'];
     
-    $des = new Designation();
-    $result = $des->validateDuplicates_Add($desname,$descode);
+    $des = new Contacttype();
+    $result = $des->validateDuplicates_Add($name,$status);
     if(!$result)
     {
         echo "<span style='color:red'> *duplicate record.</span>";
