@@ -83,14 +83,6 @@
               <a class="collapse-item" href="../../manage-compartment">Manage Compartment</a>
               <a class="collapse-item" href="../../outward-lease">Outward lease</a>      
               <a class="collapse-item" href="../../inward-lease">Inward Lease</a>
-              <a class="collapse-item" href="../../warehouse">Warehouse Master</a>
-              <a class="collapse-item" href="../../lessor">Lessor Master</a>
-              <!-- Divider -->
-              <hr class="sidebar-divider"><hr>
-              <a class="collapse-item" href="../../delivery">Delivery Master</a>
-              <a class="collapse-item" href="../../commodity">Commodity Master</a>
-              <a class="collapse-item" href="../../miller">Miller Master</a>
-
             </div>
           </div>
         </li>
@@ -98,26 +90,6 @@
   <?php
     }
   ?>     
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsereports" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Reports</span>
-          </a>
-            <div id="collapsereports" data-target="#collapsecreports" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded"> 
-            <h6 class="collapse-header">Stock Reports</h6>    
-
-              <a class="collapse-item" href="../../stock-rpt">Stock Report</a>
-              <!--
-                <a class="collapse-item" href="../../currentstock-rpt">Curent Stock</a>
-                <a class="collapse-item" href="../../outwardstock-rpt">Outward Stock</a>
-                <a class="collapse-item" href="../../inwardstock-rpt">Inward Stock</a>
-              -->
-              <a class="collapse-item" href="../../outwardleases-rpt">Outward Lease</a>
-              <a class="collapse-item" href="../../inwardleases-rpt">Inward Lease</a>
-            </div>
-          </div>           
-        </li>
 
 
         <!-- <li class="nav-item">
@@ -163,18 +135,59 @@
           <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Master Data Entries:</h6>
+              <!--
               <a class="collapse-item" href="../../entity">Entity Master</a>
               <a class="collapse-item" href="../../costcenter">Branch Master</a>
+              -->
               <a class="collapse-item" href="../../customer">Customer Master</a>
               <a class="collapse-item" href="../../vendor">Vendor/Supplier Master</a>
+              <!-- Divider -->
+              <hr class="sidebar-divider"><hr>
+              <a class="collapse-item" href="../../lessor">Lessor Master</a>
+              <a class="collapse-item" href="../../warehouse">Warehouse Master</a>
+              <!-- Divider -->
+              <hr class="sidebar-divider"><hr>
+              <a class="collapse-item" href="../../delivery">Delivery Master</a>
+              <a class="collapse-item" href="../../commodity">Commodity Master</a>
+              <a class="collapse-item" href="../../miller">Miller Master</a>
             </div>
           </div>
         </li>
         <?php
               }
-              if($myrole == 1 || $myrole == 2 || $myrole == 3)
+
+              if($myrole == 1 || $myrole == 2 || $myrole == 3 || $myrole == 4)
               {
-        ?>        
+
+        ?>   
+        
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsereports" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Reports</span>
+          </a>
+            <div id="collapsereports" data-target="#collapsecreports" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded"> 
+            <h6 class="collapse-header">Stock Reports</h6>    
+
+              <a class="collapse-item" href="../../stock-rpt">Stock Report</a>
+              <!--
+                <a class="collapse-item" href="../../currentstock-rpt">Curent Stock</a>
+                <a class="collapse-item" href="../../outwardstock-rpt">Outward Stock</a>
+                <a class="collapse-item" href="../../inwardstock-rpt">Inward Stock</a>
+              -->
+              <a class="collapse-item" href="../../outwardleases-rpt">Outward Lease</a>
+              <a class="collapse-item" href="../../inwardleases-rpt">Inward Lease</a>
+            </div>
+          </div>           
+        </li>
+
+        <?php
+          }
+          if($myrole == 1 || $myrole == 2 || $myrole == 3)
+          {
+        ?>    
+
         <!-- Divider -->
         <hr class="sidebar-divider">
         <!-- Heading -->
@@ -191,6 +204,7 @@
           <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <?php
+          }
                 if($myrole == 1 || $myrole == 2 || $myrole == 3)
                 {
               ?>
@@ -206,7 +220,7 @@
                   <div class="collapse-divider"></div>
               <?php
                 }
-              }
+              
               ?>
             </div>
           </div>

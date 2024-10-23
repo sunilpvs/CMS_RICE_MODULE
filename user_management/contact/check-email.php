@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] .'/masters/contact/Contact.php');
+require_once($_SERVER['DOCUMENT_ROOT'] .'/user_management/contact/Contact.php');
 $email = $_POST['email'];
 $con = new Contact();
 $result = $con->validateEmail($email);

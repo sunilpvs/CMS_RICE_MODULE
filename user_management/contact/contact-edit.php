@@ -152,7 +152,7 @@
                     while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
                     {   
             ?> 
-            <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1["ContactType_Id"] ){ echo "Selected"; } ?> > <?php echo $row2["ctype"]; ?></option>
+            <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1["contacttype_id"] ){ echo "Selected"; } ?> > <?php echo $row2["ctype"]; ?></option>
             <?php   } 
                 }
             ?>
