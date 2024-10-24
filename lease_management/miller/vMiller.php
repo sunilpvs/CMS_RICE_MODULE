@@ -39,7 +39,7 @@ include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
             <td><?php echo $row["gst_num"]; ?></td>
             <td><?php echo $row["place"]; ?></td>
             <td><?php echo $row["add1"]; ?></td>
-            <td><?php if($row["status"]=="A") { echo "Active";} else { echo "De-Active";} ?></td>
+            <td><?php echo $row["status"];?></td>
             <td><a class="btnEditAction"
                 href="../../lease_management/miller/cMiller.php?action=miller-edit&id=<?php echo $row["id"]; ?>">
                 <img src="../../assests/img/icon-edit.png" />

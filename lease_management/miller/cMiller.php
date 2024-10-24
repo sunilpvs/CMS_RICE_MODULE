@@ -19,9 +19,10 @@
                 $place = $_POST['place'];
                 $add1 = $_POST['add1'];
                 $status = $_POST['status'];
+                $entity_id = $_SESSION['entity_id'];
                 $created_by = $_SESSION['id'];
                 $miller = new Miller(); 
-                $insertId = $miller->addMiller($miller_name, $gst_num, $place, $add1, $status, $created_by);
+                $insertId = $miller->addMiller($miller_name, $gst_num, $place, $add1, $status, $entity_id, $created_by);
                 if (empty($insertId)) {
                     $response = array(
                         "message" => "Problem in Adding New Record",
@@ -55,11 +56,6 @@
             break;
         
         case "miller-delete":
-
-            $miller_id = $_GET["id"];
-            $miller = new Miller();
-            $miller->deleteMiller($miller_id);
-            $result = $miller->getAllMiller();
             require_once "../../lease_management/miller/vMiller.php";
             break;
         

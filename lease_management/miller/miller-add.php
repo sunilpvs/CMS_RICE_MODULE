@@ -1,6 +1,6 @@
 <?php 
-  date_default_timezone_set('Asia/Kolkata');
-include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+    date_default_timezone_set('Asia/Kolkata');
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
 ?>
@@ -62,17 +62,28 @@ include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
     <div class="col-md-4 mb-3">
         <label for="validationDefault03" class="info">Address</label><span id="add1-info" class="info"></span>
         <input type="text" class="form-control demoInputBox" id="add1" name= "add1" placeholder="Address" required>
-    </div>
+    </div>     
+
+    <div class="col-md-4 mb-3">
+        <label for="validationDefault05" class="info">Status</label><span id="status-info" class="info"></span>
+        <select id="status" name="status" class="form-control demoInputBox">
+            <?php
+                $gen = new Generic();
+                $result2 = $gen->getModStatusList("GEN");
+                if (!empty($result2)) {
+                    while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+                    {   
+            ?> 
+            <option value=<?php echo $row2['id']; ?> > <?php echo $row2["status"]; ?></option>
+            <?php   } 
+                }
+            ?>
+            ?>   
+        </select>
+    </div> 
 
 
-      
-      <div class="col-md-4 mb-12">
-          <label for="validationDefault05" class="info">Status</label><span id="status-info" class="info"></span>
-          <select id="status" name="status" class="form-control demoInputBox">       
-              <option value = "A">Active </option>
-              <!-- <option value = "D">De-Active </option> -->
-          </select>
-       </div>
+
   </div> <br>
 </div>    
         <div class="container">

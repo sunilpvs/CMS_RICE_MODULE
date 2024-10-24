@@ -31,7 +31,7 @@
       <select id="status" name="status" class="form-control demoInputBox" onchange="validateDuplicates()">
             <?php
                 $emp = new Generic();
-                $result2 = $emp->getStatusList();
+                $result2 = $emp->getModStatusList("GEN");
                 if (!empty($result2)) {
                     while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
                     {   

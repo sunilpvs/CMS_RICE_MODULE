@@ -1,7 +1,7 @@
 <?php 
     date_default_timezone_set('Asia/Kolkata');
     require_once($_SERVER['DOCUMENT_ROOT'] .'/lease_management/lessor/Lessor.php');
-   include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
 
@@ -15,45 +15,43 @@
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h3 class="m-0 font-weight-bold text-primary">Edit Miller Details
-            
     </h3>
   </div>
 
 <div class="card-body">
-
 <form name="frmAdd" method="post" action="" id="frmAdd" onSubmit="return validate();">
-
 <div class="container">
     <div class="form-row">
-  
+
         <div class="col-md-4 mb-3"> 
                 <label for="validationDefault01" class="info">Miller Name</label><span id="miller_name-info" class="info"></span>
                 <input type="text" class="form-control demoInputBox" id="miller_name" name= "miller_name" placeholder="miller Name" value="<?php echo $row1["miller_name"]; ?>" required>
         </div>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-                <script>
-      
-	                $(document).ready(function()
-	                {
-                        $("#miller_name").on("focusout",function()
-                        {
-                        var miller_id = $("#miller_id").val();    
-		                var millername = $("#miller_name").val();
-		                $.ajax(
-		                {
-			            url:"check-millername-edit.php",
-			            type:"POST",
-			            data:{miller_id:miller_id,miller_name:millername},
-			            success:function(mydata)
-			             {
-                        $("#miller_name-info").html(mydata);
-			             } 
-		                }
-		                )
-                        }
-  
-                        )})
-                </script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+
+            $(document).ready(function()
+            {
+                $("#miller_name").on("focusout",function()
+                {
+                var miller_id = $("#miller_id").val();    
+                var millername = $("#miller_name").val();
+                $.ajax(
+                {
+                url:"check-millername-edit.php",
+                type:"POST",
+                data:{miller_id:miller_id,miller_name:millername},
+                success:function(mydata)
+                    {
+                $("#miller_name-info").html(mydata);
+                    } 
+                }
+                )
+                }
+
+                )})
+        </script>
  
         <div class="col-md-4 mb-3">
             <label for="validationDefault02" class="info">GST Number</label><span id="gst_num-info" class="info"></span>
@@ -70,15 +68,23 @@
             <input type="text" class="form-control demoInputBox" id="add1" name= "add1" placeholder="Address" value="<?php echo $row1["add1"]; ?>" required>
         </div>
 
-
         <div class="col-md-4 mb-3">
-                <label for="validationDefault10" class="info">Status</label><span id="status-info" class="info"></span>
-                <select id="status" name="status" class="form-control demoInputBox">
-                    <option value="A" <?php if($row1["status"] == "A"){ echo "Selected";} ?> >Active</option>    
-                    <option value="D" <?php if($row1["status"] == "D"){ echo "Selected";} ?>>De-Active</option>   
-                </select>
-        </div>
-        
+            <label for="validationDefault10" class="info">Status</label><span id="status-info" class="info"></span>
+            <select id="status" name="status" class="form-control demoInputBox">
+            <?php
+                $gen = new Generic();
+                $result2 = $gen->getModStatusList("GEN");
+                if (!empty($result2)) {
+                    while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+                    {   
+            ?> 
+            <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1["status"] ){ echo "Selected"; } ?> > <?php echo $row2["status"]; ?></option>
+            <?php   } 
+                }
+            ?>               
+            </select>
+        </div>         
+
         <div class="col-md-4 mb-3">
                 <input type="hidden" class="form-control demoInputBox" id="miller_id" name= "miller_id" placeholder="Miller" value="<?php echo $row1["id"]; ?>">
         </div>

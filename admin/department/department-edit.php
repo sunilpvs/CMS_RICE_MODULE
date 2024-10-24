@@ -1,8 +1,8 @@
 <?php 
     date_default_timezone_set('Asia/Kolkata');
-    #require_once($_SERVER['DOCUMENT_ROOT'] .'/class/DBController.php'); 
     require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/department/Department.php');
-    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php'); 
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/adm-navbar.php');
 
     if (!empty($result)){
@@ -38,12 +38,21 @@
     </div>
 
     <div class="col-md-4 mb-3">
-        <label for="validationDefault10" class="info">Status</label><span id="Status-info" class="info"></span>
-        <select id="status" name="status" class="form-control demoInputBox">
-            <option value="A" <?php if($row1["status"] == "A"){ echo "Selected";} ?> >Active</option>    
-            <option value="D" <?php if($row1["status"] == "D"){ echo "Selected";} ?>>De-Active</option>   
+      <label for="validationDefault01" class="info">Status</label><span id="status-info" class="info"></span>
+      <select id="status" name="status" class="form-control demoInputBox">
+            <?php
+                $emp = new Generic();
+                $result2 = $emp->getModStatusList("GEN");
+                if (!empty($result2)) {
+                    while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+                    {   
+            ?> 
+            <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1["status"] ){ echo "Selected"; } ?> > <?php echo $row2["status"]; ?></option>
+            <?php   } 
+                }
+            ?>               
         </select>
-    </div>
+    </div> 
 
     <div class="col-md-4 mb-3">
            <input type="hidden" class="form-control demoInputBox" id="department_id" name= "department_id" placeholder="" value="<?php echo $row1["id"]; ?>">

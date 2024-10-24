@@ -10,78 +10,83 @@ class Miller
         $this->db_handle = new DBController();
     }
     
-    function addMiller($miller_name, $gst_num, $place, $add1, $status, $created_by) 
+    function addMiller($miller_name, $gst_num, $place, $add1, $status, $entity_id, $created_by) 
     {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
-            $this->db_handle->beginTrans();
-            try{
-        $query = "INSERT INTO tbl_miller(miller_name, gst_num, place, add1,status,created_by)  VALUES (?, ?, ?, ?, ?, ?);";
-        $paramType = "sssssi";
-        $paramValue = array(
-            $miller_name, 
-            $gst_num, 
-            $place, 
-            $add1,
-            $status,
-            $created_by
-        );
-        $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
+        $this->db_handle->beginTrans();
+        try{
+            $query = "INSERT INTO tbl_miller(miller_name, gst_num, place, add1,status,entity_id, created_by)  VALUES (?, ?, ?, ?, ?, ?, ?);";
+            $paramType = "ssssiii";
+            $paramValue = array(
+                $miller_name, 
+                $gst_num, 
+                $place, 
+                $add1,
+                $status,
+                $entity_id,
+                $created_by
+            );
+            $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
 
-        //Adding Transaction Log
-        $activity = "New Miller-Name added with ID: $insertId";
-        $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
-        $paramType = "sii";
-        $paramValue = array(
-            $activity,
-            $created_by,
-			$insertId
-        );
-		$transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-         $this->db_handle->commitTrans();
+            //Adding Transaction Log
+            $activity = "New Miller-Name added with ID: $insertId";
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
+            $paramType = "sii";
+            $paramValue = array(
+                $activity,
+                $created_by,
+                $insertId
+            );
+            $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+            $this->db_handle->commitTrans();
             return $insertId;
             }catch (\Throwable $e){
             // An exception has been thrown
             // We must rollback the transaction
             $this->db_handle->rollbackTrans();
             throw $e; // but the error must be handled anyway
-        }
-        }
-
-    
+            }
+        }  
     
     function editMiller($miller_name, $gst_num, $place, $add1,$status, $miller_id) 
     {
         $last_updated = $_SESSION['id'];
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
         
-        $query = "UPDATE tbl_miller SET miller_name=?, gst_num=?, place=?, add1=?, status=?, last_updated=? ,last_updateddatetime=? WHERE id=?";
-        
-        $paramType = "sssssisi";
-        $paramValue = array(
-            $miller_name, 
-            $gst_num, 
-            $place, 
-            $add1,
-            $status,
-            $last_updated,
-            $last_UpdatedDateTime,
-            $miller_id
-        );
-        $updateid = $this->db_handle->insert($query, $paramType, $paramValue);
+        $this->db_handle->beginTrans();
+        try{
+            $query = "UPDATE tbl_miller SET miller_name=?, gst_num=?, place=?, add1=?, status=?, last_updated=? ,last_updateddatetime=? WHERE id=?";
+            $paramType = "sssssisi";
+            $paramValue = array(
+                $miller_name, 
+                $gst_num, 
+                $place, 
+                $add1,
+                $status,
+                $last_updated,
+                $last_UpdatedDateTime,
+                $miller_id
+            );
+            $updateid = $this->db_handle->insert($query, $paramType, $paramValue);
 
-        //Adding Transaction Log
-        $activity = "Miller-Name details updated Lessor ID: $miller_id";
-        $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
-        $paramType = "sii";
-        $paramValue = array(
-            $activity,
-            $last_updated,
-			$miller_id
-        );
-		$transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-
+            //Adding Transaction Log
+            $activity = "Miller-Name details updated Lessor ID: $miller_id";
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
+            $paramType = "sii";
+            $paramValue = array(
+                $activity,
+                $last_updated,
+                $miller_id
+            );
+            $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+        $this->db_handle->commitTrans();
         return $updateid;
-
+        }catch (\Throwable $e){
+        // An exception has been thrown
+        // We must rollback the transaction
+        $this->db_handle->rollbackTrans();
+        throw $e; // but the error must be handled anyway
+        }
     }
     
     function deleteMiller($miller_id) 
@@ -129,7 +134,7 @@ class Miller
     }
      
     function getAllMiller() {
-        $sql = "SELECT * FROM tbl_miller";
+        $sql = "SELECT * FROM vw_millers";
         $result = $this->db_handle->runBaseQuery($sql);
         return $result;
     }

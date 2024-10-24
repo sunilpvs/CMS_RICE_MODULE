@@ -1,5 +1,4 @@
 <?php 
-    #require_once($_SERVER['DOCUMENT_ROOT'] .'/web/header.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
@@ -86,23 +85,6 @@
       <label for="validationDefault01" class="info">Empty Bag Weight</label><span id="empty_bag_wt-info" class="info"></span>
       <input type="text" class="form-control demoInputBox" id="empty_bag_wt" name= "empty_bag_wt" min="0" max="1000" step="0.001" placeholder="00.00" required>
     </div>
-
-    <!-- <div class="col-md-4 mb-3">
-        <label for="validationDefault03" class="info">Inward Mode</label><span id="inwardmode-info" class="info"></span>
-        <select id="inwardmode" name="inwardmode" class="form-control demoInputBox">
-          <?php
-              //$gen = new Generic();
-              //$result = $gen->getInwardmodeTypeList();
-              //if (!empty($result)) {
-              //    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-                  //{   
-          ?> 
-          <option value=<?php //echo $row['id']; ?>> <?php //echo $row["name"] ?></option>
-          <?php   //} 
-              //}
-          ?>         
-       </select>
-    </div> -->
 </div>
 </div><br>
     

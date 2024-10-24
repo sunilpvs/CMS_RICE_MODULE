@@ -1,14 +1,12 @@
 <?php 
-    #require_once($_SERVER['DOCUMENT_ROOT'] .'/web/header.php');
-include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/adm-navbar.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
 ?>
 <div class="container-fluid">
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h3 class="m-0 font-weight-bold text-primary">New Department Details
-            
+    <h3 class="m-0 font-weight-bold text-primary">New Department Details            
     </h3>
   </div>
 
@@ -56,12 +54,21 @@ include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
     </script> 
     
     <div class="col-md-4 mb-3">
-        <label for="validationDefault05" class="info">Status</label><span id="status-info" class="info"></span>
-        <select id="status" name="status" class="form-control demoInputBox">       
-            <option value = "A">Active </option>
-            <option value = "D">De-Active </option>
+      <label for="validationDefault01" class="info">Status</label><span id="status-info" class="info"></span>
+      <select id="status" name="status" class="form-control demoInputBox">
+            <?php
+                $emp = new Generic();
+                $result2 = $emp->getModStatusList("GEN");
+                if (!empty($result2)) {
+                    while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+                    {   
+            ?> 
+            <option value=<?php echo $row2['id']; ?> > <?php echo $row2["status"]; ?></option>
+            <?php   } 
+                }
+            ?>
         </select>
-        </div>
+    </div> 
 
   </div>
   </div>

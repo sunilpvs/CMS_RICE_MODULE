@@ -1,8 +1,7 @@
 <?php 
     date_default_timezone_set('Asia/Kolkata');
-    #require_once($_SERVER['DOCUMENT_ROOT'] .'/web/header.php');
     require_once($_SERVER['DOCUMENT_ROOT'] .'/lease_management/commodity/Commodity.php');
-  include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
     if (!empty($result))
@@ -96,12 +95,19 @@
     </div>
   
     <div class="col-md-4 mb-3">
-        <label for="validationDefault10" class="info">Status</label><span id="status-info" class="info"></span>
-        <select id="status" name="status" class="form-control demoInputBox">
-            <option value="A" <?php if($row1["status"] == "A"){ echo "Selected";} ?> >Active</option>    
-            <option value="D" <?php if($row1["status"] == "D"){ echo "Selected";} ?>>De-Active</option>   
-            <option value="S" <?php if($row1["status"] == "S"){ echo "Selected";} ?>>Suspended</option>
-            <option value="E" <?php if($row1["status"] == "E"){ echo "Selected";} ?>>Expired</option>
+      <label for="validationDefault10" class="info">Status</label><span id="status-info" class="info"></span>
+      <select id="status" name="status" class="form-control demoInputBox">
+            <?php
+                $emp = new Generic();
+                $result2 = $emp->getModStatusList("GEN");
+                if (!empty($result2)) {
+                    while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+                    {   
+            ?> 
+            <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1["status"] ){ echo "Selected"; } ?> > <?php echo $row2["status"]; ?></option>
+            <?php   } 
+                }
+            ?>               
         </select>
     </div>
 
