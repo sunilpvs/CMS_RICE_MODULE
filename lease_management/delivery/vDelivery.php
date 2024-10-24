@@ -20,9 +20,8 @@ include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
     <thead style="background-color:#4e73df;">
         
         <tr style="font-size:14px;">  
-            <th><strong>Delivery</strong></th> 
-            <th ><strong>Particulars</strong></th>
-            <th><strong>Status</strong></th>
+            <th><strong>Id</strong></th> 
+            <th ><strong>Delivery Details</strong></th>
             <th><strong>Actions</strong></th>  
         </tr>
     </thead>
@@ -33,17 +32,18 @@ include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
             {    
         ?>
         <tr style="font-size:12px;">                
-            <td><?php echo $row["delivery_name"]; ?></td>
-            <td><?php echo $row["particulars"]; ?></td>
-            <td><?php if($row["status"]=="A") { echo "Active";} else { echo "De-Active";} ?></td>
-            <td><a class="btnEditAction"
-                href="../../lease_management/delivery/cDelivery.php?action=delivery-edit&id=<?php echo $row["id"]; ?>">
+            <td><?php echo $row["id"]; ?></td>
+            <td><?php echo $row["name"]; ?></td>
+
+            <td>
+              <a class="btnEditAction" href="../../lease_management/delivery/cDelivery.php?action=delivery-edit&id=<?php echo $row["id"]; ?>">
                 <img src="../../assests/img/icon-edit.png" />
-                </a>
-               <a class="btnDeleteAction" 
-                href="../../lease_management/delivery/cDelivery.php?action=delivery-delete&id=<?php echo $row["id"]; ?>">
+              </a>
+            <!--  
+              <a class="btnDeleteAction" href="../../lease_management/delivery/cDelivery.php?action=delivery-delete&id=<?php //echo $row["id"]; ?>">
                 <img src="../../assests/img/icon-delete.png" />
-                </a> 
+              </a> 
+            -->
             </td>
         </tr>
         <?php

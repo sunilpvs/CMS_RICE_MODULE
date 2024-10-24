@@ -1,6 +1,6 @@
 <?php 
-  date_default_timezone_set('Asia/Kolkata');
-include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+    date_default_timezone_set('Asia/Kolkata');
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
 ?>
@@ -46,12 +46,13 @@ include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
         )})
     </script>
 
+  <!--
     <div class="col-md-4 mb-3">
         <label for="validationDefault02" class="info">Particulars</label><span id="particulars-info" class="info"></span>
         <input type="text" class="form-control demoInputBox" id="particulars" name= "particulars" placeholder="Particulars" required>
     </div>
        
-      <!--<div class="col-md-4 mb-12">
+      <div class="col-md-4 mb-12">
           <label for="validationDefault05" class="info">Status</label><span id="status-info" class="info"></span>
           <select id="status" name="status" class="form-control demoInputBox">       
               <option value = "A">Active </option>
@@ -84,14 +85,7 @@ function validate() {
         $("#delivery_name").css('background-color','#FFFFDF');
         valid = false;
     }
-    
-    if(!$("#particulars").val()) {
-        $("#particulars-info").html("(required)");
-        $("#particulars").css('background-color','#FFFFDF');
-        valid = false;
-    }
-    
-    
+      
     return valid;
 }
 </script>

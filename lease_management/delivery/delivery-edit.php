@@ -1,10 +1,9 @@
 <?php 
     date_default_timezone_set('Asia/Kolkata');
     require_once($_SERVER['DOCUMENT_ROOT'] .'/lease_management/delivery/Delivery.php');
-   include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
-
     if (!empty($result))
     {
         $row1 = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -29,7 +28,7 @@
         
        <div class="col-md-4 mb-3">
           <label for="validationDefault03" class="info">Delivery</label><span id="delivery_name-info" class="info"></span>
-          <input type="text" class="form-control demoInputBox" id="delivery_name" name= "delivery_name" placeholder="Delivery Name"  value="<?php echo $row1["delivery_name"]; ?>"  required>
+          <input type="text" class="form-control demoInputBox" id="delivery_name" name= "delivery_name" placeholder="Delivery Name"  value="<?php echo $row1["name"]; ?>"  required>
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -56,21 +55,6 @@
   
                         )})
                 </script>
-
-        <div class="col-md-4 mb-3">
-          <label for="validationDefault02" class="info">Particulars</label><span id="particulars-info" class="info"></span>
-          <input type="text" class="form-control demoInputBox" id="particulars" name= "particulars" placeholder="Particulars" value="<?php echo $row1["particulars"]; ?>">
-        </div>
-           
-
-
-        <div class="col-md-4 mb-3">
-                <label for="validationDefault10" class="info">Status</label><span id="status-info" class="info"></span>
-                <select id="status" name="status" class="form-control demoInputBox">
-                    <option value="A" <?php if($row1["status"] == "A"){ echo "Selected";} ?> >Active</option>    
-                    <option value="D" <?php if($row1["status"] == "D"){ echo "Selected";} ?>>De-Active</option>   
-                </select>
-        </div>
         
         <div class="col-md-4 mb-3">
                 <input type="hidden" class="form-control demoInputBox" id="delivery_id" name= "delivery_id" placeholder="Delivery" value="<?php echo $row1["id"]; ?>">
@@ -102,20 +86,7 @@ function validate() {
         $("#delivery_name-info").html("(required)");
         $("#delivery_name").css('background-color','#FFFFDF');
         valid = false;
-    }
-    
-    if(!$("#particulars").val()) {
-        $("#particulars-info").html("(required)");
-        $("#particulars").css('background-color','#FFFFDF');
-        valid = false;
-    }
-
-    if(!$("#status").val()) {
-        $("#status-info").html("(required)");
-        $("#status").css('background-color','#FFFFDF');
-        valid = false;
-    }
-    
+    }    
     return valid;
 }
 </script>
