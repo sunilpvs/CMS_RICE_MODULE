@@ -21,12 +21,11 @@ switch ($action) {
             $brand = $_POST['brand'];
             $marking = $_POST['marking'];
             $empty_bag_wt = $_POST['empty_bag_wt'];
-            $inwardmode = $_POST['inwardmode'];
             $bag_wt = $_POST['bag_wt'];
-            //$status = $_POST['status'];
+            $entity_id = $_SESSION['entity_id'];
             $id = $_SESSION['id'];
             $commodity = new Commodity();
-            $insertId = $commodity->addCommodity($commodity_name,$cargo_type,$brand,$marking,$empty_bag_wt,$inwardmode,$bag_wt,$id);
+            $insertId = $commodity->addCommodity($commodity_name, $cargo_type, $brand, $marking, $empty_bag_wt, $bag_wt, $entity_id, $id);
             if (empty($insertId)) {
                 $response = array(
                     "message" => "Problem in Adding New Record",

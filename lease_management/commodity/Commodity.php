@@ -9,13 +9,13 @@ class Commodity
         $this->db_handle = new DBController();
     }
     
-    function addCommodity($commodity_name,$cargo_type, $brand,$marking,$empty_bag_wt,$inwardmode,$bag_wt,$created_by) 
+    function addCommodity($commodity_name, $cargo_type, $brand, $marking, $empty_bag_wt, $bag_wt, $entity_id, $created_by) 
     {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
         $this->db_handle->beginTrans();
         try{
-            $query = "INSERT INTO tbl_commodity (commodity_name,cargo_type,brand,marking,empty_bag_wt, bag_wt , status, created_by) VALUES (?,?,?,?,?,?,?,?)";
-            $paramType = "sisssiii";
+            $query = "INSERT INTO tbl_commodity (commodity_name, cargo_type, brand, marking, empty_bag_wt, bag_wt, status, entity_id, created_by) VALUES (?,?,?,?,?,?,?,?,?)";
+            $paramType = "sisssiiii";
             $paramValue = array(
                 $commodity_name,
                 $cargo_type,
@@ -24,6 +24,7 @@ class Commodity
                 $empty_bag_wt,
                 $bag_wt,
                 1,
+                $entity_id,
                 $created_by
             );
             $insertId = $this->db_handle->insert($query, $paramType, $paramValue);

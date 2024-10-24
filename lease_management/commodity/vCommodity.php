@@ -41,12 +41,14 @@
         <td><?php echo $row["marking"]; ?></td>
         <td><?php echo $row["bag_wt"]; ?></td>
         <td><?php echo $row["empty_bag_wt"]; ?></td>
-        <td><?php if($row["status"] == "A"){echo "Active";} else {echo "De-Active";} ?></td>
+        <td><?php echo $row["status"]; ?></td>
         <td>
             <a class="btnEditAction" href="/lease_management/commodity/cCommodity.php?action=commodity-edit&id=<?php echo $row["id"]; ?>">
             <img src="../../assests/img/icon-edit.png" /> </a>
-            <a class="btnDeleteAction" href="/lease_management/commodity/cCommodity.php?action=commodity-delete&id=<?php echo $row["id"]; ?>">
+          <!--
+            <a class="btnDeleteAction" href="/lease_management/commodity/cCommodity.php?action=commodity-delete&id=<?php //echo $row["id"]; ?>">
             <img src="../../assests/img/icon-delete.png" /> </a>
+          -->
         </td>
       </tr>
       <?php          
