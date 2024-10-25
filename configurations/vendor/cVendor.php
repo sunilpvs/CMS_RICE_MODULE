@@ -25,10 +25,11 @@ switch ($action) {
             $country = $_POST['country'];
             $primary_contact = $_POST['primary_contact'];
             $status = $_POST['status'];
+            $entity_id = $_SESSION['entity_id'];
             $created_by = $_SESSION['id'];
 
             $ven = new Vendor(); 
-            $insertId = $ven->addVendor($vendor_name, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status, $created_by);
+            $insertId = $ven->addVendor($vendor_name, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status, $entity_id, $created_by);
             if (empty($insertId)) {
                 $response = array(
                     "message" => "Problem in Adding New Record",

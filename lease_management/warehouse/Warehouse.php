@@ -11,13 +11,13 @@ class Warehouse
             $this->db_handle = new DBController();
         }
     
-        function addWarehouse($warehouse_name, $code, $lessor_id, $add1, $add2, $city, $state, $pin, $country, $capacity_sqft, $capacity_mton, $primary_contact, $status, $created_by) 
+        function addWarehouse($warehouse_name, $code, $lessor_id, $add1, $add2, $city, $state, $pin, $country, $capacity_sqft, $capacity_mton, $primary_contact, $status, $entity_id,$created_by) 
         {
             $last_UpdatedDateTime =  date("Y-m-d H:i:s");
             $this->db_handle->beginTrans();
             try{
-            $query = "INSERT INTO tbl_warehouse (warehouse_name, code, lessor_id, add1 , add2, city, state, pin, country, capacity_sqft, capacity_mton,avl_sqft,avl_mton, primary_contact, status, created_by) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-            $paramType = "ssissiiiiiiiiisi";
+            $query = "INSERT INTO tbl_warehouse (warehouse_name, code, lessor_id, add1 , add2, city, state, pin, country, capacity_sqft, capacity_mton,avl_sqft,avl_mton, primary_contact, status,entity_id, created_by) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            $paramType = "ssissiiiiiiiiisii";
             $paramValue = array(
                 $warehouse_name,
                 $code,
@@ -34,6 +34,7 @@ class Warehouse
                 $capacity_mton, //avl_mton
                 $primary_contact,
                 $status,
+                $entity_id,
                 $created_by
             );
             $insertId = $this->db_handle->insert($query, $paramType, $paramValue);

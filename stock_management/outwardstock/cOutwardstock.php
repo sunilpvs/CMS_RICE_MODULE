@@ -39,11 +39,12 @@ switch ($action) {
             $outward_diff_gross= $_POST['outward_diff_gross']; 
             $outward_diff_net= $_POST['outward_diff_net'];
             $remarks = $_POST['remarks'];
+            $entity_id = $_SESSION['entity_id'];
             $id = $_SESSION['id'];
             $outwardstock = new Outwardstock();
             $insertId = $outwardstock->addOutwardstock($customer_id, $warehouse_id, $compartment_id, $commodity_id, $transport_id, $outward_date, $dc_no, $dc_date, 
                                     $bags_out, $vehicle_no, $current_bags_stock, $delivery_dtl, $outward_gross_wt, $outward_net_wt, $outward_wb_gross_wt, 
-                                    $outward_wb_net_wt, $outward_diff_gross, $outward_diff_net,$remarks,$id);
+                                    $outward_wb_net_wt, $outward_diff_gross, $outward_diff_net,$remarks,$entity_id,$id);
 
             //$insertId = $outwardstock->addOutwardstock($outward_date, $dc_no, $dc_date, $commodity_id, $comp_id, $vehicle_no, $current_bags_stock, $bags_out, $delivery_dtl,$outward_gross_wt,$outward_net_wt,$outward_wb_gross_wt, $outward_wb_net_wt, $outward_diff_gross, $outward_diff_net,$remarks,$id);
             if (empty($insertId)) {

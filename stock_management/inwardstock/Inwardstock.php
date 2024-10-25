@@ -18,7 +18,7 @@
         function addInwardstock($customer, $warehouse, $compartment_id, $commodity_id, $mod_transport,
                 $vehicle_no, $received_date, $invoice_date, $invoice_no, $miller_id, $inward_bags_stock,
                 $inward_gross_wt, $inward_net_wt, $inward_wb_gross_wt, $inward_wb_net_wt, $inward_diff_gross,  
-                $inward_diff_net, $current_bags_stock, $remarks, $created_by)
+                $inward_diff_net, $current_bags_stock, $remarks, $entity_id, $created_by)
         {
             $last_UpdatedDateTime =  date("Y-m-d H:i:s");
             $this->db_handle->beginTrans();
@@ -26,8 +26,8 @@
             $query =    "INSERT INTO tbl_inwardstock (customer_id, warehouse_id, received_date, invoice_date, invoice_no, ";  
             $query .=   " miller_id, commodity_id, mod_transport, compartment_id, vehicle_no, inward_bags_stock, ";
             $query .=   " inward_gross_wt, inward_net_wt, inward_wb_gross_wt, inward_wb_net_wt, inward_diff_gross, ";
-            $query .=   " inward_diff_net, current_bags_stock, remarks, created_by)  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?)"; 
-            $paramType = "iisssiiiisissssssisi";
+            $query .=   " inward_diff_net, current_bags_stock, remarks, entity_id, created_by)  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?)"; 
+            $paramType = "iisssiiiisissssssisii";
             $paramValue = array(
                 $customer,
                 $warehouse,
@@ -50,7 +50,8 @@
                 $inward_diff_gross, 
                 $inward_diff_net,
                 $inward_bags_stock, //$current_bags_stock,
-                $remarks,                
+                $remarks,
+                $entity_id,                
                 $created_by
             );
             $insertId = $this->db_handle->insert($query, $paramType, $paramValue);

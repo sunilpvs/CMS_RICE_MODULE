@@ -22,9 +22,10 @@ switch ($action) {
             $compartment_name= $_POST['compartment_name'];
             $capacity_sqft = $_POST['capacity_sqft'];
             $capacity_mton = $_POST['capacity_mton'];
+            $entity_id = $_SESSION['entity_id'];
             $id = $_SESSION['id'];
             $compartment = new Compartment();
-            $insertId = $compartment->addCompartment($outwardlease_id, $compartment_name,$warehouse_id, $capacity_sqft, $capacity_mton,$id);
+            $insertId = $compartment->addCompartment($outwardlease_id, $compartment_name,$warehouse_id, $capacity_sqft, $capacity_mton,$entity_id,$id);
             if (empty($insertId)) {
                 $response = array(
                     "message" => "Problem in Adding New Record",

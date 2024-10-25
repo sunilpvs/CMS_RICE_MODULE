@@ -10,13 +10,13 @@ class Lessor
         $this->db_handle = new DBController();
     }
     
-    function addLessor($lessor_name, $ltype, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status, $created_by) 
+    function addLessor($lessor_name, $ltype, $add1, $add2, $city, $state, $pin, $country,  $primary_contact,  $status, $entity_id, $created_by) 
     {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
-            $this->db_handle->beginTrans();
-            try{
-        $query = "INSERT INTO tbl_lessor (lessor_name, ltype, add1, add2, city, state, pin, country, primary_contact, status, created_by)  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-        $paramType = "sissiiiiisi";
+        $this->db_handle->beginTrans();
+        try{
+        $query = "INSERT INTO tbl_lessor (lessor_name, ltype, add1, add2, city, state, pin, country,  primary_contact,  status, entity_id, created_by)  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        $paramType = "sissiiiiisii";
         $paramValue = array(
             $lessor_name,
             $ltype,
@@ -28,6 +28,7 @@ class Lessor
             $country,
             $primary_contact,
             $status,
+            $entity_id,
             $created_by
         );
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);

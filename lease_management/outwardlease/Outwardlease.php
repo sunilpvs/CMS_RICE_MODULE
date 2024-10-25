@@ -13,7 +13,7 @@ class Outwardlease
     
    								
     function addOutwardlease($warehouse_id, $customer_id, $lease_model, $lease_start, $lease_end, 
-                $lease_capacity_sqft, $lease_capacity_mton, $daily_rate_sqft, $daily_rate_mton, $lease_status, $lease_days, $cost_sqft, $cost_mton, $total_cost, $created_By) 
+                $lease_capacity_sqft, $lease_capacity_mton, $daily_rate_sqft, $daily_rate_mton, $lease_status, $lease_days, $cost_sqft, $cost_mton, $total_cost,$entity_id, $created_By) 
     {   
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
         $this->db_handle->beginTrans();
@@ -59,9 +59,9 @@ class Outwardlease
 
             $query = "INSERT INTO tbl_outwardlease (warehouse_id, customer_id, lease_model, lease_start, lease_end,";
             $query .= " before_capacity_sqft,lease_capacity_sqft,after_capacity_sqft,before_capacity_mton,lease_capacity_mton,after_capacity_mton,";
-            $query .= " daily_rate_sqft, daily_rate_mton, lease_status, lease_days,cost_sqft, cost_mton,total_cost, created_by)";
-            $query .= " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
-            $paramType = "iiisssssssssssisssi";
+            $query .= " daily_rate_sqft, daily_rate_mton, lease_status, lease_days,cost_sqft, cost_mton,total_cost, entity_id,created_by)";
+            $query .= " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+            $paramType = "iiisssssssssssisssii";
             $paramValue = array(
                 $warehouse_id,
                 $customer_id,
@@ -81,6 +81,7 @@ class Outwardlease
                 $cost_sqft, 
                 $cost_mton,
                 $total_cost,
+                $entity_id,
                 $created_By
             );
             $insertId = $this->db_handle->insert($query, $paramType, $paramValue);

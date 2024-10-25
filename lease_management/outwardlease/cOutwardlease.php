@@ -41,11 +41,12 @@ switch ($action) {
             $lease_status =  $_POST['lease_status']; 
             $lease_days = $_POST['lease_days']; 
             $total_cost =  $_POST['total_cost'];
+            $entity_id = $SESSION['entity_id'];
             $user_id = $_SESSION['id'];
 
             $outwardlease = new Outwardlease();
             $insertId = $outwardlease->addOutwardlease($warehouse_id, $customer_id, $lease_model, $lease_start, $lease_end, 
-            $lease_capacity_sqft, $lease_capacity_mton, $daily_rate_sqft, $daily_rate_mton, $lease_status,$lease_days,$cost_sqft, $cost_mton,$total_cost, $user_id);
+            $lease_capacity_sqft, $lease_capacity_mton, $daily_rate_sqft, $daily_rate_mton, $lease_status,$lease_days,$cost_sqft, $cost_mton,$total_cost,$entity_id, $user_id);
             if (empty($insertId)) {
                 $response = array(
                     "message" => "Problem in Adding New Record",

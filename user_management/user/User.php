@@ -10,15 +10,15 @@ class User
         $this->db_handle = new DBController();
     }
     
-    function createUser ($user_name, $email, $user_role_id, $contact_id, $code) 
+    function createUser ($user_name, $email, $user_role_id, $contact_id, $code, $entity_id) 
     {
         $user_status = "A";
         $status = "notverified";
         $createdBy = $_SESSION['id'];
         $hash_pwd = password_hash("PVS@123000", PASSWORD_BCRYPT);
 
-        $query = "INSERT INTO tbl_users (user_name, email, user_role_id, user_status, contact_id, code, status, createdBy, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
-        $paramType = "ssisiisis";
+        $query = "INSERT INTO tbl_users (user_name, email, user_role_id, user_status, contact_id, code, status, entity_id, createdBy, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)"; 
+        $paramType = "ssisiisiis";
         $paramValue = array(
             $user_name,
             $email,
@@ -27,6 +27,7 @@ class User
             $contact_id,
             $code,
             $status,
+            $entity_id,
             $createdBy,
             $hash_pwd
         );

@@ -19,10 +19,12 @@ switch ($action) {
             $uname = $_POST['uname'];
             $email = $_POST['email'];
             $user_role_id = $_POST['role'];
-            $contact_id = $_POST['ContactId'];         
+            $contact_id = $_POST['ContactId'];
+                 
             $code = rand(999999, 111111);
+            $entity_id = $_SESSION['entity_id']; 
             $usr = new User();
-            $insertId = $usr->createUser($uname, $email, $user_role_id, $contact_id, $code);
+            $insertId = $usr->createUser($uname, $email, $user_role_id, $contact_id, $code, $entity_id);
             if (empty($insertId)) {
                 $response = array(
                     "message" => "Problem in Adding New Record",

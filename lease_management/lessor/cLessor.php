@@ -23,11 +23,12 @@
                 $pin = $_POST['pin'];
                 $country = $_POST['country'];
                 $primary_contact = $_POST['primary_contact'];
+               
                 $status = $_POST['status'];
+                $entity_id = $_SESSION['entity_id'];
                 $created_by = $_SESSION['id'];
-    
                 $less = new Lessor(); 
-                $insertId = $less->addLessor($lessor_name, $ltype, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status, $created_by);
+                $insertId = $less->addLessor($lessor_name, $ltype, $add1, $add2, $city, $state, $pin, $country, $primary_contact,  $status, $entity_id,$created_by);
                 if (empty($insertId)) {
                     $response = array(
                         "message" => "Problem in Adding New Record",
@@ -67,12 +68,12 @@
         
         case "lessor-delete":
 
-            $lessor_id = $_GET["id"];
-            $less = new Lessor();
-            $less->deleteLessor($lessor_id);
-            $result = $less->getAllLessor();
-            require_once "../../lease_management/lessor/vLessor.php";
-            break;
+            //$lessor_id = $_GET["id"];
+            //$less = new Lessor();
+            //$less->deleteLessor($lessor_id);
+           // $result = $less->getAllLessor();
+            //require_once "../../lease_management/lessor/vLessor.php";
+        //break;
         
         default:
             $less = new Lessor();

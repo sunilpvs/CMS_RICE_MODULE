@@ -13,7 +13,7 @@ class Outwardstock
     //function addOutwardstock($outward_date, $dc_no, $dc_date, $commodity_id, $compartment_id, $vehicle_no, $current_bags_stock, $bags_out, $delivery_dtl,$outward_gross_wt,$outward_net_wt,$outward_wb_gross_wt, $outward_wb_net_wt, $outward_diff_gross, $outward_diff_net,$remarks,$created_by)
     function addOutwardstock($customer_id, $warehouse_id, $compartment_id, $commodity_id, $transport_id, $outward_date, $dc_no, $dc_date, 
                                     $bags_out, $vehicle_no, $current_bags_stock, $delivery_dtl, $outward_gross_wt, $outward_net_wt, $outward_wb_gross_wt, 
-                                    $outward_wb_net_wt, $outward_diff_gross, $outward_diff_net,$remarks,$created_by)
+                                    $outward_wb_net_wt, $outward_diff_gross, $outward_diff_net,$remarks,$entity_id,$created_by)
     {
         // Below are the transation details to be performed.
         // Collected information from function calling.
@@ -26,16 +26,16 @@ class Outwardstock
         //  1. Insert into tbl_outwardstock
         //Inserting entry into Outward Stock Table and get the insertId
         $query = "INSERT INTO tbl_outwardstock (customer_id,warehouse_id,compartment_id,inward_transport,commodity_id,current_bags_stock,outward_date,dc_no,dc_date,";
-        $query .= "bags_out,vehicle_no,delivery_dtl,gross_wt,wb_gross_wt,gross_diff,net_wt,wb_net_wt,net_diff,remarks,created_by) ";
-        $query .= "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
-        $paramType = "iiiiiisssisiiiiiiisi";
+        $query .= "bags_out,vehicle_no,delivery_dtl,gross_wt,wb_gross_wt,gross_diff,net_wt,wb_net_wt,net_diff,remarks,entity_id,created_by) ";
+        $query .= "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+        $paramType = "iiiiiisssisiiiiiiisii";
         //$query = "INSERT INTO tbl_outwardstock (customer_id, outward_date, dc_no, dc_date, commodity_id, compartment_id, vehicle_no, current_bags_stock, bags_out, ";
         //$query .= " delivery_dtl, outward_gross_wt, outward_net_wt, outward_wb_gross_wt, outward_wb_net_wt, outward_diff_gross, outward_diff_net, remarks, created_by) ";
         //$query .= " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $paramValue = array(
                 $customer_id, $warehouse_id, $compartment_id, $transport_id, $commodity_id, $current_bags_stock, $outward_date, $dc_no, $dc_date, 
                 $bags_out, $vehicle_no, $delivery_dtl, $outward_gross_wt, $outward_wb_gross_wt, $outward_diff_gross, $outward_net_wt,  
-                $outward_wb_net_wt, $outward_diff_net, $remarks, $created_by
+                $outward_wb_net_wt, $outward_diff_net, $remarks, $entity_id,$created_by
                 );
         $outwardInsertId = $this->db_handle->insert($query, $paramType, $paramValue);
 

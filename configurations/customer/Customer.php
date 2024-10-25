@@ -9,13 +9,13 @@ class Customer
         $this->db_handle = new DBController();
     }
                         
-    function addCustomer($customer_name, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status, $created_by)
+    function addCustomer($customer_name, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status, $entity_id,  $created_by)
      {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
             $this->db_handle->beginTrans();
             try{
-        $query = "INSERT INTO tbl_customer (customer_name, add1, add2, city, state, pin, country, primary_contact, status, created_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $paramType = "sssiiiiisi";
+        $query = "INSERT INTO tbl_customer (customer_name, add1, add2, city, state, pin, country, primary_contact, status, entity_id, created_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+        $paramType = "sssiiiiisii";
         $paramValue = array(
             $customer_name,
             $add1,
@@ -26,6 +26,7 @@ class Customer
             $country,
             $primary_contact,
             $status,
+            $entity_id, 
             $created_by
         );
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
@@ -66,6 +67,7 @@ class Customer
             $country,
             $status,
             $primary_contact,
+            
             $last_updated,
             $last_updateddatetime,
             $customer_id

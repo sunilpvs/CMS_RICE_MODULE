@@ -12,13 +12,13 @@ class Vendor
         $this->db_handle = new DBController();
     }
     
-    function addVendor($vendor_name, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status, $created_by)
+    function addVendor($vendor_name, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status, $entity_id, $created_by)
      {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
             $this->db_handle->beginTrans();
             try{
-        $query = "INSERT INTO tbl_vendor (vendor_name, add1, add2, city, state, pin, country, primary_contact, status, created_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $paramType = "sssiiiiisi";
+        $query = "INSERT INTO tbl_vendor (vendor_name, add1, add2, city, state, pin, country, primary_contact, status, entity_id, created_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $paramType = "sssiiiiisii";
         $paramValue = array(
             $vendor_name,
             $add1,
@@ -29,6 +29,7 @@ class Vendor
             $country,
             $primary_contact,
             $status,
+            $entity_id,
             $created_by
         );
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);

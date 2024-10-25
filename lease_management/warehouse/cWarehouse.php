@@ -27,9 +27,10 @@
                 $capacity_mton = $_POST['capacity_mton'];
                 $primary_contact = $_POST['primary_contact'];
                 $status = $_POST['status'];
+                $entity_id = $_SESSION['entity_id'];
                 $created_by = $_SESSION['id'];
                 $wh = new Warehouse();
-                $insertId = $wh->addWarehouse($warehouse_name, $code, $lessor_id, $add1, $add2, $city, $state, $pin, $country, $capacity_sqft, $capacity_mton, $primary_contact, $status, $created_by);
+                $insertId = $wh->addWarehouse($warehouse_name, $code, $lessor_id, $add1, $add2, $city, $state, $pin, $country, $capacity_sqft, $capacity_mton, $primary_contact, $status, $entity_id, $created_by);
                 if (empty($insertId)) {
                     $response = array(
                         "message" => "Problem in Adding New Record",

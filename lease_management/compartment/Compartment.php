@@ -12,13 +12,13 @@ class Compartment
         $this->db_handle = new DBController();
     }
     
-    function addCompartment($outwardlease_id, $compartment_name, $warehouse_id, $capacity_sqft, $capacity_mton, $created_by) {
+    function addCompartment($outwardlease_id, $compartment_name, $warehouse_id, $capacity_sqft, $capacity_mton, $entity_id, $created_by) {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
             $this->db_handle->beginTrans();
             try{
         $status ="A";
-        $query = "INSERT INTO tbl_compartment (outwardlease_id,compartment_name,warehouse_id,capacity_sqft,capacity_mton,status,created_by) VALUES (?,?,?, ?, ?, ?, ?)";
-        $paramType = "isisssi";
+        $query = "INSERT INTO tbl_compartment (outwardlease_id,compartment_name,warehouse_id,capacity_sqft,capacity_mton,status,entity_id,created_by) VALUES (?,?,?, ?, ?, ?, ?,?)";
+        $paramType = "isisssii";
         $paramValue = array(
             $outwardlease_id,
             $compartment_name,
@@ -26,6 +26,7 @@ class Compartment
             $capacity_sqft,
             $capacity_mton,
             $status,
+            $entity_id,
             $created_by
         );
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);

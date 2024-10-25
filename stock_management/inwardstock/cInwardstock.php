@@ -35,6 +35,7 @@
                     $inward_diff_gross = $_POST['inward_diff_gross'];
                     $inward_diff_net = $_POST['inward_diff_net'];
                     $remarks = $_POST['remarks'];
+                    $entity_id = $_POST['entity_id'];
                     $created_by = $_SESSION['id'];
 
 
@@ -44,7 +45,7 @@
                     $insertId = $inwardstock->addInwardstock($customer, $warehouse, $compartment_id, $commodity_id, $mod_transport,
                     $vehicle_no, $received_date, $invoice_date, $invoice_no, $miller_id, $inward_bags_stock,
                     $inward_gross_wt, $inward_net_wt, $inward_wb_gross_wt, $inward_wb_net_wt, $inward_diff_gross,  
-                    $inward_diff_net, $current_bags_stock, $remarks, $created_by);                    
+                    $inward_diff_net, $current_bags_stock, $remarks, $entity_id, $created_by);                    
                     if (empty($insertId)) {
                         $response = array(
                             "message" => "Problem in Adding New Record",
