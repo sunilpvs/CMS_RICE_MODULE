@@ -10,16 +10,16 @@ class Userpermissions
         $this->db_handle = new DBController();
     }
     
-    function addUserpermissions($state, $country, $createdBy) {
+    function addUserpermissions($user_id, $page_id, $access_type, $createdBy) {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
             $this->db_handle->beginTrans();
             try{
-        $query = "INSERT INTO tbl_userpermissions (state,country,createdBy) VALUES (?, ?, ?)";
-        $paramType = "ssi";
+        $query = "INSERT INTO tbl_userpermissions (user_id,page_id,access_type, createdBy) VALUES (?, ?, ?, ?)";
+        $paramType = "iiii";
         $paramValue = array(
-           
-            $state,
-            $country,
+            $user_id,
+            $page_id,
+            $access_type,
             $createdBy
         );
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
@@ -43,17 +43,17 @@ class Userpermissions
         }
         }
     
-    function editUserpermissions($state, $country, $id) 
+    function editUserpermissions($user_id, $page_id, $access_type, $id) 
     {
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
        
-        $query = "UPDATE tbl_userpermissions SET state = ?,country=?, last_updated = ?, last_updatedDateTime = ? WHERE id = ?";
-        $paramType = "ssssi";
+        $query = "UPDATE tbl_userpermissions SET user_id = ?,page_id=?, access_type=?, last_updated = ?, last_updatedDateTime = ? WHERE id = ?";
+        $paramType = "iiiisi";
         $paramValue = array(
-           
-            $state,
-            $country,
+            $user_id,
+            $page_id,
+            $access_type,
             $last_updated,
             $last_updatedDateTime,
             $id
@@ -72,7 +72,7 @@ class Userpermissions
     }
     
     function deleteUserpermissions($id) {
-        $query = "UPDATE tbl_suserpermissions SET state = 'D' WHERE id = ?";
+        $query = "UPDATE tbl_userpermissions SET state = 'D' WHERE id = ?";
         $paramType = "i";
         $paramValue = array(
             $id

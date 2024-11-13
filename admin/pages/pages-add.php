@@ -17,13 +17,21 @@
    
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault02">state</label><span id="state-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="state" name= "state" placeholder="State"  required>
+      <label for="validationDefault02">Module</label><span id="module-info" class="info"></span>
+      <input type="text" class="form-control demoInputBox" id="module" name= "module" placeholder="Module"  required>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault02">Page</label><span id="page-info" class="info"></span>
+      <input type="text" class="form-control demoInputBox" id="page" name= "page" placeholder="Page"  required>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault02">Path</label><span id="path-info" class="info"></span>
+      <input type="text" class="form-control demoInputBox" id="path" name= "path" placeholder="Path"  required>
     </div>
     
     <div class="col-md-4 mb-3">
-      <label for="validationDefault02">Country</label><span id="country-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="country" name= "country" placeholder="Country"  required>
+      <label for="validationDefault02">Status</label><span id="status-info" class="info"></span>
+      <input type="text" class="form-control demoInputBox" id="status" name= "status" placeholder="Status"  required>
     </div>
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -78,14 +86,26 @@
       
      
       
-      if(!$("#state").val()) {
-          $("#state-info").html("(required)");
-          $("#state").css('background-color','#FFFFDF');
+      if(!$("#module").val()) {
+          $("#module-info").html("(required)");
+          $("#module").css('background-color','#FFFFDF');
           valid = false;
       }
-      if(!$("#country").val()) {
-          $("#country-info").html("(required)");
-          $("#country").css('background-color','#FFFFDF');
+      
+      if(!$("#page").val()) {
+          $("#page-info").html("(required)");
+          $("#page").css('background-color','#FFFFDF');
+          valid = false;
+      }
+      
+      if(!$("#path").val()) {
+          $("#path-info").html("(required)");
+          $("#path").css('background-color','#FFFFDF');
+          valid = false;
+      }
+      if(!$("#status").val()) {
+          $("#status-info").html("(required)");
+          $("#status").css('background-color','#FFFFDF');
           valid = false;
       }
     

@@ -32,9 +32,9 @@
                 $join_date = $_POST['doj'];
                 $exit_date = $_POST['exit_date'];
                 if($exit_date == ""){ $exit_date = "1900-01-01";}
-                $emp_status = $_POST['emp_status'];
-                $Department = $_POST['department'];
-                $Designation = $_POST['designation'];
+                $emp_status = 1;
+                $department = $_POST['department'];
+                $designation = $_POST['designation'];
                 $img_name = $_FILES['image']['name'];
                 $img_loc = $_FILES['image']['tmp_name'];
                 $img_des = "uploadImage/".$img_name;
@@ -43,7 +43,7 @@
 
                 $emp = new Employee();
                 $insertId = $emp->addEmployee($f_name, $l_name, $dob, $email, $personal_email,$mobile, $add1, $add2, $city, $state, $pin, $country, $contacttype_Id, $join_date,
-                $exit_date, $emp_status,$Department,$Designation,$img_des,$id);
+                $exit_date, $emp_status,$department,$designation,$img_des,$id);
                 if (empty($insertId)) {
                     $response = array(
                         "message" => "Problem in Adding New Record",

@@ -10,16 +10,18 @@ class Pages
         $this->db_handle = new DBController();
     }
     
-    function addPages($state, $country, $createdBy) {
+    function addPages($module, $page, $path,$status, $createdBy) {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
             $this->db_handle->beginTrans();
             try{
-        $query = "INSERT INTO tbl_pages (state,country,createdBy) VALUES (?, ?, ?)";
-        $paramType = "ssi";
+        $query = "INSERT INTO tbl_pagemaster (module,page,path,status,created_by) VALUES (?, ?, ?, ?, ?)";
+        $paramType = "sssii";
         $paramValue = array(
            
-            $state,
-            $country,
+            $module,
+            $page,
+            $path, 
+            $status, 
             $createdBy
         );
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
@@ -43,17 +45,19 @@ class Pages
         }
         }
     
-    function editPages($state, $country, $id) 
+    function editPages($module, $page, $path,$status, $id) 
     {
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
        
-        $query = "UPDATE tbl_pages SET state = ?,country=?, last_updated = ?, last_updatedDateTime = ? WHERE id = ?";
-        $paramType = "ssssi";
+        $query = "UPDATE tbl_pagemaster SET module = ?,page=?, path = ?, status=?, last_updated = ?, last_updatedDateTime = ? WHERE id = ?";
+        $paramType = "sssiisi";
         $paramValue = array(
            
-            $state,
-            $country,
+            $module,
+            $page,
+            $path,
+            $status,
             $last_updated,
             $last_updatedDateTime,
             $id

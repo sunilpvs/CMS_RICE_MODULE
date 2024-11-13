@@ -16,12 +16,12 @@ switch ($action) {
     case "userpermissions-add":
         if (isset($_POST['add'])) {
            
-            $state = $_POST['state'];
-            $country = $_POST['country'];
-            
+            $user_id = $_POST['user_id'];
+            $page_id= $_POST['page_id'];
+            $access_type = $_POST['access_type'];
             $id = $_SESSION['id'];
             $userpermissions = new Userpermissions();
-            $insertId = $userpermissions->addUserpermissions($state, $country, $id);
+            $insertId = $userpermissions->addUserpermissions($user_id, $access_type, $id);
             if (empty($insertId)) {
                 $response = array(
                     "message" => "Problem in Adding New Record",
@@ -38,12 +38,12 @@ switch ($action) {
     
     case "userpermissions-edit":
         $userpermissions_id = $_GET["id"];
-        $userpermissions = new State();
+        $userpermissions = new Userpermissions();
         if (isset($_POST['add'])){
-        
-            $state = $_POST['state'];
-            $country = $_POST['country'];
-        $userpermissions->editUserpermissions($state,  $country, $state_id);
+            $user_id = $_POST['user_id'];
+            $page_id= $_POST['page_id'];
+            $access_type = $_POST['access_type'];
+        $userpermissions->editUserpermissions( $user_id ,  $page_id, $access_type);
         header("Location: ../../admin/userpermissions/cUserpermissions.php");
         }
         $result = $userpermissions->getUserpermissionsById($userpermissions_id);

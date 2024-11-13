@@ -6,7 +6,7 @@
 <div class="container-fluid">
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h3 class="m-0 font-weight-bold text-primary">State</h3>
+    <h3 class="m-0 font-weight-bold text-primary">user_id</h3>
   </div>
 
 <div class="card-body">
@@ -17,13 +17,18 @@
    
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault02">state</label><span id="state-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="state" name= "state" placeholder="State"  required>
+      <label for="validationDefault02">User Id</label><span id="user_id-info" class="info"></span>
+      <input type="text" class="form-control demoInputBox" id="user_id" name= "user_id" placeholder="user Id"  required>
     </div>
     
     <div class="col-md-4 mb-3">
-      <label for="validationDefault02">Country</label><span id="country-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="country" name= "country" placeholder="Country"  required>
+      <label for="validationDefault02">Page Id</label><span id="page_id-info" class="info"></span>
+      <input type="text" class="form-control demoInputBox" id="page_id" name= "page_id" placeholder="Page Id"  required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault02">Access Type</label><span id="access_type-info" class="info"></span>
+      <input type="text" class="form-control demoInputBox" id="access_type" name= "access_type" placeholder="access_type"  required>
     </div>
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -78,16 +83,22 @@
       
      
       
-      if(!$("#state").val()) {
-          $("#state-info").html("(required)");
-          $("#state").css('background-color','#FFFFDF');
+      if(!$("#user_id").val()) {
+          $("#user_id-info").html("(required)");
+          $("#user_id").css('background-color','#FFFFDF');
           valid = false;
       }
-      if(!$("#country").val()) {
-          $("#country-info").html("(required)");
-          $("#country").css('background-color','#FFFFDF');
+      if(!$("#Page_id").val()) {
+          $("#Page_id-info").html("(required)");
+          $("#Page_id").css('background-color','#FFFFDF');
           valid = false;
       }
+      if(!$("#access_type").val()) {
+          $("# access_type-info").html("(required)");
+          $("# access_type").css('background-color','#FFFFDF');
+          valid = false;
+      }
+     
     
       
       return valid;

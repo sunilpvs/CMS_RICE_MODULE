@@ -19,8 +19,10 @@
             <thead style="background-color:#4e73df;">
                 <tr style="font-size:12px;">
            
-                    <th><strong>State</strong></th>
-                    <th><strong>Country</strong></th>
+                    <th><strong>Module</strong></th>
+                    <th><strong>Page</strong></th>
+                    <th><strong>Path</strong></th>
+                    <th><strong>Status</strong></th>
                     <th><strong>Actions</strong></th>
                 </tr>
             </thead>
@@ -33,8 +35,10 @@
                             ?>
                               <tr style="font-size:14px;">                  
                               
-                              <td><?php echo $row["state"]; ?></td>
-                              <td><?php echo $row["country"]; ?></td>
+                              <td><?php echo $row["module"]; ?></td>
+                              <td><?php echo $row["page"]; ?></td>
+                              <td><?php echo $row["path"]; ?></td>
+                              <td><?php echo $row["status"]; ?></td>
                               
                              
                               

@@ -22,13 +22,13 @@
     
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault02" class="info">State</label><span id="state-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="state" name= "state" placeholder="State" value="<?php echo $row1["state"]; ?>"  required>
+      <label for="validationDefault02" class="info">Page</label><span id="page-info" class="info"></span>
+      <input type="text" class="form-control demoInputBox" id="state" name= "page" placeholder="Page" value="<?php echo $row1["page"]; ?>"  required>
     </div>
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault02" class="info">Country</label><span id="country-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="country" name= "country" placeholder="Country" value="<?php echo $row1["country"]; ?>"  required>
+      <label for="validationDefault02" class="info">Access</label><span id="access-info" class="info"></span>
+      <input type="text" class="form-control demoInputBox" id="access" name= "access" placeholder="Access" value="<?php echo $row1["access"]; ?>"  required>
     </div>
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -84,14 +84,14 @@
             $(".info").html('');
             
            
-            if(!$("#state").val()) {
-                $("#state-info").html("(required)");
-                $("#state").css('background-color','#FFFFDF');
+            if(!$("#page").val()) {
+                $("#page-info").html("(required)");
+                $("#page").css('background-color','#FFFFDF');
                 valid = false;
             }
-            if(!$("#country").val()) {
-                $("#country-info").html("(required)");
-                $("#country").css('background-color','#FFFFDF');
+            if(!$("#access").val()) {
+                $("#access-info").html("(required)");
+                $("#access").css('background-color','#FFFFDF');
                 valid = false;
             }    
             return valid;

@@ -10,17 +10,17 @@ class Userroles
         $this->db_handle = new DBController();
     }
     
-    function addUserroles($state, $country, $createdBy) {
+    function addUserroles($page, $access, $createdBy) {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
             $this->db_handle->beginTrans();
             try{
-        $query = "INSERT INTO tbl_state (state,country,createdBy) VALUES (?, ?, ?)";
-        $paramType = "ssi";
+        $query = "INSERT INTO tbl_userroles (page,access,created_by) VALUES (?, ?, ?)";
+        $paramType = "iii";
         $paramValue = array(
-           
-            $state,
-            $country,
+            $page,
+            $access,
             $createdBy
+            
         );
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
 
@@ -43,18 +43,17 @@ class Userroles
         }
         }
     
-    function editUserroles($state, $country, $id) 
+    function editUserroles($page, $access, $id) 
     {
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
        
-        $query = "UPDATE tbl_userroles SET state = ?,country=?, last_updated = ?, last_updatedDateTime = ? WHERE id = ?";
-        $paramType = "ssssi";
+        $query = "UPDATE tbl_userroles SET page = ?,access=?,  lastupdated_by = ?, last_updatedDateTime = ? WHERE id = ?";
+        $paramType = "iiisi";
         $paramValue = array(
-           
-            $state,
-            $country,
-            $last_updated,
+            $page,
+            $access,
+            $lastupdated_by,
             $last_updatedDateTime,
             $id
         );        

@@ -8,7 +8,7 @@
  <div class="container-fluid">
  <div class="card shadow mb-4">
  <div class="card-header py-3">
-    <h3 class="m-0 font-weight-bold text-primary">State Master          
+    <h3 class="m-0 font-weight-bold text-primary">   User Permissions      
             <a href="/admin/userpermissions/cUserpermissions.php?action=userpermissions-add" class="btn btn-primary btn-md float-right" role="button">Add State</a>
     </h3>
   </div>
@@ -19,8 +19,9 @@
             <thead style="background-color:#4e73df;">
                 <tr style="font-size:12px;">
            
-                    <th><strong>State</strong></th>
-                    <th><strong>Country</strong></th>
+                    <th><strong>User Id</strong></th>
+                    <th><strong>Page Id</strong></th>
+                    <th><strong>Access Type</strong></th>
                     <th><strong>Actions</strong></th>
                 </tr>
             </thead>
@@ -33,8 +34,9 @@
                             ?>
                               <tr style="font-size:14px;">                  
                               
-                              <td><?php echo $row["state"]; ?></td>
-                              <td><?php echo $row["country"]; ?></td>
+                              <td><?php echo $row["user_id"]; ?></td>
+                              <td><?php echo $row["page_id"]; ?></td>
+                              <td><?php echo $row["access_type"]; ?></td>
                               
                              
                               

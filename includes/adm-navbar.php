@@ -78,7 +78,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
               <a class="collapse-item" href="../../admpages">Pages</a>
               <a class="collapse-item" href="../../admroles">Roles</a>      
-              <a class="collapse-item" href="../../admperm">Permissions</a>
+              <a class="collapse-item" href="../../admperms">Permissions</a>
             </div>
           </div>
         </li>

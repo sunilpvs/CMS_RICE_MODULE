@@ -16,12 +16,12 @@ switch ($action) {
     case "userroles-add":
         if (isset($_POST['add'])) {
            
-            $state = $_POST['state'];
-            $country = $_POST['country'];
+            $page = $_POST['page'];
+            $access = $_POST['access'];
             
             $id = $_SESSION['id'];
             $userroles = new Userroles();
-            $insertId = $userroles->addUserroles($state, $country, $id);
+            $insertId = $userroles->addUserroles($page, $access, $id);
             if (empty($insertId)) {
                 $response = array(
                     "message" => "Problem in Adding New Record",
@@ -37,26 +37,26 @@ switch ($action) {
         break;
     
     case "userroles-edit":
-        $state_id = $_GET["id"];
+        $userroles_id = $_GET["id"];
         $userroles = new Userroles();
         if (isset($_POST['add'])){
         
-            $state = $_POST['state'];
-            $country = $_POST['country'];
-        $userroles->editUserrolese($state,  $country, $state_id);
+            $page = $_POST['page'];
+            $access = $_POST['access'];
+        $userroles->editUserrolese($page,  $access, $userroles_id);
         header("Location: ../../admin/userroles/cUserroles.php");
         }
         $result = $userroles->getUserrolesById($userroles_id);
         require_once "../../admin/userroles/userroles-edit.php";
         break;
     
-    case "userroles-delete":
-        $userroles_id = $_GET["id"];
-        $userroles = new Userroles();
-        $userroles->deleteUserroles($userroles_id);
-        $result = $userroles->getAllUserroles();
-        require_once "../../admin/userroles/vUserroles.php";
-        break;
+    //case "userroles-delete":
+       // $userroles_id = $_GET["id"];
+        //$userroles = new Userroles();
+        //$userroles->deleteUserroles($userroles_id);
+        //$result = $userroles->getAllUserroles();
+        //require_once "../../admin/userroles/vUserroles.php";
+        //break;
     
     default:
         $userroles = new Userroles();

@@ -17,13 +17,13 @@
    
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault02">state</label><span id="state-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="state" name= "state" placeholder="State"  required>
+      <label for="validationDefault02">Page</label><span id="page-info" class="info"></span>
+      <input type="text" class="form-control demoInputBox" id="page" name= "page" placeholder="Page"  required>
     </div>
     
     <div class="col-md-4 mb-3">
-      <label for="validationDefault02">Country</label><span id="country-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="country" name= "country" placeholder="Country"  required>
+      <label for="validationDefault02">Access</label><span id="access-info" class="info"></span>
+      <input type="text" class="form-control demoInputBox" id="access" name= "access" placeholder="access"  required>
     </div>
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -78,14 +78,14 @@
       
      
       
-      if(!$("#state").val()) {
-          $("#state-info").html("(required)");
-          $("#state").css('background-color','#FFFFDF');
+      if(!$("#page").val()) {
+          $("#page-info").html("(required)");
+          $("#page").css('background-color','#FFFFDF');
           valid = false;
       }
-      if(!$("#country").val()) {
-          $("#country-info").html("(required)");
-          $("#country").css('background-color','#FFFFDF');
+      if(!$("#access").val()) {
+          $("#access-info").html("(required)");
+          $("#access").css('background-color','#FFFFDF');
           valid = false;
       }
     

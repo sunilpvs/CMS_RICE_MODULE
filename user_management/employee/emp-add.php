@@ -1,6 +1,6 @@
 <?php 
     date_default_timezone_set('Asia/Kolkata');
-include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
 ?>
@@ -165,15 +165,6 @@ include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
     </div>
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Employee Status</label><span id="emp_status-info" class="info"></span>
-        <select id="emp_status" name="emp_status" class="form-control demoInputBox">
-            <option value="A" SELECTED> Active </option>
-            <!-- <option value="S"> Suspended </option>
-            <option value="D"> De-Active </option> -->
-        </select>
-    </div>
-
-    <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Department</label><span id="department-info-info" class="info"></span>
         <select id="department" name="department" class="form-control demoInputBox">
         <option value="-1">Select Department</option>
@@ -309,9 +300,9 @@ function validate() {
         $("#doj").css('background-color','#FFFFDF');
         valid = false;
     }
-    if(!$("#emp_status").val()) {
-        $("#emp_status-info").html("(required)");
-        $("#emp_status").css('background-color','#FFFFDF');
+    if(!$("#exit_date").val()) {
+        $("#exit_date-info").html("(required)");
+        $("#exit_date").css('background-color','#FFFFDF');
         valid = false;
     }
     if(!$("#department").val()) {

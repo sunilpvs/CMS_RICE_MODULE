@@ -8,7 +8,7 @@
  <div class="container-fluid">
  <div class="card shadow mb-4">
  <div class="card-header py-3">
-    <h3 class="m-0 font-weight-bold text-primary">State Master          
+    <h3 class="m-0 font-weight-bold text-primary">User Roles         
             <a href="/admin/userroles/cUserroles.php?action=userroles-add" class="btn btn-primary btn-md float-right" role="button">Add State</a>
     </h3>
   </div>
@@ -19,8 +19,8 @@
             <thead style="background-color:#4e73df;">
                 <tr style="font-size:12px;">
            
-                    <th><strong>State</strong></th>
-                    <th><strong>Country</strong></th>
+                    <th><strong>Page</strong></th>
+                    <th><strong>Access</strong></th>
                     <th><strong>Actions</strong></th>
                 </tr>
             </thead>
@@ -33,11 +33,9 @@
                             ?>
                               <tr style="font-size:14px;">                  
                               
-                              <td><?php echo $row["state"]; ?></td>
-                              <td><?php echo $row["country"]; ?></td>
-                              
-                             
-                              
+                              <td><?php echo $row["page"]; ?></td>
+                              <td><?php echo $row["access"]; ?></td>
+                      
                               <td><a class="btnEditAction"
                                   href="../../admin/userroles/cUserroles.php?action=userroles-edit&id=<?php echo $row["id"]; ?>">
                                   <img src="/assests/img/icon-edit.png" />

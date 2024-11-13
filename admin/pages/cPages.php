@@ -16,12 +16,14 @@ switch ($action) {
     case "pages-add":
         if (isset($_POST['add'])) {
            
-            $state = $_POST['state'];
-            $country = $_POST['country'];
+            $module = $_POST['module'];
+            $page = $_POST['page'];
+            $path = $_POST['path'];
+            $status = $_POST['status'];
             
             $id = $_SESSION['id'];
             $pages = new Pages();
-            $insertId = $pages->addPages($state, $country, $id);
+            $insertId = $pages->addPages($module , $page, $path, $status,  $id);
             if (empty($insertId)) {
                 $response = array(
                     "message" => "Problem in Adding New Record",
@@ -41,27 +43,29 @@ switch ($action) {
         $pages = new Pages();
         if (isset($_POST['add'])){
         
-            $state = $_POST['state'];
-            $country = $_POST['country'];
-        $pages->editPages($state,  $country, $state_id);
+            $module = $_POST['module'];
+            $page = $_POST['page'];
+            $path = $_POST['path'];
+            $status = $_POST['status'];
+        $pages->editPages($module, $page, $path,  $status, $pages_id);
         header("Location: ../../admin/pages/cPages.php");
         }
         $result = $pages->getPagesById($pages_id);
         require_once "../../admin/pages/pages-edit.php";
         break;
     
-    case "pages-delete":
-        $pages_id = $_GET["id"];
-        $pages = new Pages();
-        $pages->deletePages($pages_id);
-        $result = $pages->getAllPages();
-        require_once "../../admin/pages/vPages.php";
-        break;
+    //case "pages-delete":
+        //$pages_id = $_GET["id"];
+        //$pages = new Pages();
+        //$pages->deletePages($pages_id);
+        //$result = $pages->getAllPages();
+        //require_once "../../admin/pages/vPages.php";
+        //break;
     
     default:
         $pages = new Pages();
         $result = $pages->getAllPages();
-        require_once "../../admin/spages/vPages.php";
+        require_once "../../admin/pages/vPages.php";
         break;
 }
 ?>
