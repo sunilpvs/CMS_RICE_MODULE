@@ -1,8 +1,8 @@
 <?php 
     date_default_timezone_set('Asia/Kolkata');
-    require_once($_SERVER['DOCUMENT_ROOT'] .'/configurations/costcenter/Costcenter.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/costcenter/Costcenter.php');
    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
-    include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/adm-navbar.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
 
 
@@ -178,18 +178,28 @@
         </select>
         </div>
 
+        
         <div class="col-md-4 mb-3">
-        <label for="validationDefault07" class="info">Status</label><span id="status-info" class="info"></span>
-        <select id="status" name="status" class="form-control demoInputBox">
-            <option value="A" <?php if($row1["status"] == "A"){ echo "Selected";} ?> >Active</option>    
-            <option value="D" <?php if($row1["status"] == "D"){ echo "Selected";} ?>>De-Active</option>   
-        </select>
-        </div>
+            <label for="validationDefault03" class="info">State</label><span id="state-info" class="info"></span>
+            <select id="state" name="state" class="form-control demoInputBox">
+                <?php
+                    $gen = new Generic();
+                    $result2 = $gen->getStateList();
+                    if (!empty($result2)) {
+                        while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+                        {   
+                ?> 
+                <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1['status']) { echo "Selected"; } ?> > <?php echo $row2["status"]; ?></option>
+                <?php   } 
+                    }
+                ?>         
+            </select>
+            </div> 
 
         <div class="container">
             <div class="col-md-4 mb-3">
                 <button class="btn btn-primary" type="submit" name="add" id="btnSubmit" value="Add">Update Record</button>
-                <button class="btn btn-primary" type="cancel" name="cancel" id="btnCancel" value="Cancel" ><a style="color:white;" href ="../../configurations/costcenter/cCostcenter.php">Cancel</a></button> 
+                <button class="btn btn-primary" type="cancel" name="cancel" id="btnCancel" value="Cancel" ><a style="color:white;" href ="../../admin/costcenter/cCostcenter.php">Cancel</a></button> 
             </div>
         </div>
 

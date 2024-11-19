@@ -36,15 +36,16 @@
                         <tr style="font-size:14px;">                  
                         <td><?php echo $row["name"]; ?></td>
                         <td><?php echo $row["code"]; ?></td>
-                        <td><?php if($row["status"] == "A"){echo "Active";} else {echo "De-Active";} ?></td>
+                        <td><?php echo $row["status"]; ?></td>
+                        
                         <td><a class="btnEditAction" 
                             href="../../admin/department/cDepartment.php?action=department-edit&id=<?php echo $row["id"]; ?>">
                            <img src="/assests/img/icon-edit.png" />
                             </a>
-                            <a class="btnDeleteAction" 
+                            <!--<a class="btnDeleteAction" 
                             href="../../admin/department/cDepartment.php?action=department-delete&id=<?php echo $row["id"]; ?>">
                             <img src="/assests/img/icon-delete.png" />
-                            </a>
+                            </a>-->
                         </td>
                         </tr>
                     <?php } }  ?>

@@ -69,7 +69,7 @@
         <select id="status" name="status" class="form-control demoInputBox">
             <?php
                 $gen = new Generic();
-                $result2 = $gen->getModStatusList("GEN");
+                $result2 = $gen->getStatusList("GEN");
                 if (!empty($result2)) {
                     while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
                     {   

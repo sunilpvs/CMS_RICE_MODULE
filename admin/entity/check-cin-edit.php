@@ -1,8 +1,9 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] .'/configurations/entity/Entity.php');  
+require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/entity/Entity.php');  
+$entity_id = $_POST['entity_id'];
 $cin = $_POST['cin'];
 $entity = new Entity();
-$result = $entity->validateCin($cin);
+$result = $entity->validateCinEdit($cin);
 if(!$result)
 {
     echo "<span style='color:red'> * already exists.</span>";

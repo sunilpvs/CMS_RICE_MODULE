@@ -45,7 +45,8 @@ class States
     {
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
-       
+        
+        try{
         $query = "UPDATE tbl_state SET state = ?,country=? WHERE id = ?";
         $paramType = "ssi";
         $paramValue = array(
@@ -53,7 +54,7 @@ class States
             $country,
             $id
         );        
-        $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
+        $updatedId = $this->db_handle->insert($query, $paramType, $paramValue);
 
         $activity = "Updated State details for State ID: $id";
         $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
@@ -63,7 +64,15 @@ class States
             $last_updated
         );
         $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-        return $insertId;
+        $this->db_handle->commitTrans();
+        return $updatedId;
+        }catch (\Throwable $e){
+        // An exception has been thrown
+        // We must rollback the transaction
+        $this->db_handle->rollbackTrans();
+        throw $e; // but the error must be handled anyway
+    }
+    
     }
     
     function deleteState($id) {

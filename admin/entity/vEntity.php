@@ -1,6 +1,6 @@
 <?php
    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
-  include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
+  include($_SERVER['DOCUMENT_ROOT'] .'/includes/adm-navbar.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
 ?>
 
@@ -11,7 +11,7 @@
   <div class="card-header py-3">
     <h3 class="m-0 font-weight-bold text-primary">Entity Master
            
-            <a href="/configurations/entity/cEntity.php?action=entity-add" class="btn btn-primary btn-md float-right" role="button">Add Entity</a>
+            <a href="/admin/entity/cEntity.php?action=entity-add" class="btn btn-primary btn-md float-right" role="button">Add Entity</a>
     </h3>
   </div>
 
@@ -45,9 +45,9 @@
                     <td><?php echo $row["incorp_date"]; ?></td>
                     <td><?php echo $row["city"]; ?></td>                    
                     <td><?php echo $row["state"]; ?></td>
-                    <td><?php if($row["status"] == "A"){echo "Active";} else {echo "De-Active";} ?></td>
+                    <td><?php echo $row["status"]; ?></td>
                     <td><a class="btnEditAction"
-                        href="../../configurations/entity/cEntity.php?action=entity-edit&id=<?php echo $row["id"]; ?>">
+                        href="../../admin/entity/cEntity.php?action=entity-edit&id=<?php echo $row["id"]; ?>">
                         <img src="/assests/img/icon-edit.png" />
                         </a>
                     </td>
@@ -60,7 +60,7 @@
 </table>
 <h3 class="m-0 font-weight-bold text-primary"  >
             <!--<a href="entity_generate_pdf.php" class="btn btn-primary btn-md float-center" style="margin-left: 20px;" role="button" target="_blank">Generate PDF</a>-->
-            <a href="/configurations/entity/excel_export.php" class="btn btn-primary btn-md float-center" role="button" target="_blank"> Export Excel</a>
+            <a href="/admin/entity/excel_export.php" class="btn btn-primary btn-md float-center" role="button" target="_blank"> Export Excel</a>
     </h3>
     <div class="well-sm col-sm-12">
 		<div class="btn-group pull-right">	

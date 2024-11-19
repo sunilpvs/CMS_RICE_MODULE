@@ -1,8 +1,8 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] .'/configurations/costcenter/Costcenter.php');  
-$cc_code = $_POST['cc_code'];
-$costcenter = new Costcenter();
-$result = $costcenter->validateCCCode($cc_code);
+require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/entity/Entity.php');  
+$cin = $_POST['cin'];
+$entity = new Entity();
+$result = $entity->validateCin($cin);
 if(!$result)
 {
     echo "<span style='color:red'> * already exists.</span>";

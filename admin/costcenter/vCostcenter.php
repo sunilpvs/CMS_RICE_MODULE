@@ -1,6 +1,6 @@
 <?php
    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
-  include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
+  include($_SERVER['DOCUMENT_ROOT'] .'/includes/adm-navbar.php');
   
  ?>
     <div class="container-fluid">
@@ -9,7 +9,7 @@
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h3 class="m-0 font-weight-bold text-primary">Branches/CostCenter Master
-            <a href="/configurations/costcenter/cCostcenter.php?action=costcenter-add" class="btn btn-primary btn-md float-right" role="button">Add Costcenter</a>
+            <a href="/admin/costcenter/cCostcenter.php?action=costcenter-add" class="btn btn-primary btn-md float-right" role="button">Add Costcenter</a>
     </h3>
 </div>
 
@@ -45,9 +45,10 @@
             <td><?php echo $row["city"]; ?></td>
             <td><?php echo $row["state"]; ?></td>
             <td><?php echo $row["f_name"]." ".$row['l_name']; ?></td>
-            <td><?php if($row["status"] == "A"){echo "Active";} else {echo "De-Active";} ?></td>
+            <td><?php echo $row["status"]; ?></td>
+            
             <td><a class="btnEditAction"
-                href="../../configurations/costcenter/cCostcenter.php?action=costcenter-edit&id=<?php echo $row["id"]; ?>">
+                href="../../admin/costcenter/cCostcenter.php?action=costcenter-edit&id=<?php echo $row["id"]; ?>">
                 <img src="../../assests/img/icon-edit.png" />
                 </a>
                 
@@ -66,7 +67,7 @@
 </table>
  <h3 class="m-0 font-weight-bold text-primary"  >
             <!--<a href="department_generate_pdf.php" class="btn btn-primary btn-md float-center" style="margin-left: 20px;" role="button" target="_blank">Generate PDF</a>-->
-            <a href="/configurations/costcenter/excel_export.php" class="btn btn-primary btn-md float-center" role="button" target="_blank"> Export Excel</a>
+            <a href="/admin/costcenter/excel_export.php" class="btn btn-primary btn-md float-center" role="button" target="_blank"> Export Excel</a>
     </h3>
     <div class="well-sm col-sm-12">
 		<div class="btn-group pull-right">	

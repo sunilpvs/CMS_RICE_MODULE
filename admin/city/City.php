@@ -46,6 +46,8 @@ class Citi
     {
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
+        $this->db_handle->beginTrans();
+        try{
        
         $query = "UPDATE tbl_city SET city = ?,state=?,country=? WHERE id = ?";
         $paramType = "siii";
@@ -56,7 +58,7 @@ class Citi
             
             $id
         );        
-        $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
+        $updateid = $this->db_handle->insert($query, $paramType, $paramValue);
 
         $activity = "Updated City details for City ID: $id";
         $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
@@ -66,7 +68,14 @@ class Citi
             $last_updated
         );
         $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-        return $insertId;
+          $this->db_handle->commitTrans();
+        return $updateid;
+        }catch (\Throwable $e){
+        // An exception has been thrown
+        // We must rollback the transaction
+        $this->db_handle->rollbackTrans();
+        throw $e; // but the error must be handled anyway
+        }
     }
     
     function deleteCiti($id) {

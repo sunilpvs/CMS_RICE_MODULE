@@ -2,7 +2,7 @@
 session_start();
 date_default_timezone_set('Asia/Kolkata');
    require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
-require_once($_SERVER['DOCUMENT_ROOT'] ."/configurations/entity/Entity.php");
+require_once($_SERVER['DOCUMENT_ROOT'] ."/admin/entity/Entity.php");
 
 $db_handle = new DBController();
 // $action = "";
@@ -36,10 +36,10 @@ switch ($action) {
             } 
             else 
             {
-                header("Location:../../configurations/entity/cEntity.php");
+                header("Location:../../admin/entity/cEntity.php");
             }
         }
-        require_once "../../configurations/entity/entity-add.php";
+        require_once "../../admin/entity/entity-add.php";
         break;
     
     case "entity-edit":
@@ -54,10 +54,10 @@ switch ($action) {
             $country = $_POST['country'];
             $status = $_POST['status'];
         $entity->editEntity($add1, $add2, $city, $state, $pin, $country, $status,$entity_id); 
-        header("Location: ../../configurations/entity/cEntity.php");
+        header("Location: ../../admin/entity/cEntity.php");
         }
         $result = $entity->getEntityById($entity_id);
-        require_once "../../configurations/entity/entity-edit.php";
+        require_once "../../admin/entity/entity-edit.php";
         break;
     
     case "entity-delete":
@@ -65,13 +65,13 @@ switch ($action) {
         $entity = new Entity();
         $entity->deleteEntity($entity_id);
         $result = $entity->getAllEntity();
-        require_once "../../configurations/entity/vEntity.php";
+        require_once "../../admin/entity/vEntity.php";
         break;
     
     default:
         $entity = new Entity();
         $result = $entity->getAllEntity();
-        require_once "../../configurations/entity/vEntity.php";
+        require_once "../../admin/entity/vEntity.php";
         break;
 }
 ?>

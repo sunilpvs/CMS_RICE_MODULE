@@ -47,6 +47,8 @@ class Status
     {
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
+
+        try{
        
         $query = "UPDATE tbl_status SET code=?, status=?, module=? WHERE id = ?";
         $paramType = "sssi";
@@ -56,7 +58,7 @@ class Status
             $module,
             $id
         );        
-        $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
+        $updatedId = $this->db_handle->insert($query, $paramType, $paramValue);
 
         $activity = "Updated Status details for Status ID: $id";
         $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
@@ -65,9 +67,16 @@ class Status
             $activity,
             $last_updated
         );
-        $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+        $updatedid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+        $this->db_handle->commitTrans();
         return $insertId;
-    }
+    }catch (\Throwable $e){
+    // An exception has been thrown
+    // We must rollback the transaction
+    $this->db_handle->rollbackTrans();
+    throw $e; // but the error must be handled anyway
+    }    
+}
     
     function validateDuplicates_Add($code, $status, $module) 
     {

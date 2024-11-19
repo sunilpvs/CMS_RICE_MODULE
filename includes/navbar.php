@@ -92,27 +92,7 @@
   ?>     
 
 
-        <!-- <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesecurity" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Security</span>
-          </a>
-            <div id="collapsesecurity" data-target="#collapsecsecurity" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded"> 
-              <a class="collapse-item" href="../../user-roles">User Roles</a>
-              <a class="collapse-item" href="../../user-permissions">User Permissions</a>                
-            </div>
-          </div>           
-        </li> -->
-
-
-        <!-- Nav Item - Charts 
-        <li class="nav-item">
-          <a class="nav-link" href="../../charts/cCharts.php">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
-        </li>
-        -->
+      
 
         <!-- Divider -->
         <hr class="sidebar-divider">
@@ -135,10 +115,7 @@
           <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Master Data Entries:</h6>
-              <!--
-              <a class="collapse-item" href="../../entity">Entity Master</a>
-              <a class="collapse-item" href="../../costcenter">Branch Master</a>
-              -->
+             
               <a class="collapse-item" href="../../customer">Customer Master</a>
               <a class="collapse-item" href="../../vendor">Vendor/Supplier Master</a>
               <!-- Divider -->
@@ -171,11 +148,6 @@
             <h6 class="collapse-header">Stock Reports</h6>    
 
               <a class="collapse-item" href="../../stock-rpt">Stock Report</a>
-              <!--
-                <a class="collapse-item" href="../../currentstock-rpt">Curent Stock</a>
-                <a class="collapse-item" href="../../outwardstock-rpt">Outward Stock</a>
-                <a class="collapse-item" href="../../inwardstock-rpt">Inward Stock</a>
-              -->
               <a class="collapse-item" href="../../outwardleases-rpt">Outward Lease</a>
               <a class="collapse-item" href="../../inwardleases-rpt">Inward Lease</a>
             </div>

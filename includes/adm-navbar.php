@@ -59,6 +59,8 @@
                 <a class="collapse-item" href="../../admcity">City</a>
                 <a class="collapse-item" href="../../admdept">Department</a>
                 <a class="collapse-item" href="../../admdesig">Designation</a>
+                <a class="collapse-item" href="../../admenti">Entity</a>
+                <a class="collapse-item" href="../../admcost">CostCenter</a>
               </div>
             </div>
         </li>         

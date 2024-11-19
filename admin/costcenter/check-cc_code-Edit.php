@@ -1,5 +1,5 @@
 <?php
-  require_once($_SERVER['DOCUMENT_ROOT'] .'/configurations/costcenter/Costcenter.php'); 
+  require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/costcenter/Costcenter.php'); 
   $costcenter_id = $_POST['costcenter_id']; 
   $cc_code = $_POST['cc_code'];
   $costcenter = new Costcenter();

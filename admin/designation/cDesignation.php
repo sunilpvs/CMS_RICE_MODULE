@@ -2,7 +2,7 @@
 session_start();
 require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
 require_once($_SERVER['DOCUMENT_ROOT'] ."/admin/designation/Designation.php");
-require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
+
 
 //$db_handle = new DBController();
 // $action = "";

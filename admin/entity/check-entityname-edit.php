@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] .'/configurations/entity/Entity.php');
+require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/entity/Entity.php');
 $entity_id = $_POST['entity_id'];
 $entity_name = $_POST['entity_name'];
 $entity = new Entity();

@@ -2,7 +2,7 @@
 session_start();
 date_default_timezone_set('Asia/Kolkata');
  require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
-require_once($_SERVER['DOCUMENT_ROOT'] ."/configurations/costcenter/Costcenter.php");
+require_once($_SERVER['DOCUMENT_ROOT'] ."/admin/costcenter/Costcenter.php");
 
 // $action = "";
 if (! empty($_GET["action"])) {
@@ -40,10 +40,10 @@ switch ($action) {
             } 
             else
             {
-                header("Location:../../configurations/costcenter/cCostcenter.php");
+                header("Location:../../admin/costcenter/cCostcenter.php");
             }
         }
-        require_once "../../configurations/costcenter/costcenter-add.php";
+        require_once "../../admin/costcenter/costcenter-add.php";
         break;
     
     case "costcenter-edit":
@@ -67,10 +67,10 @@ switch ($action) {
 
             $cc = new Costcenter();
             $insertId = $cc->editCostcenter($cc_code, $cc_type, $entity_id, $incorp_date, $gst_no, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status);
-            header("Location: ../../configurations/costcenter/cCostcenter.php");
+            header("Location: ../../admin/costcenter/cCostcenter.php");
         }
         $result = $costcenter->getCostcenterById($costcenter_id);
-        require_once "../../configurations/costcenter/costcenter-edit.php";
+        require_once "../../admin/costcenter/costcenter-edit.php";
         break;
     
     case "costcenter-delete":
@@ -78,13 +78,13 @@ switch ($action) {
         $cc = new Costcenter();
         $cc->deleteCostcenter($cc_code);
         $result = $cc->getAllCostcenter();
-        require_once "../../configurations/costcenter/vCostcenter.php";
+        require_once "../../admin/costcenter/vCostcenter.php";
         break;
     
     default:
         $costcenter = new Costcenter();
         $result = $costcenter->getAllCostcenter();
-        require_once "../../configurations/costcenter/vCostcenter.php";
+        require_once "../../admin/costcenter/vCostcenter.php";
         break;
 }
 ?>

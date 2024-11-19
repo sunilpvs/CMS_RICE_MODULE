@@ -1,5 +1,5 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] .'/configurations/designation/Designation.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/department/Department.php');
     $depname = $_POST['name'];
     $depcode = $_POST['code'];
     

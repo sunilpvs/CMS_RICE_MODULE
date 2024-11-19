@@ -28,8 +28,7 @@ RewriteRule ^employ user_management/employee/cEmployee.php [L,QSA,NC]
 RewriteRule ^users user_management/user/cUser.php [L,QSA,NC]
 
 #Configurations
-RewriteRule ^entity configurations/entity/cEntity.php [L,QSA,NC]
-RewriteRule ^costcenter configurations/costcenter/cCostcenter.php [L,QSA,NC]
+
 RewriteRule ^customer configurations/customer/cCustomer.php [L,QSA,NC]
 RewriteRule ^vendor configurations/vendor/cVendor.php [L,QSA,NC]
 
@@ -71,10 +70,12 @@ RewriteRule ^admstate admin/state/cState.php [L,QSA,NC]
 RewriteRule ^admcity admin/city/cCity.php [L,QSA,NC]
 RewriteRule ^admdept admin/department/cDepartment.php [L,QSA,NC]
 RewriteRule ^admdesig admin/designation/cDesignation.php [L,QSA,NC]
+RewriteRule ^admenti admin/entity/cEntity.php [L,QSA,NC]
+RewriteRule ^admcost admin/costcenter/cCostcenter.php [L,QSA,NC]
 #Admin - User Managerment
 RewriteRule ^admpages admin/pages/cPages.php [L,QSA,NC]
 RewriteRule ^admroles admin/userroles/cUserroles.php [L,QSA,NC]
-RewriteRule ^perms admin/userpermissions/cUserpermissions.php [L,QSA,NC]
+RewriteRule ^admperms admin/userpermissions/cUserpermissions.php [L,QSA,NC]
 #Admin pages
 RewriteRule ^admhome admin/adm_index.php  [L,QSA,NC]
 #RewriteRule ^admlogin admin/adm_login.php [L,QSA,NC]

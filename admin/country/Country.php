@@ -47,7 +47,7 @@ class Countri
     {
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
-       
+        try{
         $query = "UPDATE tbl_country SET country = ?,code = ?,currency=? WHERE id = ?";
         $paramType = "sssi";
         $paramValue = array(
@@ -58,7 +58,7 @@ class Countri
           
             $id
         );        
-        $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
+        $updatedId = $this->db_handle->insert($query, $paramType, $paramValue);
 
         $activity = "Updated country details for country ID: $id";
         $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
@@ -68,17 +68,24 @@ class Countri
             $last_updated
         );
         $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-        return $insertId;
+        $this->db_handle->commitTrans();
+        return $updatedId;
+        }catch (\Throwable $e){
+        // An exception has been thrown
+        // We must rollback the transaction
+        $this->db_handle->rollbackTrans();
+        throw $e; // but the error must be handled anyway
+    }
     }
     
-    function deletecountry($id) {
-        $query = "UPDATE tbl_country SET country = 'D' WHERE id = ?";
-        $paramType = "i";
-        $paramValue = array(
-            $id
-        );
-        $this->db_handle->update($query, $paramType, $paramValue);
-    }
+    //function deletecountry($id) {
+        //$query = "UPDATE tbl_country SET country = 'D' WHERE id = ?";
+        //$paramType = "i";
+        //$paramValue = array(
+            //$id
+        //);
+        //$this->db_handle->update($query, $paramType, $paramValue);
+    //}
 
     function validateDuplicates_Add($country, $code, $currency)
     {

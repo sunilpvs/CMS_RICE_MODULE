@@ -47,7 +47,8 @@ class Department
     function editDepartment($name, $code, $status, $id) {
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
-        
+
+        try{
         $query = "UPDATE tbl_department SET name = ?,code = ?,status = ?,last_updated = ?, last_updatedDateTime = ? WHERE id = ?";
         $paramType = "sssssi";
         $paramValue = array(
@@ -58,7 +59,7 @@ class Department
             $last_updatedDateTime,
             $id
         );
-        $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
+        $updatedId = $this->db_handle->insert($query, $paramType, $paramValue);
 
         $activity = "Updated department details for Department ID: $id";
         $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
@@ -68,21 +69,28 @@ class Department
             $last_updated
         );
         $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-        return $insertId;
+        $this->db_handle->commitTrans();
+        return $updatedId;
+        }catch (\Throwable $e){
+        // An exception has been thrown
+        // We must rollback the transaction
+        $this->db_handle->rollbackTrans();
+        throw $e; // but the error must be handled anyway
+    }
     }
     
-    function deleteDepartment($id) {
-        $query = "UPDATE tbl_department SET status = 'D' WHERE id = ?";
-        $paramType = "i";
-        $paramValue = array(
-            $id
-        );
-        $this->db_handle->update($query, $paramType, $paramValue);
-    }
+    //function deleteDepartment($id) {
+       // $query = "UPDATE tbl_department SET status = 'D' WHERE id = ?";
+        //$paramType = "i";
+        //$paramValue = array(
+            //$id
+        //);
+        //$this->db_handle->update($query, $paramType, $paramValue);
+    //}
 
     function validateDuplicates_Add($name, $code) 
     {
-        $sql = "SELECT name FROM tbl_department WHERE code = '$code' OR name = '$name'";
+        $sql = "SELECT name FROM tbl_department WHERE code = '$code' AND name = '$name'";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);
         if($count>0){ //Record Exists with same Name or Code
