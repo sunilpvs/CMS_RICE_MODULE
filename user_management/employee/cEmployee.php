@@ -33,6 +33,7 @@
                 $exit_date = $_POST['exit_date'];
                 if($exit_date == ""){ $exit_date = "1900-01-01";}
                 $emp_status = 1;
+                $entity_id = $_POST['entity'];
                 $department = $_POST['department'];
                 $designation = $_POST['designation'];
                 $img_name = $_FILES['image']['name'];
@@ -43,7 +44,7 @@
 
                 $emp = new Employee();
                 $insertId = $emp->addEmployee($f_name, $l_name, $dob, $email, $personal_email,$mobile, $add1, $add2, $city, $state, $pin, $country, $contacttype_Id, $join_date,
-                $exit_date, $emp_status,$department,$designation,$img_des,$id);
+                $exit_date, $emp_status,$entity_id,$department,$designation,$img_des,$id);
                 if (empty($insertId)) {
                     $response = array(
                         "message" => "Problem in Adding New Record",
@@ -82,8 +83,9 @@
                 $exit_date = $_POST['exit_date'];
                 if($exit_date == ""){ $exit_date = "1900-01-01";}
                 $emp_status = $_POST['emp_status'];
-                $Department = $_POST['department'];
-                $Designation = $_POST['designation'];
+                $entity_id = $_POST['entity'];
+                $department = $_POST['department'];
+                $designation = $_POST['designation'];
                 $image = $_FILES['image'];
                 $img_name = pathinfo($_FILES['image']['name'],PATHINFO_EXTENSION);
                 $img_loc = $_FILES['image']['tmp_name'];
@@ -92,7 +94,7 @@
                 move_uploaded_file($img_loc,$img_des);
                 
                 $emp->editEmployee($f_name, $l_name, $dob, $email, $personal_email, $mobile, $add1, $add2, $city, $state, $pin, $country, $ctype, 
-                        $join_date, $exit_date, $emp_status, $Department, $Designation, $img_des, $emp_id);
+                        $join_date, $exit_date, $emp_status, $entity_id, $department, $designation, $img_des, $emp_id);
                 header("Location: ../../user_management/employee/cEmployee.php");
             }
             $result = $emp->getEmployeeById($emp_id);
@@ -101,8 +103,8 @@
         
         case "emp-delete":
             $emp_id = $_GET["id"];
-            $emp = new Employee();
-            $emp->disableEmployee($emp_id);
+            //$emp = new Employee();
+            //$emp->disableEmployee($emp_id);
             $result = $emp->getAllEmployee();
             require_once "../../user_management/employee/vEmployee.php";
             break;

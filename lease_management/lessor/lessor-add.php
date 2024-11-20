@@ -13,10 +13,7 @@
   </div>
 
 <div class="card-body">
-
-<form name="frmAdd" method="post" action="" id="frmAdd"
-    onSubmit="return validate();">
-
+<form name="frmAdd" method="post" action="" id="frmAdd" onSubmit="return validate();">
 <div class="container">
   <div class="form-row">
   
@@ -27,7 +24,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
-      
 	    $(document).ready(function()
 	    {
         $("#lessor_name").on("focusout",function()
@@ -49,126 +45,124 @@
         )})
     </script>
 
+    <div class="col-md-4 mb-3">
+    <label for="validationDefault03" class="info">Lessor Type</label><span id="ltype-info" class="info"></span>
+    <select id="ltype" name="ltype" class="form-control demoInputBox">
+        <?php
+            $gen = new Generic();
+            $result = $gen->getLessorTypeList();
+            if (!empty($result)) {
+                while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+                {   
+        ?> 
+        <option value=<?php echo $row['id']; ?>> <?php echo $row["ltype"] ?></option>
+        <?php   } 
+            }
+        ?>         
+    </select>
+    </div>
 
-
-      <div class="col-md-4 mb-3">
-        <label for="validationDefault03" class="info">Lessor Type</label><span id="ltype-info" class="info"></span>
-        <select id="ltype" name="ltype" class="form-control demoInputBox">
-          <?php
-              $gen = new Generic();
-              $result = $gen->getLessorTypeList();
-              if (!empty($result)) {
-                  while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-                  {   
-          ?> 
-          <option value=<?php echo $row['id']; ?>> <?php echo $row["ltype"] ?></option>
-          <?php   } 
-              }
-          ?>         
-      </select>
-      </div>
-
-      <div class="col-md-4 mb-3">
-        <label for="validationDefault02" class="info">Address1</label><span id="add1-info" class="info"></span>
-        <input type="text" class="form-control demoInputBox" id="add1" name= "add1" placeholder="Address1"  required>
-      </div>
+    <div class="col-md-4 mb-3">
+    <label for="validationDefault02" class="info">Address1</label><span id="add1-info" class="info"></span>
+    <input type="text" class="form-control demoInputBox" id="add1" name= "add1" placeholder="Address1"  required>
+    </div>
       
-      <div class="col-md-4 mb-3">
-        <label for="validationDefault03" class="info">Address2</label><span id="add2-info" class="info"></span>
-        <input type="text" class="form-control demoInputBox" id="add2" name= "add2" placeholder="Address2" required>
-      </div>
+    <div class="col-md-4 mb-3">
+    <label for="validationDefault03" class="info">Address2</label><span id="add2-info" class="info"></span>
+    <input type="text" class="form-control demoInputBox" id="add2" name= "add2" placeholder="Address2" required>
+    </div>
 
-      <div class="col-md-4 mb-3">
-        <label for="validationDefault03" class="info">City</label><span id="city-info" class="info"></span>
-        <select id="city" name="city" class="form-control demoInputBox">
-          <?php
-              $gen = new Generic();
-              $result = $gen->GetCityList();
-              if (!empty($result)) {
-                  while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-                  {   
-          ?> 
-          <option value=<?php echo $row['id']; ?>> <?php echo $row["city"] ?></option>
-          <?php   } 
-              }
-          ?>         
-      </select>
-      </div>
+    <div class="col-md-4 mb-3">
+    <label for="validationDefault03" class="info">City</label><span id="city-info" class="info"></span>
+    <select id="city" name="city" class="form-control demoInputBox">
+        <?php
+            $gen = new Generic();
+            $result = $gen->GetCityList();
+            if (!empty($result)) {
+                while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+                {   
+        ?> 
+        <option value=<?php echo $row['id']; ?>> <?php echo $row["city"] ?></option>
+        <?php   } 
+            }
+        ?>         
+    </select>
+    </div>
 
-      <div class="col-md-4 mb-3">
-        <label for="validationDefault03" class="info">State</label><span id="state-info" class="info"></span>
-        <select id="state" name="state" class="form-control demoInputBox">
-          <?php
-              $gen = new Generic();
-              $result = $gen->GetStateList();
-              if (!empty($result)) {
-                  while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-                  {   
-          ?> 
-          <option value=<?php echo $row['id']; ?>> <?php echo $row["state"] ?></option>
-          <?php   } 
-              }
-          ?>         
-      </select>
-      </div>
+    <div class="col-md-4 mb-3">
+    <label for="validationDefault03" class="info">State</label><span id="state-info" class="info"></span>
+    <select id="state" name="state" class="form-control demoInputBox">
+        <?php
+            $gen = new Generic();
+            $result = $gen->GetStateList();
+            if (!empty($result)) {
+                while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+                {   
+        ?> 
+        <option value=<?php echo $row['id']; ?>> <?php echo $row["state"] ?></option>
+        <?php   } 
+            }
+        ?>         
+    </select>
+    </div>
 
-      <div class="col-md-4 mb-3">
-        <label for="validationDefault03" class="info">Pincode</label><span id="pin-info" class="info"></span>
-        <input type="text" class="form-control demoInputBox" id="pin" name= "pin" placeholder="Pincode" required>
-      </div>
+    <div class="col-md-4 mb-3">
+    <label for="validationDefault03" class="info">Pincode</label><span id="pin-info" class="info"></span>
+    <input type="text" class="form-control demoInputBox" id="pin" name= "pin" placeholder="Pincode" required>
+    </div>
       
-      <div class="col-md-4 mb-3">
-        <label for="validationDefault03" class="info">Country</label><span
-              id="country-info" class="info"></span>
-        <select id="country" name="country" class="form-control demoInputBox">
-          <?php
-              $gen = new Generic();
-              $result = $gen->GetCountryList();
-              if (!empty($result)) {
-                  while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-                  {   
-          ?> 
-          <option value=<?php echo $row['id']; ?>> <?php echo $row["country"] ?></option>
-          <?php   } 
-              }
-          ?>         
-      </select>
-      </div> 
+    <div class="col-md-4 mb-3">
+    <label for="validationDefault03" class="info">Country</label><span
+            id="country-info" class="info"></span>
+    <select id="country" name="country" class="form-control demoInputBox">
+        <?php
+            $gen = new Generic();
+            $result = $gen->GetCountryList();
+            if (!empty($result)) {
+                while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+                {   
+        ?> 
+        <option value=<?php echo $row['id']; ?>> <?php echo $row["country"] ?></option>
+        <?php   } 
+            }
+        ?>         
+    </select>
+    </div> 
     
-      <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Primary Contact</label><span id="primary_contact-info" class="info"></span>
-      <select id="primary_contact" name="primary_contact" class="form-control demoInputBox">
-          <option value="-1">Select Contact</option>    
-          <?php
-              $gen = new Generic();
-              $result = $gen->getLessorContactList();
-              if (!empty($result)) {
-                  while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-                  {   
-          ?> 
-          <option value=<?php echo $row['id']; ?>> <?php echo $row["contact"];?></option>
-          <?php   } 
-              }
-          ?>         
-      </select>
-      </div>
+    <div class="col-md-4 mb-3">
+    <label for="validationDefault03" class="info">Primary Contact</label><span id="primary_contact-info" class="info"></span>
+    <select id="primary_contact" name="primary_contact" class="form-control demoInputBox" required>
+        <option value="-1">Select Contact</option>    
+        <?php
+            $gen = new Generic();
+            $result = $gen->getLessorContactList();
+            if (!empty($result)) {
+                while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+                {   
+        ?> 
+        <option value=<?php echo $row['id']; ?>> <?php echo $row["contact"];?></option>
+        <?php   } 
+            }
+        ?>         
+    </select>
+    </div>
       
-      <div class="col-md-4 mb-3">
-        <label for="validationDefault05" class="info">Status</label><span id="status-info" class="info"></span>
-        <select id="status" name="status" class="form-control demoInputBox">
-            <?php
-                $gen = new Generic();
-                $result2 = $gen->getStatusList("GEN");
-                if (!empty($result2)) {
-                    while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
-                    {   
-            ?> 
-            <option value=<?php echo $row2['id']; ?> > <?php echo $row2["status"]; ?></option>
-            <?php   } 
-                }
-            ?>
-            ?>   
-        </select>
+    <div class="col-md-4 mb-3">
+    <label for="validationDefault05" class="info">Status</label><span id="status-info" class="info"></span>
+    <select id="status" name="status" class="form-control demoInputBox">
+        <?php
+            $gen = new Generic();
+            $result2 = $gen->getStatusList("GEN");
+            if (!empty($result2)) {
+                while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+                {   
+        ?> 
+        <option value=<?php echo $row2['id']; ?> > <?php echo $row2["status"]; ?></option>
+        <?php   } 
+            }
+        ?>
+        ?>   
+    </select>
     </div>
 
   </div> <br>
@@ -179,7 +173,6 @@
             <button class="btn btn-primary" type="cancel" name="cancel" id="btnCancel" value="Cancel" ><a style="color:white;" href ="/lease_management/lessor/cLessor.php">Cancel</a></button> 
         </div>
     </div>
-
 </form>
 </div>
 </div>
@@ -232,8 +225,8 @@ function validate() {
         $("#country").css('background-color','#FFFFDF');
         valid = false;
     }
-    if(!$("#primary_contact").val()) {
-        $("#primary_contact-info").html("(required)");
+    if($("#primary_contact").val() == -1) {
+        $("#primary_contact-info").html("(*required)");
         $("#primary_contact").css('background-color','#FFFFDF');
         valid = false;
     }

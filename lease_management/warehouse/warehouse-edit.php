@@ -206,10 +206,20 @@
             <div class="col-md-4 mb-3">
                 <label for="validationDefault10" class="info">Status</label><span id="status-info" class="info"></span>
                 <select id="status" name="status" class="form-control demoInputBox">
-                    <option value="A" <?php if($row1["status"] == "A"){ echo "Selected";} ?> >Active</option>    
-                    <option value="D" <?php if($row1["status"] == "D"){ echo "Selected";} ?>>De-Active</option>   
+                <?php
+                    $gen = new Generic();
+                    $result2 = $gen->getModStatusList("GEN");
+                    if (!empty($result2)) 
+                    {
+                        while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+                        {   
+                ?> 
+                <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1["status"] ){ echo "Selected"; } ?> > <?php echo $row2["status"]; ?></option>
+                <?php   } 
+                    }
+                ?>               
                 </select>
-            </div>
+            </div>             
 
             <div class="col-md-4 mb-3">
                 <input type="hidden" class="form-control demoInputBox" id="warehouse_id" name= "warehouse_id" placeholder="Commodity" value="<?php echo $row1["id"]; ?>">

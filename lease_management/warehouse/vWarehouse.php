@@ -50,7 +50,7 @@
                         <td><?php echo $row["contact"]; ?></td>
                         <td><?php echo $row["email"]; ?></td>
                         <td><?php echo $row["mobile"]; ?></td>
-                        <td><?php if($row["status"]=="A") { echo "Active";} else { echo "De-Active";} ?></td>
+                        <td><?php echo $row["status"]; ?></td>
                     <td><a class="btnEditAction"
                         href="/lease_management/warehouse/cWarehouse.php?action=warehouse-edit&id=<?php echo $row["id"]; ?>">
                         <img src="../../assests/img/icon-edit.png" />

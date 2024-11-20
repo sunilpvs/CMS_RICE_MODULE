@@ -67,14 +67,12 @@
             break;
         
         case "lessor-delete":
-
             //$lessor_id = $_GET["id"];
             //$less = new Lessor();
             //$less->deleteLessor($lessor_id);
-           // $result = $less->getAllLessor();
-            //require_once "../../lease_management/lessor/vLessor.php";
-        //break;
-        
+            $result = $less->getAllLessor();
+            require_once "../../lease_management/lessor/vLessor.php";
+            break;
         default:
             $less = new Lessor();
             $result = $less->getAllLessor();

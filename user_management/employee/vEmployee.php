@@ -44,7 +44,7 @@
                 <td><?php echo $row["email"]; ?></td>
                 <td><?php echo $row["mobile"]; ?></td>
                 <td><?php echo $row["ctype"]; ?></td> 
-                <td><?php echo $row["emp_status"]; ?></td> 
+                <td><?php echo $row["status"]; ?></td> 
                 <td><a class="btnEditAction"
                     href="../../user_management/employee/cEmployee.php?action=emp-edit&id=<?php echo $row["id"]; ?>">
                     <img src="../../assests/img/icon-edit.png" />

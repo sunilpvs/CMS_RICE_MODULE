@@ -45,15 +45,18 @@
             <td><?php echo $row["contact"]; ?></td>
             <td><?php echo $row["email"]; ?></td>
             <td><?php echo $row["mobile"]; ?></td>
-            <td><?php if($row["status"]=="A") { echo "Active";} else { echo "De-Active";} ?></td>
-            <td><a class="btnEditAction"
+            <td><?php echo $row["status"]; ?></td>
+            <td>
+                <a class="btnEditAction"
                 href="../../lease_management/lessor/cLessor.php?action=lessor-edit&id=<?php echo $row["id"]; ?>">
                 <img src="../../assests/img/icon-edit.png" />
                 </a>
-               <a class="btnDeleteAction" 
-                href="../../lease_management/lessor/cLessor.php?action=lessor-delete&id=<?php echo $row["id"]; ?>">
+              <!-- 
+                <a class="btnDeleteAction" 
+                href="../../lease_management/lessor/cLessor.php?action=lessor-delete&id=<?php //echo $row["id"]; ?>">
                 <img src="../../assests/img/icon-delete.png" />
                 </a> 
+              -->
             </td>
         </tr>
         <?php

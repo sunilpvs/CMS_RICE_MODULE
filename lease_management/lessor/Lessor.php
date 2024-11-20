@@ -15,43 +15,44 @@ class Lessor
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
         $this->db_handle->beginTrans();
         try{
-        $query = "INSERT INTO tbl_lessor (lessor_name, ltype, add1, add2, city, state, pin, country,  primary_contact,  status, entity_id, created_by)  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-        $paramType = "sissiiiiisii";
-        $paramValue = array(
-            $lessor_name,
-            $ltype,
-            $add1,
-            $add2,
-            $city,
-            $state,
-            $pin,
-            $country,
-            $primary_contact,
-            $status,
-            $entity_id,
-            $created_by
-        );
-        $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
+            $query = "INSERT INTO tbl_lessor (lessor_name, ltype, add1, add2, city, state, pin, country,  primary_contact,  status, entity_id, created_by)  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            $paramType = "sissiiiiisii";
+            $paramValue = array(
+                $lessor_name,
+                $ltype,
+                $add1,
+                $add2,
+                $city,
+                $state,
+                $pin,
+                $country,
+                $primary_contact,
+                $status,
+                $entity_id,
+                $created_by
+            );
+            $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
 
-        //Adding Transaction Log
-        $activity = "New Lessor added with ID: $insertId";
-        $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
-        $paramType = "sii";
-        $paramValue = array(
-            $activity,
-            $created_by,
-			$insertId
-        );
-		$transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-         $this->db_handle->commitTrans();
+            //Adding Transaction Log
+            $activity = "New Lessor added with ID: $insertId";
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
+            $paramType = "sii";
+            $paramValue = array(
+                $activity,
+                $created_by,
+                $insertId
+            );
+            $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+            $this->db_handle->commitTrans();
             return $insertId;
-            }catch (\Throwable $e){
+        }catch (\Throwable $e)
+        {
             // An exception has been thrown
             // We must rollback the transaction
             $this->db_handle->rollbackTrans();
             throw $e; // but the error must be handled anyway
         }
-        }
+    }
 
     
     
@@ -59,50 +60,50 @@ class Lessor
     {
         $last_updated = $_SESSION['id'];
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
-        
-        $query = "UPDATE tbl_lessor SET lessor_name=?, ltype=?, add1=?, add2=?, city=?, state=?, pin=?, country=?, primary_contact=?, status=?, last_updated=? ,last_updateddatetime=? WHERE id=?";
-        
-        $paramType = "sissiiiiisisi";
-        $paramValue = array(
-            $lessor_name,
-            $ltype,
-            $add1,
-            $add2,
-            $city,
-            $state,
-            $pin,
-            $country,
-            $primary_contact, 
-            $status,
-            $last_updated,
-            $last_UpdatedDateTime,
-            $lessor_id
-        );
-        $updateid = $this->db_handle->insert($query, $paramType, $paramValue);
+        $this->db_handle->beginTrans();
+        try{        
+            $query = "UPDATE tbl_lessor SET lessor_name=?, ltype=?, add1=?, add2=?, city=?, state=?, pin=?, country=?, primary_contact=?, status=?, last_updated=? ,last_updateddatetime=? WHERE id=?";
+            $paramType = "sissiiiiisisi";
+            $paramValue = array(
+                $lessor_name,
+                $ltype,
+                $add1,
+                $add2,
+                $city,
+                $state,
+                $pin,
+                $country,
+                $primary_contact, 
+                $status,
+                $last_updated,
+                $last_UpdatedDateTime,
+                $lessor_id
+            );
+            $updateid = $this->db_handle->insert($query, $paramType, $paramValue);
 
-        //Adding Transaction Log
-        $activity = "Lessor details updated Lessor ID: $lessor_id";
-        $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
-        $paramType = "sii";
-        $paramValue = array(
-            $activity,
-            $last_updated,
-			$$lessor_id
-        );
-		$transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-
-        return $updateid;
-
+            //Adding Transaction Log
+            $activity = "Lessor details updated Lessor ID: $lessor_id";
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
+            $paramType = "sii";
+            $paramValue = array(
+                $activity,
+                $last_updated,
+                $$lessor_id
+            );
+            $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+            $this->db_handle->commitTrans();
+            return $updateid;
+        }catch (\Throwable $e)
+        {
+        // An exception has been thrown
+        // We must rollback the transaction
+        $this->db_handle->rollbackTrans();
+        throw $e; // but the error must be handled anyway
+        }
     }
     
     function deleteLessor($lessor_id) 
     {
-        $query = "UPDATE tbl_lessor SET status ='D' WHERE id = ?";
-        $paramType = "i";
-        $paramValue = array(
-            $lessor_id
-        );
-        $this->db_handle->update($query, $paramType, $paramValue);
     }
     
     function getLessorById($lessor_id) {

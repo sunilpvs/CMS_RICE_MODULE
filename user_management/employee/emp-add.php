@@ -165,6 +165,24 @@
     </div>
 
     <div class="col-md-4 mb-3">
+      <label for="validationDefault03" class="info">Entity</label><span id="entity-info-info" class="info"></span>
+        <select id="entity" name="entity" class="form-control demoInputBox">
+        <option value="-1">Select Entity</option>
+            <?php
+                $result = $gen->getEntityList();
+                if (!empty($result)) 
+                {
+                    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+                    {   
+            ?> 
+            <option value=<?php echo $row['id']; ?>> <?php echo $row["entity_name"]; ?></option>
+            <?php   } 
+                }
+            ?>  
+        </select>
+    </div>
+
+    <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Department</label><span id="department-info-info" class="info"></span>
         <select id="department" name="department" class="form-control demoInputBox">
         <option value="-1">Select Department</option>
@@ -199,6 +217,7 @@
             ?>  
         </select>
     </div>
+    
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Upload Image</label><span id="image-info" class="info"></span>
       <input type="file" class="form-control demoInputBox" id="image" name= "image">
@@ -303,6 +322,11 @@ function validate() {
     if(!$("#exit_date").val()) {
         $("#exit_date-info").html("(required)");
         $("#exit_date").css('background-color','#FFFFDF');
+        valid = false;
+    }
+    if(!$("#entity").val()) {
+        $("#entity-info").html("(required)");
+        $("#entity").css('background-color','#FFFFDF');
         valid = false;
     }
     if(!$("#department").val()) {

@@ -127,7 +127,7 @@
     </div>
     
     <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">pincode</label><span id="pin-info" class="info"></span>
+      <label for="validationDefault03" class="info">Pincode</label><span id="pin-info" class="info"></span>
        <input type="text" class="form-control demoInputBox" id="pin" name= "pin" placeholder="Pincode" value="<?php echo $row1["pin"]; ?>" required>
     </div>
 
@@ -177,20 +177,47 @@
     </div>
 
     <div class="col-md-4 mb-3">
-        <label for="validationDefault10" class="info">Status</label><span id="emp_status-info" class="info"></span>
-        <select id="emp_status" name="emp_status" class="form-control demoInputBox">
-            <option value="A" <?php if($row1["emp_status"] == "A"){ echo "Selected";} ?> >Active</option>    
-            <option value="S" <?php if($row1["emp_status"] == "S"){ echo "Selected";} ?>>Suspended</option> 
-            <option value="D" <?php if($row1["emp_status"] == "D"){ echo "Selected";} ?>>De-Active</option>   
+      <label for="validationDefault10" class="info">Status</label><span id="emp_status-info" class="info"></span>
+      <select id="emp_status" name="emp_status" class="form-control demoInputBox">
+            <?php
+                $gen = new Generic();
+                $result2 = $gen->getModStatusList("GEN");
+                if (!empty($result2)) {
+                    while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+                    {   
+            ?> 
+            <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1["emp_status"] ){ echo "Selected"; } ?> > <?php echo $row2["status"]; ?></option>
+            <?php   } 
+                }
+            ?>               
         </select>
-      </div>
+    </div> 
+
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault03" class="info">Entity</label><span id="entity-info-info" class="info"></span>
+        <select id="entity" name="entity" class="form-control demoInputBox">
+        <option value="-1">Select Entity</option>
+            <?php
+                $gen = new Generic();
+                $result2 = $gen->getEntityList();
+                if (!empty($result2)) 
+                {
+                    while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+                    {   
+            ?> 
+            <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1["entity_id"] ){ echo "Selected"; } ?> > <?php echo $row2["entity_name"]; ?></option>
+            <?php   } 
+                }
+            ?>  
+        </select>
+    </div>
       
     <div class="col-md-4 mb-3">
     <label for="validationDefault05" class="info">Department</label><span id="department-info" class="info"></span>
         <select id="department" name="department" class="form-control demoInputBox">
             <?php
-                $con = new Generic();
-                $result2 = $con->getDeptartmentList();
+                $gen = new Generic();
+                $result2 = $gen->getDeptartmentList();
                 if (!empty($result2)) {
                     while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
                     {   
