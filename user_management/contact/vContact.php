@@ -42,19 +42,16 @@
         <td><?php echo $row["state"]; ?></td>
         <td><?php echo $row["contacttype"]; ?></td>                  
         <td>
-        <!--<a class="btnEditAction" href="contact-edit/(.*)$ "?>">
-                        <img src="../../img/icon-edit.png" />
-                        </a>-->
           <a class="btnEditAction" href="../../contact?action=contact-edit&id=<?php echo $row["id"] ?>">
-          <img src="../../assests/img/icon-edit.png" />
+            <img src="../../assests/img/icon-edit.png" />
           </a>                        
           <?php
-            if ($row["contacttype"] != "Super User")
-            {
-                $eTxt = "<a class='btnDeleteAction' href='../../user_management/contact/cContact.php?action=contact-delete&id=".$row['id']."'>";
-                $eTxt .= "<img src='../../assests/img/icon-delete.png'/> </a>";
-                echo $eTxt;
-            }
+            //if ($row["contacttype"] != "Super User")
+            //{
+              //  $eTxt = "<a class='btnDeleteAction' href='../../user_management/contact/cContact.php?action=contact-delete&id=".$row['id']."'>";
+                //$eTxt .= "<img src='../../assests/img/icon-delete.png'/> </a>";
+               // echo $eTxt;
+            //}
           ?>
         </td>
       </tr>

@@ -201,7 +201,7 @@
           //alert(response);
           response = JSON.parse(response);
           $('#inward_bags_count').val(response[0].inward_bags_count);
-          $('#current_bags_stock').val(response[0].current_bags_stock);
+          $('#current_bags_stock').val(response[0].current_bags_count);
           $('#outward_bags_count').val(response[0].outward_bags_count);
         }
       })
