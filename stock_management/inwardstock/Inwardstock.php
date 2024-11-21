@@ -134,7 +134,7 @@
     
     function getInwardstockmillerList() 
     {
-        $sql = "SELECT id,miller_name,gst_num,place FROM tbl_miller WHERE status = 'A';";
+        $sql = "SELECT id,miller_name,gst_num,place FROM tbl_miller WHERE status = 1;";
         $result = $this->db_handle->runBaseQuery($sql);
         return $result;
     } 
@@ -156,7 +156,7 @@
     
     function getInwardstockcommodityList() 
     {
-        $sql = "SELECT id,concat(cargo_type,'-',commodity_name,'-',brand,'-',marking) as commodity,empty_bag_wt,bag_wt FROM vw_commodities WHERE status ='A';";
+        $sql = "SELECT id,concat(cargo_type,'-',commodity_name,'-',brand,'-',marking) as commodity,empty_bag_wt,bag_wt FROM vw_commodities WHERE status = 'Active';";
         $result = $this->db_handle->runBaseQuery($sql);
         return $result;
     } 

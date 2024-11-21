@@ -13,9 +13,7 @@
   </div>
 
 <div class="card-body">
-
 <form name="frmAdd" method="post" action="" id="frmAdd" onSubmit="return validate();">
-
 <div class="container">
   <div class="form-row">   
        
@@ -73,13 +71,7 @@ function validate() {
         $("#warehouse_id-info").html("(required)");
         $("#warehouse_id").css('background-color','#FFFFDF');
         valid = false;
-    }
-    if(!$("#lease_type").val()) {
-        $("#lease_type-info").html("(required)");
-        $("#lease_type").css('background-color','#FFFFDF');
-        valid = false;
-    }
-   
+    }  
     if(!$("#start_date").val()) {
         $("#start_date-info").html("(required)");
         $("#start_date").css('background-color','#FFFFDF');

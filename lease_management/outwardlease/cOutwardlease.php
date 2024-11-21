@@ -41,7 +41,7 @@ switch ($action) {
             $lease_status =  $_POST['lease_status']; 
             $lease_days = $_POST['lease_days']; 
             $total_cost =  $_POST['total_cost'];
-            $entity_id = $SESSION['entity_id'];
+            $entity_id = $_SESSION['entity_id'];
             $user_id = $_SESSION['id'];
 
             $outwardlease = new Outwardlease();

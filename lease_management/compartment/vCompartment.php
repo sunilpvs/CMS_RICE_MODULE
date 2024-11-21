@@ -45,7 +45,7 @@
             <td><?php echo $row["compartment_name"]; ?></td> 
             <td><?php echo $row["comp_capacity_sqft"]; ?></td>
             <td><?php echo $row["comp_capacity_mton"]; ?></td>
-            <td><?php if ($row["status"] == "A") echo 'Active'; else echo 'Expired' ?></td>                
+            <td><?php echo $row["status"]; ?></td>
             <!--
             <td>
                 <a class="btnEditAction" href="../../bulk_ops/compartment/cCompartment.php?action=compartment-edit&id=<?php //echo $row["id"]; ?>">

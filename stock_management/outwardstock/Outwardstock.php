@@ -182,7 +182,7 @@ class Outwardstock
      
     function getDeliveryList() 
     {
-        $sql = "SELECT id,delivery_name from tbl_delivery where status ='A';";
+        $sql = "SELECT id, name from tbl_delivery_details;";
         //$sql = "SELECT a.id as warehouse_id, a.warehouse_name, c.compartment_name FROM tbl_warehouse a, tbl_outwardlease b, tbl_compartment c";
         //$sql .= " WHERE a.id = b.warehouse_id AND a.id = c.warehouse_id AND DATE_FORMAT(b.lease_end,'%d-%b-%Y') >= DATE_FORMAT(Now(),'%d-%b-%Y');";
         $result = $this->db_handle->runBaseQuery($sql);
@@ -225,16 +225,18 @@ class Outwardstock
 
     function getOutwardstockcommodityList() 
     {
-        $sql = "SELECT id,concat(cargo_type,'-',commodity_name,'-',brand,'-',marking) as commodity,empty_bag_wt,bag_wt FROM vw_commodities WHERE status ='A';";
+        $sql = "SELECT id,concat(cargo_type,'-',commodity_name,'-',brand,'-',marking) as commodity,empty_bag_wt,bag_wt FROM vw_commodities WHERE status ='Active';";
         $result = $this->db_handle->runBaseQuery($sql);
         return $result;
     } 
 
     function getStockList($customer_id,$warehouse_id,$compartment_id,$commodity_id,$transport_id) 
     {
-       $sql = "SELECT * FROM vw_inwardstock_dtable ";
-       $sql .= "WHERE customer_id =$customer_id AND warehouse_id = $warehouse_id AND compartment_id = $compartment_id AND ";
-       $sql .= "commodity_id = $commodity_id AND mod_transport = $transport_id;";
+     
+        $sql = "SELECT sum(inward_bags_stock) as inward_bags_count, sum(current_bags_stock) as current_bags_count, sum(outward_bags_stock) as outward_bags_count ";
+        $sql .= "FROM vw_inwardstock ";
+        $sql .= "WHERE customer_id =$customer_id AND warehouse_id = $warehouse_id AND comp_id = $compartment_id AND ";
+        $sql .= "commodity_id = $commodity_id AND transport_id = $transport_id;";
         $result = $this->db_handle->runBaseQuery($sql);
        return $result;
     } 
@@ -246,14 +248,20 @@ class Outwardstock
         return $result;
     } 
  
-  
-     
-    function getAllOutwardstock($dt) {
+    function getAllOutwardstock($customer,$warehouse,$compartment,$transport) {
         //$sql = "SELECT * FROM vw_outwardstock_list ORDER BY id";
-        $sql = "SELECT * FROM vw_outwardstock_list WHERE date_format(transaction_date,'%d-%b-%Y') = '$dt' ORDER BY id";
+        $sql = "SELECT * FROM vw_outwardstock_list WHERE customer_id = $customer AND warehouse_id = $warehouse AND compartment_id = $compartment AND transport_id = $transport ORDER BY  id";
         $result = $this->db_handle->runBaseQuery($sql);
         return $result;
     }
+  
+     
+    // function getAllOutwardstock($dt) {
+    //     //$sql = "SELECT * FROM vw_outwardstock_list ORDER BY id";
+    //     $sql = "SELECT * FROM vw_outwardstock_list WHERE date_format(transaction_date,'%d-%b-%Y') = '$dt' ORDER BY id";
+    //     $result = $this->db_handle->runBaseQuery($sql);
+    //     return $result;
+    // }
 
     //function getstockInfo($warehouse_id)
     //{

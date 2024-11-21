@@ -12,51 +12,54 @@ class Compartment
         $this->db_handle = new DBController();
     }
     
-    function addCompartment($outwardlease_id, $compartment_name, $warehouse_id, $capacity_sqft, $capacity_mton, $entity_id, $created_by) {
+    function addCompartment($outwardlease_id, $compartment_name, $warehouse_id, $capacity_sqft, $capacity_mton, $entity_id, $created_by) 
+    {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
-            $this->db_handle->beginTrans();
-            try{
-        $status ="A";
-        $query = "INSERT INTO tbl_compartment (outwardlease_id,compartment_name,warehouse_id,capacity_sqft,capacity_mton,status,entity_id,created_by) VALUES (?,?,?, ?, ?, ?, ?,?)";
-        $paramType = "isisssii";
-        $paramValue = array(
-            $outwardlease_id,
-            $compartment_name,
-            $warehouse_id,
-            $capacity_sqft,
-            $capacity_mton,
-            $status,
-            $entity_id,
-            $created_by
-        );
-        $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
-        //Update Compartment_Id of Compartments for new Inserted Row
-        $result = $this->getCompartmentById($insertId);
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        $prefix = $row['prefix'];
-        $id = $row['id'];
-        $comp_id = $prefix . $id;
-        $query = "UPDATE tbl_compartment SET compartment_id = '$comp_id' WHERE id = $id;";
-        $this->db_handle->runBaseQuery($query);
-        //Adding Transaction Log
-        $activity = "New Compartment created with ID: $insertId for WarehouseID: $warehouse_id";
-        $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
-        $paramType = "sii";
-        $paramValue = array(
-            $activity,
-            $created_by,
-            $warehouse_id
-        );
-        $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-         $this->db_handle->commitTrans();
+        $this->db_handle->beginTrans();
+        try
+        {
+            $status = 1;
+            $query = "INSERT INTO tbl_compartment (outwardlease_id,compartment_name,warehouse_id,capacity_sqft,capacity_mton,status,entity_id,created_by) VALUES (?,?,?, ?, ?, ?, ?,?)";
+            $paramType = "isisssii";
+            $paramValue = array(
+                $outwardlease_id,
+                $compartment_name,
+                $warehouse_id,
+                $capacity_sqft,
+                $capacity_mton,
+                $status,
+                $entity_id,
+                $created_by
+            );
+            $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
+            //Update Compartment_Id of Compartments for new Inserted Row
+            $result = $this->getCompartmentById($insertId);
+            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+            $prefix = $row['prefix'];
+            $id = $row['id'];
+            $comp_id = $prefix . $id;
+            $query = "UPDATE tbl_compartment SET compartment_id = '$comp_id' WHERE id = $id;";
+            $this->db_handle->runBaseQuery($query);
+            //Adding Transaction Log
+            $activity = "New Compartment created with ID: $insertId for WarehouseID: $warehouse_id";
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
+            $paramType = "sii";
+            $paramValue = array(
+                $activity,
+                $created_by,
+                $warehouse_id
+            );
+            $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+            $this->db_handle->commitTrans();
             return $insertId;
-            }catch (\Throwable $e){
+        }catch (\Throwable $e)
+        {
             // An exception has been thrown
             // We must rollback the transaction
             $this->db_handle->rollbackTrans();
             throw $e; // but the error must be handled anyway
         }
-        }
+    }
 
     
     function editCompartment($compartment_id, $warehouse_id,  $capacity_sqft,  $capacity_mton,$status, $id) {

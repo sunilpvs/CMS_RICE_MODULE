@@ -420,12 +420,12 @@
             <select id="lease_status" name="lease_status" class="form-control demoInputBox">
                 <?php
                     $gen = new Generic();
-                    $result = $gen->getStatusList();
+                    $result = $gen->getModStatusList("LEASE");
                     if (!empty($result)) {
                         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
                         {   
                 ?> 
-                <option value=<?php echo $row['ID']; ?> > <?php echo $row["Status"]; ?></option>
+                <option value=<?php echo $row['id']; ?> > <?php echo $row["status"]; ?></option>
                 <?php   } 
                     }
                 ?>         

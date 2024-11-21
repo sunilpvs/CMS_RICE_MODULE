@@ -35,7 +35,7 @@
                     $inward_diff_gross = $_POST['inward_diff_gross'];
                     $inward_diff_net = $_POST['inward_diff_net'];
                     $remarks = $_POST['remarks'];
-                    $entity_id = $_POST['entity_id'];
+                    $entity_id = $_SESSION['entity_id'];
                     $created_by = $_SESSION['id'];
 
 

@@ -182,7 +182,7 @@
 
         function getCustomerList() 
         {
-            $sql = "SELECT id,customer_name FROM tbl_customer WHERE status = 'A' ORDER BY id;";
+            $sql = "SELECT id,customer_name FROM tbl_customer WHERE status = 1 ORDER BY id;";
             $result = $this->db_handle->runBaseQuery($sql);
             return $result;
         }    

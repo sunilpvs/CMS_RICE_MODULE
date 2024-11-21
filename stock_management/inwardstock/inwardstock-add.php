@@ -5,10 +5,10 @@
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
 ?>
 <div class="container-fluid">
-  <div class="card shadow mb-4">
-    <div class="card-header py-3">
-      <h3 class="m-0 font-weight-bold text-primary">New InwardStock Details</h3>
-    </div>
+<div class="card shadow mb-4">
+<div class="card-header py-3">
+  <h3 class="m-0 font-weight-bold text-primary">New InwardStock Details</h3>
+</div>
 
 <div class="card-body">
   <form name="frmAdd" method="post" action="" id="frmAdd" onSubmit="return validate();">
@@ -414,12 +414,6 @@ function validate() {
           $("#inward_diff_net").css('background-color','#FFFFDF');
           valid = false;
       }
-      if(!$("#current_bags_stock").val()) {
-          $("#current_bags_stock-info").html("(required)");
-          $("#current_bags_stock").css('background-color','#FFFFDF');
-          valid = false;
-      }
-
       if(!$("#remarks").val()) {
           $("#remarks-info").html("(required)");
           $("#remarks").css('background-color','#FFFFDF');

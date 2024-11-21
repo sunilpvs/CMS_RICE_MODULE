@@ -94,18 +94,21 @@ switch ($action) {
         break;
 
     case "outward-filter":
-                $date_pic = $_POST['date_picker'];
-                $newDate = date("d-M-Y", strtotime($date_pic));
-        
-                $inwardstock = new Outwardstock();
-                $result = $inwardstock->getAllOutwardstock($newDate);
+                //$date_pic = $_POST['date_picker'];
+                //$newDate = date("d-M-Y", strtotime($date_pic));
+                $customer_id = $_POST['customer'];
+                $warehouse_id = $_POST['warehouse'];
+                $compartment_id = $_POST['compartment'];
+                $transport_id = $_POST['transport'];
+                $outwardstock = new Outwardstock();
+                $vw_result = $outwardstock->getAllOutwardstock($customer_id,$warehouse_id,$compartment_id,$transport_id);
                 require_once "../../stock_management/outwardstock/vOutwardstock.php";
                 break;    
     
     default:
-        $outwardstock = new Outwardstock();
-        $dt =  date("d-m-Y");
-        $result = $outwardstock->getAllOutwardstock($dt);
+        //$outwardstock = new Outwardstock();
+        //$dt =  date("d-m-Y");
+        //$result = $outwardstock->getAllOutwardstock($dt);
         require_once "../../stock_management/outwardstock/vOutwardstock.php";
         break;
        

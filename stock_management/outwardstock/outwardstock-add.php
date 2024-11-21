@@ -1,8 +1,8 @@
 <?php 
-    date_default_timezone_set('Asia/Kolkata');
-    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
-    include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
-    include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
+  date_default_timezone_set('Asia/Kolkata');
+  include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+  include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
+  include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
 ?>
 <div class="container-fluid">
 <div class="card shadow mb-4">
@@ -11,7 +11,7 @@
 </div>
 
 <div class="card-body">
-  <form name="frmAdd" method="post" action="" id="frmAdd" onSubmit="return validate();">
+<form name="frmAdd" method="post" action="" id="frmAdd" onSubmit="return validate();">
 <div class="container">
   <div class="form-row">
 
@@ -168,7 +168,7 @@
 
   <div class="col-md-3 mb-3">
     <label for="validationDefault01" class="info">Current Bags Stock</label><span id="current_bags_stock-info" class="info"></span>
-    <input type="text" class="form-control demoInputBox" id="current_bags_stock" name= "current_bags_stock" min="0" max="1000" step="0.01" placeholder="00.00" readonly>
+    <input type="text" class="form-control demoInputBox" id="current_bags_stock" name= "current_bags_stock" placeholder="00.00" readonly>
   </div>
 
   <div class="col-md-3 mb-3">
@@ -228,20 +228,20 @@
 
     <div class="col-md-3 mb-3">
      <label for="validationDefault03" class="info">Outward Bags Stock</label><span id="bags_out-info" class="info"></span>
-     <input type="text" class="form-control demoInputBox" id="bags_out" name= "bags_out" min="0" max="1000" step="0.01" placeholder="00.00" onchange="validateOutwardBagsCount()" required>
+     <input type="text" class="form-control demoInputBox" id="bags_out" name= "bags_out" placeholder="00" onchange="validateOutwardBagsCount()" required>
     </div>
 
     <script>
       function validateOutwardBagsCount()
       {
-        //var bags_out= $("#bags_out").val();
-        //var current_bags_stock = $("#current_bags_stock").val();
-        var current_bags_stock = document.getElementById("current_bags_stock").value;
-
-        var bags_out = document.getElementById("bags_out").value;
+        var bags_out= $("#bags_out").val();
+        var current_bags_stock = $("#current_bags_stock").val();
+        //var current_bags_stock = document.getElementById("current_bags_stock").value;
+        //var bags_out = document.getElementById("bags_out").value;
         //alert ("Entered Stock"+bags_out);
         //alert ("Current Stock"+current_bags_stock);
-        if (bags_out >= current_bags_stock)
+        
+        if (bags_out > current_bags_stock)
         {
           alert("* max stock Current Bags Stock exceed.");
         }
@@ -268,7 +268,7 @@
                   while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
                   {   
           ?> 
-          <option value=<?php echo $row['id']; ?>><?php echo $row["delivery_name"];?></option>
+          <option value=<?php echo $row['id']; ?>><?php echo $row["name"];?></option>
           <?php   } 
               }                
           ?>         

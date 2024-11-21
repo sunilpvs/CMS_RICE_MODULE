@@ -58,10 +58,10 @@ switch ($action) {
         break;
     
     case "compartment-delete":
-        $compartments_id = $_GET["id"];
-        $compartment = new Compartment();
-        $compartment->deleteCompartment($compartments_id);
-        $result = $compartment->getAllCompartment();
+        //$compartments_id = $_GET["id"];
+        //$compartment = new Compartment();
+        //$compartment->deleteCompartment($compartments_id);
+        //$result = $compartment->getAllCompartment();
         require_once "../../lease_management/compartment/vCompartment.php";
         break;
     
