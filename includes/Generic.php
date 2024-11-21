@@ -205,7 +205,7 @@
         
         function getCurrentStock() 
         {
-            $id = $_SESSION['id'] ;
+            $id = $_SESSION['id'] ; 
             $sql = "SELECT * FROM vw_rpt_currentstock;";
             $result = $this->db_handle->runBaseQuery($sql);
             return $result;

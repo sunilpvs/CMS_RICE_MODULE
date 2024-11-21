@@ -52,7 +52,7 @@ RewriteRule ^user-permissions security/userpermissions/cUserpermissions.php [L,Q
 RewriteRule ^user-roles security/userroles/cUserroles.php [L,QSA,NC]
 
 #Reports
-RewriteRule ^stock-rpt reports/stock_report/cStock_report.php [L,QSA,NC]
+RewriteRule ^stock-rpt reports/current_stock/cCurrent_stock.php [L,QSA,NC]
 #RewriteRule ^currentstock-rpt reports/current_stock/cCurrent_stock.php [L,QSA,NC]
 #RewriteRule ^inwardstock-rpt reports/inward_stock/cinwardstock_rpt.php [L,QSA,NC]
 #RewriteRule ^outwardstock-rpt reports/outward_stock/coutwardstock_rpt.php [L,QSA,NC]

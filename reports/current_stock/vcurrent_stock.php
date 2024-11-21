@@ -21,12 +21,14 @@
     
 
                 <tr style="font-size:14px">
+                    <th><strong>Customer Name</strong></th>
                     <th><strong>Warehouse Name</strong></th>
-                    <th><strong>Compartment Id</strong></th>
-                    <th><strong>Compartment Name</strong></th>
-                    <th><strong>Commodity</strong></th> 
-                    <th><strong>Bags</strong></th>
-                    <th><strong>Net Weight(Mton)</strong></th>
+                    <th><strong>Compartment</strong></th>
+                    <th><strong>Commodity</strong></th>
+                    <th><strong>Transport Mode</strong></th> 
+                    <th><strong>Bags Stock</strong></th>
+                    <th><strong>Gross Wt</strong></th>
+                    <th><strong>Net Weight</strong></th>
                 </tr>
             </thead>
             <tbody style="background-color:#ffffff; color: #000000;">
@@ -36,13 +38,14 @@
                         {    
                     ?>
                     <tr style="font-size:12px">                   
-                        <td><?php echo $row["warehouse_name"]; ?></td>
-                        <td><?php echo $row["compartment_id"]; ?></td>
-                        <td><?php echo $row["compartment_name"]; ?></td>
-                        <td><?php echo $row["commodity"]; ?></td>
-                        <td><?php echo $row["bags"]; ?></td>
-                        <td><?php echo $row["net_wt"]; ?></td>
-                       
+                      <td><?php echo $row["customer_name"]; ?></td>
+                      <td><?php echo $row["warehouse_name"]; ?></td>
+                      <td><?php echo $row["compartment_name"]; ?></td>
+                      <td><?php echo $row["commodity"]; ?></td>
+                      <td><?php echo $row["transport_mode"]; ?></td>
+                      <td><?php echo $row["bags_stock"]; ?></td>
+                      <td><?php echo $row["gross_wt"]; ?></td>
+                      <td><?php echo $row["net_wt"]; ?></td>
                     </tr>
                     <?php
                         }
