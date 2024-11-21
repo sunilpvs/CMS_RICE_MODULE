@@ -1,31 +1,27 @@
 <?php 
-  date_default_timezone_set('Asia/Kolkata');
-  require_once($_SERVER['DOCUMENT_ROOT'] .'/configurations/customer/Customer.php');
-include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+    date_default_timezone_set('Asia/Kolkata');
+    require_once($_SERVER['DOCUMENT_ROOT'] .'/configurations/customer/Customer.php');
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
 ?>
 
 <div class="container-fluid">
 <div class="card shadow mb-4">
-  <div class="card-header py-3">
-    <h3 class="m-0 font-weight-bold text-primary">Customer Details
-    </h3>
-  </div>
-
+<div class="card-header py-3">
+    <h3 class="m-0 font-weight-bold text-primary">Customer Details</h3>
+</div>
 <div class="card-body">
-
 <form name="frmAdd" method="post" action="" id="frmAdd" onSubmit="return validate();">
-  <div class="container">
-  <div class="form-row">
+<div class="container">
+    <div class="form-row">
+
     <div class="col-md-4 mb-3"> 
       <label for="validationDefault01" class="info">Customer Name</label><span id="customer_name-info" class="info"></span>
       <input type="text" class="form-control demoInputBox" id="customer_name" name="customer_name" placeholder="Customer Name" required>
     </div>
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script>
-      
+    <script>      
 	    $(document).ready(function()
 	    {
         $("#customer_name").on("focusout",function()
@@ -43,7 +39,6 @@ include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
 		      }
 		      )
         }
-  
         )})
     </script> 
     
@@ -58,8 +53,8 @@ include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
     </div>
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">City</label><span id="city-info" class="info"></span>
-      <select id="city" name="city" class="form-control demoInputBox">
+    <label for="validationDefault03" class="info">City</label><span id="city-info" class="info"></span>
+    <select id="city" name="city" class="form-control demoInputBox">
         <?php
             $gen = new Generic();
             $result = $gen->GetCityList();
@@ -75,8 +70,8 @@ include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
     </div>
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">State</label><span id="state-info" class="info"></span>
-      <select id="state" name="state" class="form-control demoInputBox">
+    <label for="validationDefault03" class="info">State</label><span id="state-info" class="info"></span>
+    <select id="state" name="state" class="form-control demoInputBox">
         <?php
             $gen = new Generic();
             $result = $gen->GetStateList();
@@ -97,9 +92,8 @@ include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
     </div>
     
     <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Country</label><span
-            id="country-info" class="info"></span>
-      <select id="country" name="country" class="form-control demoInputBox">
+    <label for="validationDefault03" class="info">Country</label><span id="country-info" class="info"></span>
+    <select id="country" name="country" class="form-control demoInputBox">
         <?php
             $gen = new Generic();
             $result = $gen->GetCountryList();
@@ -132,13 +126,25 @@ include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
     </select>
     </div>
     
-    <div class="col-md-4 mb-12">
-        <label for="validationDefault05" class="info">Status</label><span id="Status-info" class="info"></span>
-        <select id="status" name="status" class="form-control demoInputBox">       
-            <option value = "A">Active </option>
-            <!-- <option value = "D">De-Active </option> -->
-        </select>
-        </div>
+    <div class="col-md-4 mb-3">
+    <label for="validationDefault05" class="info">Status</label><span id="status-info" class="info"></span>
+    <select id="status" name="status" class="form-control demoInputBox">
+        <?php
+            $gen = new Generic();
+            $result2 = $gen->getModStatusList("GEN");
+            if (!empty($result2)) 
+            {
+                while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+                {   
+        ?> 
+        <option value=<?php echo $row2['id']; ?> > <?php echo $row2["status"]; ?></option>
+        <?php   } 
+            }
+        ?>
+    </select>
+    </div> 
+
+
 </div>
 </div>
     

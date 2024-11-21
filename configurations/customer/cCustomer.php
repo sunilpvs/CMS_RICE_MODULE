@@ -63,13 +63,12 @@ switch ($action) {
         break;
     
     case "customer-delete":
-        $customer_id = $_GET["id"];
-        $cust = new Customer();
-        $cust->deleteCustomer($customer_id);
-        $result = $cust->getAllCustomer();
+        //$customer_id = $_GET["id"];
+        //$cust = new Customer();
+        //$cust->deleteCustomer($customer_id);
+        //$result = $cust->getAllCustomer();
         require_once "../../configurations/customer/vCustomer.php";
         break;
-    
     default:
         $cust = new Customer();
         $result = $cust->getAllCustomer();

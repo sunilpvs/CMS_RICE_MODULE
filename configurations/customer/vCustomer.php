@@ -44,15 +44,17 @@
                         <td><?php echo $row["contact"]; ?></td>
                         <td><?php echo $row["email"]; ?></td>
                         <td><?php echo $row["mobile"]; ?></td> 
-                        <td><?php if($row["status"] == "A"){echo "Active";} else {echo "De-Active";} ?></td>
+                        <td><?php echo $row["status"]; ?></td> 
                     <td><a class="btnEditAction"
-                        href="../../configurations/customer/cCustomer.php?action=customer-edit&id=<?php echo $row["id"]; ?>">
-                        <img src="../../assests/img/icon-edit.png" />
+                          href="../../configurations/customer/cCustomer.php?action=customer-edit&id=<?php echo $row["id"]; ?>">
+                          <img src="../../assests/img/icon-edit.png" />
                         </a>
+                        <!--
                         <a class="btnDeleteAction" 
-                        href="../../configurations/customer/cCustomer.php?action=customer-delete&id=<?php echo $row["id"]; ?>">
-                        <img src="../../assests/img/icon-delete.png" />
+                          href="../../configurations/customer/cCustomer.php?action=customer-delete&id=<?php echo $row["id"]; ?>">
+                          <img src="../../assests/img/icon-delete.png" />
                         </a>
+                        -->
                     </td>
                 </tr>
                     <?php

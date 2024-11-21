@@ -44,17 +44,19 @@
                         <td><?php echo $row["state"]; ?></td>
                         <td><?php echo $row["contact"]; ?></td>
                         <td><?php echo $row["email"]; ?></td>
-                        <td><?php echo $row["mobile"]; ?></td>              
-                        <td><?php if($row["status"] == "A"){echo "Active";} else {echo "De-Active";} ?></td>
-                    
-                        <td><a class="btnEditAction"
-                            href="/configurations/vendor/cVendor.php?action=vendor-edit&id=<?php echo $row["id"]; ?>">
-                            <img src="../../assests/img/icon-edit.png" />
+                        <td><?php echo $row["mobile"]; ?></td>
+                        <td><?php echo $row["status"]; ?></td>
+                        <td>
+                            <a class="btnEditAction"
+                              href="/configurations/vendor/cVendor.php?action=vendor-edit&id=<?php echo $row["id"]; ?>">
+                              <img src="../../assests/img/icon-edit.png" />
                             </a>
+                            <!--
                             <a class="btnDeleteAction" 
-                            href="/configurations/vendor/cVendor.php?action=vendor-delete&id=<?php echo $row["id"]; ?>">
-                            <img src="../../assests/img/icon-delete.png" />
+                              href="/configurations/vendor/cVendor.php?action=vendor-delete&id=<?php //echo $row["id"]; ?>">
+                              <img src="../../assests/img/icon-delete.png" />
                             </a>
+                            -->
                         </td>
                     </tr>
                     <?php
