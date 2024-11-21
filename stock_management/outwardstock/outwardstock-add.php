@@ -201,7 +201,7 @@
           //alert(response);
           response = JSON.parse(response);
           $('#inward_bags_count').val(response[0].inward_bags_count);
-          $('#current_bags_stock').val(response[0].current_bags_count);
+          $('#current_bags_stock').val(response[0].current_bags_stock);
           $('#outward_bags_count').val(response[0].outward_bags_count);
         }
       })
@@ -234,14 +234,15 @@
     <script>
       function validateOutwardBagsCount()
       {
-        var bags_out= $("#bags_out").val();
-        var current_bags_stock = $("#current_bags_stock").val();
-        //var current_bags_stock = document.getElementById("current_bags_stock").value;
-        //var bags_out = document.getElementById("bags_out").value;
+      	//var current_bags_stock = $("#current_bags_stock").val();
+        //var bags_out= $("#bags_out").val();
+        
+        var current_bags_stock = document.getElementById("current_bags_stock").value;
+        var bags_out = document.getElementById("bags_out").value;
         //alert ("Entered Stock"+bags_out);
         //alert ("Current Stock"+current_bags_stock);
         
-        if (bags_out > current_bags_stock)
+        if (current_bags_stock <= bags_out)
         {
           alert("* max stock Current Bags Stock exceed.");
         }
