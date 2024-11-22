@@ -163,17 +163,17 @@
 
   <div class="col-md-3 mb-3">
       <label for="validationDefault01" class="info">Inward Bags Count</label><span id="inward_bags_count-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="inward_bags_count" name= "inward_bags_count" min="0" max="1000" step="0.01" placeholder="00.00" readonly>
+      <input type="number" class="form-control demoInputBox" id="inward_bags_count" name= "inward_bags_count" min="0" max="1000" step="0.01" placeholder="00.00" readonly>
   </div>
 
   <div class="col-md-3 mb-3">
     <label for="validationDefault01" class="info">Current Bags Stock</label><span id="current_bags_stock-info" class="info"></span>
-    <input type="text" class="form-control demoInputBox" id="current_bags_stock" name= "current_bags_stock" placeholder="00.00" readonly>
+    <input type="number" class="form-control demoInputBox" id="current_bags_stock" name= "current_bags_stock" placeholder="00.00" readonly>
   </div>
 
   <div class="col-md-3 mb-3">
     <label for="validationDefault01" class="info">Outward Bags Count</label><span id="outward_bags_count-info" class="info"></span>
-    <input type="text" class="form-control demoInputBox" id="outward_bags_count" name= "outward_bags_count" min="0" max="1000" step="0.01" placeholder="00.00" readonly>
+    <input type="number" class="form-control demoInputBox" id="outward_bags_count" name= "outward_bags_count" min="0" max="1000" step="0.01" placeholder="00.00" readonly>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -228,7 +228,7 @@
 
     <div class="col-md-3 mb-3">
      <label for="validationDefault03" class="info">Outward Bags Stock</label><span id="bags_out-info" class="info"></span>
-     <input type="text" class="form-control demoInputBox" id="bags_out" name= "bags_out" placeholder="00" onchange="validateOutwardBagsCount()" required>
+     <input type="number" class="form-control demoInputBox" id="bags_out" name="bags_out" placeholder="00" onchange="validateOutwardBagsCount()" required>
     </div>
 
     <script>
@@ -237,14 +237,16 @@
       	//var current_bags_stock = $("#current_bags_stock").val();
         //var bags_out= $("#bags_out").val();
         
-        var current_bags_stock = document.getElementById("current_bags_stock").value;
-        var bags_out = document.getElementById("bags_out").value;
+        var current_bags_stock = Number.parseInt(document.getElementById("current_bags_stock").value,10);
+        var bags_out = Number.parseInt(document.getElementById("bags_out").value,10);
+
         //alert ("Entered Stock"+bags_out);
         //alert ("Current Stock"+current_bags_stock);
         
-        if (current_bags_stock <= bags_out)
+        if(bags_out>current_bags_stock)
         {
-          alert("* max stock Current Bags Stock exceed.");
+          alert("*New max stock Current Bags Stock exceed.");
+          document.getElementById("bags_out").value=0;
         }
       }
     </script>
@@ -430,7 +432,7 @@ function validate() {
         $("#vehicle_no").css('background-color','#FFFFDF');
         valid = false;
     }
-    if(!$("#bags_out").val()) {
+    if($("#bags_out").val()<=0) {
         $("#bags_out-info").html("(required)");
         $("#bags_out").css('background-color','#FFFFDF');
         valid = false;
