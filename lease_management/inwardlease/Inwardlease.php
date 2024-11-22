@@ -38,7 +38,7 @@ class Inwardlease
                 $expiry_date,
                 $insertId    
             );
-            $insertId1 = $this->db_handle->insert($query, $paramType, $paramValue);
+            $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
             //Update Contract_Id of Inward Lease for  new Inserted Row
             $result = $this->getInwardleaseById($insertId);
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
