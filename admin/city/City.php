@@ -125,7 +125,7 @@ class Citi
     }
     
     function getAllCiti() {
-        $sql = "SELECT * FROM tbl_city ORDER BY id";
+        $sql = "SELECT a.id, a.city, b.state, c.country FROM tbl_city a, tbl_state b, tbl_country c WHERE a.state = b.id AND a.country = c.id ORDER BY id";
         $result = $this->db_handle->runBaseQuery($sql);
         return $result;
     }

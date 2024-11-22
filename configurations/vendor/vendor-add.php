@@ -94,11 +94,7 @@
     </select>
     </div>
 
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Pincode</label><span id="pin-info" class="info"></span>
-       <input type="text" class="form-control demoInputBox" id="pin" name= "pin" placeholder="Pincode" required>
-    </div>
-    
+   
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Country</label><span
             id="country-info" class="info"></span>
@@ -117,6 +113,11 @@
     </select>
     </div> 
    
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault03" class="info">Pincode</label><span id="pin-info" class="info"></span>
+       <input type="text" class="form-control demoInputBox" id="pin" name= "pin" placeholder="Pincode" required>
+    </div>
+
     <div class="col-md-4 mb-3">
     <label for="validationDefault03" class="info">Primary Contact</label><span id="primary_contact-info" class="info"></span>
     <select id="primary_contact" name="primary_contact" class="form-control demoInputBox">

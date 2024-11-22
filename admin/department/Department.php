@@ -126,7 +126,7 @@ class Department
     }
     
     function getAllDepartment() {
-        $sql = "SELECT * FROM tbl_department ORDER BY id";
+        $sql = "SELECT a.id, a.name, a.code, b.status FROM tbl_department a, tbl_status b WHERE a.status = b.id ORDER BY id";
         $result = $this->db_handle->runBaseQuery($sql);
         return $result;
     }

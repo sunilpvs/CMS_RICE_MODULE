@@ -47,7 +47,7 @@
                     <td><?php echo $row["state"]; ?></td>
                     <td><?php echo $row["status"]; ?></td>
                     <td><a class="btnEditAction"
-                        href="../../admin/entity/cEntity.php?action=entity-edit&id=<?php echo $row["id"]; ?>">
+                        href="../../admin/entity/cEntity.php?action=entity-edit&id=<?php echo $row["id"]; ?>"> 
                         <img src="/assests/img/icon-edit.png" />
                         </a>
                     </td>

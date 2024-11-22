@@ -121,7 +121,8 @@ class Contacttype
     }
     
     function getAllContacttype () {
-        $sql = "SELECT * FROM tbl_contacttype  ORDER BY id";
+        $sql = "SELECT a.id,a.name,b.status FROM tbl_contacttype a, tbl_status b ";
+        $sql .= "WHERE a.status = b.id ORDER BY id;";
         $result = $this->db_handle->runBaseQuery($sql);
         return $result;
     }

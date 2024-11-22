@@ -16,18 +16,22 @@ switch ($action) {
     case "entity-add":
         if (isset($_POST['add'])) {
             $entity_name = $_POST['entity_name'];
+            $cc_code = $_POST['cc_code'];
             $cin = $_POST['cin'];
-            $incorp_date = $_POST['incorp_date'];  
+            $incorp_date = $_POST['incorp_date'];
+            $gst_no = $_POST['gst_no'];
             $add1 = $_POST['add1'];
             $add2 = $_POST['add2'];
             $city = $_POST['city'];
             $state = $_POST['state'];
-            $pin = $_POST['pin'];
             $country = $_POST['country'];
+            $pin = $_POST['pin'];
+            $primary_contact = $_POST['primary_contact'];
             $status = $_POST['status'];
             $created_by = $_SESSION['id'];
+
             $entity = new Entity();
-            $insertId = $entity->addEntity($entity_name, $cin, $incorp_date, $add1, $add2, $city, $state, $pin, $country, $status, $created_by);
+            $insertId = $entity->addEntity($entity_name, $cc_code, $cin, $incorp_date, $gst_no, $add1, $add2, $city, $state, $country, $pin, $primary_contact, $status, $created_by);
             if (empty($insertId)) {
                 $response = array(
                     "message" => "Problem in Adding New Record",
@@ -46,14 +50,12 @@ switch ($action) {
         $entity_id = $_GET["id"];
         $entity = new Entity();
         if (isset($_POST['add'])){
-            $add1 = $_POST['add1'];
-            $add2 = $_POST['add2'];
-            $city = $_POST['city'];
-            $state = $_POST['state'];
-            $pin = $_POST['pin'];
-            $country = $_POST['country'];
+            $entity_name = $_POST['entity_name'];
+            $cin = $_POST['cin'];
+            $incorp_date = $_POST['incorp_date'];
+            $entity_id = $_POST['entity_id'];
             $status = $_POST['status'];
-        $entity->editEntity($add1, $add2, $city, $state, $pin, $country, $status,$entity_id); 
+        $entity->editEntity($entity_name, $cin, $incorp_date, $status, $entity_id); 
         header("Location: ../../admin/entity/cEntity.php");
         }
         $result = $entity->getEntityById($entity_id);

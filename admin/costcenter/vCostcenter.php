@@ -46,16 +46,11 @@
             <td><?php echo $row["state"]; ?></td>
             <td><?php echo $row["f_name"]." ".$row['l_name']; ?></td>
             <td><?php echo $row["status"]; ?></td>
-            
-            <td><a class="btnEditAction"
-                href="../../admin/costcenter/cCostcenter.php?action=costcenter-edit&id=<?php echo $row["id"]; ?>">
-                <img src="../../assests/img/icon-edit.png" />
+            <td>
+                <a class="btnEditAction"
+                    href="../../admin/costcenter/cCostcenter.php?action=costcenter-edit&id=<?php echo $row["id"]; ?> ">
+                    <img src="/assests/img/icon-edit.png" />    
                 </a>
-                
-             <!--   <a class="btnDeleteAction" 
-                href="../../masters/costcenter/cCostcenter.php?action=costcenter-delete&id=<?php //echo $row["id"]; ?>">
-                <img src="../../web/image/icon-delete.png" />
-                </a> -->
             </td>
         </tr>
         <?php

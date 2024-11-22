@@ -93,7 +93,14 @@
 
         function getEmpList() 
         {
-            $sql = "SELECT id, concat(f_name,' ',l_name) as employee FROM tbl_contact WHERE ContactType_Id IN (2,3) ORDER BY id";
+            $sql = "SELECT id, concat(f_name,' ',l_name) as employee, emp_status as status FROM tbl_contact WHERE ContactType_Id IN (2,3) ORDER BY id";
+            $result = $this->db_handle->runBaseQuery($sql);
+            return $result;
+        }    
+
+        function getActiveEmpList() 
+        {
+            $sql = "SELECT id, concat(f_name,' ',l_name) as employee FROM tbl_contact WHERE emp_status = 1 AND ContactType_Id IN (2,3) ORDER BY id";
             $result = $this->db_handle->runBaseQuery($sql);
             return $result;
         }    

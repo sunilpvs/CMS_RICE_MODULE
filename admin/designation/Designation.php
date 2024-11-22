@@ -126,7 +126,7 @@ class Designation
     }
     
     function getAllDesignation() {
-        $sql = "SELECT * FROM tbl_designation ORDER BY id";
+        $sql = "SELECT a.id, a.name, a.code, b.status FROM tbl_designation a, tbl_status b WHERE a.status = b.id ORDER BY id";
         $result = $this->db_handle->runBaseQuery($sql);
         return $result;
     }

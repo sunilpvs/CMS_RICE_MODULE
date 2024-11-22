@@ -122,7 +122,7 @@ class States
     }
     
     function getAllstates() {
-        $sql = "SELECT * FROM tbl_state ORDER BY id";
+        $sql = "SELECT a.id, a.state ,b.country FROM tbl_state a, tbl_country b WHERE a.country = b.id ORDER BY id";
         $result = $this->db_handle->runBaseQuery($sql);
         return $result;
     }
