@@ -10,95 +10,104 @@ class Costcenter
         $this->db_handle = new DBController();
     }
     
-    function addCostcenter($cc_code, $cc_type, $entity_id, $incorp_date, $gst, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status, $createdBy) {
+    function addCostcenter($cc_code, $cc_type, $entity_id, $incorp_date, $gst, $add1, $add2, $city, $state, $country, $pin, $primary_contact, $status, $createdBy) 
+    {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
-            $this->db_handle->beginTrans();
-            try{
-        $query = "INSERT INTO tbl_costcenter (cc_code, cc_type, entity_id, incorp_date, gst_no, add1, add2, city, state, pin, country, primary_contact, status, created_by) ";
-        $query .= " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $paramType = "ssissssiiiiisi";
-        $status="A";
-        $paramValue = array(
-            $cc_code,
-            $cc_type,
-            $entity_id,
-            $incorp_date,
-            $gst,
-            $add1,
-            $add2,
-            $city,
-            $state,
-            $pin,
-            $country,
-            $primary_contact,
-            $status,    
-            $createdBy
-        );
-        $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
-
-        $activity = "New Branch/Costcenter is added with ID: $insertId";
-        $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
-        $paramType = "si";
-        $paramValue = array(
-            $activity,
-            $createdBy
-        );
-    	$transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-
-         $this->db_handle->commitTrans();
+        $this->db_handle->beginTrans();
+        try
+        {
+            $query = "INSERT INTO tbl_costcenter (cc_code, cc_type, entity_id, incorp_date, gst_no, add1, add2, city, state, pin, country, primary_contact, status, created_by) ";
+            $query .= " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $paramType = "siissssiiiiiii";
+            $paramValue = array(
+                $cc_code,
+                $cc_type,
+                $entity_id,
+                $incorp_date,
+                $gst,
+                $add1,
+                $add2,
+                $city,
+                $state,
+                $pin,
+                $country,
+                $primary_contact,
+                $status,    
+                $createdBy
+            );
+            $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
+            //Entry into Activity Log
+            $activity = "New Branch/Costcenter is added with ID: $insertId";
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
+            $paramType = "si";
+            $paramValue = array(
+                $activity,
+                $createdBy
+            );
+            $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+            $this->db_handle->commitTrans();
             return $insertId;
-            }catch (\Throwable $e){
+        }catch (\Throwable $e)
+        {
             // An exception has been thrown
             // We must rollback the transaction
             $this->db_handle->rollbackTrans();
             throw $e; // but the error must be handled anyway
         }
-        }
+    }
     
     function editCostcenter($cc_code, $cc_type, $entity_id, $incorp_date, $gst, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status)
     {
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
+        $this->db_handle->beginTrans();
+        try
+        {
         
-        $query = "UPDATE tbl_costcenter SET cc_type = ?, entity_id = ?, incorp_date = ?, gst_no = ?, add1 = ?, add2 = ?, city = ?, state=?, pin = ?, ";
-        $query .= " country = ?, primary_contact= ?, status = ? , last_updated = ? , last_updateddatetime = ? WHERE cc_code = ?";
-        $paramType = "sissssiiiiisiss";
-        $paramValue = array(
-            $cc_type,
-            $entity_id,
-            $incorp_date,
-            $gst,
-            $add1,
-            $add2,
-            $city,
-            $state,
-            $pin,
-            $country,
-            $primary_contact,
-            $status,    
-            $last_updated,
-            $last_updatedDateTime,
-            $cc_code
-        );
-        $this->db_handle->update($query, $paramType, $paramValue);
-
-        $activity = "Updated Branch/CostCenter details for CostCenter Code:".$cc_code;
-        $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
-        $paramType = "si";
-        $paramValue = array(
-            $activity,
-            $last_updated
-        );
-        $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+            $query = "UPDATE tbl_costcenter SET cc_type = ?, entity_id = ?, incorp_date = ?, gst_no = ?, add1 = ?, add2 = ?, city = ?, state=?, pin = ?, ";
+            $query .= " country = ?, primary_contact= ?, status = ? , last_updated = ? , last_updateddatetime = ? WHERE cc_code = ?";
+            $paramType = "sissssiiiiisiss";
+            $paramValue = array(
+                $cc_type,
+                $entity_id,
+                $incorp_date,
+                $gst,
+                $add1,
+                $add2,
+                $city,
+                $state,
+                $pin,
+                $country,
+                $primary_contact,
+                $status,    
+                $last_updated,
+                $last_updatedDateTime,
+                $cc_code
+            );
+            $update_id = $this->db_handle->update($query, $paramType, $paramValue);
+            //Entry into Activity log
+            $activity = "Updated Branch/CostCenter details for CostCenter Code:".$cc_code;
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
+            $paramType = "si";
+            $paramValue = array(
+                $activity,
+                $last_updated
+            );
+            $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+            $this->db_handle->commitTrans();
+            return $update_id;
+        }catch (\Throwable $e)
+        {
+            // An exception has been thrown
+            // We must rollback the transaction
+            $this->db_handle->rollbackTrans();
+            throw $e; // but the error must be handled anyway
+        }
     }
     
-    function deleteCostcenter($cc_code) {
-        $query = "UPDATE tbl_costcenter SET status = 'D' WHERE cc_code = ?";
-        $paramType = "S";
-        $paramValue = array(
-            $cc_code
-        );
-        $this->db_handle->update($query, $paramType, $paramValue);
+    function deleteCostcenter($cc_code) 
+    {
+    
     }
 
     function validateCCCode($cc_code) {
@@ -142,8 +151,5 @@ class Costcenter
         $result = $this->db_handle->runBaseQuery($sql);
         return $result;
     }
-
-
-
 }
 ?>

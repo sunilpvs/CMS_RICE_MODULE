@@ -23,14 +23,14 @@ switch ($action) {
             $add2 = $_POST['add2'];
             $city = $_POST['city'];
             $state = $_POST['state'];
-            $pin = $_POST['pin'];
             $country = $_POST['country'];
+            $pin = $_POST['pin'];
             $primary_contact = $_POST['primary_contact'];
             $status = $_POST['status'];
             $id = $_SESSION['id'];
 
             $cc = new Costcenter();
-            $insertId = $cc->addCostcenter($cc_code, $cc_type, $entity_id, $incorp_date, $gst_no, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status, $id);
+            $insertId = $cc->addCostcenter($cc_code, $cc_type, $entity_id, $incorp_date, $gst_no, $add1, $add2, $city, $state, $country, $pin, $primary_contact, $status, $id);
             if(empty($insertId)) 
             {
                 $response = array(
@@ -74,10 +74,10 @@ switch ($action) {
         break;
     
     case "costcenter-delete":
-        $cc_code = $_GET["cc_code"];
-        $cc = new Costcenter();
-        $cc->deleteCostcenter($cc_code);
-        $result = $cc->getAllCostcenter();
+        //$cc_code = $_GET["cc_code"];
+        //$cc = new Costcenter();
+        //$cc->deleteCostcenter($cc_code);
+        //$result = $cc->getAllCostcenter();
         require_once "../../admin/costcenter/vCostcenter.php";
         break;
     
