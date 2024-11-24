@@ -47,20 +47,21 @@
                 $mail->AddEmbeddedImage(dirname(__FILE__).'/logo.png','logo');
                 $body = $this->createBody($greetings, $salutation, $message);
                 $mail->Body = $body;
-                //$mail->send();
+                $mail->send();
+                return true;
                 //echo 'Message has been sent';
-          		if(!$mail->Send())
-                {
-			        echo $mail->ErrorInfo;
-			        return false;
-		        }else
-                {
+          		//if(!$mail->Send())
+                //{
+//			        echo $mail->ErrorInfo;
+			        //return false;
+		        //}else
+                //{
 		            //	echo 'Sent';
-			        return true;
-		        }
+			      //  return true;
+		        //}
             } catch (Exception $e) 
             {
-                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                //echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                 return false;
             }
         }
