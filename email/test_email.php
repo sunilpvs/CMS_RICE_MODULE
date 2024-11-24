@@ -15,10 +15,10 @@
 
    if (!$res) 
    {
-        echo 'Mailer Error: ' . $myEmail->ErrorInfo;
+        echo 'Mailer Error: ' . $res->ErrorInfo;
    } else 
    {
-       echo 'The email message was sent.';
+       //echo 'The email message was sent.';
    }
 
 
