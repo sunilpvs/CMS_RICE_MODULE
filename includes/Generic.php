@@ -205,7 +205,7 @@
         function getUserProfile() 
         {
             $id = $_SESSION['id'] ;
-            $sql = "SELECT * FROM vw_user_profile WHERE id = $id;";
+            $sql = "SELECT * FROM vw_userprofile WHERE id = $id;";
             $result = $this->db_handle->runBaseQuery($sql);
             return $result;
         }  
