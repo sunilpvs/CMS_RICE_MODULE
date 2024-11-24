@@ -53,11 +53,9 @@ RewriteRule ^user-roles security/userroles/cUserroles.php [L,QSA,NC]
 
 #Reports
 RewriteRule ^stock-rpt reports/current_stock/cCurrent_stock.php [L,QSA,NC]
-#RewriteRule ^currentstock-rpt reports/current_stock/cCurrent_stock.php [L,QSA,NC]
-#RewriteRule ^inwardstock-rpt reports/inward_stock/cinwardstock_rpt.php [L,QSA,NC]
-#RewriteRule ^outwardstock-rpt reports/outward_stock/coutwardstock_rpt.php [L,QSA,NC]
 RewriteRule ^outwardleases-rpt reports/outward_leases/coutwardlease_stock.php [L,QSA,NC]
 RewriteRule ^inwardleases-rpt reports/inward_leases/cinwardlease_stock.php [L,QSA,NC]
+
 RewriteRule ^contact/([0-9]+)$ contact?action=contact-edit/id=$1 [L,QSA,NC]
 
 ### Admin Pages 
