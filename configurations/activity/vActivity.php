@@ -1,15 +1,13 @@
 <?php
-   include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
-  include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
-  
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
  ?>
+
 <div class="container-fluid">
 <div class="card shadow mb-4">
-  <div class="card-header py-3">
-    <h3 class="m-0 font-weight-bold text-primary">Activity Log
-        <!-- <a href="/../../masters/contact/cContact.php?action=contact-add" class="btn btn-primary btn-md float-right" role="button">Add Contact</a> -->
-    </h3>
-  </div>
+<div class="card-header py-3">
+    <h3 class="m-0 font-weight-bold text-primary">Activity Log</h3>
+</div>
 
 <div class="card-body">
     <table border="0" cellspacing="5" cellpadding="5">

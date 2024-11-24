@@ -271,15 +271,6 @@ CREATE TABLE `tbl_entity` (
   `last_updateddatetime` datetime DEFAULT NULL,
   primary key (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
--- Dumping data for table `tbl_entity`
-INSERT INTO `tbl_entity` (`id`, `entity_name`, `cin`, `incorp_date`, `status`, `created_by`, `created_datetime`, `last_updated`, `last_updateddatetime`) VALUES
-(1, 'SHRI CHANDRA BULK CARGO SERVICES PRIVATE LIMITED', 'U74900AP2009PTC064815', '2009-08-21', 1 , 14, '2023-06-27 13:32:03', 1, '2023-08-01 03:40:08');
--- --------------------------------------------------------
--- INSERT INTO `tbl_entity` (`id`, `entity_name`, `cin`, `incorp_date`, `add1`, `add2`, `city`, `state`, `pin`, `country`, `status`, `created_by`, `created_datetime`, `last_updated`, `last_updateddatetime`) VALUES
--- (1, 'SHRI CHANDRA BULK CARGO SERVICES PRIVATE LIMITED', 'U74900AP2009PTC064815', '2009-08-21', 'Dr.No.70-7-62/A, 1st Floor Ramya Royale, Revenue Ward-30', 'Ramanayya Peta', 1, 1, 533003, 1, 'A', 14, '2023-06-27 13:32:03', 1, '2023-08-01 03:40:08'),
--- (2, 'SHRI CHANDRA GLOBAL EXIM PRIVATE LIMITED', 'U51220AP2022PTC121013', '2022-03-09', 'Dr.No.70-7-62/A, 1st Floor Ramya Royale, Revenue Ward-30', 'Ramanayya Peta', 1, 1, 533003, 1, 'A', 1, '2023-07-04 18:20:51', 1, '2023-08-01 03:50:48'),
--- (3, 'TANMAYEE LOGISTICS AND SERVICES', '267 of 2017', '2017-04-26', 'Dr.No.70-7-62/A, 1st Floor Ramya Royale, Revenue Ward-30', 'Ramanayya Peta', 1, 1, 533003, 1, 'A', 1, '2023-07-24 20:50:13', 1, '2023-08-03 10:48:31'),
--- (4, 'SHRI CHANDRA GLOBAL LOGISTICS', 'wafawf', '2018-10-19', 'Revenue Ward No 30, 70-7-62/A,', '3rd Floor, Ramanayyapeta, ', 1, 1, 533003, 1, 'A', 2, '2023-08-07 15:28:00', 1, '2024-03-30 18:56:31');
 -- --------------------------------------------------------
 -- Table structure for table `tbl_costcenter`
 CREATE TABLE `tbl_costcenter` (
@@ -305,9 +296,6 @@ CREATE TABLE `tbl_costcenter` (
     FOREIGN KEY (cc_type) REFERENCES tbl_costcentertype(id),
     FOREIGN KEY (entity_id) REFERENCES tbl_entity(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
--- Dumping Data into tbl_costcenter
-INSERT INTO `tbl_costcenter` (`id`, `cc_code`, `cc_type`, `entity_id`, `incorp_date`, `gst_no`, `add1`, `add2`, `city`, `state`, `pin`, `country`,`primary_contact`, `status`, `created_by`, `created_datetime`, `last_updated`, `last_updateddatetime`) VALUES
-(1, 'SCBC', 1, 1, '2009-08-21', '', 'Dr.No.70-7-62/A, 1st Floor Ramya Royale, Revenue Ward-30', 'Ramanayya Peta', 1, 1, 533003, 1, 1, 1, 1, '2023-06-27 13:32:03', 1, '2023-08-01 03:40:08');
 -- --------------------------------------------------------
 -- Table structure for table `tbl_customer`
 CREATE TABLE `tbl_customer` (
@@ -329,13 +317,6 @@ CREATE TABLE `tbl_customer` (
 	PRIMARY KEY (id),
 	FOREIGN KEY (primary_contact) REFERENCES tbl_contact(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
--- Dumping data for table `tbl_customer`
-INSERT INTO `tbl_customer` (`id`, `customer_name`, `add1`, `add2`, `city`, `state`, `pin`, `country`, `primary_contact`, `entity_id`, `status`, `created_by`, `created_datetime`, `last_updated`, `last_updateddatetime`) VALUES
-(1, 'OLAM AGRI INDIA PVT LTD', 'SAI TOWERS, GROUND FLOOR', 'ROAD NO-1', 1, 1, 533003, 1, 1, 1, 1, 1, '2023-10-21 11:00:57', NULL, NULL),
-(2, 'TRIDIENT SERVICES', 'F302', 'Add2', 1, 1, 535446, 1, 1, 1, 1, 1, '2024-04-19 16:56:10', NULL, NULL),
-(3, 'OLAM HYDRO SERVICES', 'HYD', 'DHY', 6, 1, 535446, 1, 1, 1, 1, 1, '2024-04-19 17:09:05', NULL, NULL),
-(4, 'MICROS ERVICES', 'F203', 'GYJD', 1, 1, 535448, 1, 1, 1, 1, 1, '2024-04-19 17:11:48', NULL, NULL),
-(5, 'BEBO', 'BEBO-KKD', 'KD', 1, 1, 535447, 1, 1, 1, 1, 1, '2024-04-20 12:51:12', NULL, NULL);
 -- --------------------------------------------------------
 -- Table structure for table `tbl_vendor`
 CREATE TABLE `tbl_vendor` (
@@ -428,9 +409,6 @@ CREATE TABLE `tbl_userpermissions` (
   `lastupdated_by` int(11) NOT NULL,
   `lastupdated_datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
--- Dumping data for table `tbl_userpermissions`
--- INSERT INTO `tbl_userpermissions` (`user_id`, `page_id`, `access_type`, `created_by`, `created_datetime`, `lastupdated_by`, `lastupdated_datetime`) VALUES
--- (1, 1, 1, 1, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00');
 -- --------------------------------------------------------
 -- Table structure for table `tbl_users`
 CREATE TABLE `tbl_users` (

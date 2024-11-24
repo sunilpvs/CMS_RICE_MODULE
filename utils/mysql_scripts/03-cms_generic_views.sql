@@ -133,3 +133,12 @@
 		FROM tbl_customer a, tbl_city b, tbl_state c, tbl_contact d,  tbl_status e
 			WHERE a.city = b.id AND a.state = c.id AND a.primary_contact = d. id AND a.status = e.id
 			ORDER BY a.id;
+
+# Home --> profile Page Main View
+CREATE OR REPLACE VIEW `vw_userprofile` AS 
+	SELECT b.id, b.user_name, c.user_role, d.status as status, a.f_name, a.l_name, date_format(a.dob,'%d-%b-%Y') as dob, a.email, a.personal_email, a.mobile, a.add1, a.add2,
+			date_format(a.join_date,'%d-%b-%Y') as join_date, date_format(a.exit_date,'%d-%b-%Y') as exit_date, 
+			f.city, g.state, h.country, concat(i.code,' - ', i.name) as dept, concat(j.code,' - ', j.name) as desig 
+		FROM tbl_contact a, tbl_users b, tbl_user_role c, tbl_status d, tbl_entity e, tbl_city f, tbl_state g, tbl_country h, tbl_department i, tbl_designation j
+		WHERE a.id = b.contact_id AND c.id = b.user_role_id AND b.user_status = d.id AND b.entity_id = e.id
+			AND a.city = f.id AND a.state = g.id AND a.country = h.id AND i.id = a.department AND a.designation = j.id;

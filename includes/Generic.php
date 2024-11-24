@@ -230,7 +230,7 @@
         function getActivityLog() 
         {
             $id = $_SESSION['id'] ;
-            $sql = "SELECT * FROM vw_activitylog WHERE id = $id LIMIT 50;";
+            $sql = "SELECT * FROM vw_activitylog WHERE user_id = $id ORDER BY datetime DESC LIMIT 50;";
             $result = $this->db_handle->runBaseQuery($sql);
             return $result;
         }    
