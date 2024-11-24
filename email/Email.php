@@ -16,7 +16,8 @@
         {
             //Create an instance; passing `true` enables exceptions
             $mail = new PHPMailer(true);
-            try {
+            try 
+            {
                 //Server settings
                 //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
                 $mail->isSMTP();                                            //Send using SMTP
@@ -52,11 +53,13 @@
                 {
 			        echo $mail->ErrorInfo;
 			        return false;
-		        }else{
+		        }else
+                {
 		            //	echo 'Sent';
 			        return true;
 		        }
-            } catch (Exception $e) {
+            } catch (Exception $e) 
+            {
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                 return false;
             }
@@ -124,6 +127,6 @@
                 </body>
                 </html>';
                 return $body;
-           }    
-}
-?>  
+        }    
+    }
+?> 

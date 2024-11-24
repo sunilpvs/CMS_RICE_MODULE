@@ -1,9 +1,3 @@
--- Dumping data for table `tbl_entity`
-INSERT INTO `tbl_entity` (`id`, `entity_name`, `cin`, `incorp_date`, `status`, `created_by`, `created_datetime`, `last_updated`, `last_updateddatetime`) VALUES
-(1, 'SHRI CHANDRA BULK CARGO SERVICES PRIVATE LIMITED', 'U74900AP2009PTC064815', '2009-08-21', 1 , 14, '2023-06-27 13:32:03', 1, '2023-08-01 03:40:08');
--- Dumping Data into tbl_costcenter
-INSERT INTO `tbl_costcenter` (`id`, `cc_code`, `cc_type`, `entity_id`, `incorp_date`, `gst_no`, `add1`, `add2`, `city`, `state`, `pin`, `country`,`primary_contact`, `status`, `created_by`, `created_datetime`, `last_updated`, `last_updateddatetime`) VALUES
-(1, 'SCBC', 1, 1, '2009-08-21', '', 'Dr.No.70-7-62/A, 1st Floor Ramya Royale, Revenue Ward-30', 'Ramanayya Peta', 1, 1, 533003, 1, 1, 1, 1, '2023-06-27 13:32:03', 1, '2023-08-01 03:40:08');
 -- Dumping data for table `tbl_customer`
 INSERT INTO `tbl_customer` (`id`, `customer_name`, `add1`, `add2`, `city`, `state`, `pin`, `country`, `primary_contact`, `entity_id`, `status`, `created_by`, `created_datetime`, `last_updated`, `last_updateddatetime`) VALUES
 (1, 'OLAM AGRI INDIA PVT LTD', 'SAI TOWERS, GROUND FLOOR', 'ROAD NO-1', 1, 1, 533003, 1, 1, 1, 1, 1, '2023-10-21 11:00:57', NULL, NULL),

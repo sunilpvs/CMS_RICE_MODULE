@@ -271,6 +271,9 @@ CREATE TABLE `tbl_entity` (
   `last_updateddatetime` datetime DEFAULT NULL,
   primary key (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- Dumping data for table `tbl_entity`
+INSERT INTO `tbl_entity` (`id`, `entity_name`, `cin`, `incorp_date`, `status`, `created_by`, `created_datetime`) VALUES
+(1, 'BASE COMPANY', 'CIN', date_format(CURRENT_DATE,'%d-%m-%Y'), 1 , 1, current_timestamp());
 -- --------------------------------------------------------
 -- Table structure for table `tbl_costcenter`
 CREATE TABLE `tbl_costcenter` (
@@ -296,6 +299,9 @@ CREATE TABLE `tbl_costcenter` (
     FOREIGN KEY (cc_type) REFERENCES tbl_costcentertype(id),
     FOREIGN KEY (entity_id) REFERENCES tbl_entity(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- Dumping Data into tbl_costcenter
+INSERT INTO `tbl_costcenter` (`id`, `cc_code`, `cc_type`, `entity_id`, `incorp_date`, `gst_no`, `add1`, `add2`, `city`, `state`, `pin`, `country`,`primary_contact`, `status`, `created_by`, `created_datetime`) VALUES
+(1, 'BASE', 1, 1, date_format(CURRENT_DATE,'%d-%m-%Y'), 'GST', 'Address1', 'Address2', 1, 1, 500032, 1, 1, 1, 1,  current_timestamp());
 -- --------------------------------------------------------
 -- Table structure for table `tbl_customer`
 CREATE TABLE `tbl_customer` (
