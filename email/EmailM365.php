@@ -1,13 +1,18 @@
 <?php
 include('PHPMailer/PHPMailerAutoload.php');
+include('PHPMailer/PHPMailerAutoload.php');
 include('PHPMailer/PHPMailer.php');
 include('PHPMailer/Exception.php');
 include('PHPMailer/smtp.php');
 
-use PHPMailer\PHPMailer\PHPMailerAutoload;
+require 'vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\smtp;
+use PHPMailer\PHPMailer\OAuth;
+//@see https://github.com/greew/oauth2-azure-provider
+use Greew\OAuth2\Client\Provider\Azure;
+
+
 //echo smtp_mailer('harithadevi5575@gmail.com','test form','hello');
 
 class Email
@@ -18,42 +23,64 @@ class Email
 
 	function sendEmailNotification($subject,$toAddress,$greetings, $salutation, $message)
 	{
+		$email = getenv('AZURE_OFFICE365_EMAIL'); // your office365 email
+		$clientId = getenv('AZURE_CLIENT_ID'); // Azure Client ID
+		$tenantId = getenv('AZURE_TENANT_ID'); // Azure Tenant ID
+		$clientSecret = getenv('AZURE_CLIENT_SECRET_VALUE'); // Optional. Azure Client Secret Value (Certificates & secrets)
+		$refreshToken = getenv('AZURE_REFRESH_TOKEN');
+
+		$mail = new PHPMailer(true);
+
 		//sendMail($subject, $toAddress, $greetings, $message,$salutation) 	
-		$mail = new PHPMailer(); 
-		//SMTP Settings
-		$mail->SMTPDebug=3;
-		$mail->IsSMTP(); 
-		$mail->SMTPAuth = true; 
-		$mail->SMTPSecure = 'SSL'; 
-		$mail->IsHTML(true);
-		$mail->CharSet = 'UTF-8';
-		$mail->SMTPOptions=array('ssl'=>array(
-			'verify_peer'=>false,
-			'verify_peer_name'=>false,
-			'allow_self_signed'=>true
-		));
-		
-		//Email Config.
-		//$mail->Host = "mail.pvs-consultancy.com";
-		$mail->Host = "smtp.office365.com";
-		$mail->Port = "587"; //Port 465 for ssl and 587 for tls 
-		$mail->Username = "autoemail";
-		//$mail->Password = "@1Chandra#509!";
-		$mail->Password = "xxzmgnvhyfqxwpgw"; //App PAssword
-		$mail->SetFrom("donotreply@shrichandragroup.com","ShriChandra Group");
-		$mail->Subject = $subject;
-		$mail->AddAddress($toAddress);
-		//$mail->AddEmbeddedImage(dirname(__FILE__).'/logo.png','logo');
-		$mail->AddEmbeddedImage(dirname(__FILE__).'/logo.png','logo');
-		$body = $this->createBody($greetings, $salutation, $message);
-		$mail->Body = $body;
-		if(!$mail->Send()){
-			echo $mail->ErrorInfo;
-			return false;
-		}else{
-		//	echo 'Sent';
-			return true;
-		}
+		//$mail = new PHPMailer(); 
+		try {
+			// Configure PHPMailer for SMTP
+			$mail->isSMTP();
+			$mail->Host       = 'smtp-mail.outlook.com'; // instead of smtp.office365.com
+			$mail->SMTPAuth   = true;
+			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+			$mail->Port       = 587;
+				
+			// Set OAuth2 token
+			$mail->AuthType = 'XOAUTH2';
+			$mail->setOAuth(new OAuth([
+				'provider' => new Azure([
+					'clientId' => $clientId,
+					'tenantId' => $tenantId,
+					'clientSecret' => $clientSecret
+				]),
+				'clientId' => $clientId,
+				'refreshToken' => $refreshToken,
+				'clientSecret' => $clientSecret,
+				'userName' => $email,
+			]));
+		 
+			// Sender and recipient settings
+			$mail->SetFrom("donotreply@shrichandragroup.com","ShriChandra Group");
+			$mail->addAddress('recipient@domain.com', 'Recipient Name');
+		 
+			// Plain-text email content
+			$mail->IsHTML(true);
+			$mail->CharSet = 'UTF-8';
+			$mail->SMTPOptions=array('ssl'=>array(
+				'verify_peer'=>false,
+				'verify_peer_name'=>false,
+				'allow_self_signed'=>true
+			));
+
+			$mail->Subject = $subject;
+			$mail->AddAddress($toAddress);
+			//$mail->AddEmbeddedImage(dirname(__FILE__).'/logo.png','logo');
+			$mail->AddEmbeddedImage(dirname(__FILE__).'/logo.png','logo');
+			$body = $this->createBody($greetings, $salutation, $message);
+			$mail->Body = $body;
+			 
+			// Send email
+			$mail->send();
+			echo 'Message has been sent successfully' . PHP_EOL;
+		 } catch (Exception $e) {
+			echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}" . PHP_EOL;
+		 }		
 	}
 
 	function createBody($greetings, $salutation, $message)

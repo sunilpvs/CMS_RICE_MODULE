@@ -2,7 +2,7 @@
     use Email\PHPMailer\PHPMailer\PHPMailer;
     use Email\PHPMailer\PHPMailer\Exception;
     
-    require_once($_SERVER['DOCUMENT_ROOT'] ."/email/Email.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/email/sendEmail.php");
     
     $subject = "Welcome PVS";
     $toAddress = "sunil_pvs@hotmail.com";
