@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php  
+  include($_SERVER['DOCUMENT_ROOT'] .'/config.php'); 
+
   date_default_timezone_set('Asia/Kolkata'); 
   //Check if session already there....
   if(session_status() === PHP_SESSION_NONE) session_start();
+  // Check if System Maintenance Mode 
+  if($maintenance == 1) 
+  {
+    header('Location: ../sysmaint');
+  }
 ?>
 <head>
   <meta charset="utf-8">

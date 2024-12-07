@@ -13,6 +13,7 @@ RewriteRule ^resetcode user_management/reset-code.php [L,QSA,NC]
 RewriteRule ^pwdchanged user_management/password-changed.php [L,QSA,NC]
 RewriteRule ^usrotp user_management/user-otp.php [L,QSA,NC]
 RewriteRule ^home index.php [L,QSA,NC]
+RewriteRule ^sysmaint maintenance.php [L,QSA,NC]
 RewriteRule ^callback Callback.php [L,QSA,NC]
 
 # User Profile/Settings

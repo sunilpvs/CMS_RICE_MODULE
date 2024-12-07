@@ -137,8 +137,29 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault02" class="info">Invoice Number</label><span id="invoice_no-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="invoice_no" name= "invoice_no" placeholder="Invoice Number"  required>
+      <input type="number" maxlength="15" id="foo" onKeyDown="return/[0-9]/i.test(event.key)" class="form-control demoInputBox" id="invoice_no" name= "invoice_no" placeholder="Invoice Number"  required>
     </div>
+    <script>
+     document.getElementById('foo').addEventListener('keydown', function (event) {
+    if (event.code == 'Delete') {
+        console.log('The physical key pressed was the DELETE key');
+    }
+    if (event.code == 'Backspace') {
+        console.log('The physical key pressed was the BACKSPACE key');
+    } 
+    if (event.key == 'Delete') {
+        console.log('The keypress meant the same as pressing DELETE');
+        // This can happen for one of two reasons:
+        // 1. The user pressed the DELETE key
+        // 2. The user pressed FN+BACKSPACE on a small Mac keyboard where
+        //    FN+BACKSPACE deletes the character in front of the text cursor,
+        //    instead of the one behind it.
+    }
+    if (event.key == 'Backspace') {
+        console.log('The keypress meant the same as pressing BACKSPACE');
+    }
+});
+    </script>
     
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Miller Name</label><span id="miller_id-info" class="info"></span>
@@ -212,7 +233,7 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Inward Stock Received</label><span id="inward_bags_stock-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="inward_bags_stock" name= "inward_bags_stock" placeholder="No.of bags Stock" onchange="calculatecost()" required>
+      <input type="number" class="form-control demoInputBox" id="inward_bags_stock" name= "inward_bags_stock"  min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatecost()" required>
     </div>  
 
     <div class="col-md-4 mb-3">

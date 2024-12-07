@@ -353,25 +353,29 @@
       
 	    $(document).ready(function()
 	    {
-        $("#lease_capacity_mton").on("focusout",function()
+        var outwardlease = $("#lease_capacity_mton").val();
+        if(outwardlease > 0)
         {
-		      var outwardlease = $("#lease_capacity_mton").val();
-          //var warehouse_id = $("#warehouse_id").val();
-          var wid = $("#warehouse_id").val();
-		      $.ajax(
-		      {
-			      url:"available-capacity_mton.php",
-			      type:"POST",
-			      data:{lease_capacity_mton:outwardlease,warehouse_id:wid},
-			      success:function(mydata)
-			      {
-                $("#lease_capacity_mton-info").html(mydata);
-			      } 
-		      }
-		      )
+          
+          $("#lease_capacity_mton").on("focusout",function()
+          {
+            var outwardlease = $("#lease_capacity_mton").val();
+            //var warehouse_id = $("#warehouse_id").val();
+            var wid = $("#warehouse_id").val();
+            $.ajax(
+            {
+              url:"available-capacity_mton.php",
+              type:"POST",
+              data:{lease_capacity_mton:outwardlease,warehouse_id:wid},
+              success:function(mydata)
+              {
+                  $("#lease_capacity_mton-info").html(mydata);
+              } 
+            }
+            )
+          }
         }
-  
-        )})
+      })
     </script>
 
     <div class="col-md-4 mb-3">

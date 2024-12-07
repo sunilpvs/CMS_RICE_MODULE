@@ -1,4 +1,5 @@
 <?php
+  include($_SERVER['DOCUMENT_ROOT'] .'/config.php'); 
   date_default_timezone_set('Asia/Kolkata'); 
   if(session_status() === PHP_SESSION_NONE) 
   { 
@@ -9,6 +10,11 @@
     $myrole = $_SESSION['user_role_id'];
   }  
 
+  // Check if System Maintenance Mode 
+  if($maintenance == 1) 
+  {
+    header('Location: ../sysmaint');
+  }  
   #session_start();
    //$myrole
         //1	SUPER USER
