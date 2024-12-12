@@ -31,12 +31,12 @@
     if($myrole == 1 || $myrole == 2)
     {
 ?>   
-        <hr class="sidebar-divider">
+        <!-- <hr class="sidebar-divider">
         <li class="nav-item active">
-          <a class="nav-link" href="../admin/adm_index.php?<?php echo session_name().'='.session_id(); ?>" target="_blank">  
+          <a class="nav-link" href="../admin/adm_index.php?<?php //echo session_name().'='.session_id(); ?>" target="_blank">  
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Admin Dashboard</span></a>
-        </li>
+        </li> -->
 <?php
     }
   //$myrole SUPER USER IT ADMIN MOD_RICE_ADMIN MOD_RICE_USER BASE_EMPLOYEE
