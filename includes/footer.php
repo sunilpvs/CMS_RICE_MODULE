@@ -2,7 +2,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Developed and Managed by PVS Consultancy. © 2023 All Rights Reserved.</span> 
+            <span>Developed and Managed by PVS Consultancy. © 2024 All Rights Reserved.</span> 
           </div>
         </div>
       </footer>

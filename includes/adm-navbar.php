@@ -29,8 +29,15 @@
         <li class="nav-item active">
           <a class="nav-link" href="../../admhome">
             <i class="fas fa-fw fa-tachometer-alt" style="color:grey"></i>
-            <span style="color:grey">Dashboard</span></a>
+            <span style="color:grey">Admin Dashboard</span></a>
         </li>
+        <hr class="sidebar-divider my-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="../../home?<?php echo session_name().'='.session_id(); ?>" target="_blank">  
+            <i class="fas fa-fw fa-tachometer-alt"  style="color:grey"></i>
+            <span style="color:grey">CMS Dashboard</span></a>
+        </li>
+
 <?php
   //$myrole SUPER USER IT ADMIN MOD_RICE_ADMIN MOD_RICE_USER BASE_EMPLOYEE
     if($myrole == 1 || $myrole == 2)
@@ -45,7 +52,7 @@
         </div>
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog" style="color:grey"></i>
             <span style="color:grey">Master Data</span>
           </a>

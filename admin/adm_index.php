@@ -3,6 +3,7 @@
   if(session_status() === PHP_SESSION_NONE) 
   { 
     session_start();  
+    $myrole = $_SESSION['user_role_id'];
   }
   if (isset($_SESSION['id'])) 
   {

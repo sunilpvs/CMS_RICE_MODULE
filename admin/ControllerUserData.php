@@ -46,7 +46,7 @@
             if($status == "verified")
             {    
                 //Login Successful
-                header('location: ../admin');
+                header('location: ../admhome');
                 exit;            
             }
             else if($status == "notverified" && $code == 0)

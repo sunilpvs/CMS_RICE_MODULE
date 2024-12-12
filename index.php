@@ -3,18 +3,19 @@
   date_default_timezone_set('Asia/Kolkata'); 
   if(session_status() === PHP_SESSION_NONE) 
   { 
-    session_start();  
+    session_start();
+    $myrole = $_SESSION['user_role_id'];  
   }
   else
   {
     $myrole = $_SESSION['user_role_id'];
   }  
-
-  // Check if System Maintenance Mode 
-  if($maintenance == 1) 
+  // Check if System Maintenance Mode Not applicable to Super user only.
+  //$myrole = 1 :SUPER USER  
+  if($myrole != 1 && $maintenance == 1)
   {
     header('Location: ../sysmaint');
-  }  
+  }
   #session_start();
    //$myrole
         //1	SUPER USER
