@@ -132,7 +132,7 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Pincode</label><span id="pin-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="pin" name= "pin" placeholder="Pincode" required>
+      <input type="number" maxlength="7" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="pin" name= "pin" placeholder="Pincode" required>
     </div>
       
     <div class="col-md-4 mb-3">
@@ -156,13 +156,13 @@
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Capacity(Sq.ft)</label><span
             id="capacity_sqft-info" class="info"></span>
-      <input type="number" class="form-control demoInputBox" id="capacity_sqft" name= "capacity_sqft" placeholder="0.00" min="0" step="0.01" value ="0.00" onchange="derivemton()" onfocusout="derivemton()" required>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="capacity_sqft" name= "capacity_sqft" placeholder="0.00" min="0" step="0.01" value ="0.00" onchange="derivemton()" onfocusout="derivemton()" required>
     </div>
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Capacity(Metric Ton)</label><span
             id="capacity_mton-info" class="info"></span>
-      <input type="number" class="form-control demoInputBox" id="capacity_mton" name= "capacity_mton" placeholder="0.00" step="0.01" value="0.00" min="0" readonly>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="capacity_mton" name= "capacity_mton" placeholder="0.00" step="0.01" value="0.00" min="0" readonly>
     </div>
 
     <script>

@@ -86,12 +86,12 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Bag Weight</label><span id="bag_wt-info" class="info"></span>
-      <input type="number" class="form-control demoInputBox" id="bag_wt" name= "bag_wt"  min="0" max="1000" step="0.001" placeholder="00.00" value="<?php echo $row1['bag_wt']; ?>" required>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="bag_wt" name= "bag_wt"  min="0" max="1000" step="0.001" placeholder="00.00" value="<?php echo $row1['bag_wt']; ?>" required>
     </div>
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Empty Bag Weight</label><span id="empty_bag_wt-info" class="info"></span>
-      <input type="number" class="form-control demoInputBox" id="empty_bag_wt" name= "empty_bag_wt"  min="0" max="1000" step="0.001" placeholder="00.00" value="<?php echo $row1['empty_bag_wt']; ?>" required>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="empty_bag_wt" name= "empty_bag_wt"  min="0" max="1000" step="0.001" placeholder="00.00" value="<?php echo $row1['empty_bag_wt']; ?>" required>
     </div>
   
     <div class="col-md-4 mb-3">

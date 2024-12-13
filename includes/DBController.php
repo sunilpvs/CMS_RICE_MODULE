@@ -1,20 +1,27 @@
 <?php
     class DBController 
     {
-        ////Local Host
-        //private $user = "root";
-        //private $password = "Rollout123@";
-        //private $password = "Rollout@123#"; # PVS
-
-        ////Local Host
-        private $host = "localhost";
-        #private $database = "shric8ey_demo_cms";
-        private $database = "shric8ey_cms";
-        private $user = "shric8ey_root";
-        private $password = "Rollout@123#";
+        //Variable Declaration 
+        private $host;
+        private $database;
+        private $user;
+        private $password;
         private $conn;
 
+        //Variable declaration 
+        //private $host = "localhost";
+        //private $database = "shric8ey_demo_cms";
+        //private $database = "shric8ey_cms";
+        //private $user = "shric8ey_root";
+        //private $password = "Rollout@123#";
+
         function __construct() {
+            $ini_file_path = $_SERVER['DOCUMENT_ROOT'] ."/app.ini";
+            $ini_file = parse_ini_file($ini_file_path);
+            $this->host = $ini_file["host"];
+            $this->user = $ini_file["db_user"];
+            $this->password = $ini_file["db_password"];
+            $this->database = $ini_file["db_name"];
             $this->conn = $this->connectDB();
         }   
         

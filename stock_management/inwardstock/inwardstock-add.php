@@ -119,7 +119,7 @@
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Vehicle Number</label><span
             id="vehicle_no-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="vehicle_no" name= "vehicle_no" placeholder="Vehicle Number" required>
+      <input type="text"  maxlength="10" onKeyDown="return/[a-z0-9⌦←→⌫-]/i.test(event.key)" class="form-control demoInputBox" id="vehicle_no" name= "vehicle_no" placeholder="Vehicle Number" required>
     </div> 
 
 
@@ -137,9 +137,9 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault02" class="info">Invoice Number</label><span id="invoice_no-info" class="info"></span>
-      <input type="text"  maxlength="15" onKeyDown="return/[a-z0-9⌦←→⌫]/i.test(event.key)"  class="form-control demoInputBox" id="invoice_no" name= "invoice_no" placeholder="Invoice Number"  required>
+      <input type="text"  maxlength="15" onKeyDown="return/[a-z0-9⌦←→⌫-]/i.test(event.key)"  class="form-control demoInputBox" id="invoice_no" name= "invoice_no" placeholder="Invoice Number"  required>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script>
       function validateInputInvoiceNumber()
       {
@@ -154,7 +154,7 @@
             }
         });
       }
-    </script>
+    </script>-->
     
     
     <div class="col-md-4 mb-3">
@@ -229,38 +229,38 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Inward Stock Received</label><span id="inward_bags_stock-info" class="info"></span>
-      <input type="number" onKeyDown="return/[0-9.]/i.test(event.key)" class="form-control demoInputBox" id="inward_bags_stock" name= "inward_bags_stock"  min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatecost()" required>
+      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="inward_bags_stock" name= "inward_bags_stock"  min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatecost()" required>
     </div>  
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Bag Gross Weight</label><span id="inward_gross_wt-info" class="info"></span>
-      <input type="number" onKeyDown="return/[0-9.]/i.test(event.key)" class="form-control demoInputBox" id="inward_gross_wt" name= "inward_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebagdifference()">
+      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="inward_gross_wt" name= "inward_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebagdifference()">
     </div> 
   
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Weightbridge Gross Weight</label><span id="inward_wb_gross_wt-info" class="info"></span>
-      <input type="number" onKeyDown="return/[0-9.]/i.test(event.key)" class="form-control demoInputBox" id="inward_wb_gross_wt" name= "inward_wb_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebridgedifference()">
+      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="inward_wb_gross_wt" name= "inward_wb_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebridgedifference()">
     </div>
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Gross Weight Difference</label><span id="inward_diff_gross-info" class="info"></span>
-      <input type="number" onKeyDown="return/[0-9.]/i.test(event.key)"  class="form-control demoInputBox" id="inward_diff_gross" name= "inward_diff_gross" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00"  readonly>
+      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)"  class="form-control demoInputBox" id="inward_diff_gross" name= "inward_diff_gross" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00"  readonly>
     </div> 
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Bag Net Weight</label><span id="inward_net_wt-info" class="info"></span>
-      <input type="number" onKeyDown="return/[0-9.]/i.test(event.key)" class="form-control demoInputBox" id="inward_net_wt" name= "inward_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebagdifference()">
+      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="inward_net_wt" name= "inward_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebagdifference()">
     </div> 
 
     
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Weightbridge Net Weight</label><span id="inward_wb_net_wt-info" class="info"></span>
-      <input type="number" onKeyDown="return/[0-9.]/i.test(event.key)" class="form-control demoInputBox" id="inward_wb_net_wt" name= "inward_wb_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebridgedifference()">
+      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="inward_wb_net_wt" name= "inward_wb_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebridgedifference()">
     </div> 
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Net Weight Difference</label><span id="	inward_diff_net-info" class="info"></span>
-      <input type="number" onKeyDown="return/[0-9.]/i.test(event.key)" class="form-control demoInputBox" id="inward_diff_net" name= "inward_diff_net" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00"  readonly>
+      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="inward_diff_net" name= "inward_diff_net" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00"  readonly>
     </div>
 
     <script>

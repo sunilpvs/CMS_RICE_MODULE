@@ -55,11 +55,11 @@
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Warehouse Capacity(sqft)</label><span id="capacity_sqft-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="capacity_sqft" name= "capacity_sqft" placeholder="capacity_sqft" disabled>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="capacity_sqft" name= "capacity_sqft" placeholder="capacity_sqft" disabled>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Warehouse Capacity(mton)</label><span id="capacity_mton-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="capacity_mton" name= "capacity_mton" placeholder="capacity_mton" disabled>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="capacity_mton" name= "capacity_mton" placeholder="capacity_mton" disabled>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Inward Lease - Contract Ref</label><span id="contract_id-info" class="info"></span>
@@ -91,16 +91,16 @@
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Mobile</label><span id="mobile-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="mobile" name= "mobile" placeholder="Mobile" disabled>
+      <input type="number" maxlength="10"  onKeyDown="return/[0-9⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="mobile" name= "mobile" placeholder="Mobile" disabled>
     </div>
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Available Lease Capacity(sqft)</label><span id="avl_sqft-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="avl_sqft" name= "avl_sqft" placeholder="0.00" readonly>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="avl_sqft" name= "avl_sqft" placeholder="0.00" readonly>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Available Lease Capacity(mton)</label><span id="avl_mton-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="avl_mton" name= "avl_mton" placeholder="0.00" readonly>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="avl_mton" name= "avl_mton" placeholder="0.00" readonly>
     </div> 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -305,7 +305,7 @@
 
     <div class="col-md-4 mb-3" >
       <label for="validationDefault01" class="info">Leased Capacity (Sqft)</label><span id="lease_capacity_sqft-info" class="info"></span> 
-      <input type="text" min="0" max="99999999" step="0.01" class="form-control demoInputBox" id="lease_capacity_sqft" name= "lease_capacity_sqft" placeholder="0.00" minlength="0" maxlength="12" value="0.00" required>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" min="0" max="99999999" step="0.01" class="form-control demoInputBox" id="lease_capacity_sqft" name= "lease_capacity_sqft" placeholder="0.00" minlength="0" maxlength="12" value="0.00" required>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
@@ -335,17 +335,17 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Daily Rate (Sqft)</label><span id="daily_rate_sqft-info" class="info"></span>
-      <input type="number" class="form-control demoInputBox" id="daily_rate_sqft" name= "daily_rate_sqft" placeholder="0.00" min="0" value="0.00" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'"  onchange="calculatecost()" onfocusout="calculatecost()" required>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="daily_rate_sqft" name= "daily_rate_sqft" placeholder="0.00" min="0" value="0.00" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'"  onchange="calculatecost()" onfocusout="calculatecost()" required>
     </div>
 
     <div class="col-md-4 mb-3" >
       <label for="validationDefault03" class="info">Cost (Sqft)</label><span id="cost_sqft-info" class="info"></span>
-      <input type="number" class="form-control demoInputBox" id="cost_sqft" name= "cost_sqft" placeholder="0.00" value ="0.00" required>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="cost_sqft" name= "cost_sqft" placeholder="0.00" value ="0.00" required>
     </div> 
 
     <div class="col-md-4 mb-3" >
       <label for="validationDefault01" class="info">Leased Capacity (Mton)</label><span id="lease_capacity_mton-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="lease_capacity_mton" name= "lease_capacity_mton" placeholder="0.00" minlength="0" maxlength="12" value="0.00" required>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="lease_capacity_mton" name= "lease_capacity_mton" placeholder="0.00" minlength="0" maxlength="12" value="0.00" required>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -380,22 +380,22 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Daily Rate (Mton)</label><span id="daily_rate_mton-info" class="info"></span>
-      <input type="number" class="form-control demoInputBox" id="daily_rate_mton" name= "daily_rate_mton" placeholder="0.00" min="0" value="0.00" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'" onchange="calculatecost()" onfocusout="calculatecost()" required>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="daily_rate_mton" name= "daily_rate_mton" placeholder="0.00" min="0" value="0.00" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'" onchange="calculatecost()" onfocusout="calculatecost()" required>
     </div>
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Cost (Mton)</label><span id="cost_mton-info" class="info"></span>
-      <input type="number" class="form-control demoInputBox" id="cost_mton" name= "cost_mton" placeholder="0.00" value ="0.00" step="0.01" required>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="cost_mton" name= "cost_mton" placeholder="0.00" value ="0.00" step="0.01" required>
     </div> 
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Lease Days</label><span id="lease_days-info" class="info"></span>
-      <input type="number" class="form-control demoInputBox" id="lease_days" name= "lease_days" placeholder="Lease Days" value="0" readonly>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="lease_days" name= "lease_days" placeholder="Lease Days" value="0" readonly>
     </div> 
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Total Cost</label><span id="total_cost-info" class="info"></span>
-      <input type="number" class="form-control demoInputBox" id="total_cost" name= "total_cost" placeholder="0.00" step="0.01" value="0.00" min="0" readonly>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="total_cost" name= "total_cost" placeholder="0.00" step="0.01" value="0.00" min="0" readonly>
     </div> 
    <script>
           function calculatecost()

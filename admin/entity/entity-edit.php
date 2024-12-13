@@ -22,7 +22,7 @@
 
         <div class="col-md-4 mb-3">
             <label for="validationDefault01" class="info">Entity Name:</label><span id="entity_name-info" class="info"></span>
-            <input type="text" maxlength =50  onkeydown="return /[a-z0-9 ]/i.test(event.key)" class="form-control demoInputBox" id="entity_name" name= "entity_name" placeholder="Entity Name" value="<?php echo $row1["entity_name"]; ?>" required>
+            <input type="text" maxlength ="50"  onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="entity_name" name= "entity_name" placeholder="Entity Name" value="<?php echo $row1["entity_name"]; ?>" required>
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -49,7 +49,7 @@
 
         <div class="col-md-4 mb-3">
             <label for="validationDefault02" class="info">Cin No:</label><span id="cin-info" class="info"></span>
-            <input type="text" maxlength = 22 onkeydown="return /[a-z0-9]/i.test(event.key)" class="form-control demoInputBox" id="cin" name= "cin" placeholder="CIN NO" value="<?php echo $row1["cin"]; ?>"  required>
+            <input type="text" maxlength = "22" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="cin" name= "cin" placeholder="CIN NO" value="<?php echo $row1["cin"]; ?>"  required>
         </div>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

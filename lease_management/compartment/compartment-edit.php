@@ -63,35 +63,35 @@
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Lease Capacity Sqft</label><span id="lease_capacity_sqft-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="lease_capacity_sqft" name= "lease_capacity_sqft" placeholder="contract_id" disabled>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="lease_capacity_sqft" name= "lease_capacity_sqft" placeholder="contract_id" disabled>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Daily Rate Sqft</label><span id="daily_rate_sqft-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="daily_rate_sqft" name= "daily_rate_sqft" placeholder="daily_rate_sqft" disabled>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="daily_rate_sqft" name= "daily_rate_sqft" placeholder="daily_rate_sqft" disabled>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">cost Sqft</label><span id="cost_sqft-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="cost_sqft" name= "cost_sqft" placeholder="cost_sqft" disabled>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="cost_sqft" name= "cost_sqft" placeholder="cost_sqft" disabled>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Lease Capacity Mton</label><span id="lease_capacity_mton-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="lease_capacity_mton" name= "lease_capacity_mton" placeholder="lease_capacity_mton" disabled>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="lease_capacity_mton" name= "lease_capacity_mton" placeholder="lease_capacity_mton" disabled>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Daily Rate Mton</label><span id="daily_rate_mton-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="daily_rate_mton" name= "daily_rate_mton" placeholder="daily_rate_mtonState" disabled>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="daily_rate_mton" name= "daily_rate_mton" placeholder="daily_rate_mtonState" disabled>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">cost Mton</label><span id="cost-mton-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="cost_mton" name= "cost_mton" placeholder="cost_mton" disabled>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="cost_mton" name= "cost_mton" placeholder="cost_mton" disabled>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">lease_days</label><span id="lease_days-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="lease_days" name= "lease_days" placeholder="lease_days" disabled>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="lease_days" name= "lease_days" placeholder="lease_days" disabled>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Total Cost</label><span id="total_cost-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="total_cost" name= "total_cost" placeholder="total-cost" disabled>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="total_cost" name= "total_cost" placeholder="total-cost" disabled>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -139,11 +139,11 @@
     </div>
     <div class="col-md-3 mb-3">
       <label for="validationDefault03" class="info">Capacity Sqft</label><span id="capacity_sqft-info" class="info"></span>
-      <input type="number" class="form-control demoInputBox" id="capacity_sqft" name= "capacity_sqft" placeholder="Capacity Sqft" value="<?php echo $row1["capacity_sqft"];?>" required>
+      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="capacity_sqft" name= "capacity_sqft" placeholder="Capacity Sqft" value="<?php echo $row1["capacity_sqft"];?>" required>
     </div>
     <div class="col-md-3 mb-3">
       <label for="validationDefault03" class="info">Capacity Mton</label><span id="capacity_mton-info" class="info"></span>
-       <input type="number" class="form-control demoInputBox" id="capacity_mton" name= "capacity_mton" placeholder="Capacity Mton" value="<?php echo $row1["capacity_mton"];?>" required>
+       <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="capacity_mton" name= "capacity_mton" placeholder="Capacity Mton" value="<?php echo $row1["capacity_mton"];?>" required>
     </div>
     <div class="col-md-3 mb-3">
                 <label for="validationDefault10" class="info">Status</label><span id="status-info" class="info"></span>

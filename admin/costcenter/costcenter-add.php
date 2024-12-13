@@ -17,7 +17,7 @@
 
         <div class="col-md-4 mb-3">
             <label for="validationDefault01" class="info">CostCenter Code</label><span id="cc_code-info" class="info"></span>
-            <input type="text" maxlength=4 onkeydown="return /[a-z]/i.test(event.key)" class="form-control demoInputBox" id="cc_code" name= "cc_code" placeholder="CC_CODE" required>
+            <input type="text" maxlength= "4" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="cc_code" name= "cc_code" placeholder="CC_CODE" required>
             <input type="hidden" class="form-control demoInputBox" id="cc_type" name= "cc_type" placeholder="cc_type" value="2">
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -68,7 +68,7 @@
 
         <div class="col-md-4 mb-3">
             <label for="validationDefault04" class="info">GST No</label><span id="gst_no-info" class="info"></span>
-            <input type="text" maxlength=16 onkeydown="return /[a-z0-9]/i.test(event.key)" class="form-control demoInputBox" id="gst_no" name= "gst_no" placeholder="GST No" required>
+            <input type="text" maxlength="16" type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="gst_no" name= "gst_no" placeholder="GST No" required>
         </div>
 
         <div class="col-md-4 mb-3">

@@ -51,7 +51,7 @@
 
     <div class="col-md-4 mb-3">
         <label for="validationDefault02" class="info">GST Number</label><span id="gst_num-info" class="info"></span>
-        <input type="text" class="form-control demoInputBox" id="gst_num" name= "gst_num" placeholder="GST Number"  required>
+        <input type="text" maxlength="15" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="gst_num" name= "gst_num" placeholder="GST Number"  required>
     </div>
 
     <div class="col-md-4 mb-3">
