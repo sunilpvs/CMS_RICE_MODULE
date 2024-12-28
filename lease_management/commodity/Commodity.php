@@ -47,7 +47,7 @@ class Commodity
             $paramValue = array(
                 $activity,
                 $created_by,
-                $$insertId
+                $insertId
             );
             $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
             $this->db_handle->commitTrans();

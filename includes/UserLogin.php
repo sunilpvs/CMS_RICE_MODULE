@@ -35,7 +35,10 @@ class UserLogin
             // Verify the hash code against the unencrypted password entered 
             $verify = password_verify($pwd, $hash); 
             if ($verify) {
-                //echo 'Correct Password!';                 
+                //echo 'Correct Password!'; 
+                $ini_file_path = $_SERVER['DOCUMENT_ROOT'] ."/app.ini";
+                $ini_file = parse_ini_file($ini_file_path);
+                $app_url = $ini_file["app_url"];
                 $_SESSION['id'] = $row["id"];
                 $_SESSION['user_name'] = $row["user_name"];
                 $_SESSION['f_name'] = $row["f_name"];
@@ -45,7 +48,7 @@ class UserLogin
                 $_SESSION['user_type'] = $row["ctype"];
                 $_SESSION['code'] = $row["code"];
                 $_SESSION['status'] = $row["status"];
-                $_SESSION['FirstLogin_Link'] = "https://demo.shrichandragroup.com//user_management/reset-code.php";
+                $_SESSION['FirstLogin_Link'] = $app_url.'user_management/reset-code.php';
                 $_SESSION['user_role'] = $row["user_role"];
                 $_SESSION['user_role_id'] = $row["user_role_id"];
                 $_SESSION['entity_id'] = $row["entity_id"];

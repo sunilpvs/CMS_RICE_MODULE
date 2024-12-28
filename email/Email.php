@@ -8,6 +8,8 @@
 
     class Email
     {
+        private $logo;
+        private $app_rights;
         private $email_host;
         private $email_port;
         private $email_name;
@@ -34,7 +36,8 @@
         {
             $ini_file_path = $_SERVER['DOCUMENT_ROOT'] ."/app.ini";
             $ini_file = parse_ini_file($ini_file_path);
-
+            $this->logo = $ini_file["logo"];
+            $this->app_rights = $ini_file["app_rights"];
             $this->email_host = $ini_file["email_host"];
             $this->email_port = $ini_file["email_port"];
             $this->email_name = $ini_file["email_name"];
@@ -89,7 +92,7 @@
                 //Content
                 $mail->isHTML(true);        //Set email format to HTML
                 $mail->Subject = $subject;
-                $mail->AddEmbeddedImage(dirname(__FILE__).'/logo.png','logo');
+                $mail->AddEmbeddedImage(dirname(__FILE__).'\\'.$this->logo,'logo');
                 $body = $this->createBody($greetings, $salutation, $message);
                 $mail->Body = $body;
                 $mail->send();
@@ -97,7 +100,7 @@
                 //echo 'Message has been sent';
             } catch (Exception $e) 
             {
-                //echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                 return false;
             }
         }
@@ -113,7 +116,7 @@
                     <body style="background-color:white;">
                     <center> 
                         <div class="logo-details">
-                            <img src="cid:logo"><br>
+                            <img src="cid:'.$this->logo.'"><br>
                         </div>
                         <div>
                             <h2><strong>Better collaboration leads to better business outcomes!!</strong></h2>
@@ -133,7 +136,7 @@
                         <tr>
                             <td>
                             </td>
-                            <td><img src="cid:logo">
+                            <td><img src="cid:'.$this->logo.'">
                             <h3>Call us / WhatsApp<br>'.$this->app_contact.'</h3>
                             </td>
                             <td>
@@ -158,7 +161,7 @@
                 </table>
                 <center> <table>
                 <tr>
-                    <td>©2024 Shrichandra Group. All Right Reserved.</td>
+                    <td><p>&#169;'.$this->app_rights.'</p></td>
                 </tr>
                 </table></center>
                 </body>
