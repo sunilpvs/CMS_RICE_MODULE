@@ -1,10 +1,14 @@
 <?php
   include($_SERVER['DOCUMENT_ROOT'] .'/config.php'); 
-  date_default_timezone_set('Asia/Kolkata'); 
+  date_default_timezone_set('Asia/Kolkata');
+  $myrole = 0; 
   if(session_status() === PHP_SESSION_NONE) 
   { 
     session_start();
-    $myrole = $_SESSION['user_role_id'];  
+    if(isset($_SESSION['user_role_id']))
+    {
+      $myrole = $_SESSION['user_role_id'];  
+    }
   }
   else
   {
