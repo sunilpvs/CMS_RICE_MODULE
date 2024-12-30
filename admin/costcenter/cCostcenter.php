@@ -66,7 +66,7 @@ switch ($action) {
             $status = $_POST['status'];
 
             $cc = new Costcenter();
-            $insertId = $cc->editCostcenter($cc_code, $cc_type, $entity_id, $incorp_date, $gst_no, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status);
+            $insertId = $cc->editCostcenter($costcenter_id, $cc_code, $cc_type, $entity_id, $incorp_date, $gst_no, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status);
             header("Location: ../../admin/costcenter/cCostcenter.php");
         }
         $result = $costcenter->getCostcenterById($costcenter_id);

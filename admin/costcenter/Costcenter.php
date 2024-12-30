@@ -56,7 +56,7 @@ class Costcenter
         }
     }
     
-    function editCostcenter($cc_code, $cc_type, $entity_id, $incorp_date, $gst, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status)
+    function editCostcenter($cc_id, $cc_code, $cc_type, $entity_id, $incorp_date, $gst, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status)
     {
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
@@ -64,10 +64,11 @@ class Costcenter
         try
         {
         
-            $query = "UPDATE tbl_costcenter SET cc_type = ?, entity_id = ?, incorp_date = ?, gst_no = ?, add1 = ?, add2 = ?, city = ?, state=?, pin = ?, ";
-            $query .= " country = ?, primary_contact= ?, status = ? , last_updated = ? , last_updateddatetime = ? WHERE cc_code = ?";
-            $paramType = "sissssiiiiisiss";
+            $query = "UPDATE tbl_costcenter SET cc_code = ?, cc_type = ?, entity_id = ?, incorp_date = ?, gst_no = ?, add1 = ?, add2 = ?, city = ?, state=?, pin = ?, ";
+            $query .= " country = ?, primary_contact= ?, status = ? , last_updated = ? , last_updateddatetime = ? WHERE id  = ?";
+            $paramType = "ssissssiiiiisisi";
             $paramValue = array(
+                $cc_code,
                 $cc_type,
                 $entity_id,
                 $incorp_date,
@@ -82,7 +83,7 @@ class Costcenter
                 $status,    
                 $last_updated,
                 $last_updatedDateTime,
-                $cc_code
+                $cc_id
             );
             $update_id = $this->db_handle->update($query, $paramType, $paramValue);
             //Entry into Activity log
