@@ -68,7 +68,7 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Mobile</label><span id="mobile-info" class="info"></span>
-       <input type="number" maxlength="12" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="mobile" name= "mobile" placeholder="Mobile" required>
+       <input type="text" maxlength="12" onKeyDown="return/[0-9.⌦←→⌫HT]/i.test(event.key)" class="form-control demoInputBox" id="mobile" name= "mobile" placeholder="Mobile" required>
     </div>
 
     <div class="col-md-4 mb-3">
@@ -117,7 +117,7 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">PinCode</label><span id="pin-info" class="info"></span>
-       <input type="number" maxlength="7" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="pin" name= "pin" placeholder="Pin" required>
+       <input type="number" maxlength="7" onKeyDown="return/[0-9.⌦←→⌫HT]/i.test(event.key)" class="form-control demoInputBox" id="pin" name= "pin" placeholder="Pin" required>
     </div>
 
     <div class="col-md-4 mb-3">
