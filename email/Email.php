@@ -92,7 +92,7 @@
                 //Content
                 $mail->isHTML(true);        //Set email format to HTML
                 $mail->Subject = $subject;
-                $mail->AddEmbeddedImage(dirname(__FILE__).$this->logo,'logo');
+                $mail->AddEmbeddedImage(dirname(__FILE__).'//'.$this->logo,'logo');
                 $body = $this->createBody($greetings, $salutation, $message);
                 $mail->Body = $body;
                 $mail->send();
