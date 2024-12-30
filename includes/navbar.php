@@ -14,8 +14,8 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-          <center> <a href="../../home" class="navbar-brand">
-              <img src="../../assests/img/logo.png" width = "215" height="85" alt="PVS_Consultancy" align="center"> </a>
+          <center> <a href="../../home" class="navbar-brand"> <?php $logo = $_SESSION['logo']; ?>
+              <img src="../../assests/img/<?php echo $logo; ?>" width = "215" height="85" alt="PVS_Consultancy" align="center"> </a>
           </center>
 
         <!-- Divider -->

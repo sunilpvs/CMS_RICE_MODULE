@@ -39,6 +39,8 @@ class UserLogin
                 $ini_file_path = $_SERVER['DOCUMENT_ROOT'] ."/app.ini";
                 $ini_file = parse_ini_file($ini_file_path);
                 $app_url = $ini_file["app_url"];
+                $logo = $ini_file["logo"];
+                $_SESSION['logo'] = $logo;
                 $_SESSION['id'] = $row["id"];
                 $_SESSION['user_name'] = $row["user_name"];
                 $_SESSION['f_name'] = $row["f_name"];

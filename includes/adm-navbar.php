@@ -20,9 +20,10 @@
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-light sidebar sidebar-dark accordion" id="accordionSidebar">
         <!-- Sidebar - Brand -->
-          <center> <a href="../../admin/adm_index.php" class="navbar-brand">
-              <img src="../../assests/img/logo.png" height="70" alt="PVS_Consultancy" align="center"> </a>
+          <center> <a href="../../admin/adm_index.php" class="navbar-brand"> <?php $logo = $_SESSION['logo']; ?>
+              <img src="../../assests/img/<?php echo $logo; ?>" width = "215" height="85" alt="PVS_Consultancy" align="center"> </a>
           </center>
+
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
         <!-- Nav Item - Dashboard -->
