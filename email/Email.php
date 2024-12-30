@@ -34,7 +34,7 @@
 
         function __construct() 
         {
-            $ini_file_path = $_SERVER['DOCUMENT_ROOT'] ."/app.ini";
+            $ini_file_path = $_SERVER['DOCUMENT_ROOT'] ."/email/email.ini";
             $ini_file = parse_ini_file($ini_file_path);
             $this->logo = $ini_file["logo"];
             $this->app_rights = $ini_file["app_rights"];

@@ -15,7 +15,7 @@
 
         <!-- Sidebar - Brand -->
           <center> <a href="../../home" class="navbar-brand">
-              <img src="../../assests/img/logo.png" height="70" alt="PVS_Consultancy" align="center"> </a>
+              <img src="../../assests/img/logo.png" width = "215" height="85" alt="PVS_Consultancy" align="center"> </a>
           </center>
 
         <!-- Divider -->
