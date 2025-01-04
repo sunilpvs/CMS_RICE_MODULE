@@ -5,12 +5,7 @@
     {
       $myrole = $_SESSION['user_role_id'];
     }
-    //$myrole
-        //1	SUPER USER
-        //2	IT ADMIN
-        //3	MOD_RICE_ADMIN
-        //4	MOD_RICE_USER
-        //5	BASE_EMPLOYEE
+    //$myrole 1-SUPER USER::2-IT ADMIN::3-MOD_RICE_ADMIN::4-MOD_RICE_USER::5-BASE_EMPLOYEE
 ?>
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -38,7 +33,7 @@
             <span>Dashboard</span></a>
         </li>
 <?php
-    //$myrole SUPER USER IT ADMIN 
+    //$myrole 1-SUPER USER::2-IT ADMIN::3-MOD_RICE_ADMIN::4-MOD_RICE_USER::5-BASE_EMPLOYEE
     if($myrole == 1 || $myrole == 2)
     {
 ?>   
@@ -50,7 +45,7 @@
         </li> -->
 <?php
     }
-  //$myrole SUPER USER IT ADMIN MOD_RICE_ADMIN MOD_RICE_USER BASE_EMPLOYEE
+  //$myrole 1-SUPER USER::2-IT ADMIN::3-MOD_RICE_ADMIN::4-MOD_RICE_USER::5-BASE_EMPLOYEE
     if($myrole == 1 || $myrole == 2 || $myrole == 3 || $myrole == 4)
     {
 ?>
@@ -77,7 +72,7 @@
         </li>         
   <?php
     }
-    //$myrole SUPER USER IT ADMIN MOD_RICE_ADMIN MOD_RICE_USER BASE_EMPLOYEE
+    //$myrole 1-SUPER USER::2-IT ADMIN::3-MOD_RICE_ADMIN::4-MOD_RICE_USER::5-BASE_EMPLOYEE
     if($myrole == 1 || $myrole == 2 || $myrole == 3)
     {
   ?>
@@ -101,15 +96,11 @@
   <?php
     }
   ?>     
-
-
-      
-
         <!-- Divider -->
         <hr class="sidebar-divider">
 
   <?php
-    //$myrole SUPER USER IT ADMIN MOD_RICE_ADMIN MOD_RICE_USER BASE_EMPLOYEE
+    //$myrole 1-SUPER USER::2-IT ADMIN::3-MOD_RICE_ADMIN::4-MOD_RICE_USER::5-BASE_EMPLOYEE
     if($myrole == 1 || $myrole == 2 )
     {
   ?>
@@ -143,9 +134,9 @@
         </li>
         <?php
               }
-
-              if($myrole == 1 || $myrole == 2 || $myrole == 3 || $myrole == 4)
-              {
+            //$myrole 1-SUPER USER::2-IT ADMIN::3-MOD_RICE_ADMIN::4-MOD_RICE_USER::5-BASE_EMPLOYEE
+            if($myrole == 1 || $myrole == 2 || $myrole == 3 || $myrole == 4)
+            {
 
         ?>   
         
@@ -167,6 +158,7 @@
 
         <?php
           }
+          //$myrole 1-SUPER USER::2-IT ADMIN::3-MOD_RICE_ADMIN::4-MOD_RICE_USER::5-BASE_EMPLOYEE
           if($myrole == 1 || $myrole == 2 || $myrole == 3)
           {
         ?>    
@@ -188,18 +180,21 @@
             <div class="bg-white py-2 collapse-inner rounded">
               <?php
           }
+                //$myrole 1-SUPER USER::2-IT ADMIN::3-MOD_RICE_ADMIN::4-MOD_RICE_USER::5-BASE_EMPLOYEE
                 if($myrole == 1 || $myrole == 2 || $myrole == 3)
                 {
               ?>
                   <a class="collapse-item" href="../../contact">Create/Edit Contact</a>
               <?php
                 }
-                if($myrole == 1 || $myrole == 2)
+                //$myrole 1-SUPER USER::2-IT ADMIN::3-MOD_RICE_ADMIN::4-MOD_RICE_USER::5-BASE_EMPLOYEE
+                if($myrole == 1 || $myrole == 2 )
                 {
               ?>
 
                   <a class="collapse-item" href="../../employ">Employee Master</a>
                   <a class="collapse-item" href="../../users">User Master</a>
+                  <a class="collapse-item" href="../../appaccess">Approve Access</a>
                   <div class="collapse-divider"></div>
               <?php
                 }

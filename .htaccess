@@ -8,6 +8,7 @@ Options -MultiViews
 RewriteRule ^login user_management/login.php [L,QSA,NC]
 RewriteRule ^forgotpwd user_management/forgot-password.php [L,QSA,NC]
 RewriteRule ^reqaccess user_management/request/access_request.php [L,QSA,NC]
+RewriteRule ^appaccess user_management/request/approve_request.php [L,QSA,NC]
 RewriteRule ^changepwd user_management/changePassword.php [L,QSA,NC]
 RewriteRule ^newpwd user_management/new-password.php [L,QSA,NC]
 RewriteRule ^resetcode user_management/reset-code.php [L,QSA,NC]
