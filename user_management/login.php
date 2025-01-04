@@ -90,7 +90,10 @@ html,body{
                     <div class="form-group">
                         <input class="form-control" type="password" name="password" placeholder="Password" required>
                     </div>
-                    <div class="link forget-pass text-left"><a href="../forgotpwd">Forgot password?</a></div>
+                    <div class="link forget-pass">
+                            <a href="../forgotpwd" >Forgot password?</a>
+                            <a href="../reqaccess" style="float: right;">New User</a>
+                    </div>
                     <div class="form-group">
                         <input class="form-control button" type="submit" name="login" value="Login">
                     </div>

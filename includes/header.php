@@ -7,7 +7,12 @@
   //Check if session already there....
   if(session_status() === PHP_SESSION_NONE) session_start();
   // Check if System Maintenance Mode
-  $myrole = $_SESSION['user_role_id'];
+  $myrole = 0;
+  if(isset($_SESSION['user_role_id']))
+  {
+    $myrole = $_SESSION['user_role_id'];
+  }
+  
   if($myrole !=1 && $maintenance == 1) 
   {
     header('Location: ../sysmaint');

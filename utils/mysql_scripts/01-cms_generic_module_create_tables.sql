@@ -20,6 +20,7 @@ SET time_zone = "+00:00";
 # DATABASE NAME: CMS
 # DROP TABLES BEFORE CREATION IF EXISTS
 ################################################################################################
+DROP TABLE IF EXISTS `tbl_reqaccess`;
 DROP TABLE IF EXISTS `tbl_user_role`;
 DROP TABLE IF EXISTS `tbl_userroles`;
 DROP TABLE IF EXISTS `tbl_pagemaster`;
@@ -443,7 +444,48 @@ INSERT INTO `tbl_users` (`id`, `user_name`, `email`, `password`, `user_role_id`,
 ################################################################################################
 # SECURITY RELATED TABLES CREATION : END
 ################################################################################################
+################################################################################################
+# REQUEST ACCESS FEATURE TABLES: START
+################################################################################################
 -- --------------------------------------------------------
+-- Table structure for table `tbl_reqaccess`
+CREATE TABLE `tbl_reqaccess` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `f_name` varchar(50) NOT NULL,
+  `l_name` varchar(50) NOT NULL,
+  `dob` date NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `personal_email` varchar(55) DEFAULT NULL,
+  `mobile` varchar(15) NOT NULL,
+  `add1` varchar(100) NOT NULL,
+  `add2` varchar(100) NOT NULL,
+  `city` int(11) NOT NULL,
+  `state` int(11) NOT NULL,
+  `pin` int(11) NOT NULL,
+  `country` int(11) NOT NULL,
+  `contacttype_id` int(11) NOT NULL,
+  `join_date` date DEFAULT NULL,
+  `exit_date` date DEFAULT NULL,
+  `entity_id` int(11) DEFAULT NULL,
+  `department` int(11) DEFAULT NULL,
+  `designation` int(11) DEFAULT NULL,
+  `emp_status` int(3) DEFAULT NULL,
+  `approver_id` int(11) DEFAULT NULL,
+  `approver_name` varchar(100) DEFAULT NULL,
+  `approver_email` varchar(100) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `message` varchar(300) DEFAULT NULL,
+  `created_datetime` datetime NOT NULL DEFAULT current_timestamp(),
+  `request_expiry` date DEFAULT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TRIGGER tbl_reqaccess_OnInsert BEFORE INSERT ON `tbl_reqaccess`
+    FOR EACH ROW SET NEW.request_expiry = DATE_ADD(NOW(), INTERVAL 3 DAY);
+-- --------------------------------------------------------
+################################################################################################
+# REQUEST ACCESS FEATURE TABLES: END
+################################################################################################
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

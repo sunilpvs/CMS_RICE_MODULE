@@ -52,6 +52,14 @@
             return $result;
         }  
 
+        function getAccessApproverList() 
+        {
+            $sql = "SELECT a.id, concat(b.f_name,' ',b.l_name) as name, b.email FROM tbl_users a, tbl_contact b ";
+            $sql .= "WHERE b.id = a.contact_id AND a.user_role_id in (1,2,3) AND a.user_status = 1 AND a.status ='verified';";
+            $result = $this->db_handle->runBaseQuery($sql);
+            return $result;
+        }  
+
         function getEmployeeTypeList() 
         {
             $sql = "SELECT id, ctype FROM vw_ctype WHERE id IN (2,3);";
