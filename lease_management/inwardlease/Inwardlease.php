@@ -1,6 +1,7 @@
 <?php 
     date_default_timezone_set('Asia/Kolkata');
- require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
 
 class Inwardlease
 {
@@ -17,6 +18,19 @@ class Inwardlease
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
         $this->db_handle->beginTrans();
         try{
+            //Get Prefix Data
+            $gen = new Generic();
+            $result = $gen->getPrefixList("InwardLease");
+            $prefix = "";
+            if (!empty($result)) 
+            {
+                $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                $prefix = $row['prefix'];
+            }
+            else{
+                $prefix = "SCBC-INW25-";
+            }
+            //Insert new Inward Lease details.
             $query = "INSERT INTO tbl_inwardlease (warehouse_id, lease_type, start_date, expiry_date, status, entity_id, created_by)  VALUES (?, ?, ?, ?, ?, ?, ?)";
             $paramType = "iissiii";
             $paramValue = array(
@@ -42,7 +56,6 @@ class Inwardlease
             //Update Contract_Id of Inward Lease for  new Inserted Row
             $result = $this->getInwardleaseById($insertId);
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            $prefix = $row['prefix'];
             $id = $row['id'];
             $contract = $prefix . $id;
             $query = "UPDATE tbl_inwardlease SET contract_id = '$contract' WHERE id = $id;";

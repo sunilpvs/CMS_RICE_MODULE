@@ -151,8 +151,8 @@ class Warehouse
     function validateWarehousenameEdit($warehouse_name,$warehouse_id ) 
     {
         $sql = "SELECT warehouse_name FROM vw_warehouse WHERE id != $warehouse_id AND warehouse_name = '$warehouse_name'";
-        //$result = $this->db_handle->runBaseQuery($sql);
-        //$count=mysqli_num_rows($result);
+        $result = $this->db_handle->runBaseQuery($sql);
+        $count=mysqli_num_rows($result);
         if($count>0){ //cc_code Exists
             return true;
         }

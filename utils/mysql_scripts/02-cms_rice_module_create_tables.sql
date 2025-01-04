@@ -219,7 +219,6 @@ CREATE TABLE `tbl_commodity` (
 -- --------------------------------------------------------
 -- Table structure for table `tbl_warehouse`
 CREATE TABLE `tbl_warehouse` (
-  `prefix` varchar(8) NOT NULL DEFAULT 'SCBC-WH-',
   `id` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
   `warehouse_name` varchar(100) NOT NULL,
   `code` varchar(10) NOT NULL,
@@ -259,7 +258,6 @@ CREATE TABLE `tbl_warehouse` (
 -- --------------------------------------------------------
 -- Table structure for table `tbl_compartment`
 CREATE TABLE `tbl_compartment` (
-  `prefix` varchar(10) NOT NULL DEFAULT 'SCBC-COMP-',
   `id` int(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
   `compartment_id` varchar(15) NOT NULL,
   `compartment_name` varchar(10) DEFAULT NULL,
@@ -281,7 +279,6 @@ CREATE TABLE `tbl_compartment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 -- Table structure for table `tbl_inwardlease`
 CREATE TABLE `tbl_inwardlease` (
-  `prefix` varchar(11) NOT NULL DEFAULT 'SCBC-INW24-',
   `id` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
   `contract_id` varchar(15) NOT NULL,
   `warehouse_id` int(4) UNSIGNED ZEROFILL NOT NULL,
@@ -323,7 +320,6 @@ CREATE TABLE `tbl_inwarddates` (
 -- --------------------------------------------------------
 -- Table structure for table `tbl_outwardlease`
 CREATE TABLE `tbl_outwardlease` (
-  `prefix` varchar(11) NOT NULL DEFAULT 'SCBC-OUT24-',
   `id` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
   `contract_id` varchar(15) NOT NULL,
   `warehouse_id` int(4) UNSIGNED ZEROFILL NOT NULL,

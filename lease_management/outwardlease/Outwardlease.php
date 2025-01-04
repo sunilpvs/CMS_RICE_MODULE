@@ -1,8 +1,8 @@
 <?php 
-date_default_timezone_set('Asia/Kolkata');
- require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
+    date_default_timezone_set('Asia/Kolkata');
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
  
-
 class Outwardlease
 {
     private $db_handle;
@@ -19,6 +19,19 @@ class Outwardlease
         $this->db_handle->beginTrans();
         try
         {
+            //Get Prefix Data
+            $gen = new Generic();
+            $result = $gen->getPrefixList("OutwardLease");
+            $prefix = "";
+            if (!empty($result)) 
+            {
+                $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                $prefix = $row['prefix'];
+            }
+            else{
+                $prefix = "SCBC-OUTW25-";
+            }
+            //Insert new Outward Lease 
             $sql = "SELECT used_sqft,used_mton,avl_sqft,avl_mton FROM tbl_warehouse WHERE id = $warehouse_id;";
             $result = $this->db_handle->runBaseQuery($sql);
             if (!empty($result))
@@ -106,7 +119,6 @@ class Outwardlease
             );
             $result = $this->db_handle->runQuery($query, $paramType, $paramValue);
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            $prefix = $row['prefix'];
             $id = $row['id'];
             $contract = $prefix . $id;
             $query = "UPDATE tbl_outwardlease SET lease_contract_id = '$contract' WHERE id = $id;";

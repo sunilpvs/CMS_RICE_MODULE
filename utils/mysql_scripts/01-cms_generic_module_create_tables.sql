@@ -20,6 +20,7 @@ SET time_zone = "+00:00";
 # DATABASE NAME: CMS
 # DROP TABLES BEFORE CREATION IF EXISTS
 ################################################################################################
+DROP TABLE IF EXISTS `tbl_prefix`;
 DROP TABLE IF EXISTS `tbl_reqaccess`;
 DROP TABLE IF EXISTS `tbl_user_role`;
 DROP TABLE IF EXISTS `tbl_userroles`;
@@ -43,6 +44,19 @@ DROP TABLE IF EXISTS `tbl_status`;
 ################################################################################################
 # GENERIC TABLE CREATION
 ################################################################################################
+-- Table structure for table `tbl_status`
+CREATE TABLE `tbl_prefix` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `prefix` varchar(15) NOT NULL,
+  `module` varchar(15) NOT NULL,
+  PRIMARY KEY(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- Dumping data for table `tbl_prefix`
+INSERT INTO `tbl_prefix` (`id`, `prefix`, `module`) VALUES
+(1, 'SCBC-INW25-', 'InwardLease'),
+(2, 'SCBC-OUT25-', 'OutwardLease'),
+(3, 'SCBC-COMP-', 'Compartment');
+-- --------------------------------------------------------
 -- Table structure for table `tbl_status`
 CREATE TABLE `tbl_status` (
   `id` int(3) NOT NULL AUTO_INCREMENT,

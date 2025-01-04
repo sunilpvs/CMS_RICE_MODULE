@@ -30,6 +30,12 @@
             return $result;
         }
 
+        function getPrefixList($module) 
+        {
+            $sql = "SELECT * FROM tbl_prefix WHERE module ='$module';";
+            $result = $this->db_handle->runBaseQuery($sql);
+            return $result;
+        }
         
         function getDeptartmentList() 
         {

@@ -19,6 +19,18 @@ class Compartment
         try
         {
             $status = 1;
+            //Get Prefix Data
+            $gen = new Generic();
+            $result = $gen->getPrefixList("Compartment");
+            $prefix = "";
+            if (!empty($result)) 
+            {
+                $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                $prefix = $row['prefix'];
+            }
+            else{
+                $prefix = "SCBC-COMP-";
+            }
             $query = "INSERT INTO tbl_compartment (outwardlease_id,compartment_name,warehouse_id,capacity_sqft,capacity_mton,status,entity_id,created_by) VALUES (?,?,?, ?, ?, ?, ?,?)";
             $paramType = "isisssii";
             $paramValue = array(
@@ -35,7 +47,6 @@ class Compartment
             //Update Compartment_Id of Compartments for new Inserted Row
             $result = $this->getCompartmentById($insertId);
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            $prefix = $row['prefix'];
             $id = $row['id'];
             $comp_id = $prefix . $id;
             $query = "UPDATE tbl_compartment SET compartment_id = '$comp_id' WHERE id = $id;";
