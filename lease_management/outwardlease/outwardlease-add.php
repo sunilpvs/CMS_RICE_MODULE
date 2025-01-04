@@ -356,7 +356,6 @@
         var outwardlease = $("#lease_capacity_mton").val();
         if(outwardlease > 0)
         {
-          
           $("#lease_capacity_mton").on("focusout",function()
           {
             var outwardlease = $("#lease_capacity_mton").val();
@@ -375,7 +374,7 @@
             )
           }
         }
-      })
+      });
     </script>
 
     <div class="col-md-4 mb-3">
