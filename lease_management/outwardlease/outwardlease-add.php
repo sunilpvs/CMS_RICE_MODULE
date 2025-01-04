@@ -350,31 +350,28 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
-      
 	    $(document).ready(function()
 	    {
-        var outwardlease = $("#lease_capacity_mton").val();
-        if(outwardlease > 0)
-        {
           $("#lease_capacity_mton").on("focusout",function()
           {
             var outwardlease = $("#lease_capacity_mton").val();
-            //var warehouse_id = $("#warehouse_id").val();
             var wid = $("#warehouse_id").val();
-            $.ajax(
+            if(outwardlease > 0)
             {
-              url:"available-capacity_mton.php",
-              type:"POST",
-              data:{lease_capacity_mton:outwardlease,warehouse_id:wid},
-              success:function(mydata)
+              $.ajax(
               {
-                  $("#lease_capacity_mton-info").html(mydata);
-              } 
+                url:"available-capacity_mton.php",
+                type:"POST",
+                data:{lease_capacity_mton:outwardlease,warehouse_id:wid},
+                success:function(mydata)
+                {
+                    $("#lease_capacity_mton-info").html(mydata);
+                } 
+              })
             }
-            )
-          }
-        }
-      });
+          })
+      })
+      
     </script>
 
     <div class="col-md-4 mb-3">
