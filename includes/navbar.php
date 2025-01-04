@@ -1,8 +1,10 @@
 <?php
     date_default_timezone_set('Asia/Kolkata');
     require_once($_SERVER['DOCUMENT_ROOT'] .'/includes/DBController.php');
-
-    $myrole = $_SESSION['user_role_id'];
+    if(isset($_SESSION['user_role_id']))
+    {
+      $myrole = $_SESSION['user_role_id'];
+    }
     //$myrole
         //1	SUPER USER
         //2	IT ADMIN
@@ -14,7 +16,16 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-          <center> <a href="../../home" class="navbar-brand"> <?php $logo = $_SESSION['logo']; ?>
+          <?php 
+            if(isset($_SESSION['logo'])){
+              $logo = $_SESSION['logo'];
+            }
+            else{
+              $logo = "logo-pvs.png";
+            }
+            
+          ?>
+          <center> <a href="../../home" class="navbar-brand">
               <img src="../../assests/img/<?php echo $logo; ?>" width = "215" height="85" alt="PVS_Consultancy" align="center"> </a>
           </center>
 
