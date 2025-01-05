@@ -282,16 +282,14 @@
       <label for="validationDefault01" class="info">Request Status</label><span id="req_status-info" class="info"></span>
       <input type="text" class="form-control demoInputBox" id="req_status" name= "req_status" placeholder="Request Status" disabled>
     </div>
-
-
+    
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">User Name</label><span id="uname-info" class="info" style="color:red;"></span>
-      <input type="text" maxlength = "12" class="form-control demoInputBox" id="uname" name= "uname" placeholder="User Name"  required>
+      <input type="text" maxlength = "12" class="form-control demoInputBox" id="uname" name= "uname" placeholder="User Name"  onInput="checkUname()" required>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
-
 	    $(document).ready(function()
 	    {
         $("#uname").on("focusout",function()
@@ -309,8 +307,7 @@
 		      }
 		      )
         }
-        )});
-
+        )})
     </script> 
 
     <div class="col-md-4 mb-3">
