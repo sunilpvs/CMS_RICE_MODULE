@@ -132,7 +132,7 @@ class User
         }
     }
 
-    function validateUNameEdit($uname) {
+    function validateUNameEdit($uname, $u_id) {
         $sql = "SELECT user_name FROM vw_user_validation WHERE id!= $u_id AND user_name = '$uname'";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);

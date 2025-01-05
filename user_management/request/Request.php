@@ -71,7 +71,24 @@ class Request
             throw $e; // but the error must be handled anyway
         }
     }
-    
+        
+    function getPendingRequests() {
+        $sql = "SELECT * FROM vw_acces_request;";
+        $result = $this->db_handle->runBaseQuery($sql);
+        return $result;
+    }
+
+    function validateUName($uname) {
+        $sql = "SELECT user_name FROM vw_user_validation WHERE user_name = '$uname'";
+        $result = $this->db_handle->runBaseQuery($sql);
+        $count=mysqli_num_rows($result);
+        if($count>0){ //User_Id Exists
+            return FALSE;
+        }
+        else{
+            return TRUE;
+        }
+    }
     
     function validateEmail($email) {
         $sql = "SELECT email FROM vw_employeelist WHERE email = '$email'";
@@ -85,7 +102,6 @@ class Request
         }
     }
 
-    
     function validateEmailEdit($email,$employee_id) {
         $sql = "SELECT email FROM vw_employeelist WHERE id != $employee_id AND email = '$email'";
         $result = $this->db_handle->runBaseQuery($sql);

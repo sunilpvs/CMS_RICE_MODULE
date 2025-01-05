@@ -5,6 +5,11 @@
 ################################################################################################
 ###VIEWS USED FOR GENERIC COMBO LOADINGS
 
+#AVAILABLE ACCERSS REQUESTS VIEW
+	CREATE OR REPLACE VIEW `vw_acces_request` AS 
+		SELECT * FROM tbl_reqaccess	
+			WHERE status = 'Requested' ORDER BY id;
+
 #AVAILABLE STATUS VIEW
 	CREATE OR REPLACE VIEW `vw_status` AS 
 		SELECT id,concat(code,' - ',status) as status, module  
