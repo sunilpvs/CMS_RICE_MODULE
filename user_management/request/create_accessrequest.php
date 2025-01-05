@@ -39,7 +39,7 @@
     } 
     else 
     {
-        header("Location:../../user_management/employee/cEmployee.php");
+        header("Location:../../home");
     }
 
 ?>

@@ -1,7 +1,7 @@
 <?php
-  require_once($_SERVER['DOCUMENT_ROOT'] .'/user_management/user/User.php');
+  require_once($_SERVER['DOCUMENT_ROOT'] .'/user_management/request/Request.php');
   $uname = $_POST['user_name'];
-  $usr = new User();
+  $usr = new Request();
   $result = $usr->validateUName($uname);
   if(!$result)
   {

@@ -14,7 +14,7 @@
   </div>
 
 <div class="card-body">
-<form name="frmAdd" method="post" action="../../user_management/request/create_accessrequest.php" id="frmAdd" onSubmit="return validate();" accept="image/png, image/gif, image/jpeg" enctype="multipart/form-data">
+<form name="frmAdd" method="post" action="../../user_management/request/update_accessrequest.php" id="frmAdd" onSubmit="return validate();" accept="image/png, image/gif, image/jpeg" enctype="multipart/form-data">
 
 <div class="container">
   <div class="form-row">
@@ -274,27 +274,30 @@
     </div>
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Request Message:</label><span id="pin-info" class="info"></span>
+      <label for="validationDefault03" class="info">Request Message:</label><span id="message-info" class="info"></span>
       <input type="text" class="form-control demoInputBox" id="message" name= "message" placeholder="message" disabled>
     </div>
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Request Status</label><span id="approver_email-info" class="info"></span>
-       <input type="text" class="form-control demoInputBox" id="req_status" name= "req_status" placeholder="Request Status" disabled>
+      <label for="validationDefault01" class="info">Request Status</label><span id="req_status-info" class="info"></span>
+      <input type="text" class="form-control demoInputBox" id="req_status" name= "req_status" placeholder="Request Status" disabled>
     </div>
+
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">User Name</label><span id="uname-info" class="info" style="color:red;"></span>
-      <input type="text" maxlength = "12" class="form-control demoInputBox" onKeyDown="return/[a-z0-9⌦←→⌫-HT]/i.test(event.key)" id="uname" name= "uname" placeholder="User Name"  onchange="checkUname()" required>
+      <input type="text" maxlength = "12" class="form-control demoInputBox" id="uname" name= "uname" placeholder="User Name"  required>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
-        function checkUname()
+
+	    $(document).ready(function()
+	    {
+        $("#uname").on("focusout",function()
         {
-            var username = $("#uname").val();
-            alert(uasername);
-            $.ajax(
+		      var username = $("#uname").val();
+		      $.ajax(
 		      {
 			      url:"check-uname.php",
 			      type:"POST",
@@ -306,7 +309,9 @@
 		      }
 		      )
         }
-    </script>    
+        )});
+
+    </script> 
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Assigned Role</label><span id="role-info-info" class="info"></span>
@@ -342,7 +347,7 @@
 <div class="container">
         <div classs="col-md-4 mb-3">
             <button class="btn btn-primary" type="submit" name="add" id="btnSubmit" value="Add" >Create Record</button>
-            <button class="btn btn-primary" type="cancel" name="cancel" id="btnCancel" value="Cancel" ><a style="color:#fff;" href="../../user_management/employee/cEmployee.php">Cancel</a></button> 
+            <button class="btn btn-primary" type="cancel" name="cancel" id="btnCancel" value="Cancel" ><a style="color:#fff;" href="../../user_management/request/approve_request.php">Cancel</a></button> 
         </div>
     </div>
 </div>
@@ -451,9 +456,11 @@ function validate() {
         $("#designation").css('background-color','#FFFFDF');
         valid = false;
     }
-    
-   
-   
+    if(!$("#req_status").val()) {
+        $("#req_status-info").html("(required)");
+        $("#req_status").css('background-color','#FFFFDF');
+        valid = false;
+    }
     return valid;
 }
 </script>

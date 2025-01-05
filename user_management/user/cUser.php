@@ -1,8 +1,7 @@
 <?php
     session_start();
-   require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
     require_once($_SERVER['DOCUMENT_ROOT'] ."/user_management/user/User.php");
-    #require_once($_SERVER['DOCUMENT_ROOT'] ."/email/Email.php");
     include($_SERVER['DOCUMENT_ROOT'] ."/email/Email.php");
     $db_handle = new DBController();
     // $action = "";
@@ -76,9 +75,9 @@ else
     
     case "user-delete":
                 $user_id = $_GET["id"];
-                $user = new User();
-                $user->deleteUser($user_id);
-                $result = $user->getAllUser();
+                //$user = new User();
+                //$user->deleteUser($user_id);
+                //$result = $user->getAllUser();
                 require_once "../../user_management/user/vUser.php";
                 break;
     
