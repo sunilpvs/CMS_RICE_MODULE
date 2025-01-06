@@ -35,9 +35,10 @@
       <label for="validationDefault03" class="info">Email</label><span id="email-info" class="info"></span>
       <input type="email" class="form-control demoInputBox" id="email" name= "email" placeholder="Email" required>
     </div>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
-      
+
         $(document).ready(function()
         {
         $("#email").on("focusout",function()
@@ -45,7 +46,7 @@
               var empemail = $("#email").val();
               $.ajax(
               {
-                  url:"check-email.php",
+                  url:"../../user_management/request/check-email.php",
                   type:"POST",
                   data:{email:empemail},
                   success:function(mydata)
@@ -54,20 +55,58 @@
                   } 
               }
               )
-        }
-  
-        )})
-    </script> 
+        } )})
+    </script>
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Personal Email</label><span id="personal_email-info" class="info"></span>
       <input type="email" class="form-control demoInputBox" id="personal_email" name= "personal_email" placeholder="Personal Email" >
     </div>
 
+    <script>
+        $(document).ready(function()
+        {
+        $("#personal_email").on("focusout",function()
+        {
+              var p_email = $("#personal_email").val();
+              $.ajax(
+              {
+                  url:"../../user_management/request/pcheck-email.php",
+                  type:"POST",
+                  data:{personal_email:p_email},
+                  success:function(mydata)
+                  {
+                $("#personal_email-info").html(mydata);
+                  } 
+              }
+              )
+        } )})
+    </script> 
+
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Mobile</label><span id="mobile-info" class="info"></span>
        <input type="text" maxlength="12" onKeyDown="return/[0-9.⌦←→⌫HT]/i.test(event.key)" class="form-control demoInputBox" id="mobile" name= "mobile" placeholder="Mobile" required>
     </div>
+
+    <script>
+        $(document).ready(function()
+        {
+        $("#mobile").on("focusout",function()
+        {
+              var mobile = $("#mobile").val();
+              $.ajax(
+              {
+                  url:"../../user_management/request/check-mobile.php",
+                  type:"POST",
+                  data:{mobile:mobile},
+                  success:function(mydata)
+                  {
+                $("#mobile-info").html(mydata);
+                  } 
+              }
+              )
+        } )})
+    </script>   
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Address1</label><span id="add1-info" class="info"></span>

@@ -53,7 +53,7 @@
 
 #Contact Page: Contact View
 	CREATE OR REPLACE VIEW `vw_contact_list` AS 
-		SELECT a.id,a.f_name,a.l_name,DATE_FORMAT(a.dob,'%d-%b-%Y') as dob,a.email,a.mobile,c.state,b.Name as contacttype 
+		SELECT a.id,a.f_name,a.l_name,DATE_FORMAT(a.dob,'%d-%b-%Y') as dob,a.email,a.personal_email,a.mobile,c.state,b.Name as contacttype 
 			FROM tbl_contact a, tbl_contacttype b, tbl_state c 
 			WHERE a.contacttype_id = b.id AND a.state = c.id  AND a.id != 1 ORDER BY a.id;
 ################################################################################################

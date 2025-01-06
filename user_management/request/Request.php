@@ -195,7 +195,7 @@ class Request
     }
     
     function validateEmail($email) {
-        $sql = "SELECT email FROM vw_employeelist WHERE email = '$email'";
+        $sql = "SELECT email FROM vw_contact_list WHERE email = '$email'";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);
         if($count>0){ //email Exists
@@ -206,8 +206,8 @@ class Request
         }
     }
 
-    function validateEmailEdit($email,$employee_id) {
-        $sql = "SELECT email FROM vw_employeelist WHERE id != $employee_id AND email = '$email'";
+    function validatePEmail($email) {
+        $sql = "SELECT personal_email FROM vw_contact_list WHERE personal_email = '$email'";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);
         if($count>0){ //email Exists
@@ -217,24 +217,18 @@ class Request
             return TRUE;
         }
     }
-    
-    function getEmployeeById($id) {
-        $query = "SELECT * FROM tbl_contact WHERE id = ?";
-        $paramType = "i";
-        $paramValue = array(
-            $id
-        );        
-        $result = $this->db_handle->runQuery($query, $paramType, $paramValue);
-        return $result;
-    }
 
-    function getAllEmployee() 
-    {
-        $sql="SELECT * FROM vw_employeelist";
+    function validateMobile($mobile) {
+        $sql = "SELECT mobile FROM vw_contact_list WHERE mobile = '$mobile'";
         $result = $this->db_handle->runBaseQuery($sql);
-        return $result;
-    } 
-
+        $count=mysqli_num_rows($result);
+        if($count>0){ //email Exists
+            return FALSE;
+        }
+        else{
+            return TRUE;
+        }
+    }
 
 }
 ?>
