@@ -73,13 +73,24 @@ class Request
         }
     }
 
-    function updateAccessRequest($req_id, $uname, $role, $app_status)
+    function updateAccessRequest($req_id, $uname, $role, $app_status, $email, $entity_id)
     {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
         $this->db_handle->beginTrans();
         try
         {
-            if($app_status == "Approved")
+            if($app_status == "Rejected")
+            {
+                $query = "UPDATE tbl_reqaccess SET status = ? WHERE id = ?;";
+                $paramType = "si";
+                $paramValue = array(
+                                    $app_status,
+                                    $req_id
+                                    );
+                $updateId = $this->db_handle->update($query, $paramType, $paramValue);
+                $this->db_handle->commitTrans();
+            }
+            elseif($app_status == "Approved")
             {
                 //Request Approved by User
                 //Create Employee from Request 
@@ -94,45 +105,7 @@ class Request
                                     $req_id
                                     );
                 $contactId = $this->db_handle->insert($query, $paramType, $paramValue);
-                //Get Employee Details for newly created Employee
-                $sql = "SELECT * FROM vw_userlist WHERE id = $contactId;";
-                $result = $this->db_handle->runBaseQuery($sql);
-                $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                $email = $row['email'];
-                $entity_id = $row['entity_id'];
-                //Create user based on Employee Id inserted and send email notification
-                $code = rand(999999, 111111);
-                $usr = new User();
-                $insertId = $usr->createUser($uname, $email, $role, $contactId, $code, $entity_id);
-                if (empty($insertId)) {
-                    $response = array(
-                        "message" => "Problem in Adding New Record",
-                        "type" => "error"
-                    );
-                } 
-                else 
-                {
-                    $subject = "CMS - First-time Login.";
-                    $message = "Your login is been created in CMS portal, with below details <br><br>";
-                    $message .= "<table>";
-                    $message .= "<tr><td>User Name:</td><td>$uname</td></tr>";
-                    $message .= "<tr><td>Email:</td><td>$email</td></tr>";
-                    $message .= "<tr><td>Link to create password:</td><td><a href='".$_SESSION['FirstLogin_Link']."'>Link </a></td></tr>";
-                    $message .= "</table><br>";
-                    $message .= "Your password needs to be generated for first time login. Use code to set password: $code";
-                    $mail = new Email();
-                    if($mail->sendEmailNotification($subject, $email, "Dear User,","Warm Regards,<br>PVS Team", $message))
-                    {
-                        $info = "We've sent a passwrod reset otp to your email - $email";
-                        $_SESSION['info'] = $info;
-                        $_SESSION['email'] = $email;
-                    }
-                    else
-                    {
-                        $errors['otp-error'] = "Failed while sending code!";
-                    }    
-                }
-        
+
                 //Update Access request to completed
                 $query = "UPDATE tbl_reqaccess SET status = ? WHERE id = ?;";
                 $paramType = "si";
@@ -141,25 +114,65 @@ class Request
                                     $req_id
                                     );
                 $updateId = $this->db_handle->update($query, $paramType, $paramValue);
+                $this->db_handle->commitTrans();
             }
-            elseif($app_status == "Rejected")
-            {
-                $query = "UPDATE tbl_reqaccess SET status = ? WHERE id = ?;";
-                $paramType = "si";
-                $paramValue = array(
-                                    $app_status,
-                                    $req_id
-                                    );
-                $updateId = $this->db_handle->update($query, $paramType, $paramValue);
-            }
-
-            $this->db_handle->commitTrans();
-            return $updateId;
         }catch (\Throwable $e)
         {
             // An exception has been thrown, We must rollback the transaction
             $this->db_handle->rollbackTrans();
             throw $e; // but the error must be handled anyway
+        }
+
+        //Create user based on Employee Id inserted and send email notification
+        if($app_status == "Approved")
+        {        
+            $code = rand(999999, 111111);
+            $usr = new User();
+            $insertId = $usr->createUser($uname, $email, $role, $contactId, $code, $entity_id);
+            if (empty($insertId)) {
+                $response = array(
+                    "message" => "Problem in Adding New Record",
+                    "type" => "error"
+                );
+            } 
+            else 
+            {
+                $subject = "CMS - First-time Login.";
+                $message = "Your login is been created in CMS portal, with below details.<br><br>";
+                $message .= "<table>";
+                $message .= "<tr><td>User Name:</td><td>$uname</td></tr>";
+                $message .= "<tr><td>Email:</td><td>$email</td></tr>";
+                $message .= "<tr><td>Link to create password:</td><td><a href='".$_SESSION['FirstLogin_Link']."'>Link </a></td></tr>";
+                $message .= "</table><br>";
+                $message .= "Your password needs to be generated for first time login. Use code to set password: $code";
+                $mail = new Email();
+                if($mail->sendEmailNotification($subject, $email, "Dear User,","Warm Regards,<br>PVS Team", $message))
+                {
+                    $info = "We've sent a passwrod reset otp to your email - $email";
+                    $_SESSION['info'] = $info;
+                    $_SESSION['email'] = $email;
+                }
+                else
+                {
+                    $errors['otp-error'] = "Failed while sending code!";
+                }    
+            }
+        }
+        elseif($app_status == "Rejected")
+        {
+            $subject = "CMS - Access Rejected";
+            $message = "Your request for CMS login is been rejected. <br><br>";
+            $mail = new Email();
+            if($mail->sendEmailNotification($subject, $email, "Dear User,","Warm Regards,<br>PVS Team", $message))
+            {
+                $info = "We've sent a passwrod reset otp to your email - $email";
+                $_SESSION['info'] = $info;
+                $_SESSION['email'] = $email;
+            }
+            else
+            {
+                $errors['otp-error'] = "Failed while sending code!";
+            }    
         }
     }
         

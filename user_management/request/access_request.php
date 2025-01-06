@@ -267,7 +267,7 @@
 <div class="container">
         <div classs="col-md-4 mb-3">
             <button class="btn btn-primary" type="submit" name="add" id="btnSubmit" value="Add" >Create Record</button>
-            <button class="btn btn-primary" type="cancel" name="cancel" id="btnCancel" value="Cancel" ><a style="color:#fff;" href="../../user_management/employee/cEmployee.php">Cancel</a></button> 
+            <button class="btn btn-primary" type="cancel" name="cancel" id="btnCancel" value="Cancel" ><a style="color:#fff;" href="../../home">Cancel</a></button> 
         </div>
     </div>
 </div>

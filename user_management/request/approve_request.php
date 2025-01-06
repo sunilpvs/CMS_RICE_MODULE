@@ -88,7 +88,7 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">First Name</label><span id="f_name-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="f_name" name= "f_name" placeholder="First Name" disabled>
+      <input type="text" class="form-control demoInputBox" id="f_name" name= "f_name" placeholder="First Name" readonly>
     </div>
     
     <div class="col-md-4 mb-3">
@@ -103,7 +103,7 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Email</label><span id="email-info" class="info"></span>
-      <input type="email" class="form-control demoInputBox" id="email" name= "email" placeholder="Email" disabled>
+      <input type="email" class="form-control demoInputBox" id="email" name= "email" placeholder="Email" readonly>
     </div>
 
     <div class="col-md-4 mb-3">
@@ -211,7 +211,7 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Entity</label><span id="entity-info-info" class="info"></span>
-        <select id="entity" name="entity" class="form-control demoInputBox" disabled>
+        <select id="entity" name="entity" class="form-control demoInputBox" readonly>
         <option value="-1">Select Entity</option>
             <?php
                 $result = $gen->getEntityList();
@@ -297,7 +297,7 @@
 		      var username = $("#uname").val();
 		      $.ajax(
 		      {
-			      url:"check-uname.php",
+			      url:"../..//user_management/request/check-uname.php",
 			      type:"POST",
 			      data:{user_name:username},
 			      success:function(mydata)
