@@ -5,7 +5,7 @@
   $result = $req->validateEMail($email);
   if(!$result)
   {
-    echo "<span style='color:red'> * user already exists .</span>";
+    echo "<span style='color:red'> * email already exists .</span>";
     echo "<script>$('#btnSubmit').prop('disabled',true);</script>";
   }else
   {
