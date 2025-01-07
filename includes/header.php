@@ -5,10 +5,9 @@
 
   date_default_timezone_set('Asia/Kolkata'); 
   # Start a new session, regenerate a session id if needed.
-  if (!isset($_SESSION['INIT'])) {
+  if (!isset($_SESSION['logged'])) {
       session_start();
       session_regenerate_id();
-      $_SESSION['INIT'] = TRUE;
   }
   //Check if session already there....
   if (isset($_SESSION['logged']) && $_SESSION['logged'] = FALSE) 
