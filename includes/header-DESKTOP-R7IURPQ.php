@@ -4,18 +4,8 @@
   include($_SERVER['DOCUMENT_ROOT'] .'/config.php'); 
 
   date_default_timezone_set('Asia/Kolkata'); 
-  # Start a new session, regenerate a session id if needed.
-  if (!isset($_SESSION['INIT'])) {
-      session_regenerate_id();
-      $_SESSION['INIT'] = TRUE;
-  }
   //Check if session already there....
-  if (isset($_SESSION['logged']) && $_SESSION['logged'] = FALSE) 
-  {
-    $_SESSION = []; //_SESSION is now an empty array
-    header('Location: ../login');
-  }
-
+  if(session_status() === PHP_SESSION_NONE) session_start();
   // Check if System Maintenance Mode
   $myrole = 0;
   if(isset($_SESSION['user_role_id']))
@@ -36,9 +26,6 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Customer Management Portal (CMS)</title>
-  <script language="javascript" type="text/javascript">
-    window.history.forward();
-  </script>
   <!-- Custom fonts for this template-->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
     <link href="../../assests/sidebar/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

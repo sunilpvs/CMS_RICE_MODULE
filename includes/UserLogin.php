@@ -40,6 +40,7 @@ class UserLogin
                 $ini_file = parse_ini_file($ini_file_path);
                 $app_url = $ini_file["app_url"];
                 $logo = $ini_file["logo"];
+                $_SESSION['logged'] = TRUE;
                 $_SESSION['logo'] = $logo;
                 $_SESSION['id'] = $row["id"];
                 $_SESSION['user_name'] = $row["user_name"];
@@ -50,6 +51,7 @@ class UserLogin
                 $_SESSION['user_type'] = $row["ctype"];
                 $_SESSION['code'] = $row["code"];
                 $_SESSION['status'] = $row["status"];
+                $_SESSION['app_url'] = $app_url;
                 $_SESSION['FirstLogin_Link'] = $app_url.'user_management/reset-code.php';
                 $_SESSION['user_role'] = $row["user_role"];
                 $_SESSION['user_role_id'] = $row["user_role_id"];
