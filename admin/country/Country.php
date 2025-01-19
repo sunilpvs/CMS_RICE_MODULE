@@ -10,20 +10,22 @@ class Countri
         $this->db_handle = new DBController();
     }
     
-    function addCountri($country, $code, $currency) {
+    function addCountri($country, $code, $currency) 
+    {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
-            $this->db_handle->beginTrans();
-            try{
-        $query = "INSERT INTO tbl_country (country,code,currency) VALUES (?, ?, ?)";
-        $paramType = "sss";
-        $paramValue = array(
-            $country,
-            $code,
-            $currency,
-           
+        $this->db_handle->beginTrans();
+        try
+        {
+            $query = "INSERT INTO tbl_country (country,code,currency) VALUES (?, ?, ?)";
+            $paramType = "sss";
+            $paramValue = array(
+                $country,
+                $code,
+                $currency           
         );
         $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
 
+        $createdBy = $_SESSION['id'];
         $activity = "New Country is added with ID: $insertId";
         $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
         $paramType = "si";
@@ -32,16 +34,15 @@ class Countri
             $createdBy
         );
 	    $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-        
-         $this->db_handle->commitTrans();
-            return $insertId;
-            }catch (\Throwable $e){
+        $this->db_handle->commitTrans();
+        return $insertId;
+        }catch (\Throwable $e){
             // An exception has been thrown
             // We must rollback the transaction
             $this->db_handle->rollbackTrans();
             throw $e; // but the error must be handled anyway
         }
-        }
+    }
     
     function editCountri($country, $code, $currency, $id) 
     {

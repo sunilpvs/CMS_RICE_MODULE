@@ -57,19 +57,32 @@ $(function() {
 </script>
 
 <script type="text/javascript">
-$(document).ready(function() {
-jQuery('#Export to excel').bind("click", function() {
-var target = $(this).attr('id');
-switch(target) {
-  case 'export-to-excel' :
-  $('#hidden-type').val(target);
-  //alert($('#hidden-type').val());
-  $('#export-form').submit();
-  $('#hidden-type').val('');
-  break
-}
-});
+
+    $(document).ready(function() {
+    jQuery('#Export to excel').bind("click", function() {
+    var target = $(this).attr('id');
+    switch(target) {
+      case 'export-to-excel' :
+      $('#hidden-type').val(target);
+      //alert($('#hidden-type').val());
+      $('#export-form').submit();
+      $('#hidden-type').val('');
+      break
+    }
     });
+        });
+
+    const validateNumberOnly = (event) => {
+      var key = window.event ? event.keyCode : event.which;
+      console.log(event);
+      if (event.keyCode === 8 || event.keyCode === 46
+          || event.keyCode === 37 || event.keyCode === 39) {
+          return true;
+      } else if (key < 48 || key > 57) {
+          return false;
+      } else { return true; }
+    };
+
 </script>
 
 <?php

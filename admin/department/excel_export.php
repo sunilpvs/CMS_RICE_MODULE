@@ -1,5 +1,5 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] ."/configurations/department/Department.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/admin/department/Department.php");
     include($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
 
     $department = new Department();

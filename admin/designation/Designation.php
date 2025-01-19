@@ -10,38 +10,40 @@ class Designation
         $this->db_handle = new DBController();
     }
     
-    function addDesignation($name, $code, $status, $createdBy) {
+    function addDesignation($name, $code, $status, $createdBy) 
+    {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
-            $this->db_handle->beginTrans();
-            try{
-        $query = "INSERT INTO tbl_designation (name,code,status,createdBy) VALUES (?, ?, ?, ?)";
-        $paramType = "sssi";
-        $paramValue = array(
-            $name,
-            $code,
-            $status,
-            $createdBy
-        );
-        $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
+        $this->db_handle->beginTrans();
+        try
+        {
+            $query = "INSERT INTO tbl_designation (name,code,status,createdBy) VALUES (?, ?, ?, ?)";
+            $paramType = "sssi";
+            $paramValue = array(
+                $name,
+                $code,
+                $status,
+                $createdBy
+            );
+            $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
 
-        $activity = "New Designation is added with ID: $insertId";
-        $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
-        $paramType = "si";
-        $paramValue = array(
-            $activity,
-            $createdBy
-        );
-	    $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+            $activity = "New Designation is added with ID: $insertId";
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
+            $paramType = "si";
+            $paramValue = array(
+                $activity,
+                $createdBy
+            );
+            $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
         
-         $this->db_handle->commitTrans();
+            $this->db_handle->commitTrans();
             return $insertId;
-            }catch (\Throwable $e){
+        }catch (\Throwable $e){
             // An exception has been thrown
             // We must rollback the transaction
             $this->db_handle->rollbackTrans();
             throw $e; // but the error must be handled anyway
         }
-        }
+    }
     
     function editDesignation($name, $code, $status, $id) 
     {

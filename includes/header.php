@@ -77,6 +77,7 @@
         alert('The F12 key is disabled.');
     }
     });
+    
   </script>
 </head>
 <body id="page-top"> 

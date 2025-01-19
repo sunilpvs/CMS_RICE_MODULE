@@ -10,66 +10,67 @@ class Citi
         $this->db_handle = new DBController();
     }
     
-    function addCiti( $city, $state, $country) {
+    function addCiti( $city, $state, $country) 
+    {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
-            $this->db_handle->beginTrans();
-            try{
-        $query = "INSERT INTO tbl_city (city,state,country) VALUES (?, ?, ?)";
-        $paramType = "sii";
-        $paramValue = array(
-            $city, 
-            $state, 
-            $country
-        );
-        $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
+        $this->db_handle->beginTrans();
+        try
+        {
+            $query = "INSERT INTO tbl_city (city,state,country) VALUES (?, ?, ?)";
+            $paramType = "sii";
+            $paramValue = array(
+                $city, 
+                $state, 
+                $country
+            );
+            $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
 
-        $activity = "New City is added with ID: $insertId";
-        $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
-        $paramType = "si";
-        $paramValue = array(
-            $activity,
-            $createdBy
-        );
-	    $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-        
-         $this->db_handle->commitTrans();
+            $createdBy = $_SESSION['id'];
+            $activity = "New City is added with ID: $insertId";
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
+            $paramType = "si";
+            $paramValue = array(
+                $activity,
+                $createdBy
+            );
+	        $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+            
+            $this->db_handle->commitTrans();
             return $insertId;
-            }catch (\Throwable $e){
+        }catch (\Throwable $e){
             // An exception has been thrown
             // We must rollback the transaction
             $this->db_handle->rollbackTrans();
             throw $e; // but the error must be handled anyway
         }
-        }
+    }
     
     function editCiti($city, $state, $country, $id) 
     {
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
         $this->db_handle->beginTrans();
-        try{
-       
-        $query = "UPDATE tbl_city SET city = ?,state=?,country=? WHERE id = ?";
-        $paramType = "siii";
-        $paramValue = array(
-            $city, 
-            $state, 
-            $country,
-            
-            $id
-        );        
-        $updateid = $this->db_handle->insert($query, $paramType, $paramValue);
+        try{  
+            $query = "UPDATE tbl_city SET city = ?,state=?,country=? WHERE id = ?";
+            $paramType = "siii";
+            $paramValue = array(
+                $city, 
+                $state, 
+                $country,            
+                $id
+            );        
+            $updateid = $this->db_handle->insert($query, $paramType, $paramValue);
 
-        $activity = "Updated City details for City ID: $id";
-        $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
-        $paramType = "si";
-        $paramValue = array(
-            $activity,
-            $last_updated
-        );
-        $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-          $this->db_handle->commitTrans();
-        return $updateid;
+            $activity = "Updated City details for City ID: $id";
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
+            $paramType = "si";
+            $paramValue = array(
+                $activity,
+                $last_updated
+            );
+            $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+            $this->db_handle->commitTrans();
+            return $updateid;
         }catch (\Throwable $e){
         // An exception has been thrown
         // We must rollback the transaction

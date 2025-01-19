@@ -1,5 +1,5 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] .'/configurations/department/Department.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/department/Department.php');
     $depid = $_POST['id'];
     $depname = $_POST['name'];
     $depcode = $_POST['code'];

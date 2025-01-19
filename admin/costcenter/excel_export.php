@@ -1,5 +1,5 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] ."/configurations/designation/Designation.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/admin/costcenter/Costcenter.php");
     include($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
 
     $costcenter = new Costcenter();

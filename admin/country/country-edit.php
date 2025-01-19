@@ -12,7 +12,7 @@
 <div class="container-fluid">
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h3 class="m-0 font-weight-bold text-primary">country</h3>
+    <h3 class="m-0 font-weight-bold text-primary">Country</h3>
   </div>
 <div class="card-body">
 <form name="frmAdd" method="post" action="" id="frmAdd" onSubmit="return validate();">
@@ -22,7 +22,7 @@
   
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault02" class="info">country</label><span id="country-info" class="info"></span>
+      <label for="validationDefault02" class="info">Country</label><span id="country-info" class="info"></span>
       <input type="text" class="form-control demoInputBox" id="country" name= "country" placeholder="Country" value="<?php echo $row1["country"]; ?>" onchange="validateDuplicates()" required>
     </div>
 

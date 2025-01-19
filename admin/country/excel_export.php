@@ -1,5 +1,5 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] ."/configurations/designation/Designation.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/admin/designation/Designation.php");
     include($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
 
     $designation = new Designation();

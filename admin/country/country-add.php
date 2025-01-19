@@ -6,7 +6,7 @@
 <div class="container-fluid">
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h3 class="m-0 font-weight-bold text-primary">country</h3>
+    <h3 class="m-0 font-weight-bold text-primary">Country</h3>
   </div>
 
 <div class="card-body">
@@ -17,7 +17,7 @@
     
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault02">country</label><span id="country-info" class="info"></span>
+      <label for="validationDefault02">Country</label><span id="country-info" class="info"></span>
       <input type="text" class="form-control demoInputBox" id="country" name= "country" placeholder="Country" onchange="validateDuplicates()" required>
     </div>
 

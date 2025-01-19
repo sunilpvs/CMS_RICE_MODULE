@@ -10,35 +10,37 @@ class Costcentertype
         $this->db_handle = new DBController();
     }
     
-    function addCostcentertype($cc_type) {
+    function addCostcentertype($cc_type) 
+    {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
-            $this->db_handle->beginTrans();
-            try{
-        $query = "INSERT INTO tbl_costcentertype (cc_type) VALUES (?)";
-        $paramType = "s";
-        $paramValue = array(
-            $cc_type
-        );
-        $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
+        $this->db_handle->beginTrans();
+        try
+        {
+            $query = "INSERT INTO tbl_costcentertype (cc_type) VALUES (?)";
+            $paramType = "s";
+            $paramValue = array(
+                $cc_type
+            );
+            $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
 
-        $activity = "New Costcenter Type is added with ID: $insertId";
-        $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
-        $paramType = "si";
-        $paramValue = array(
-            $activity,
-            $createdBy
-        );
-	    $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-        
-         $this->db_handle->commitTrans();
+            $createdBy = $_SESSION['id'];
+            $activity = "New Costcenter Type is added with ID: $insertId";
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
+            $paramType = "si";
+            $paramValue = array(
+                $activity,
+                $createdBy
+            );
+	        $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+            $this->db_handle->commitTrans();
             return $insertId;
-            }catch (\Throwable $e){
+        }catch (\Throwable $e){
             // An exception has been thrown
             // We must rollback the transaction
             $this->db_handle->rollbackTrans();
             throw $e; // but the error must be handled anyway
         }
-        }
+    }
     
     function editCostcentertype($cc_type,  $id) 
     {

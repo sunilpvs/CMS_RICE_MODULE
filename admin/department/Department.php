@@ -10,38 +10,39 @@ class Department
         $this->db_handle = new DBController();
     }
     
-    function addDepartment($name, $code, $status, $createdBy) {
+    function addDepartment($name, $code, $status, $createdBy) 
+    {
         $last_UpdatedDateTime =  date("Y-m-d H:i:s");
-            $this->db_handle->beginTrans();
-            try{
-        $query = "INSERT INTO tbl_department (name,code,status,createdBy) VALUES (?, ?, ?, ?)";
-        $paramType = "sssi";
-        $paramValue = array(
-            $name,
-            $code,
-            $status,
-            $createdBy
-        );
-        $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
-        //Updating Transaction Audit
-        $activity = "New Department is added with ID: $insertId";
-        $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
-        $paramType = "si";
-        $paramValue = array(
-            $activity,
-            $createdBy
-        );
-    	$transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-
-         $this->db_handle->commitTrans();
+        $this->db_handle->beginTrans();
+        try
+        {
+            $query = "INSERT INTO tbl_department (name,code,status,createdBy) VALUES (?, ?, ?, ?)";
+            $paramType = "sssi";
+            $paramValue = array(
+                $name,
+                $code,
+                $status,
+                $createdBy
+            );
+            $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
+            //Updating Transaction Audit
+            $activity = "New Department is added with ID: $insertId";
+            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id) VALUES(? ,?);";
+            $paramType = "si";
+            $paramValue = array(
+                $activity,
+                $createdBy
+            );
+    	    $transid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
+            $this->db_handle->commitTrans();
             return $insertId;
-            }catch (\Throwable $e){
+        }catch (\Throwable $e){
             // An exception has been thrown
             // We must rollback the transaction
             $this->db_handle->rollbackTrans();
             throw $e; // but the error must be handled anyway
         }
-        }
+    }
     
     
     function editDepartment($name, $code, $status, $id) {
@@ -72,11 +73,11 @@ class Department
         $this->db_handle->commitTrans();
         return $updatedId;
         }catch (\Throwable $e){
-        // An exception has been thrown
-        // We must rollback the transaction
-        $this->db_handle->rollbackTrans();
-        throw $e; // but the error must be handled anyway
-    }
+            // An exception has been thrown
+            // We must rollback the transaction
+            $this->db_handle->rollbackTrans();
+            throw $e; // but the error must be handled anyway
+        }
     }
     
     //function deleteDepartment($id) {
