@@ -69,7 +69,7 @@ class Status
         );
         $updatedid = $this->db_handle->insert($trans_query, $paramType, $paramValue);
         $this->db_handle->commitTrans();
-        return $insertId;
+        return $updatedId;
     }catch (\Throwable $e){
     // An exception has been thrown
     // We must rollback the transaction
