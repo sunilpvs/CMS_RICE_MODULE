@@ -1,10 +1,11 @@
 <?php
     //require_once($_SERVER['DOCUMENT_ROOT'] ."/reports/current_stock/Ccurrent_stock.php");
     include($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
+    include($_SERVER['DOCUMENT_ROOT'] ."/reports/reports.php");
     
 
-    $contact = new Generic();
-    $result = $contact->getCurrentStock();
+    $report = new AllReports();
+    $result = $report->getCurrentStock();
     
     $data_records = array();
     if (!empty($result)) 

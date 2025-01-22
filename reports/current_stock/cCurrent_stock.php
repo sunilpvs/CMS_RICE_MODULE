@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
+require_once($_SERVER['DOCUMENT_ROOT'] ."/reports/reports.php");
 
 if (! empty($_GET["action"])) 
 {
@@ -13,8 +13,8 @@ else
 switch ($action) 
 {        
     default:
-    $pro = new Generic();
-    $result = $pro->getCurrentStock();
+    $report = new AllReports();
+    $result = $report->getCurrentStock();
     require_once ($_SERVER['DOCUMENT_ROOT'] ."/reports/current_stock/vcurrent_stock.php");
     break;
 }

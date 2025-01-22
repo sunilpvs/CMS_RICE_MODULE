@@ -14,13 +14,14 @@
   {
     $myrole = $_SESSION['user_role_id'];
   }  
+
   // Check if System Maintenance Mode Not applicable to Super user only.
   //$myrole = 1 :SUPER USER  
   if($myrole != 1 && $maintenance == 1)
   {
     header('Location: ../sysmaint');
   }
-  #session_start();
+  
    //$myrole
         //1	SUPER USER
         //2	IT ADMIN

@@ -1,17 +1,19 @@
 <?php
   date_default_timezone_set('Asia/Kolkata'); 
+  $myrole = 0; 
   if(session_status() === PHP_SESSION_NONE) 
   { 
     session_start(); 
-    if(isset($_SESSION['user_role_id'])){
+    if(isset($_SESSION['user_role_id']))
+    {
       $myrole = $_SESSION['user_role_id'];
     }
   }
-  if (isset($_SESSION['id'])) 
+  else
   {
     $myrole = $_SESSION['user_role_id'];
-  }    
-  #session_start();
+  }  
+
    //$myrole
         //1	SUPER USER
         //2	IT ADMIN
@@ -49,7 +51,6 @@
   }
   else
   { //Fresh Visit
-    echo "<script>location.href='../admlogin'</script>";
-    exit;
+    echo "<script>location.href='../admlogin'</script>";   
   }  
 ?>

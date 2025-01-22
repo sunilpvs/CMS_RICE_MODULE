@@ -93,7 +93,7 @@ class Countri
         $sql = "SELECT * FROM tbl_country WHERE (country = '$country' OR code = '$code' OR currency = '$currency')";
         $result = $this->db_handle->runBaseQuery($sql);
         $count=mysqli_num_rows($result);
-        if($count>0){ //Record Exists with same Name or Code
+        if($count>0){ //Record Exists with same Name or Code Or Currency
             return FALSE;
         }
         else{
