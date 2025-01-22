@@ -1,9 +1,9 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] ."/configurations/designation/Designation.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/admin/pages/Pages.php");
     include($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
 
-    $designation = new Designation();
-    $result = $designation->getAllDesignation();
+    $page = new Pages();
+    $result = $page->getAllpages();
     
     $data_records = array();
     if (!empty($result)) 

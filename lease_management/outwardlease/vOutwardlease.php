@@ -2,7 +2,7 @@
     # require_once($_SERVER['DOCUMENT_ROOT'] .'/web/header.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
-    include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
+    
  ?>
 
  <div class="container-fluid">
@@ -86,7 +86,7 @@
 </table>
 <h3 class="m-0 font-weight-bold text-primary"  >
             <!--<a href="department_generate_pdf.php" class="btn btn-primary btn-md float-center" style="margin-left: 20px;" role="button" target="_blank">Generate PDF</a>-->
-            <a href="./lease_management/outwardlease/excel_export.php" class="btn btn-primary btn-md float-center" role="button" target="_blank"> Export Excel</a>
+            <a href="/lease_management/outwardlease/excel_export.php" class="btn btn-primary btn-md float-center" role="button" target="_blank"> Export Excel</a>
     </h3>
 
     </div>

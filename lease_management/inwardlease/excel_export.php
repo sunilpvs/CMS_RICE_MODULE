@@ -1,6 +1,6 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'] ."/lease_management/inwardlease/Inwardlease.php");
-    include($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
+ 
 
     $ilease = new Inwardlease();
     $result = $ilease ->getAllInwardlease();

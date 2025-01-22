@@ -54,7 +54,7 @@
 
      <h3 class="m-0 font-weight-bold text-primary"  >
             <!-- <a href="department_generate_pdf.php" class="btn btn-primary btn-md float-center" style="margin-left: 20px;" role="button" target="_blank">Generate PDF</a>-->
-            <a href="/admin/department/excel_export.php" class="btn btn-primary btn-md float-center" role="button" target="_blank"> Export Excel</a>
+            <a href="../../admin/department/excel_export.php" class="btn btn-primary btn-md float-center" role="button" target="_blank"> Export Excel</a>
     </h3>
     <div class="well-sm col-sm-12">
 		<div class="btn-group pull-right">	

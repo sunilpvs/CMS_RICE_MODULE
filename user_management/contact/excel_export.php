@@ -1,5 +1,5 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] ."/user_management/customer/Customer.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/user_management/contact/Contact.php");
     include($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
 
     $contact = new Contact();

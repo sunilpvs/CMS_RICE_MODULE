@@ -114,7 +114,7 @@
 
             <div class="col-md-4 mb-3">
             <label for="validationDefault03" class="info">Pincode</label><span id="pin-info" class="info"></span>
-            <input type="number" maxlength="6" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="pin" name= "pin" placeholder="Pincode" value="<?php echo $row1["pin"]; ?>" required>
+            <input type="text" maxlength="7"  onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="pin" name= "pin" placeholder="Pincode" value="<?php echo $row1["pin"]; ?>" required>
             </div>
     
             <div class="col-md-4 mb-3">

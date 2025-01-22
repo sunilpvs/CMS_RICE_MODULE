@@ -238,7 +238,7 @@
 
     <div class="col-md-4 mb-3" >
       <label for="validationDefault01" class="info">Leased Capacity (Sqft)</label><span id="lease_capacity_sqft-info" class="info"></span> 
-      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" min="0" max="99999999" step="0.01" class="form-control demoInputBox" id="lease_capacity_sqft" name= "lease_capacity_sqft" placeholder="0.00" minlength="0" maxlength="12" value="0.00" value="<?php echo $row1["lease_capacity_sqft"]; ?>" readonly>
+      <input type="text" onkeypress="return validateNumberOnly(event);" min="0" max="99999999" step="0.01" class="form-control demoInputBox" id="lease_capacity_sqft" name= "lease_capacity_sqft" placeholder="0.00" minlength="0" maxlength="12" value="0.00" value="<?php echo $row1["lease_capacity_sqft"]; ?>" readonly>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
@@ -266,17 +266,17 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Daily Rate (Sqft)</label><span id="daily_rate_sqft-info" class="info"></span>
-      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="daily_rate_sqft" name= "daily_rate_sqft" placeholder="0.00" min="0" value="0.00" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'"  onchange="calculatecost()" onfocusout="calculatecost()" value="<?php echo $row1["daily_rate_sqft"]; ?>" readonly>
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="daily_rate_sqft" name= "daily_rate_sqft" placeholder="0.00" min="0" value="0.00" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'"  onchange="calculatecost()" onfocusout="calculatecost()" value="<?php echo $row1["daily_rate_sqft"]; ?>" readonly>
     </div>
 
     <div class="col-md-4 mb-3" >
       <label for="validationDefault03" class="info">Cost (Sqft)</label><span id="cost_sqft-info" class="info"></span>
-      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="cost_sqft" name= "cost_sqft" placeholder="0.00" value ="0.00" value="<?php echo $row1["cost_sqft"]; ?>" readonly>
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="cost_sqft" name= "cost_sqft" placeholder="0.00" value ="0.00" value="<?php echo $row1["cost_sqft"]; ?>" readonly>
     </div> 
 
     <div class="col-md-4 mb-3" >
       <label for="validationDefault01" class="info">Leased Capacity (Mton)</label><span id="lease_capacity_mton-info" class="info"></span>
-      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="lease_capacity_mton" name= "lease_capacity_mton" placeholder="0.00" minlength="0" maxlength="12" value="0.00" value="<?php echo $row1["Tlease_capacity_mton"]; ?>" readonly>
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="lease_capacity_mton" name= "lease_capacity_mton" placeholder="0.00" minlength="0" maxlength="12" value="0.00" value="<?php echo $row1["Tlease_capacity_mton"]; ?>" readonly>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

@@ -1,5 +1,5 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] ."/stock_mgmt/outwardstock/Outwardstock.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/stock_management/outwardstock/Outwardstock.php");
     include($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
 
     $ostock = new Outwardstock();

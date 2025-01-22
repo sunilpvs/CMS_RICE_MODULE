@@ -1,9 +1,9 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] ."/admin/userpermissions/Userpermissions.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/admin/contacttype/Contacttype.php");
     include($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
 
-    $userpermission = new Userpermissions();
-    $result = $userpermission->getAlluserpermissions();
+    $contacttype = new Contacttype();
+    $result = $contacttype->getAllContacttype();
     
     $data_records = array();
     if (!empty($result)) 

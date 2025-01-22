@@ -2,6 +2,7 @@
 #require_once ("class/DBController.php");
 date_default_timezone_set('Asia/Kolkata');
 require_once($_SERVER['DOCUMENT_ROOT'] .'/includes/DBController.php');
+require_once($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
 
 
 class Compartment

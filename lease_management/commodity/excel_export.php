@@ -1,5 +1,5 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] ."/bulk_ops/commodity/Commodity.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/lease_management/commodity/Commodity.php");
     include($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
 
     $comm = new Commodity();

@@ -2,13 +2,14 @@
     # require_once($_SERVER['DOCUMENT_ROOT'] .'/web/header.php');
    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
   include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
-    include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
+  
+    
  ?>
 <div class="container-fluid">
   <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h3 class="m-0 font-weight-bold text-primary">Inward Leases
-        <a href="/lease_management/inwardlease/cInwardlease.php?action=inwardlease-add" class="btn btn-primary btn-md float-right" role="button">Add Inward-Lease</a>
+        <a href="../../lease_management/inwardlease/cInwardlease.php?action=inwardlease-add" class="btn btn-primary btn-md float-right" role="button">Add Inward-Lease</a>
     </h3>
   </div>
 

@@ -1,9 +1,9 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] ."/admin/designation/Designation.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/admin/city/City.php");
     include($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
 
-    $designation = new Designation();
-    $result = $designation->getAllDesignation();
+    $city = new Citi();
+    $result = $city->getAllCiti();
     
     $data_records = array();
     if (!empty($result)) 

@@ -1,6 +1,6 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/state/State.php');
-    $cityid = $_POST['id'];
+    $stateid = $_POST['id'];
     $state = $_POST['state'];
     $country = $_POST['country'];
     

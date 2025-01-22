@@ -3,7 +3,7 @@
   require_once($_SERVER['DOCUMENT_ROOT'] .'/lease_management/outwardlease/Outwardlease.php');
   include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
   include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
-  include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
+  
   if (!empty($result))
   {
     $row1 = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -55,11 +55,11 @@
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Warehouse Capacity(sqft)</label><span id="capacity_sqft-info" class="info"></span>
-      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="capacity_sqft" name= "capacity_sqft" placeholder="capacity_sqft" disabled>
+      <input type="number" class="form-control demoInputBox" id="capacity_sqft" name= "capacity_sqft" placeholder="capacity_sqft" disabled>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Warehouse Capacity(mton)</label><span id="capacity_mton-info" class="info"></span>
-      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="capacity_mton" name= "capacity_mton" placeholder="capacity_mton" disabled>
+      <input type="number"  class="form-control demoInputBox" id="capacity_mton" name= "capacity_mton" placeholder="capacity_mton" disabled>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Inward Lease - Contract Ref</label><span id="contract_id-info" class="info"></span>
@@ -303,7 +303,7 @@
 
     <div class="col-md-4 mb-3" >
       <label for="validationDefault01" class="info">Leased Capacity (Sqft)</label><span id="lease_capacity_sqft-info" class="info"></span> 
-      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" min="0" max="99999999" step="0.01" class="form-control demoInputBox" id="lease_capacity_sqft" name= "lease_capacity_sqft" placeholder="0.00" minlength="0" maxlength="12" value="0.00" required>
+      <input type="text" onkeypress="return validateNumberOnly(event);" min="0" max="99999999" step="0.01" class="form-control demoInputBox" id="lease_capacity_sqft" name= "lease_capacity_sqft" placeholder="0.00" minlength="0" maxlength="12" value="0.00" required>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
@@ -333,17 +333,17 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Daily Rate (Sqft)</label><span id="daily_rate_sqft-info" class="info"></span>
-      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="daily_rate_sqft" name= "daily_rate_sqft" placeholder="0.00" min="0" value="0.00" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'"  onchange="calculatecost()" onfocusout="calculatecost()" required>
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="daily_rate_sqft" name= "daily_rate_sqft" placeholder="0.00" min="0" value="0.00" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'"  onchange="calculatecost()" onfocusout="calculatecost()" required>
     </div>
 
     <div class="col-md-4 mb-3" >
       <label for="validationDefault03" class="info">Cost (Sqft)</label><span id="cost_sqft-info" class="info"></span>
-      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="cost_sqft" name= "cost_sqft" placeholder="0.00" value ="0.00" required>
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="cost_sqft" name= "cost_sqft" placeholder="0.00" value ="0.00" required>
     </div> 
 
     <div class="col-md-4 mb-3" >
       <label for="validationDefault01" class="info">Leased Capacity (Mton)</label><span id="lease_capacity_mton-info" class="info"></span>
-      <input type="number" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="lease_capacity_mton" name= "lease_capacity_mton" placeholder="0.00" minlength="0" maxlength="12" value="0.00" required>
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="lease_capacity_mton" name= "lease_capacity_mton" placeholder="0.00" minlength="0" maxlength="12" value="0.00" required>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

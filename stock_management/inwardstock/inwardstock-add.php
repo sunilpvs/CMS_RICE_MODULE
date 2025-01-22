@@ -180,7 +180,7 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">GST Number</label><span id="gst_num-info" class="info"></span>
-      <input type="text" maxlength="15" onKeyDown="return/[a-z0-9]/i.test(event.key)" class="form-control demoInputBox" id="gst_num" name= "gst_num" placeholder="GST Number" disabled>
+      <input type="text"  maxlength="15" onKeyDown="return/[a-z0-9⌦←→⌫-]/i.test(event.key)" class="form-control demoInputBox" id="gst_num" name= "gst_num" placeholder="GST Number" disabled>
     </div>
 
     <div class="col-md-4 mb-3">
@@ -229,38 +229,38 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Inward Stock Received</label><span id="inward_bags_stock-info" class="info"></span>
-      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="inward_bags_stock" name= "inward_bags_stock"  min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatecost()" required>
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_bags_stock" name= "inward_bags_stock"  min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatecost()" required>
     </div>  
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Bag Gross Weight</label><span id="inward_gross_wt-info" class="info"></span>
-      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="inward_gross_wt" name= "inward_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebagdifference()">
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_gross_wt" name= "inward_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebagdifference()">
     </div> 
   
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Weightbridge Gross Weight</label><span id="inward_wb_gross_wt-info" class="info"></span>
-      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="inward_wb_gross_wt" name= "inward_wb_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebridgedifference()">
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_wb_gross_wt" name= "inward_wb_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebridgedifference()">
     </div>
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Gross Weight Difference</label><span id="inward_diff_gross-info" class="info"></span>
-      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)"  class="form-control demoInputBox" id="inward_diff_gross" name= "inward_diff_gross" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00"  readonly>
+      <input type="text" onkeypress="return validateNumberOnly(event);"  class="form-control demoInputBox" id="inward_diff_gross" name= "inward_diff_gross" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00"  readonly>
     </div> 
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Bag Net Weight</label><span id="inward_net_wt-info" class="info"></span>
-      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="inward_net_wt" name= "inward_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebagdifference()">
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_net_wt" name= "inward_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebagdifference()">
     </div> 
 
     
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Weightbridge Net Weight</label><span id="inward_wb_net_wt-info" class="info"></span>
-      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="inward_wb_net_wt" name= "inward_wb_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebridgedifference()">
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_wb_net_wt" name= "inward_wb_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebridgedifference()">
     </div> 
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Net Weight Difference</label><span id="	inward_diff_net-info" class="info"></span>
-      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="inward_diff_net" name= "inward_diff_net" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00"  readonly>
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_diff_net" name= "inward_diff_net" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00"  readonly>
     </div>
 
     <script>

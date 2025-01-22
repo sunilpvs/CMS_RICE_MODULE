@@ -1,9 +1,9 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] ."/configurations/designation/Designation.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/admin/state/State.php");
     include($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
 
-    $designation = new Designation();
-    $result = $designation->getAllDesignation();
+    $state = new States();
+    $result = $state->getAllstates();
     
     $data_records = array();
     if (!empty($result)) 

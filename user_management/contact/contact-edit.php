@@ -70,7 +70,7 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault05" class="info">Mobile</label><span id="mobile-info" class="info"></span>
-      <input type="number" maxlength="12" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="mobile" name= "mobile" placeholder="Mobile" value="<?php echo $row1["mobile"]; ?>" required>
+      <input type="number" maxlength="12" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="mobile" name= "mobile" placeholder="Mobile" value="<?php echo $row1["mobile"]; ?>" required>
     </div>
 
     <div class="col-md-4 mb-3">
@@ -121,7 +121,7 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">pincode</label><span id="pin-info" class="info"></span>
-       <input type="number" maxlength="7" onKeyDown="return/[0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="pin" name= "pin" placeholder="Pincode" value="<?php echo $row1["pin"]; ?>" required>
+       <input type="number" maxlength="7" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="pin" name= "pin" placeholder="Pincode" value="<?php echo $row1["pin"]; ?>" required>
     </div>
 
     <div class="col-md-4 mb-3">

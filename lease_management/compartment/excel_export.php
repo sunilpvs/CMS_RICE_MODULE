@@ -1,6 +1,6 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'] ."/lease_management/compartment/Compartment.php");
-    include($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
+   
 
     $comm = new Compartment();
     $result = $comm ->getAllCompartment();

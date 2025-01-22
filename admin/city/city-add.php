@@ -18,7 +18,7 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault02">City</label><span id="city-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="city" name= "city" placeholder="City" onchange="validateDuplicates()" required>
+      <input type="text" class="form-control demoInputBox" id="city" name= "city" placeholder="City" onchange="validateDuplicates()" onKeyDown="return/[a-z0-9.⌦←→⌫HT]/i.test(event.key)" required>
     </div>
 
      

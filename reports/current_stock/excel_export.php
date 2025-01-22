@@ -1,6 +1,7 @@
 <?php
-    //require_once($_SERVER['DOCUMENT_ROOT'] ."/reports/stock/Ccurrent_stock.php");
+    //require_once($_SERVER['DOCUMENT_ROOT'] ."/reports/current_stock/Ccurrent_stock.php");
     include($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
+    
 
     $contact = new Generic();
     $result = $contact->getCurrentStock();

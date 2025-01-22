@@ -1,5 +1,5 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] ."/user_management/designation/Designation.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/user_management/employee/Employee.php");
     include($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
 
     $emp = new Employee();

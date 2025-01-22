@@ -21,7 +21,7 @@
 
         function getInwardLeaseReport() 
         {
-            $id = $_SESSION['id'] ;
+           
             $sql = "SELECT * FROM rpt_vwinward_leases;";
             $result = $this->db_handle->runBaseQuery($sql);
             return $result;
@@ -29,7 +29,7 @@
 
         function getOutwardLeaseReport() 
         {
-            $id = $_SESSION['id'] ;
+         
             $sql = "SELECT * FROM rpt_vwoutward_leases;";
             $result = $this->db_handle->runBaseQuery($sql);
             return $result;

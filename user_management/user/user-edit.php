@@ -50,13 +50,10 @@
   
         )})
     </script> 
+    
     <div class="col-md-4 mb-3">
-      <label for="validationDefault01" class="info">First Name</label><span id="f_name-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="f_name" name= "f_name" placeholder="First Name" value="<?php echo $row1["f_name"]; ?>" readonly>
-    </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault02" class="info">Last Name</label><span id="l_name-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="l_name" name= "l_name" placeholder="Last Name"  value="<?php echo $row1["l_name"]; ?>" readonly>
+      <label for="validationDefault02" class="info">Name</label><span id="name-info" class="info"></span>
+      <input type="text" class="form-control demoInputBox" id="name" name= "name" placeholder="Name"  value="<?php echo $row1["name"] ?>" readonly>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Email</label><span id="email-info" class="info"></span>
@@ -69,7 +66,7 @@
     
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Contact Type</label><span id="ctype-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="ctype" name= "ctype" placeholder="Contact Type" value="<?php echo $row1["ContactType"]; ?>" readonly>
+      <input type="text" class="form-control demoInputBox" id="ctype" name= "ctype" placeholder="Contact Type" value="<?php echo $row1["contacttype"]; ?>" readonly>
     </div>
 
     <div class="col-md-4 mb-3">
@@ -82,7 +79,7 @@
                     while ($row2 = mysqli_fetch_array($resultgen1, MYSQLI_ASSOC))
                     {   
             ?> 
-            <option value=<?php echo $row2['ID']; ?> <?php if($row2['ID'] == $row1["user_status"] ){ echo "Selected"; } ?> > <?php echo $row2["Status"]; ?></option>
+            <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1["user_status"] ){ echo "Selected"; } ?> > <?php echo $row2["status"]; ?></option>
             <?php   } 
                 }
             ?>
