@@ -21,7 +21,7 @@ switch ($action) {
             $add2 = trim($_POST['add2']);
             $city = trim($_POST['city']);
             $state = trim($_POST['state']);
-            $pin = trim(trim($_POST['pin']);
+            $pin = trim($_POST['pin']);
             $country = trim($_POST['country']);
             $primary_contact = trim($_POST['primary_contact']);
             $status =trim( $_POST['status']);
