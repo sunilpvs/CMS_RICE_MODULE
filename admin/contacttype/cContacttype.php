@@ -18,8 +18,8 @@ switch ($action) {
     case "contacttype-add":
         if (isset($_POST['add'])) 
         {
-            $name = $_POST['name'];
-            $status = $_POST['status'];
+            $name = trim($_POST['name']);
+            $status = trim($_POST['status']);
             $id = $_SESSION['id'];
             $contacttype = new Contacttype();
             $bool = $contacttype->validateDuplicates_Add($name, $status);
@@ -55,8 +55,8 @@ switch ($action) {
         $contacttype = new Contacttype();
         if (isset($_POST['add']))
         {
-            $name = $_POST['name'];
-            $status = $_POST['status'];
+            $name = trim($_POST['name']);
+            $status = trim($_POST['status']);
             $bool = $contacttype->validateDuplicates_Edit($name, $status, $id);
             if($bool == FALSE)
             {

@@ -1,9 +1,15 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] .'/lease_management/commodity/Commodity.php');
-$commodity_id = $_POST['commodity_id'];
-$commodity_name = $_POST['commodity_name'];
-$brand = $_POST['brand'];
-$marking = $_POST['marking'];
+$commodity_id = trim($_POST['commodity_id']);
+$commodity_name = trim($_POST['commodity_name']);
+$brand = trim($_POST['brand']);
+$marking = trim($_POST['marking']);
+$result = FALSE;
+    $blank= FALSE;
+    if($commodity_name == "" || $brand == "" || $marking == "" ||)
+    {
+        $blank = TRUE;
+    }
 $commodity = new Commodity();
 $result = $commodity->validateCommodityEdit($commodity_id, $commodity_name, $brand, $marking);
     if(!$result)
@@ -11,6 +17,10 @@ $result = $commodity->validateCommodityEdit($commodity_id, $commodity_name, $bra
         echo "<span style='color:red'> *combination already exists.</span>";
         echo "<script>$('#btnSubmit').prop('disabled',true);</script>";
     }
+    else if($blank == TRUE)
+    {
+        echo "<span style='color:red'> *blank record.</span>";
+      
     else
     {
         echo "<span style='color:green'></span>";

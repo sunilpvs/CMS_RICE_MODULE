@@ -14,9 +14,9 @@ switch ($action) {
     case "citi-add":
         if (isset($_POST['add'])) 
         {
-            $city = $_POST['city'];
-            $state = $_POST['state'];
-            $country = $_POST['country'];
+            $city = trim($_POST['city']);
+            $state = trim($_POST['state']);
+            $country = trim($_POST['country']);
             $id = $_SESSION['id'];
             $citi = new Citi();
             $bool = $citi->validateDuplicates_Add($city, $state, $country);
@@ -52,9 +52,9 @@ switch ($action) {
             $citi = new Citi();
             if (isset($_POST['add']))
             {
-                $city = $_POST['city'];
-                $state = $_POST['state'];
-                $country = $_POST['country'];
+                $city = trim($_POST['city']);
+                $state = trim($_POST['state']);
+                $country = trim($_POST['country']);
                 $bool = $citi->validateDuplicates_Edit($city, $state, $country, $id);
                 if($bool == FALSE)
                 {
