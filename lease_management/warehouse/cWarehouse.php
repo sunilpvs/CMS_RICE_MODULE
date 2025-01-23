@@ -18,7 +18,7 @@
                 $code = trim($_POST['code']);
                 $lessor_id = trim($_POST['lessor_id']);
                 $add1 = trim($_POST['add1']);
-                $add2 = trim(trim($_POST['add2']);
+                $add2 = trim($_POST['add2']);
                 $city = trim($_POST['city']);
                 $state = trim($_POST['state']);
                 $pin = trim($_POST['pin']);

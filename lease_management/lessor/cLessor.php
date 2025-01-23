@@ -18,7 +18,7 @@
                 $ltype = trim($_POST['ltype']);
                 $add1 = trim($_POST['add1']);
                 $add2 = trim($_POST['add2']);
-                $city = trim(trim($_POST['city']);
+                $city = trim($_POST['city']);
                 $state = trim($_POST['state']);
                 $pin = trim($_POST['pin']);
                 $country = trim($_POST['country']);

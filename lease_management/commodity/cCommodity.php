@@ -62,8 +62,8 @@ switch ($action) {
         break;
     case "commodity-delete":
         $commodity_id = $_GET["id"];
-        $commodity = new Commodity();
-        $commodity->deleteCommodity($commodity_id);
+        //$commodity = new Commodity();
+        //$commodity->deleteCommodity($commodity_id);
         $result = $commodity->getAllCommodity();
         require_once ($_SERVER['DOCUMENT_ROOT'] ."/lease_management/commodity/vCommodity.php");
         break;
