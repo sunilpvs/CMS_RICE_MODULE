@@ -14,14 +14,14 @@ switch ($action) {
     case "customer-add":
         if (isset($_POST['add'])) {
             $customer_name = $_POST['customer_name'];
-            $add1 = $_POST['add1'];
-            $add2 = $_POST['add2'];
-            $city = $_POST['city'];
-            $state = $_POST['state'];
-            $pin = $_POST['pin'];
-            $country = $_POST['country'];
-            $primary_contact = $_POST['primary_contact'];
-            $status = $_POST['status'];
+            $add1 = trim($_POST['add1']);
+            $add2 = trim($_POST['add2']);
+            $city = trim($_POST['city']);
+            $state = trim($_POST['state']);
+            $pin = trim($_POST['pin']);
+            $country = trim($_POST['country']);
+            $primary_contact = trim($_POST['primary_contact']);
+            $status = trim($_POST['status']);
             $entity_id = $_SESSION['entity_id'];
             $created_by = $_SESSION['id'];
             $cust = new Customer();
@@ -46,14 +46,14 @@ switch ($action) {
         if (isset($_POST['add']))
         {
             $customer_name = $_POST['customer_name'];
-            $add1 = $_POST['add1'];
-            $add2 = $_POST['add2'];
-            $city = $_POST['city'];
-            $state = $_POST['state'];
-            $pin = $_POST['pin'];
-            $country = $_POST['country'];
-            $primary_contact = $_POST['primary_contact'];
-            $status = $_POST['status'];
+            $add1 = trim($_POST['add1']);
+            $add2 = trim($_POST['add2']);
+            $city = trim($_POST['city']);
+            $state = trim($_POST['state']);
+            $pin = trim($_POST['pin']);
+            $country = trim($_POST['country']);
+            $primary_contact = trim($_POST['primary_contact']);
+            $status = trim($_POST['status']);
             
             $cust->editCustomer($customer_name, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status, $customer_id);
             header("Location: ../../configurations/customer/cCustomer.php");

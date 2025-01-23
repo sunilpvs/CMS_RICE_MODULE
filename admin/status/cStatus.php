@@ -20,9 +20,9 @@ switch ($action)
     case "status-add":
         if (isset($_POST['add'])) 
         {
-            $code = $_POST['code'];
-            $status = $_POST['status'];
-            $module = $_POST['module'];
+            $code = trim($_POST['code']);
+            $status = trim($_POST['status']);
+            $module = trim($_POST['module']);
             $id = $_SESSION['id'];
             $sta = new Status();
             $bool = $sta->validateDuplicates_Add($code, $status, $module);
@@ -58,9 +58,9 @@ switch ($action)
         $sta = new Status();
         if (isset($_POST['add']))
         {
-            $code = $_POST['code'];
-            $status = $_POST['status'];
-            $module = $_POST['module'];
+            $code = trim($_POST['code']);
+            $status = trim($_POST['status']);
+            $module = trim($_POST['module']);
             $bool = $sta->validateDuplicates_Edit($code, $status, $module, $id);
             if($bool == FALSE)
             {

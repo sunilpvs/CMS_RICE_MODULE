@@ -16,8 +16,8 @@ switch ($action) {
     case "userroles-add":
         if (isset($_POST['add'])) {
            
-            $page = $_POST['page'];
-            $access = $_POST['access'];
+            $page = trim($_POST['page']);
+            $access = trim($_POST['access']);
             
             $id = $_SESSION['id'];
             $userroles = new Userroles();
@@ -41,8 +41,8 @@ switch ($action) {
         $userroles = new Userroles();
         if (isset($_POST['add'])){
         
-            $page = $_POST['page'];
-            $access = $_POST['access'];
+            $page = trim($_POST['page']);
+            $access = trim($_POST['access']);
         $userroles->editUserrolese($page,  $access, $userroles_id);
         header("Location: ../../admin/userroles/cUserroles.php");
         }

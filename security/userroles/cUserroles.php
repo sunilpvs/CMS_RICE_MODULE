@@ -1,4 +1,4 @@
-<?php
+trim(<?php
     session_start();
     date_default_timezone_set('Asia/Kolkata');
     require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
@@ -14,9 +14,9 @@
     switch ($action) {    
         case "userroles-add":
             if (isset($_POST['add'])) {
-                $role_id = $_POST['role_id'];
-                $page_id = $_POST['page_id'];
-                $access_type = $_POST['access_type'];
+                $role_id = trim($_POST['role_id']);
+                $page_id = trim($_POST['page_id']);
+                $access_type = trim($_POST['access_type']);
                 $created_by = $_SESSION['id'];
                 $userroles = new Userroles(); 
                 $insertId = $userroles->addUserroles($role_id, $page_id,$access_type, $created_by);
@@ -39,9 +39,9 @@
             $delivery_id = $_GET["id"];
             $delivery = new Userroles();
             if (isset($_POST['add'])){
-                $role_id = $_POST['role_id'];
-                $page_id = $_POST['page_id'];
-                $access_type = $_POST['access_type'];
+                $role_id = trim($_POST['role_id']);
+                $page_id = trim($_POST['page_id']);
+                $access_type = trim($_POST['access_type']);
                  
                 $userroles->editUserroles($role_id, $page_id,$access_type, $created_by, $delivery_id); 
                 header("Location: ../../security/userroles/cUserroles.php");

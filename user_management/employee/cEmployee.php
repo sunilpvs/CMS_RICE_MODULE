@@ -16,26 +16,26 @@
     {    
         case "emp-add":
             if (isset($_POST['add'])) {
-                $f_name = $_POST['f_name'];
-                $l_name = $_POST['l_name'];
-                $dob = $_POST['dob'];
-                $email = $_POST['email'];
-                $personal_email = $_POST['personal_email'];
-                $mobile = $_POST['mobile'];
-                $add1 = $_POST['add1'];
-                $add2 = $_POST['add2'];
-                $city = $_POST['city'];
-                $state = $_POST['state'];
-                $pin = $_POST['pin'];
-                $country = $_POST['country'];
-                $contacttype_Id = $_POST['ctype'];
-                $join_date = $_POST['doj'];
-                $exit_date = $_POST['exit_date'];
+                $f_name = trim($_POST['f_name']);
+                $l_name = trim($_POST['l_name']);
+                $dob = trim($_POST['dob']);
+                $email = trim($_POST['email']);
+                $personal_email = trim($_POST['personal_email']);
+                $mobile = trim(trim(_POST['mobile']);
+                $add1 =trim($_POST['add1']);
+                $add2 = trim($_POST['add2']);
+                $city = trim($_POST['city']);
+                $state = trim($_POST['state']);
+                $pin = trim($_POST['pin']);
+                $country = trim($_POST['country']);
+                $contacttype_Id = trim($_POST['ctype']);
+                $join_date = trim($_POST['doj']);
+                $exit_date = trim($_POST['exit_date']);
                 if($exit_date == ""){ $exit_date = "1900-01-01";}
                 $emp_status = 1;
-                $entity_id = $_POST['entity'];
-                $department = $_POST['department'];
-                $designation = $_POST['designation'];
+                $entity_id = trim($_POST['entity']);
+                $department = trim($_POST['department']);
+                $designation = trim($_POST['designation']);
                 $img_name = $_FILES['image']['name'];
                 $img_loc = $_FILES['image']['tmp_name'];
                 $img_des = "uploadImage/".$img_name;
@@ -66,26 +66,26 @@
 
             if (isset($_POST['add'])){
 
-                $f_name = $_POST['f_name'];
-                $l_name = $_POST['l_name'];
-                $dob = $_POST['dob'];
-                $email = $_POST['email'];
-                $personal_email = $_POST['personal_email'];
-                $mobile = $_POST['mobile'];
-                $add1 = $_POST['add1'];
-                $add2 = $_POST['add2'];
-                $city = $_POST['city'];
-                $state = $_POST['state'];
-                $pin = $_POST['pin'];
-                $country = $_POST['country'];
-                $ctype = $_POST['ctype'];
-                $join_date = $_POST['doj'];
-                $exit_date = $_POST['exit_date'];
+                $f_name = trim($_POST['f_name']);
+                $l_name = trim($_POST['l_name']);
+                $dob = trim($_POST['dob']);
+                $email = trim($_POST['email']);
+                $personal_email = trim($_POST['personal_email']);
+                $mobile = trim($_POST['mobile']);
+                $add1 = trim($_POST['add1']);
+                $add2 = trim($_POST['add2']);
+                $city = trim($_POST['city']);
+                $state = trim($_POST['state']);
+                $pin = trim($_POST['pin']);
+                $country = trim($_POST['country']);
+                $ctype = trim($_POST['ctype']);
+                $join_date = trim($_POST['doj']);
+                $exit_date = trim($_POST['exit_date']);
                 if($exit_date == ""){ $exit_date = "1900-01-01";}
-                $emp_status = $_POST['emp_status'];
-                $entity_id = $_POST['entity'];
-                $department = $_POST['department'];
-                $designation = $_POST['designation'];
+                $emp_status = trim($_POST['emp_status']);
+                $entity_id = trim($_POST['entity']);
+                $department = trim($_POST['department']);
+                $designation = trim($_POST['designation']);
                 $image = $_FILES['image'];
                 $img_name = pathinfo($_FILES['image']['name'],PATHINFO_EXTENSION);
                 $img_loc = $_FILES['image']['tmp_name'];

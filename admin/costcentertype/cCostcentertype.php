@@ -16,7 +16,7 @@ else
     case "costcentertype-add":
         if (isset($_POST['add'])) 
         {
-            $cc_type = $_POST['cc_type'];
+            $cc_type = trim($_POST['cc_type']);
             $id = $_SESSION['id'];
             $costcentertype = new Costcentertype();
             $bool = $costcentertype->validateDuplicates_Add($cc_type);
@@ -53,7 +53,7 @@ else
         $costcentertype = new Costcentertype();
         if (isset($_POST['add']))
         {
-            $cc_type = $_POST['cc_type'];
+            $cc_type = trim($_POST['cc_type']);
            
             $bool = $costcentertype->validateDuplicates_Edit($cc_type, $id);
             if($bool == FALSE)

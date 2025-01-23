@@ -14,9 +14,9 @@
     switch ($action) {    
         case "userpermissions-add":
             if (isset($_POST['add'])) {
-                $user_id = $_POST['user_id'];
-                $page_id = $_POST['page_id'];
-                $access_type = $_POST['access_type'];
+                $user_id = trim($_POST['user_id']);
+                $page_id = trim($_POST['page_id']);
+                $access_type = trim($_POST['access_type']);
                 $created_by = $_SESSION['id'];
                 $userpermissions = new Userpermissions(); 
                 $insertId = $userpermissions->addUserpermissions($user_id, $page_id,$access_type, $created_by);
@@ -39,9 +39,9 @@
             $delivery_id = $_GET["id"];
             $delivery = new Userpermissions();
             if (isset($_POST['add'])){
-                $user_id = $_POST['user_id'];
-                $page_id = $_POST['page_id'];
-                $access_type = $_POST['access_type'];
+                $user_id = trim($_POST['user_id']);
+                $page_id = trim(trim($_POST['page_id']);
+                $access_type = trim($_POST['access_type']);
                  
                 $userpermissions->editUserpermissions($user_id, $page_id,$access_type, $created_by, $delivery_id); 
                 header("Location: ../../security/userpermissions/cUserpermissions.php");
@@ -55,7 +55,7 @@
             $userpermissions_id = $_GET["id"];
             $userpermissions = new Userpermissions();
             $userpermissions->deleteUserpermissions($userpermissions_id);
-            $result = $userpermissions->getAllUserpermissions();
+            $result = $userpermissions->getAllUsertrim(permissions();
             require_once "../../security/userpermissions/vUserpermissions.php";
             break;
         

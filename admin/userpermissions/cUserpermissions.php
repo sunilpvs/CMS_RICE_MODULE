@@ -16,9 +16,9 @@ switch ($action) {
     case "userpermissions-add":
         if (isset($_POST['add'])) {
            
-            $user_id = $_POST['user_id'];
-            $page_id= $_POST['page_id'];
-            $access_type = $_POST['access_type'];
+            $user_id = trim($_POST['user_id']);
+            $page_id= trim($_POST['page_id']);
+            $access_type = trim($_POST['access_type']);
             $id = $_SESSION['id'];
             $userpermissions = new Userpermissions();
             $insertId = $userpermissions->addUserpermissions($user_id, $access_type, $id);
@@ -40,9 +40,9 @@ switch ($action) {
         $userpermissions_id = $_GET["id"];
         $userpermissions = new Userpermissions();
         if (isset($_POST['add'])){
-            $user_id = $_POST['user_id'];
-            $page_id= $_POST['page_id'];
-            $access_type = $_POST['access_type'];
+            $user_id = trim($_POST['user_id']);
+            $page_id= trim($_POST['page_id']);
+            $access_type = trim($_POST['access_type']);
         $userpermissions->editUserpermissions( $user_id ,  $page_id, $access_type);
         header("Location: ../../admin/userpermissions/cUserpermissions.php");
         }

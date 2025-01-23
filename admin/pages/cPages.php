@@ -16,10 +16,10 @@ switch ($action) {
     case "pages-add":
         if (isset($_POST['add'])) {
            
-            $module = $_POST['module'];
-            $page = $_POST['page'];
-            $path = $_POST['path'];
-            $status = $_POST['status'];
+            $module = trim($_POST['module']);
+            $page = trim($_POST['page']);
+            $path = trim($_POST['path']);
+            $status = trim($_POST['status']);
             
             $id = $_SESSION['id'];
             $pages = new Pages();
@@ -43,10 +43,10 @@ switch ($action) {
         $pages = new Pages();
         if (isset($_POST['add'])){
         
-            $module = $_POST['module'];
-            $page = $_POST['page'];
-            $path = $_POST['path'];
-            $status = $_POST['status'];
+            $module = trim(trim($_POST['module']);
+            $page = trim($_POST['page']);
+            $path = trim($_POST['path']);
+            $status = trim($_POST['status']);
         $pages->editPages($module, $page, $path,  $status, $pages_id);
         header("Location: ../../admin/pages/cPages.php");
         }
@@ -60,7 +60,7 @@ switch ($action) {
         //$pages->deletePages($pages_id);
         //$result = $pages->getAllPages();
         //require_once "../../admin/pages/vPages.php";
-        //break;
+        //break;trim(trim(
     
     default:
         $pages = new Pages();

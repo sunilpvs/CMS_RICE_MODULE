@@ -13,9 +13,9 @@ else
 switch ($action) {    
     case "department-add":
         if (isset($_POST['add'])) {
-            $name = $_POST['name'];
-            $code = $_POST['code'];
-            $status = $_POST['status'];
+            $name = trim($_POST['name']);
+            $code = trim($_POST['code']);
+            $status = trim($_POST['status']);
             $id = $_SESSION['id'];
             $department = new Department();
             $insertId = $department->addDepartment($name, $code, $status,$id);
@@ -37,9 +37,9 @@ switch ($action) {
         $department_id = $_GET["id"];
         $department = new Department();
         if (isset($_POST['add'])){
-        $name = $_POST['name'];
-        $code = $_POST['code'];
-        $status = $_POST['status'];
+        $name = trim($_POST['name']);
+        $code = trim($_POST['code']);
+        $status = trim($_POST['status']);
         $department->editDepartment($name, $code, $status, $department_id);
         header("Location: ../../admin/department/cDepartment.php");
         }

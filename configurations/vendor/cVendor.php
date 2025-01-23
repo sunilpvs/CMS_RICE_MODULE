@@ -17,14 +17,14 @@ switch ($action) {
     case "vendor-add":
         if (isset($_POST['add'])) {
             $vendor_name = $_POST['vendor_name'];
-            $add1 = $_POST['add1'];
-            $add2 = $_POST['add2'];
-            $city = $_POST['city'];
-            $state = $_POST['state'];
-            $pin = $_POST['pin'];
-            $country = $_POST['country'];
-            $primary_contact = $_POST['primary_contact'];
-            $status = $_POST['status'];
+            $add1 = trim($_POST['add1']);
+            $add2 = trim($_POST['add2']);
+            $city = trim($_POST['city']);
+            $state = trim($_POST['state']);
+            $pin = trim(trim($_POST['pin']);
+            $country = trim($_POST['country']);
+            $primary_contact = trim($_POST['primary_contact']);
+            $status =trim( $_POST['status']);
             $entity_id = $_SESSION['entity_id'];
             $created_by = $_SESSION['id'];
 
@@ -48,15 +48,15 @@ switch ($action) {
         $vendor_id = $_GET["id"];
         $ven = new Vendor();
         if (isset($_POST['add'])){
-            $vendor_name = $_POST['vendor_name'];
-            $add1 = $_POST['add1'];
-            $add2 = $_POST['add2'];
-            $city = $_POST['city'];
-            $state = $_POST['state'];
-            $pin = $_POST['pin'];
-            $country = $_POST['country'];
-            $primary_contact = $_POST['primary_contact'];
-            $status = $_POST['status'];         
+            $vendor_name = trim($_POST['vendor_name']);
+            $add1 = trim($_POST['add1']);
+            $add2 = trim($_POST['add2']);
+            $city = trim($_POST['city']);
+            $state = trim($_POST['state']);
+            $pin = trim($_POST['pin']);
+            $country = trim($_POST['country']);
+            $primary_contact =trim($_POST['primary_contact']);
+            $status = trim($_POST['status']);         
 
             $ven->editVendor($vendor_name, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status, $vendor_id);
             header("Location: ../../configurations/vendor/cVendor.php");

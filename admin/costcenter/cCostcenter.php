@@ -14,19 +14,19 @@ else
 switch ($action) {    
     case "costcenter-add":
         if (isset($_POST['add'])) {
-            $cc_code = $_POST['cc_code'];
-            $cc_type = $_POST['cc_type'];     
-            $entity_id = $_POST['entity_id'];
-            $incorp_date = $_POST['incorp_date'];
-            $gst_no = $_POST['gst_no'];   
-            $add1 = $_POST['add1'];
-            $add2 = $_POST['add2'];
-            $city = $_POST['city'];
-            $state = $_POST['state'];
-            $country = $_POST['country'];
-            $pin = $_POST['pin'];
-            $primary_contact = $_POST['primary_contact'];
-            $status = $_POST['status'];
+            $cc_code = trim($_POST['cc_code']);
+            $cc_type = trim($_POST['cc_type']);     
+            $entity_id = trim($_POST['entity_id']);
+            $incorp_date = trim($_POST['incorp_date']);
+            $gst_no = trim($_POST['gst_no']);   
+            $add1 = trim($_POST['add1']);
+            $add2 = trim($_POST['add2']);
+            $city = trim($_POST['city']);
+            $state = trim($_POST['state']);
+            $country = trim($_POST['country']);
+            $pin = trim($_POST['pin']);
+            $primary_contact = trim($_POST['primary_contact']);
+            $status = trim($_POST['status']);
             $id = $_SESSION['id'];
 
             $cc = new Costcenter();
@@ -51,19 +51,19 @@ switch ($action) {
         $costcenter = new Costcenter();
         if (isset($_POST['add']))
         {
-            $cc_code = $_POST['cc_code'];
-            $cc_type = $_POST['cc_type'];     
-            $entity_id = $_POST['entity_id'];
-            $incorp_date = $_POST['incorp_date'];
-            $gst_no = $_POST['gst_no'];   
-            $add1 = $_POST['add1'];
-            $add2 = $_POST['add2'];
-            $city = $_POST['city'];
-            $state = $_POST['state'];
-            $pin = $_POST['pin'];
-            $country = $_POST['country'];
-            $primary_contact = $_POST['primary_contact'];
-            $status = $_POST['status'];
+            $cc_code = trim($_POST['cc_code']);
+            $cc_type = trim($_POST['cc_type']);     
+            $entity_id = trim($_POST['entity_id']);
+            $incorp_date = trim($_POST['incorp_date']);
+            $gst_no = trim($_POST['gst_no']);   
+            $add1 = trim($_POST['add1']);
+            $add2 = trim($_POST['add2']);
+            $city = trim($_POST['city']);
+            $state = trim($_POST['state']);
+            $pin = trim($_POST['pin']);
+            $country = trim($_POST['country']);
+            $primary_contact = trim($_POST['primary_contact']);
+            $status = trim($_POST['status']);
 
             $cc = new Costcenter();
             $insertId = $cc->editCostcenter($costcenter_id, $cc_code, $cc_type, $entity_id, $incorp_date, $gst_no, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status);

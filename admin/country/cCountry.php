@@ -18,9 +18,9 @@ switch ($action) {
     case "countri-add":
         if (isset($_POST['add'])) 
         {
-            $country = $_POST['country'];
-            $code = $_POST['code'];
-            $currency = $_POST['currency'];
+            $country = trim($_POST['country']);
+            $code = trim($_POST['code']);
+            $currency = trim($_POST['currency']);
             $id = $_SESSION['id'];
             $countri = new Countri();
             $bool = $countri->validateDuplicates_Add($country, $code, $currency);
@@ -56,9 +56,9 @@ switch ($action) {
         $countri = new Countri();
         if (isset($_POST['add']))
         {
-            $country = $_POST['country'];
-            $code = $_POST['code'];
-            $currency = $_POST['currency'];
+            $country = trim($_POST['country']);
+            $code = trim($_POST['code']);
+            $currency = trim($_POST['currency']);
             $bool = $countri->validateDuplicates_Edit($country, $code, $currency, $id);
             if($bool == FALSE)
             {

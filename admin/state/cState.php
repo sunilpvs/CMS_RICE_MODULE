@@ -16,8 +16,8 @@ switch ($action) {
     case "states-add":
         if (isset($_POST['add'])) {
            
-            $state = $_POST['state'];
-            $country = $_POST['country'];
+            $state = trim($_POST['state']);
+            $country = trim($_POST['country']);
             $id = $_SESSION['id'];
             $states = new States();
             $insertId = $states->addStates($state, $country, $id);
@@ -40,8 +40,8 @@ switch ($action) {
         $states = new States();
         if (isset($_POST['add'])){
         
-            $state = $_POST['state'];
-            $country = $_POST['country'];
+            $state = trim($_POST['state']);
+            $country = trim($_POST['country']);
         $states->editStates($state,  $country, $id);
         header("Location: ../../admin/state/cState.php");
         }

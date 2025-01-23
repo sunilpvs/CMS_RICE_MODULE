@@ -15,9 +15,9 @@ else
 switch ($action) {    
     case "designation-add":
         if (isset($_POST['add'])) {
-            $name = $_POST['name'];
-            $code = $_POST['code'];
-            $status = $_POST['status'];
+            $name = trim($_POST['name']);
+            $code = trim($_POST['code']);
+            $status = trim($_POST['status']);
             $id = $_SESSION['id'];
             $designation = new Designation();
             $insertId = $designation->addDesignation($name, $code, $status,$id);
@@ -39,9 +39,9 @@ switch ($action) {
         $designation_id = $_GET["id"];
         $designation = new Designation();
         if (isset($_POST['add'])){
-        $name = $_POST['name'];
-        $code = $_POST['code'];
-        $status = $_POST['status'];
+        $name = trim($_POST['name']);
+        $code = trim($_POST['code']);
+        $status = trim($_POST['status']);
         $designation->editDesignation($name, $code, $status, $designation_id);
         header("Location: ../../admin/designation/cDesignation.php");
         }
@@ -58,7 +58,7 @@ switch ($action) {
         break;
     
     default:
-        $designation = new Designation();
+        $designation = new Designation();trim(
         $result = $designation->getAllDesignation();
         require_once "../../admin/designation/vDesignation.php";
         break;

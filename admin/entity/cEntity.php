@@ -15,19 +15,19 @@ else
 switch ($action) {    
     case "entity-add":
         if (isset($_POST['add'])) {
-            $entity_name = $_POST['entity_name'];
-            $cc_code = $_POST['cc_code'];
-            $cin = $_POST['cin'];
-            $incorp_date = $_POST['incorp_date'];
-            $gst_no = $_POST['gst_no'];
-            $add1 = $_POST['add1'];
-            $add2 = $_POST['add2'];
-            $city = $_POST['city'];
-            $state = $_POST['state'];
-            $country = $_POST['country'];
-            $pin = $_POST['pin'];
-            $primary_contact = $_POST['primary_contact'];
-            $status = $_POST['status'];
+            $entity_name = trim($_POST['entity_name']);
+            $cc_code = trim($_POST['cc_code']);
+            $cin = trim($_POST['cin']);
+            $incorp_date = trim($_POST['incorp_date']);
+            $gst_no = trim($_POST['gst_no']);
+            $add1 = trim($_POST['add1']);
+            $add2 = trim($_POST['add2']);
+            $city = trim($_POST['city']);
+            $state = trim($_POST['state']);
+            $country = trim($_POST['country']);
+            $pin = trim($_POST['pin']);
+            $primary_contact = trim($_POST['primary_contact']);
+            $status = trim($_POST['status']);
             $created_by = $_SESSION['id'];
 
             $entity = new Entity();
@@ -50,11 +50,11 @@ switch ($action) {
         $entity_id = $_GET["id"];
         $entity = new Entity();
         if (isset($_POST['add'])){
-            $entity_name = $_POST['entity_name'];
-            $cin = $_POST['cin'];
-            $incorp_date = $_POST['incorp_date'];
-            $entity_id = $_POST['entity_id'];
-            $status = $_POST['status'];
+            $entity_name = trim($_POST['entity_name']);
+            $cin = trim($_POST['cin']);
+            $incorp_date = trim($_POST['incorp_date']);
+            $entity_id = trim($_POST['entity_id']);
+            $status = trim($_POST['status']);
         $entity->editEntity($entity_name, $cin, $incorp_date, $status, $entity_id); 
         header("Location: ../../admin/entity/cEntity.php");
         }
