@@ -14,15 +14,15 @@
     switch ($action) {    
         case "lessor-add":
             if (isset($_POST['add'])) {
-                $lessor_name = $_POST['lessor_name'];
-                $ltype = $_POST['ltype'];
-                $add1 = $_POST['add1'];
-                $add2 = $_POST['add2'];
-                $city = $_POST['city'];
-                $state = $_POST['state'];
-                $pin = $_POST['pin'];
-                $country = $_POST['country'];
-                $primary_contact = $_POST['primary_contact'];
+                $lessor_name = trim($_POST['lessor_name']);
+                $ltype = trim($_POST['ltype']);
+                $add1 = trim($_POST['add1']);
+                $add2 = trim($_POST['add2']);
+                $city = trim(trim($_POST['city']);
+                $state = trim($_POST['state']);
+                $pin = trim($_POST['pin']);
+                $country = trim($_POST['country']);
+                $primary_contact = trim($_POST['primary_contact']);
                
                 $status = $_POST['status'];
                 $entity_id = $_SESSION['entity_id'];
@@ -48,16 +48,16 @@
             $lessor_id = $_GET["id"];
             $less = new Lessor();
             if (isset($_POST['add'])){
-                $lessor_name = $_POST['lessor_name'];
-                $ltype = $_POST['ltype'];
-                $add1 = $_POST['add1'];
-                $add2 = $_POST['add2'];
-                $city = $_POST['city'];
-                $state = $_POST['state'];
-                $pin = $_POST['pin'];
-                $country = $_POST['country'];
-                $primary_contact = $_POST['primary_contact'];
-                $status = $_POST['status'];
+                $lessor_name = trim($_POST['lessor_name']);
+                $ltype = trim($_POST['ltype']);
+                $add1 = trim($_POST['add1']);
+                $add2 = trim($_POST['add2']);
+                $city = trim($_POST['city']);
+                $state = trim($_POST['state']);
+                $pin = trim($_POST['pin']);
+                $country = trim($_POST['country']);
+                $primary_contact = trim($_POST['primary_contact']);
+                $status = trim($_POST['status']);
                  
                 $less->editLessor($lessor_name, $ltype, $add1, $add2, $city, $state, $pin, $country, $primary_contact, $status, $lessor_id); 
                 header("Location: ../../lease_management/lessor/cLessor.php");

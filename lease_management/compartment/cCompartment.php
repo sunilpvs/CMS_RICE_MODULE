@@ -19,9 +19,9 @@ switch ($action) {
             list($outwardlease_id,$warehouse_id) = explode(',', $str);
             //$warehouse_id= $_POST['warehouse_id'];
             //$outwardlease_id= $_POST['data-id'];
-            $compartment_name= $_POST['compartment_name'];
-            $capacity_sqft = $_POST['capacity_sqft'];
-            $capacity_mton = $_POST['capacity_mton'];
+            $compartment_name= trim($_POST['compartment_name']);
+            $capacity_sqft = trim($_POST['capacity_sqft']);
+            $capacity_mton = trim($_POST['capacity_mton']);
             $entity_id = $_SESSION['entity_id'];
             $id = $_SESSION['id'];
             $compartment = new Compartment();
@@ -44,10 +44,10 @@ switch ($action) {
         $compartments_id = $_GET["id"];
         $compartment = new Compartment();
         if (isset($_POST['add'])){
-            $compartment_id= $_POST['compartment_id'];
-            $warehouse_id= $_POST['warehouse_id'];				
-            $capacity_sqft = $_POST['capacity_sqft'];
-            $capacity_mton = $_POST['capacity_mton'];
+            $compartment_id= trim($_POST['compartment_id']);
+            $warehouse_id= trim($_POST['warehouse_id']);				
+            $capacity_sqft = trim($_POST['capacity_sqft']);
+            $capacity_mton = trim($_POST['capacity_mton']);
             $status = $_POST['status'];
 
             $compartment->editCompartment($compartment_id,$warehouse_id,  $capacity_sqft,  $capacity_mton,$status,$compartments_id);

@@ -14,19 +14,19 @@
     switch ($action) {    
         case "warehouse-add":
             if (isset($_POST['add'])) {
-                $warehouse_name = $_POST['warehouse_name'];
-                $code = $_POST['code'];
-                $lessor_id = $_POST['lessor_id'];
-                $add1 = $_POST['add1'];
-                $add2 = $_POST['add2'];
-                $city = $_POST['city'];
-                $state = $_POST['state'];
-                $pin = $_POST['pin'];
-                $country = $_POST['country'];
-                $capacity_sqft = $_POST['capacity_sqft'];
-                $capacity_mton = $_POST['capacity_mton'];
-                $primary_contact = $_POST['primary_contact'];
-                $status = $_POST['status'];
+                $warehouse_name = trim($_POST['warehouse_name']);
+                $code = trim($_POST['code']);
+                $lessor_id = trim($_POST['lessor_id']);
+                $add1 = trim($_POST['add1']);
+                $add2 = trim(trim($_POST['add2']);
+                $city = trim($_POST['city']);
+                $state = trim($_POST['state']);
+                $pin = trim($_POST['pin']);
+                $country = trim($_POST['country']);
+                $capacity_sqft = trim($_POST['capacity_sqft']);
+                $capacity_mton = trim($_POST['capacity_mton']);
+                $primary_contact = trim($_POST['primary_contact']);
+                $status = trim($_POST['status']);
                 $entity_id = $_SESSION['entity_id'];
                 $created_by = $_SESSION['id'];
                 $wh = new Warehouse();
@@ -49,19 +49,19 @@
             $warehouse_id = $_GET["id"];
             $wh = new Warehouse();
             if (isset($_POST['add'])){
-                $warehouse_name = $_POST['warehouse_name'];
-                $code = $_POST['code'];
-                $lessor_id = $_POST['lessor_id'];
-                $add1 = $_POST['add1'];
-                $add2 = $_POST['add2'];
-                $city = $_POST['city'];
-                $state = $_POST['state'];
-                $pin = $_POST['pin'];
-                $country = $_POST['country'];
-                $capacity_sqft = $_POST['capacity_sqft'];
-                $capacity_mton = $_POST['capacity_mton'];
-                $primary_contact = $_POST['primary_contact'];
-                $status = $_POST['status'];            
+                $warehouse_name = trim($_POST['warehouse_name']);
+                $code = trim($_POST['code']);
+                $lessor_id = trim($_POST['lessor_id']);
+                $add1 = trim($_POST['add1']);
+                $add2 = trim($_POST['add2']);
+                $city = trim($_POST['city']);
+                $state = trim($_POST['state']);
+                $pin = trim($_POST['pin']);
+                $country = trim($_POST['country']);
+                $capacity_sqft = trim($_POST['capacity_sqft']);
+                $capacity_mton = trim($_POST['capacity_mton']);
+                $primary_contact = trim($_POST['primary_contact']);
+                $status = trim($_POST['status']);            
             
                 $wh->editWarehouse($warehouse_name, $code, $lessor_id, $add1, $add2, $city, $state, $pin, $country, $capacity_sqft, $capacity_mton, $primary_contact, $status, $warehouse_id);
                 header("Location: ../../lease_management/warehouse/cWarehouse.php");

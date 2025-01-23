@@ -14,33 +14,33 @@ else
 switch ($action) {    
     case "outwardlease-add":
         if (isset($_POST['add'])) {
-            $warehouse_id = $_POST['warehouse_id'];
-            $customer_id = $_POST['customer_id']; 
+            $warehouse_id = trim($_POST['warehouse_id']);
+            $customer_id = trim($_POST['customer_id']); 
             //$lease_contract_id = $_POST['lease_contract_id']; 
-            $lease_model = $_POST['lease_model']; 
+            $lease_model = trim($_POST['lease_model']); 
             if($lease_model==2){
-                $lease_capacity_mton = $_POST['lease_capacity_mton'];
-                $daily_rate_mton = $_POST['daily_rate_mton']; 
-                 $cost_mton = $_POST['cost_mton'];
+                $lease_capacity_mton = trim($_POST['lease_capacity_mton']);
+                $daily_rate_mton = trim($_POST['daily_rate_mton']); 
+                 $cost_mton = trim($_POST['cost_mton']);
                  $lease_capacity_sqft=0;
                  $daily_rate_sqft=0;
                  $cost_sqft = 0;
                  
             }
             else if($lease_model==1){
-                 $lease_capacity_sqft = $_POST['lease_capacity_sqft'];
-                 $daily_rate_sqft = $_POST['daily_rate_sqft']; 
-                 $cost_sqft = $_POST['cost_sqft']; 
+                 $lease_capacity_sqft = trim($_POST['lease_capacity_sqft']);
+                 $daily_rate_sqft = trim($_POST['daily_rate_sqft']); 
+                 $cost_sqft = trim($_POST['cost_sqft']); 
                  $lease_capacity_mton = 0;
                  $daily_rate_mton = 0;
                  $cost_mton = 0;
             }
             //$compartment_code = $_POST['compartment_code'];
-            $lease_start = $_POST['lease_start']; 
-            $lease_end = $_POST['lease_end']; 
-            $lease_status =  $_POST['lease_status']; 
-            $lease_days = $_POST['lease_days']; 
-            $total_cost =  $_POST['total_cost'];
+            $lease_start = trim($_POST['lease_start']); 
+            $lease_end = trim($_POST['lease_end']); 
+            $lease_status =  trim($_POST['lease_status']); 
+            $lease_days = trim($_POST['lease_days']); 
+            $total_cost =  trim($_POST['total_cost']);
             $entity_id = $_SESSION['entity_id'];
             $user_id = $_SESSION['id'];
 

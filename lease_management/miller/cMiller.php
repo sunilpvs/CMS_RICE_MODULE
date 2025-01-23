@@ -14,11 +14,11 @@
     switch ($action) {    
         case "miller-add":
             if (isset($_POST['add'])) {
-                $miller_name = $_POST['miller_name'];
-                $gst_num = $_POST['gst_num'];
-                $place = $_POST['place'];
-                $add1 = $_POST['add1'];
-                $status = $_POST['status'];
+                $miller_name = trim($_POST['miller_name']);
+                $gst_num = trim($_POST['gst_num']);
+                $place = trim($_POST['place']);
+                $add1 = trim($_POST['add1']);
+                $status = trim($_POST['status']);
                 $entity_id = $_SESSION['entity_id'];
                 $created_by = $_SESSION['id'];
                 $miller = new Miller(); 
@@ -42,11 +42,11 @@
             $miller_id = $_GET["id"];
             $miller = new Miller();
             if (isset($_POST['add'])){
-                $miller_name = $_POST['miller_name'];
-                $gst_num = $_POST['gst_num'];
-                $place = $_POST['place'];
-                $add1 = $_POST['add1'];
-                $status = $_POST['status'];
+                $miller_name = trim($_POST['miller_name']);
+                $gst_num = trim($_POST['gst_num']);
+                $place = trim($_POST['place']);
+                $add1 = trim($_POST['add1']);
+                $status = trim($_POST['status']);
                  
                 $miller->editMiller($miller_name, $gst_num, $place, $add1,$status, $miller_id); 
                 header("Location: ../../lease_management/miller/cMiller.php");

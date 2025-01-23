@@ -14,10 +14,10 @@
     {    
         case "inwardlease-add":
             if (isset($_POST['add'])) {            
-                $warehouse_id = $_POST['warehouse_id'];
+                $warehouse_id = trim($_POST['warehouse_id']);
                 $lease_type = 1; // 1 - Initial // $_POST['lease_type'];
-                $start_date = $_POST['start_date'];  
-                $expiry_date = $_POST['expiry_date'];
+                $start_date = trim($_POST['start_date']);  
+                $expiry_date = trim($_POST['expiry_date']);
                 $status = 5; // 5 - Active (Lease) $_POST['status'];
                 $created_by = $_SESSION['id'];
                 $entity_id = $_SESSION['entity_id'];
@@ -42,11 +42,11 @@
             $in = new Inwardlease();
             if (isset($_POST['add'])){    
                 //$lease_id = $_POST['lease_id'];
-                $warehouse_id = $_POST['warehouse_id'];
-                $lease_type = $_POST['lease_type'];
-                $status = $_POST['status'];
-                $start_date = $_POST['start_date'];  
-                $expiry_date = $_POST['expiry_date'];
+                $warehouse_id = trim($_POST['warehouse_id']);
+                $lease_type = trim($_POST['lease_type']);
+                $status = trim($_POST['status']);
+                $start_date = trim($_POST['start_date']);  
+                $expiry_date = trim($_POST['expiry_date']);
                 $in->extendInwardlease($warehouse_id, $lease_type, $start_date, $expiry_date, $status, $inwardlease_id);
                 header("Location: ../../lease_management/inwardlease/cInwardlease.php");
             }

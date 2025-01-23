@@ -16,12 +16,12 @@ else
 switch ($action) {    
     case "commodity-add":
         if (isset($_POST['add'])) {
-            $commodity_name = $_POST['commodity_name'];
-            $cargo_type = $_POST['cargo_type'];
-            $brand = $_POST['brand'];
-            $marking = $_POST['marking'];
-            $empty_bag_wt = $_POST['empty_bag_wt'];
-            $bag_wt = $_POST['bag_wt'];
+            $commodity_name = trim($_POST['commodity_name']);
+            $cargo_type = trim($_POST['cargo_type']);
+            $brand = trim($_POST['brand']);
+            $marking = trim($_POST['marking']);
+            $empty_bag_wt = trim($_POST['empty_bag_wt']);
+            $bag_wt = trim($_POST['bag_wt']);
             $entity_id = $_SESSION['entity_id'];
             $id = $_SESSION['id'];
             $commodity = new Commodity();
@@ -46,13 +46,13 @@ switch ($action) {
         $commodity = new Commodity();
         if (isset($_POST['add']))
         {
-            $commodity_name = $_POST['commodity_name'];
-            $cargo_type = $_POST['cargo_type'];
-            $brand = $_POST['brand'];
-            $marking = $_POST['marking'];
-            $empty_bag_wt = $_POST['empty_bag_wt'];
-            $bag_wt = $_POST['bag_wt'];
-            $status = $_POST['status'];
+            $commodity_name = trim($_POST['commodity_name']);
+            $cargo_type = trim($_POST['cargo_type']);
+            $brand = trim($_POST['brand']);
+            $marking = trim($_POST['marking']);
+            $empty_bag_wt = trim($_POST['empty_bag_wt']);
+            $bag_wt = trim($_POST['bag_wt']);
+            $status = trim($_POST['status']);
             
             $commodity->editCommodity($commodity_name,$cargo_type,$brand,$marking,$empty_bag_wt,$bag_wt,$status,$commodity_id);
             header("Location: /lease_management/commodity/cCommodity.php");

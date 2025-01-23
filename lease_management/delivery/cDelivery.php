@@ -14,7 +14,7 @@
     switch ($action) {    
         case "delivery-add":
             if (isset($_POST['add'])) {
-                $delivery_name = $_POST['delivery_name'];
+                $delivery_name = trim($_POST['delivery_name']);
                 $created_by = $_SESSION['id'];
                 $delivery = new Delivery(); 
                 $insertId = $delivery->addDelivery($delivery_name, $created_by);
@@ -37,7 +37,7 @@
             $delivery_id = $_GET["id"];
             $delivery = new Delivery();
             if (isset($_POST['add'])){
-                $delivery_name = $_POST['delivery_name'];                
+                $delivery_name = trim($_POST['delivery_name']);                
                 $delivery->editDelivery($delivery_name, $delivery_id); 
                 header("Location: ../../lease_management/delivery/cDelivery.php");
             }
