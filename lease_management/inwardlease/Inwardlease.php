@@ -61,6 +61,13 @@ class Inwardlease
             $contract = $prefix . $id;
             $query = "UPDATE tbl_inwardlease SET contract_id = '$contract' WHERE id = $id;";
             $this->db_handle->runBaseQuery($query);
+
+            //Update Warehouse with new Inward lease Data
+            $query = "UPDATE tbl_warehouse SET inward_contractid = '$contract' , inward_leasetype = $lease_type, ";
+            $query .= "inward_start = '$start_date' , inward_expiry = '$expiry_date' ";
+            $query .= "WHERE id = $warehouse_id;";
+            $this->db_handle->runBaseQuery($query);
+            
             //Adding Transaction Log
             $activity = "New Inward lease entry created for Contract ID: $insertId and WarehouseID: $warehouse_id";
             $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";

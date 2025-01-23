@@ -296,17 +296,6 @@ CREATE TABLE `tbl_inwardlease` (
 	FOREIGN KEY (entity_id) REFERENCES tbl_entity(id),
     FOREIGN KEY (status) REFERENCES tbl_status(id)   
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
--- Triggers `tbl_inwardlease`
-DELIMITER $$
-CREATE TRIGGER `after_insert_inwardlease` AFTER INSERT ON `tbl_inwardlease` FOR EACH ROW begin
-	DECLARE contract VARCHAR(15);
-	SET @contract := concat(NEW.prefix,NEW.id);    
-    UPDATE tbl_warehouse SET inward_contractid = @contract,     inward_leasetype = NEW.lease_type, 
-		inward_start = NEW.start_date, inward_expiry = NEW.expiry_date
-	WHERE id = NEW.warehouse_id;
-END
-$$
-DELIMITER ;
 -- --------------------------------------------------------
 -- Table structure for table `tbl_inwarddates`
 CREATE TABLE `tbl_inwarddates` (

@@ -28,12 +28,12 @@ CREATE OR REPLACE VIEW `vw_millers` AS
 
 # 	Warehouse Master page:
 	CREATE OR REPLACE VIEW `vw_warehouse` AS 
-		SELECT a.id, concat(a.prefix,a.id) as w_code, a.warehouse_name, a.code, b.lessor_name, c.ltype, a.capacity_sqft,a.capacity_mton,d.city, e.state, concat(g.f_name,' ', g.l_name) as contact, 
+		SELECT a.id, concat('SCBC-WH',a.id) as w_code, a.warehouse_name, a.code, b.lessor_name, c.ltype, a.capacity_sqft,a.capacity_mton,d.city, e.state, concat(g.f_name,' ', g.l_name) as contact, 
 			g.email, g. mobile, h.status
 		FROM tbl_warehouse a, tbl_lessor b, tbl_lessortype c, tbl_city d, tbl_state e, tbl_country f, tbl_contact g, tbl_status h
 		WHERE a.lessor_id = b.id AND b.ltype = c.id AND a.city = d.id AND a.state = e.id AND a.country = f.id AND a.primary_contact = g.id AND a.status = h.id
 		ORDER BY a.id;
-
+	
 # Compartments
 CREATE OR REPLACE VIEW `vw_compartments` AS
 	SELECT a.id, c.lease_contract_id as outward_lease, d.customer_name, b.warehouse_name, date_format(c.lease_end,'%d-%b-%Y') as lease_end,a.compartment_id, 
@@ -43,7 +43,7 @@ CREATE OR REPLACE VIEW `vw_compartments` AS
 
 # 	Inward Lease page:
 	CREATE OR REPLACE VIEW `vw_inwardleases` AS 
-	SELECT a.id,concat(a.prefix,a.id) as contract_id, b.warehouse_name,c.ltype, date_format(e.start_date,'%d-%b-%Y') as start_date, 
+	SELECT a.id, a.contract_id, b.warehouse_name,c.ltype, date_format(e.start_date,'%d-%b-%Y') as start_date, 
 			date_format(e.end_date,'%d-%b-%Y') as expiry_date, d.status
 		FROM tbl_inwardlease a, tbl_warehouse b, tbl_leasetype c, tbl_status d, tbl_inwarddates e
 			WHERE a.warehouse_id = b.id AND c.id = e.lease_type AND a.status = d.id AND e.lease_ref = a.id 
