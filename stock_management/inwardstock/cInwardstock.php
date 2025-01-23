@@ -68,23 +68,23 @@
                     $invoice_date = trim($_POST['invoice_date']);  
                     $invoice_no = trim($_POST['invoice_no']);
                     $miller_id =trim($_POST['miller_id']);
-                    $commodity_id = trim(trim($_POST['commodity_id']);
+                    $commodity_id = trim(trim($_POST['commodity_id']));
                     $mod_transport= trim($_POST['mod_transport']);
-                    $warehouse_id = trim(trim($_POST['warehouse_id']);
+                    $warehouse_id = trim(trim($_POST['warehouse_id']));
                     $vehicle_no = trim($_POST['vehicle_no']);
                     $inward_bags_stock = trim($_POST['inward_bags_stock']);
-                    $inward_gross_wt = trim(trim($_POST['inward_gross_wt']);
+                    $inward_gross_wt = trim(trim($_POST['inward_gross_wt']));
                     $inward_net_wt = trim($_POST['inward_net_wt']);
-                    $inward_wb_gross_wt = trim(trim($_POST['inward_wb_gross_wt']);
+                    $inward_wb_gross_wt = trim(trim($_POST['inward_wb_gross_wt']));
                     $inward_wb_net_wt = trim($_POST['inward_wb_net_wt']);
                     $inward_diff_gross = trim($_POST['inward_diff_gross']);
                     $inward_diff_net = trim($_POST['inward_diff_net']);
                     $current_bags_stock = trim($_POST['current_bags_stock']);
                     $remarks = trim($_POST['remarks']);
-                $inwardstock->editInwardstock($received_date, $invoice_no, $invoice_date, $miller_id,  $commodity_id, $mod_transport, $comp_id, $vehicle_no, $inward_bags_stock, $inward_net_wt, $inward_wb_gross_wt, $inward_wb_net_wt, $inward_diff_gross, $inward_diff_net, $current_bags_stock, $remarks, $inwardstock_id); 
+                //$inwardstock->editInwardstock($received_date, $invoice_no, $invoice_date, $miller_id,  $commodity_id, $mod_transport, $comp_id, $vehicle_no, $inward_bags_stock, $inward_net_wt, $inward_wb_gross_wt, $inward_wb_net_wt, $inward_diff_gross, $inward_diff_net, $current_bags_stock, $remarks, $inwardstock_id);
                 header("Location: ../../stock_management/inwardstock/cInwardstock.php");
                 }
-                $result = $inwardstock->getInwatrim(rdstockById($inwardstock_id);
+                $result = $inwardstock->getInwardstockById($inwardstock_id);
                 require_once "../../stock_management/inwardstock/inwardstock-edit.php";
                 break;
             
