@@ -17,10 +17,10 @@ else
     {  
     case "user-add":
                 if (isset($_POST['add'])) {
-                    $uname = $_POST['uname'];
-                    $email = $_POST['email'];
-                    $user_role_id = $_POST['role'];
-                    $contact_id = $_POST['ContactId'];
+                    $uname = trim($_POST['uname']);
+                    $email = trim($_POST['email']);
+                    $user_role_id = trim($_POST['role']);
+                    $contact_id = trim($_POST['ContactId']);
                     $code = rand(999999, 111111);
                     $entity_id = $_SESSION['entity_id']; 
                     $usr = new User();
@@ -64,8 +64,8 @@ else
                 $user = new User();
                 if (isset($_POST['add']))
                 {
-                    $user_status = $_POST['user_status'];
-                    $user_role = $_POST['user_role'];
+                    $user_status = trim($_POST['user_status']);
+                    $user_role = trim($_POST['user_role']);
                     $returnVal = $user->editUser($user_status,$user_role, $user_id);
                     header("Location: ../../user_management/user/cUser.php");
                 }
