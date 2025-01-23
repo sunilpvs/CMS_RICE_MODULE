@@ -1,14 +1,27 @@
 <?php
   require_once($_SERVER['DOCUMENT_ROOT'] .'/admin/costcenter/Costcenter.php'); 
-  $costcenter_id = $_POST['costcenter_id']; 
-  $cc_code = $_POST['cc_code'];
+  $costcenter_id = trim($_POST['costcenter_id']); 
+  $cc_code = trim($_POST['cc_code']);
+    $result = FALSE;
+     $blank= FALSE;
+    if($cc_code == "")
+    {
+        $blank = TRUE;
+    }
+    
   $costcenter = new Costcenter();
   $result = $costcenter->validateCCCodeEdit($cc_code,$costcenter_id);
   if(!$result)
   {
       echo "<span style='color:red'> * already exists.</span>";
       echo "<script>$('#btnSubmit').prop('disabled',true);</script>";
-  }else
+  }
+else if($blank == TRUE)
+    {
+        echo "<span style='color:red'> *blank record.</span>";
+        echo "<script>$('#btnSubmit').prop('disabled',true);</script>";
+    }
+  else
   {
       echo "<span style='color:green'></span>";
       echo "<script>$('#btnSubmit').prop('disabled',false);</script>";
