@@ -1,6 +1,6 @@
 <?php
     session_start();
-       require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
     require_once($_SERVER['DOCUMENT_ROOT'] ."/user_management/employee/Employee.php");
     // $action = "";
     if (! empty($_GET["action"])) 
@@ -21,7 +21,7 @@
                 $dob = trim($_POST['dob']);
                 $email = trim($_POST['email']);
                 $personal_email = trim($_POST['personal_email']);
-                $mobile = trim(trim(_POST['mobile']);
+                $mobile = trim($_POST['mobile']);
                 $add1 =trim($_POST['add1']);
                 $add2 = trim($_POST['add2']);
                 $city = trim($_POST['city']);
