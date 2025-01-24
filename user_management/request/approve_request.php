@@ -464,6 +464,5 @@ function validate() {
 </body>
 </html>
 <?php
-include($_SERVER['DOCUMENT_ROOT'] .'/includes/scripts.php');
-
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/scripts.php');
 ?>

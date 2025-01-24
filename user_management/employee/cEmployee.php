@@ -29,8 +29,8 @@
                 $pin = trim($_POST['pin']);
                 $country = trim($_POST['country']);
                 $contacttype_Id = trim($_POST['ctype']);
-                $join_date = trim($_POST['doj']);
-                $exit_date = trim($_POST['exit_date']);
+                $join_date = $_POST['doj'];
+                $exit_date = $_POST['exit_date'];
                 if($exit_date == ""){ $exit_date = "1900-01-01";}
                 $emp_status = 1;
                 $entity_id = trim($_POST['entity']);
@@ -79,8 +79,8 @@
                 $pin = trim($_POST['pin']);
                 $country = trim($_POST['country']);
                 $ctype = trim($_POST['ctype']);
-                $join_date = trim($_POST['doj']);
-                $exit_date = trim($_POST['exit_date']);
+                $join_date = $_POST['doj'];
+                $exit_date = $_POST['exit_date'];
                 if($exit_date == ""){ $exit_date = "1900-01-01";}
                 $emp_status = trim($_POST['emp_status']);
                 $entity_id = trim($_POST['entity']);

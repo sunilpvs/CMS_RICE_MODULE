@@ -36,8 +36,8 @@ switch ($action) {
                  $cost_mton = 0;
             }
             //$compartment_code = $_POST['compartment_code'];
-            $lease_start = trim($_POST['lease_start']); 
-            $lease_end = trim($_POST['lease_end']); 
+            $lease_start = $_POST['lease_start']; 
+            $lease_end = $_POST['lease_end']; 
             $lease_status =  trim($_POST['lease_status']); 
             $lease_days = trim($_POST['lease_days']); 
             $total_cost =  trim($_POST['total_cost']);

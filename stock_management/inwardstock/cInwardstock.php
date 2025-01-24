@@ -23,8 +23,8 @@
                     $mod_transport = trim($_POST['mod_transport']);
                     $vehicle_no = trim($_POST['vehicle_no']);
                     $current_bags_stock = trim($_POST['current_bags_stock']);
-                    $received_date = trim($_POST['received_date']);
-                    $invoice_date = trim($_POST['invoice_date']);   
+                    $received_date = $_POST['received_date'];
+                    $invoice_date = $_POST['invoice_date'];   
                     $invoice_no = trim($_POST['invoice_no']);
                     $miller_id = trim($_POST['miller_id']);
                     $inward_bags_stock = trim($_POST['inward_bags_stock']);

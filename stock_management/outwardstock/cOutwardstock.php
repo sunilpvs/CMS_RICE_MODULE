@@ -21,9 +21,9 @@ switch ($action) {
             $compartment_id =trim(_POST['compartment']);
             $transport_id = trim(trim($_POST['transport']));
             $commodity_id = trim($_POST['commodity_id']);
-            $outward_date = trim($_POST['outward_date']); 
+            $outward_date = $_POST['outward_date']; 
             $dc_no = trim($_POST['dc_no']);
-            $dc_date = trim($_POST['dc_date']);     
+            $dc_date = $_POST['dc_date'];     
             $bags_out = trim($_POST['bags_out']);
             $vehicle_no = trim(trim($_POST['vehicle_no']));
             $delivery_dtl = trim($_POST['delivery_dtl']);            

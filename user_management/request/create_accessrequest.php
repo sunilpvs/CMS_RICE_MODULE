@@ -4,7 +4,7 @@
     
     $f_name = trim(trim($_POST['f_name']);
     $l_name = trim($_POST['l_name']);
-    $dob = trim($_POST['dob']);
+    $dob = $_POST['dob'];
     $email = trim($_POST['email']);
     $personal_email = trim($_POST['personal_email']);
     $mobile = trim($_POST['mobile']);
@@ -15,8 +15,8 @@
     $pin = trim($_POST['pin']);
     $country = trim($_POST['country']);
     $contacttype_id = trim($_POST['ctype']);
-    $join_date = trim($_POST['doj']);
-    $exit_date = trim($_POST['exit_date']);
+    $join_date = $_POST['doj'];
+    $exit_date = $_POST['exit_date'];
     if($exit_date == ""){ $exit_date = "1900-01-01";}
     $entity_id = trim($_POST['entity']);
     $department = trim($_POST['department']);

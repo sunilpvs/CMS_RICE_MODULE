@@ -19,7 +19,7 @@ switch ($action)
         if (isset($_POST['add'])) {
             $f_name = trim($_POST['f_name']);
             $l_name = trim($_POST['l_name']);
-            $dob = trim($_POST['dob']);
+            $dob = $_POST['dob'];
             $email = trim($_POST['email']);
             $mobile = trim($_POST['mobile']);
             $add1 = trim($_POST['add1']);
@@ -54,7 +54,7 @@ switch ($action)
         if (isset($_POST['add'])){
             $f_name = trim($_POST['f_name']);
             $l_name = trim($_POST['l_name']);
-            $dob = trim($_POST['dob']);
+            $dob = $_POST['dob'];
             $email = trim($_POST['email']);
             $mobile = trim($_POST['mobile']);
             $add1 = trim($_POST['add1']);
