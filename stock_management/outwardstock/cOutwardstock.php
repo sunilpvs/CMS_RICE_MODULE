@@ -18,7 +18,7 @@ switch ($action) {
         if (isset($_POST['add'])) {
             $customer_id = trim($_POST['customer']);
             $warehouse_id = trim($_POST['warehouse']);
-            $compartment_id =trim(_POST['compartment']);
+            $compartment_id =trim($_POST['compartment']);
             $transport_id = trim(trim($_POST['transport']));
             $commodity_id = trim($_POST['commodity_id']);
             $outward_date = $_POST['outward_date']; 
