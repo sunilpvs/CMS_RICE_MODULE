@@ -260,10 +260,15 @@
 
       function disablefunction()
       {
-          
         var index = document.getElementsByName("lease_model")[0].selectedIndex;
         var lmodel = document.getElementsByName("lease_model")[0].options[index].getAttribute("data-lmodel");
-        
+        document.getElementById("lease_capacity_mton").value=0;
+        document.getElementById("daily_rate_mton").value=0;
+        document.getElementById("cost_mton").value=0;
+        document.getElementById("lease_capacity_sqft").value=0;
+        document.getElementById("daily_rate_sqft").value=0;
+        document.getElementById("cost_sqft").value=0;
+
         switch (lmodel)
         {
           case ("Dedicated"):
@@ -298,6 +303,10 @@
             //document.getElementById("cost_mton").style.visibility="visible";
             //document.getElementById("cost_sqft").style.visibility="visible";
           }
+                   
+             $("lease_model").change(function(){
+            $(".lease_capacity_mton").val("")
+          });
       }
     </script>
 

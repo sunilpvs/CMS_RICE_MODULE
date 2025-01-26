@@ -152,6 +152,7 @@
               <a class="collapse-item" href="../../stock-rpt">Stock Report</a>
               <a class="collapse-item" href="../../outwardleases-rpt">Outward Lease</a>
               <a class="collapse-item" href="../../inwardleases-rpt">Inward Lease</a>
+              <a class="collapse-item" href="../../daily_customer_stock-rpt">Daily Customer Stock</a>
             </div>
           </div>           
         </li>

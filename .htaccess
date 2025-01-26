@@ -32,6 +32,8 @@ RewriteRule ^users user_management/user/cUser.php [L,QSA,NC]
 RewriteRule ^stock-rpt reports/current_stock/cCurrent_stock.php [L,QSA,NC]
 RewriteRule ^outwardleases-rpt reports/outward_leases/coutwardlease_stock.php [L,QSA,NC]
 RewriteRule ^inwardleases-rpt reports/inward_leases/cinwardlease_stock.php [L,QSA,NC]
+RewriteRule ^daily_customer_stock-rpt reports/daily_customer_stock/cdaily_customer_stock.php [L,QSA,NC]
+
 
 #Configurations
 RewriteRule ^customer configurations/customer/cCustomer.php [L,QSA,NC]

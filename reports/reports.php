@@ -37,13 +37,25 @@
 
         function getOutwardLeaseReport() 
         {
-         
             $sql = "SELECT * FROM rpt_vwoutward_leases;";
             $result = $this->db_handle->runBaseQuery($sql);
             return $result;
         }
 
+        function getCustomerInwardStock()
+        {
+            $sql = "SELECT * FROM vw_rpt_daily_customer_inwardstock;";
+            $result = $this->db_handle->runBaseQuery($sql);
+            return $result;
+        }
 
+        function getCustomerOutwardStock()
+        {
+            $sql = "SELECT * FROM vw_rpt_daily_customer_outwardstock;";
+            $result = $this->db_handle->runBaseQuery($sql);
+            return $result;
+        }
+        
     }
 
 ?>
