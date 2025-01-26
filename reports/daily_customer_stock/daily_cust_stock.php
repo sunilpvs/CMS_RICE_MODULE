@@ -2,7 +2,9 @@
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
+    
 	$inward_result = $report->getCustomerInwardStock();
+
 	$outward_result = $report->getCustomerOutwardStock();
 	if (! empty($inward_result)) {
 		while ($inward_row = mysqli_fetch_array($inward_result, MYSQLI_ASSOC))
@@ -212,7 +214,7 @@ body{
 					<div class="title_wrap">
 						<p class="sub_title" style="font-size:13px;line-height:20px;">Head Office ; D:No. 7g-7-62/A,1st Floor, Ramya Royale, Revenue Ward No. 30, Ramanayyapeta, Kakinada<br>
 533 003. A.P., lndia, Contact : 9l-884-2361567, 9l-884-2361569, E-mail : scbc@shrichandrabulk.com</p>
-<h4>CIN : U74900AP2009PTC064815 GSTIN : 37AAECR9430I1ZX PAN : AAECR9403L</h4>
+<h6>CIN : U74900AP2009PTC064815 GSTIN : 37AAECR9430I1ZX PAN : AAECR9403L</h6>
 					</div>
 				</div>
 			</center>
@@ -220,16 +222,17 @@ body{
 	
 			<div class="bill_total_wrap">
 				<div class="bill_sec">
-					<p>Bill To</p> 
-	          		<p class="bold name">Alex Deo</p>
+					<p>OLAM AGRI INDIA PRIVATE LIMITED - KAKINADA</p>          	
 			        <span>
-			           123 walls street, Townhall<br/>
-			           +111 222345667
+			           Customer Name: 
+			           <?php echo $inward_row["customer_name"]; ?>
+			         <br/><br>
+			           Arrival Of <?php $commodity ?>
 			        </span>
 				</div>
 				<div class="total_wrap">
-					<p>Total Due</p>
-	          		<p class="bold price">USD: $1200</p>
+					<p>Date:</p>
+	          		<p>Report No:</p>
 				</div>
 			</div>
 		</div>
@@ -238,10 +241,10 @@ body{
 				<div class="table_header" style="border:1px; color:#000;">
 					<div class="row">
 						<div class="col col_no">NO.</div>
-						<div class="col col_des">ITEM DESCRIPTION</div>
-						<div class="col col_price">PRICE</div>
-						<div class="col col_qty">QTY</div>
-						<div class="col col_total">TOTAL</div>
+						<div class="col col_des">PARTICULARS</div>
+						<div class="col col_price">BAGS</div>
+						<div class="col col_qty">GROSS_WT </div>
+						<div class="col col_total">NET_WT</div>
 					</div>
 				</div>
 
@@ -251,7 +254,7 @@ body{
 							<p>01</p>
 						</div>
 						<div class="col col_des">
-							<p class="bold">Web Design</p>
+							<p class="bold">OPENING STOCK</p>
 							
 						</div>
 						<div class="col col_price">
@@ -269,7 +272,7 @@ body{
 							<p>02</p>
 						</div>
 						<div class="col col_des">
-							<p class="bold">Web Development</p>
+							<p class="bold">RECEIVED FROM Commodity Name</p>
 							
 						</div>
 						<div class="col col_price">
@@ -287,7 +290,7 @@ body{
 							<p>03</p>
 						</div>
 						<div class="col col_des">
-							<p class="bold">GitHub</p>
+							<p class="bold">TOTAL STOCK</p>
 							
 						</div>
 						<div class="col col_price">
@@ -305,7 +308,7 @@ body{
 							<p>04</p>
 						</div>
 						<div class="col col_des">
-							<p class="bold">Backend Design</p>
+							<p class="bold">BALANCE</p>
 							
 						</div>
 						<div class="col col_price">
@@ -341,16 +344,16 @@ body{
 			
 		</div>
 
-		<h3  style="padding:10px;">SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h3>
+		<h6  style="padding:10px;">SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h6>
 		<div class="body">
 			<div class="main_table">
 				<div class="table_header" style="border:1px; color:#000;">
 					<div class="row">
 						<div class="col col_no">NO.</div>
-						<div class="col col_des">ITEM DESCRIPTION</div>
-						<div class="col col_price">PRICE</div>
-						<div class="col col_qty">QTY</div>
-						<div class="col col_total">TOTAL</div>
+						<div class="col col_des">PARTICULARS</div>
+						<div class="col col_price">BAGS</div>
+						<div class="col col_qty">GROSS_WT </div>
+						<div class="col col_total">NET_WT</div>
 					</div>
 				</div>
 
@@ -360,7 +363,7 @@ body{
 							<p>01</p>
 						</div>
 						<div class="col col_des">
-							<p class="bold">Web Design</p>
+							<p class="bold">OPENING STOCK</p>
 							
 						</div>
 						<div class="col col_price">
@@ -378,7 +381,7 @@ body{
 							<p>02</p>
 						</div>
 						<div class="col col_des">
-							<p class="bold">Web Development</p>
+							<p class="bold">Delivery Of Commodity Name</p>
 							
 						</div>
 						<div class="col col_price">
@@ -391,48 +394,14 @@ body{
 							<p>$700.00</p>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col col_no">
-							<p>03</p>
-						</div>
-						<div class="col col_des">
-							<p class="bold">GitHub</p>
-							
-						</div>
-						<div class="col col_price">
-							<p>$120</p>
-						</div>
-						<div class="col col_qty">
-							<p>1</p>
-						</div>
-						<div class="col col_total">
-							<p>$700.00</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col col_no">
-							<p>04</p>
-						</div>
-						<div class="col col_des">
-							<p class="bold">Backend Design</p>
-							
-						</div>
-						<div class="col col_price">
-							<p>$350</p>
-						</div>
-						<div class="col col_qty">
-							<p>2</p>
-						</div>
-						<div class="col col_total">
-							<p>$700.00</p>
-						</div>
-					</div>
+					
+					
 					<div class="row">
 						<div class="col col_no">
 							<p>05</p>
 						</div>
 						<div class="col col_des">
-							<p class="bold">Balance</p>
+							<p class="bold">Closing Stock</p>
 							
 						</div>
 						<div class="col col_price">
@@ -447,6 +416,9 @@ body{
 					</div>
 				</div>
 			</div>
+			
+		</div>
+		
 			<div class="logo_sec" style="padding:20px;">
 					<img src="logo-scbc.png" alt="code logo" style="float:right;">
 					
