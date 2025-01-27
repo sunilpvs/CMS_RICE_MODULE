@@ -16,12 +16,12 @@ switch ($action)
         if(isset($_POST))
         {
             $cust = $_POST['customer'];
-            $rpt_date = $_POST['rptdate'];
+            $rpt_date = date("d-M-y",strtotime($_POST['rptdate']));
             if($cust > 0 )
             {
                 $report = new AllReports();
-                $inward_result = $report->getCustomerInwardStock();
-                $outward_result = $report->getCustomerOutwardStock();
+                $inward_result = $report->getCustomerInwardStock($cust, $rpt_date);
+                $outward_result = $report->getCustomerOutwardStock($cust, $rpt_date);
                 require_once ($_SERVER['DOCUMENT_ROOT'] ."/reports/daily_customer_stock/daily_cust_stock.php");    
             }
             else{

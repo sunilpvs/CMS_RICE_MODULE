@@ -1,10 +1,4 @@
 <?php
-    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
-    include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
-
-    $inward_result = $report->getCustomerInwardStock();
-	$outward_result = $report->getCustomerOutwardStock();
-    
     $row_count1=mysqli_num_rows($inward_result);
     $row_count2=mysqli_num_rows($outward_result);
     
@@ -15,9 +9,15 @@
     }
     else
     {
-        header("Location: ../daily_customer_stock-rpt");
+        header("location: ../../daily_customer_stock-rpt");
         exit;
     }
+
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');  
+    $currentDateTime = new DateTime('now'); 
+    $currentDate = $currentDateTime->format('d-M-Y'); 
+    
  ?>
 <div class="container-fluid" >
 <div class="card shadow mb-4">
@@ -61,7 +61,7 @@
                 <div class="col-lg-6">
                     <div class="title_wrap" style="float:right;">
                         <h4 class="sub_title" style="font-size:16px;line-height:20px;">
-Date:<?php echo $inward_row["date"]; ?></h4>
+Date:<?php echo $currentDate; ?></h4>
 <h4 class="sub_title" style="font-size:16px;line-height:20px; ">
 Report No:36</h4>
                     </div>
@@ -108,59 +108,72 @@ ARRIVAL OF <?php echo $inward_row["commodity"]; ?></h4> <br><br>
                             <p><?php echo $inward_row["net_wt"]; ?></p>
                         </div>
                     </div>
+
                     <div class="row" style="border:1px; border-style: solid;">
                         <div class="col col_des" style="border:1px; border-style: solid;">
                             <p class="bold">RECEIVED FROM <?php echo $inward_row["transport_mode"]; echo "  ".$inward_row["commodity"]; ?></p>
                         </div>
                     </div>
+
                     <div class="row" style="border:1px; border-style: solid;">
+                        <div class="col col_des" style="border:1px;">
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div class="row" style="border:1px; border-style: solid;">
+                        <div class="col col_des" style="border:1px;">
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div class="row" style="border:1px; border-style: solid;">                   
+                        <div class="col col_des" style="border:1px; border-style: solid;">
+                            <p class="bold"><b>TOTAL STOCK</b></p>
+                        </div>
+                        <div class="col col_des" style="border:1px; border-style: solid;">
+                            <p class="bold"></p>                            
+                        </div>
+                        <div class="col col_price" style="border:1px; border-style: solid;">
+                            <p><?php echo $inward_row["bags"]; ?></p>
+                        </div>
+                        <div class="col col_qty" style="border:1px; border-style: solid;">
+                            <p><?php echo $inward_row["gross_wt"]; ?></p>
+                        </div>
+                        <div class="col col_total" style="border:1px; border-style: solid;">
+                            <p><?php echo $inward_row["net_wt"]; ?></p>
+                        </div>
+                    </div>
+
+                    <div class="row" style="border:1px; border-style: solid;">
+                        <div class="col col_des" style="border:1px;">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="row" style="border:1px; border-style: solid;">
+                        <div class="col col_des" style="border:1px;">
+                            <p></p>
+                        </div>
+                    </div>
                     
+                    <div class="row" style="border:1px; border-style: solid;">                        
                         <div class="col col_des" style="border:1px; border-style: solid;">
-                            <p class="bold">TOTAL STOCK</p>
-                            
+                            <p class="bold"><b>BALANCE</b></p>
+                        </div>
+                        <div class="col col_des" style="border:1px; border-style: solid;">
+                            <p class="bold"></p>                            
                         </div>
                         <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p>$120</p>
+                            <p><?php echo $inward_row["bags"]; ?></p>
                         </div>
                         <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p>1</p>
+                            <p><?php echo $inward_row["gross_wt"]; ?></p>
                         </div>
                         <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p>$700.00</p>
+                            <p><?php echo $inward_row["net_wt"]; ?></p>
                         </div>
                     </div>
-                    <div class="row" style="border:1px; border-style: solid;">
-                        
-                        <div class="col col_des" style="border:1px; border-style: solid;">
-                            <p class="bold">BALANCE</p>
-                            
-                        </div>
-                        <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p>$350</p>
-                        </div>
-                        <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p>2</p>
-                        </div>
-                        <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p>$700.00</p>
-                        </div>
-                    </div>
-                    <div class="row" style="border:1px; border-style: solid;">
-                        
-                        <div class="col col_des" style="border:1px; border-style: solid;">
-                            <p class="bold">Balance</p>
-                            
-                        </div>
-                        <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p>$150</p>
-                        </div>
-                        <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p>1</p>
-                        </div>
-                        <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p>$700.00</p>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             
@@ -168,7 +181,7 @@ ARRIVAL OF <?php echo $inward_row["commodity"]; ?></h4> <br><br>
         <div class="row" style="margin-top:20px;">
                 <div class="col-lg-6">
                     <h4 class="sub_title" style="font-size:16px;line-height:20px;">
-SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4>
+SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
                 </div>
                 <div class="col-lg-6">
                     
@@ -179,11 +192,11 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4>
             <div class="main_table" style="border:1px; border-style: solid;">
                 <div class="table_header" style="border:1px; border-style: solid;">
                     <div class="row" style="border:1px; border-style: solid;">
-                        
-                        <div class="col col_des" style="border:1px; border-style: solid;">PARTICULARS</div>
-                        <div class="col col_price" style="border:1px; border-style: solid;">BAGS</div>
-                        <div class="col col_qty" style="border:1px; border-style: solid;">GROSS_WT </div>
-                        <div class="col col_total" style="border:1px; border-style: solid;">NET_WT</div>
+                    <div class="col col_des" style="border:1px; border-style: solid;"><b>PARTICULARS</b></div>
+                        <div class="col col_des" style="border:1px; border-style: solid;"><b></b></div>
+                        <div class="col col_price" style="border:1px; border-style: solid;"><b>BAGS</b></div>
+                        <div class="col col_qty" style="border:1px; border-style: solid;"><b>GROSS_WT</b></div>
+                        <div class="col col_total" style="border:1px; border-style: solid;"><b>NET_WT</b></div>
                     </div>
                 </div>
 
@@ -191,59 +204,63 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4>
                     <div class="row" style="border:1px; border-style: solid;">
                         
                         <div class="col col_des" style="border:1px; border-style: solid;">
-                            <p class="bold">OPENING STOCK</p>
-                            
+                            <p class="bold">OPENING STOCK</p>                            
                         </div>
-                        <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p>$350</p>
-                        </div>
-                        <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p>2</p>
-                        </div>
-                        <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p>$700.00</p>
-                        </div>
-                    </div>
-                    <div class="row" style="border:1px; border-style: solid;">
                         <div class="col col_des" style="border:1px; border-style: solid;">
-                            <p class="bold">Delivery Of Commodity Name</p>
-                            
+                            <p class="bold"></p>                            
                         </div>
                         <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p>$350</p>
+                            <p><?php echo $outward_row["bags"]; ?></p>
                         </div>
                         <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p>2</p>
+                            <p><?php echo $outward_row["gross_wt"]; ?></p>
                         </div>
                         <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p>$700.00</p>
+                            <p><?php echo $outward_row["net_wt"]; ?></p>
                         </div>
                     </div>
-                    <div class="row" style="border:1px; border-style: solid;">
-                    
-                        <div class="col col_des" style="border:1px; border-style: solid;">
-                            <p class="bold">Closing Stock</p>
-                            
-                        </div>
-                        <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p>$120</p>
-                        </div>
-                        <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p>1</p>
-                        </div>
-                        <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p>$700.00</p>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            
-      
 
-   
-      
-   
+                    <div class="row" style="border:1px; border-style: solid;">
+                        <div class="col col_des" style="border:1px; border-style: solid;">
+                            <p class="bold">DELIVERY OF <?php echo $outward_row["commodity"]; echo "  TO ".$outward_row["delivery"]." ON ".$outward_row["date"]; ?></p>
+                        </div>
+                    </div>
+
+                    <div class="row" style="border:1px; border-style: solid;">
+                        <div class="col col_des" style="border:1px;">
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div class="row" style="border:1px; border-style: solid;">
+                        <div class="col col_des" style="border:1px;">
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div class="row" style="border:1px; border-style: solid;">                   
+                        <div class="col col_des" style="border:1px; border-style: solid;">
+                            <p class="bold"><b>CLOSING STOCK</b></p>
+                        </div>
+                        <div class="col col_des" style="border:1px; border-style: solid;">
+                            <p class="bold"></p>                            
+                        </div>
+                        <div class="col col_price" style="border:1px; border-style: solid;">
+                            <p><?php echo ($inward_row["bags"]-$outward_row["bags"]); ?></p>
+                        </div>
+                        <div class="col col_qty" style="border:1px; border-style: solid;">
+                            <p><?php echo ($inward_row["gross_wt"]-$outward_row["gross_wt"]); ?></p>
+                        </div>
+                        <div class="col col_total" style="border:1px; border-style: solid;">
+                            <p><?php echo ($inward_row["net_wt"]-$outward_row["net_wt"]); ?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+          </div>
+        </div>
+            
+<br>
    <h3 class="m-0 font-weight-bold text-primary"  >
             <!--<a href="department_generate_pdf.php" class="btn btn-primary btn-md float-center" style="margin-left: 20px;" role="button" target="_blank">Generate PDF</a>-->
             <a href="../../reports/current_stock/excel_export.php" class="btn btn-primary btn-md float-center" role="button" target="_blank"> Export Excel</a>
