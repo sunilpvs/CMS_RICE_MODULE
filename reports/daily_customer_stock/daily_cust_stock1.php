@@ -2,13 +2,6 @@
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
-	$inward_result = $report->getCustomerInwardStock();
-	$outward_result = $report->getCustomerOutwardStock();
-	if (! empty($inward_result)) {
-		while ($inward_row = mysqli_fetch_array($inward_result, MYSQLI_ASSOC))
-		{    
-		}
-	}
 
 ?>
 

@@ -1,14 +1,28 @@
 <?php
-    #require_once($_SERVER['DOCUMENT_ROOT'] .'/web/header.php');
-    #require_once "header.php"; 
-  include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
-  include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
+
+    $inward_result = $report->getCustomerInwardStock();
+	$outward_result = $report->getCustomerOutwardStock();
+    
+    $row_count1=mysqli_num_rows($inward_result);
+    $row_count2=mysqli_num_rows($outward_result);
+    
+    if($row_count1 > 0 || $row_count2 > 0)
+    { 
+        $inward_row = mysqli_fetch_array($inward_result, MYSQLI_ASSOC);
+        $outward_row = mysqli_fetch_array($outward_result, MYSQLI_ASSOC);
+    }
+    else
+    {
+        header("Location: ../daily_customer_stock-rpt");
+        exit;
+    }
  ?>
 <div class="container-fluid" >
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h3 class="m-0 font-weight-bold text-primary">          
-            
+    <h3 class="m-0 font-weight-bold text-primary">       
     </h3>
   </div>
 
@@ -39,7 +53,7 @@
             <div class="col-lg-6">
             <div class="title_wrap">
                         <h4 class="sub_title" style="font-size:16px;line-height:20px;">
-OLAM AGRI INDIA PRIVATE LIMITED-KAKINADA</h4>
+<?php echo $inward_row["customer_name"]; ?></h4>
        </div>
             </div>
        
@@ -47,7 +61,7 @@ OLAM AGRI INDIA PRIVATE LIMITED-KAKINADA</h4>
                 <div class="col-lg-6">
                     <div class="title_wrap" style="float:right;">
                         <h4 class="sub_title" style="font-size:16px;line-height:20px;">
-Date:25-06-2025</h4>
+Date:<?php echo $inward_row["date"]; ?></h4>
 <h4 class="sub_title" style="font-size:16px;line-height:20px; ">
 Report No:36</h4>
                     </div>
@@ -56,7 +70,7 @@ Report No:36</h4>
             <div class="row">
                 <div class="col-lg-6">
                     <h4 class="sub_title" style="font-size:16px;line-height:20px;">
-ARRIVAL OF SORTEX BOILED RICE CARNAVAL ORANGE 5OKGS</h4>
+ARRIVAL OF <?php echo $inward_row["commodity"]; ?></h4> <br><br>
                 </div>
                 <div class="col-lg-6">
                     
@@ -67,11 +81,11 @@ ARRIVAL OF SORTEX BOILED RICE CARNAVAL ORANGE 5OKGS</h4>
             <div class="main_table" style="border:1px; border-style: solid;">
                 <div class="table_header" style="border:1px; border-style: solid;">
                     <div class="row" style="border:1px; border-style: solid;">
-                        
-                        <div class="col col_des" style="border:1px; border-style: solid;">PARTICULARS</div>
-                        <div class="col col_price" style="border:1px; border-style: solid;">BAGS</div>
-                        <div class="col col_qty" style="border:1px; border-style: solid;">GROSS_WT </div>
-                        <div class="col col_total" style="border:1px; border-style: solid;">NET_WT</div>
+                        <div class="col col_des" style="border:1px; border-style: solid;"><b>PARTICULARS</b></div>
+                        <div class="col col_des" style="border:1px; border-style: solid;"><b></b></div>
+                        <div class="col col_price" style="border:1px; border-style: solid;"><b>BAGS</b></div>
+                        <div class="col col_qty" style="border:1px; border-style: solid;"><b>GROSS_WT</b></div>
+                        <div class="col col_total" style="border:1px; border-style: solid;"><b>NET_WT</b></div>
                     </div>
                 </div>
 
@@ -79,32 +93,24 @@ ARRIVAL OF SORTEX BOILED RICE CARNAVAL ORANGE 5OKGS</h4>
                     <div class="row" style="border:1px; border-style: solid;">
                         
                         <div class="col col_des" style="border:1px; border-style: solid;">
-                            <p class="bold">OPENING STOCK</p>
-                            
+                            <p class="bold">OPENING STOCK</p>                            
+                        </div>
+                        <div class="col col_des" style="border:1px; border-style: solid;">
+                            <p class="bold"></p>                            
                         </div>
                         <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p>$350</p>
+                            <p><?php echo $inward_row["bags"]; ?></p>
                         </div>
                         <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p>2</p>
+                            <p><?php echo $inward_row["gross_wt"]; ?></p>
                         </div>
                         <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p>$700.00</p>
+                            <p><?php echo $inward_row["net_wt"]; ?></p>
                         </div>
                     </div>
                     <div class="row" style="border:1px; border-style: solid;">
                         <div class="col col_des" style="border:1px; border-style: solid;">
-                            <p class="bold">RECEIVED FROM Commodity Name</p>
-                            
-                        </div>
-                        <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p>$350</p>
-                        </div>
-                        <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p>2</p>
-                        </div>
-                        <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p>$700.00</p>
+                            <p class="bold">RECEIVED FROM <?php echo $inward_row["transport_mode"]; echo "  ".$inward_row["commodity"]; ?></p>
                         </div>
                     </div>
                     <div class="row" style="border:1px; border-style: solid;">
