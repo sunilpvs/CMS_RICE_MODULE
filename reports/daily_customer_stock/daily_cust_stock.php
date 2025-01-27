@@ -1,8 +1,8 @@
 <?php
-    $row_count1=mysqli_num_rows($inward_result);
-    $row_count2=mysqli_num_rows($outward_result);
+    $in_count=mysqli_num_rows($inward_result);
+    $out_count=mysqli_num_rows($outward_result);
     
-    if($row_count1 > 0 || $row_count2 > 0)
+    if($in_count > 0 || $out_count > 0)
     { 
         $inward_row = mysqli_fetch_array($inward_result, MYSQLI_ASSOC);
         $outward_row = mysqli_fetch_array($outward_result, MYSQLI_ASSOC);
@@ -17,7 +17,40 @@
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');  
     $currentDateTime = new DateTime('now'); 
     $currentDate = $currentDateTime->format('d-M-Y'); 
-    
+    $in_bags = 0;
+    $in_gross_wt = 0;
+    $in_net_wt = 0;
+    $out_bags = 0;
+    $out_gross_wt = 0;
+    $out_net_wt = 0;
+
+    $in_commodity="";
+    $in_delivery = "";
+    $in_date="";
+    $out_commodity="";
+    $out_delivery = "";
+    $out_date="";
+
+    if($in_count >0)
+    {
+        $in_commodity= $inward_row["commodity"];
+        $in_delivery = $inward_row["transport_mode"];
+        $in_date=$inward_row["received_date"];
+        $in_bags = $inward_row["bags"];
+        $in_gross_wt = $inward_row["gross_wt"];
+        $in_net_wt = $inward_row["net_wt"];
+    }
+
+    if($out_count >0)
+    {
+        $out_commodity=$outward_row["commodity"];
+        $out_delivery = $outward_row["delivery"];
+        $out_date=$outward_row["outward_date"];
+        $out_bags = $outward_row["bags"];
+        $out_gross_wt = $outward_row["gross_wt"];
+        $out_net_wt = $outward_row["net_wt"];
+    }
+
  ?>
 <div class="container-fluid" >
 <div class="card shadow mb-4">
@@ -99,13 +132,13 @@ ARRIVAL OF <?php echo $inward_row["commodity"]; ?></h4> <br><br>
                             <p class="bold"></p>                            
                         </div>
                         <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p><?php echo $inward_row["bags"]; ?></p>
+                            <p><?php echo $in_bags; ?></p>
                         </div>
                         <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p><?php echo $inward_row["gross_wt"]; ?></p>
+                            <p><?php echo $in_gross_wt; ?></p>
                         </div>
                         <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p><?php echo $inward_row["net_wt"]; ?></p>
+                            <p><?php echo $in_net_wt; ?></p>
                         </div>
                     </div>
 
@@ -135,13 +168,13 @@ ARRIVAL OF <?php echo $inward_row["commodity"]; ?></h4> <br><br>
                             <p class="bold"></p>                            
                         </div>
                         <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p><?php echo $inward_row["bags"]; ?></p>
+                            <p><?php echo $in_bags; ?></p>
                         </div>
                         <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p><?php echo $inward_row["gross_wt"]; ?></p>
+                            <p><?php echo $in_gross_wt; ?></p>
                         </div>
                         <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p><?php echo $inward_row["net_wt"]; ?></p>
+                            <p><?php echo $in_net_wt; ?></p>
                         </div>
                     </div>
 
@@ -164,13 +197,13 @@ ARRIVAL OF <?php echo $inward_row["commodity"]; ?></h4> <br><br>
                             <p class="bold"></p>                            
                         </div>
                         <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p><?php echo $inward_row["bags"]; ?></p>
+                            <p><?php echo $in_bags; ?></p>
                         </div>
                         <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p><?php echo $inward_row["gross_wt"]; ?></p>
+                            <p><?php echo $in_gross_wt; ?></p>
                         </div>
                         <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p><?php echo $inward_row["net_wt"]; ?></p>
+                            <p><?php echo $in_net_wt; ?></p>
                         </div>
                     </div>
 
@@ -210,21 +243,21 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
                             <p class="bold"></p>                            
                         </div>
                         <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p><?php echo $outward_row["bags"]; ?></p>
+                            <p><?php echo $out_bags; ?></p>
                         </div>
                         <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p><?php echo $outward_row["gross_wt"]; ?></p>
+                            <p><?php echo $out_gross_wt; ?></p>
                         </div>
                         <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p><?php echo $outward_row["net_wt"]; ?></p>
+                            <p><?php echo $out_net_wt; ?></p>
                         </div>
                     </div>
 
                     <div class="row" style="border:1px; border-style: solid;">
                         <div class="col col_des" style="border:1px; border-style: solid;">
-                            <p class="bold">DELIVERY OF <?php echo $outward_row["commodity"]; echo "  TO ".$outward_row["delivery"]." ON ".$outward_row["date"]; ?></p>
+                            <p class="bold">DELIVERY OF <?php echo $out_commodity; echo "  TO ".$out_delivery." ON ".$out_date; ?></p>
                         </div>
-                    </div>
+                    </div> 
 
                     <div class="row" style="border:1px; border-style: solid;">
                         <div class="col col_des" style="border:1px;">
@@ -246,13 +279,13 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
                             <p class="bold"></p>                            
                         </div>
                         <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p><?php echo ($inward_row["bags"]-$outward_row["bags"]); ?></p>
+                            <p><?php echo ($in_bags-$out_bags); ?></p>
                         </div>
                         <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p><?php echo ($inward_row["gross_wt"]-$outward_row["gross_wt"]); ?></p>
+                            <p><?php echo ($in_gross_wt-$out_gross_wt); ?></p>
                         </div>
                         <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p><?php echo ($inward_row["net_wt"]-$outward_row["net_wt"]); ?></p>
+                            <p><?php echo ($in_net_wt-$out_net_wt); ?></p>
                         </div>
                     </div>
                 </div>
