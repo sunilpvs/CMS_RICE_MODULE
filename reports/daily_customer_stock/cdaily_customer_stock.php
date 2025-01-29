@@ -2,6 +2,7 @@
 session_start();
 require_once($_SERVER['DOCUMENT_ROOT'] ."/reports/reports.php");
 
+
 if (! empty($_GET["action"])) 
 {
     $action = $_GET["action"];
