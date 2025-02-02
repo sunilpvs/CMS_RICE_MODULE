@@ -50,15 +50,6 @@
     {
         $customer = $inward_row["customer_name"];
         $rpt_date = $inward_row["received_date"];
-        $in_commodity= $inward_row["commodity"];
-        $in_transport = $inward_row["transport_mode"];
-        $in_bags = round($inward_row["bags"],3);
-        $in_gross_wt = round($inward_row["gross_wt"],3);
-        $in_net_wt = round($inward_row["net_wt"],3);
-
-        $tot_bags = $in_bags;
-        $tot_gross_wt = $in_gross_wt;
-        $tot_net_wt = $in_net_wt;
     }
 
     if($in_wagon_count >0 && $customer == "")
@@ -66,11 +57,6 @@
         $customer = $inward_wagon_row["customer_name"];
         $rpt_date = $inward_wagon_row["received_date"];
         $wg_transport = $inward_wagon_row["transport_mode"];
-        //$in_commodity= $inward_wagon_row["commodity"];
-        // $in_date=$inward_row["received_date"];
-        // $in_bags = $inward_row["bags"];
-        // $in_gross_wt = $inward_row["gross_wt"];
-        // $in_net_wt = $inward_row["net_wt"];
     }
 
     if($out_count >0)
