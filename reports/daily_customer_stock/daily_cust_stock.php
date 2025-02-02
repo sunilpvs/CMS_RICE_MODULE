@@ -1,10 +1,12 @@
 <?php
     $in_count=mysqli_num_rows($inward_result);
+    $in_wagon_count=mysqli_num_rows($inward_wagon_result);
     $out_count=mysqli_num_rows($outward_result);
     
-    if($in_count > 0 || $out_count > 0)
+    if($in_count > 0 || $out_count > 0 || $in_wagon_count > 0)
     { 
         $inward_row = mysqli_fetch_array($inward_result, MYSQLI_ASSOC);
+        $inward_wagon_row = mysqli_fetch_array($inward_wagon_result, MYSQLI_ASSOC);
         $outward_row = mysqli_fetch_array($outward_result, MYSQLI_ASSOC);
     }
     else
@@ -17,38 +19,72 @@
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');  
     $currentDateTime = new DateTime('now'); 
     $currentDate = $currentDateTime->format('d-M-Y'); 
+    
+    $customer = "";
+    $rpt_date="";
+    $in_commodity = "";
+    $wg_commodity = "";
+    $out_commodity = "";
+    $in_transport = "";
+    $wg_transport = "";
+    $out_delivery = "";
+    
     $in_bags = 0;
     $in_gross_wt = 0;
     $in_net_wt = 0;
+
+    $in_wg_bags = 0;
+    $in_wg_gross_wt = 0;
+    $in_wg_net_wt = 0; 
+
     $out_bags = 0;
     $out_gross_wt = 0;
     $out_net_wt = 0;
 
-    $in_commodity="";
-    $in_delivery = "";
-    $in_date="";
-    $out_commodity="";
-    $out_delivery = "";
-    $out_date="";
+    $tot_bags = 0;
+    $tot_gross_wt = 0;
+    $tot_net_wt = 0;
+
 
     if($in_count >0)
     {
+        $customer = $inward_row["customer_name"];
+        $rpt_date = $inward_row["received_date"];
         $in_commodity= $inward_row["commodity"];
-        $in_delivery = $inward_row["transport_mode"];
-        $in_date=$inward_row["received_date"];
-        $in_bags = $inward_row["bags"];
-        $in_gross_wt = $inward_row["gross_wt"];
-        $in_net_wt = $inward_row["net_wt"];
+        $in_transport = $inward_row["transport_mode"];
+        $in_bags = round($inward_row["bags"],3);
+        $in_gross_wt = round($inward_row["gross_wt"],3);
+        $in_net_wt = round($inward_row["net_wt"],3);
+
+        $tot_bags = $in_bags;
+        $tot_gross_wt = $in_gross_wt;
+        $tot_net_wt = $in_net_wt;
+    }
+
+    if($in_wagon_count >0 && $customer == "")
+    {
+        $customer = $inward_wagon_row["customer_name"];
+        $rpt_date = $inward_wagon_row["received_date"];
+        $wg_transport = $inward_wagon_row["transport_mode"];
+        //$in_commodity= $inward_wagon_row["commodity"];
+        // $in_date=$inward_row["received_date"];
+        // $in_bags = $inward_row["bags"];
+        // $in_gross_wt = $inward_row["gross_wt"];
+        // $in_net_wt = $inward_row["net_wt"];
     }
 
     if($out_count >0)
     {
+        if($customer == "")
+        {
+            $customer = $outward_row["customer_name"];
+            $rpt_date = $outward_row["outward_date"];
+        }
         $out_commodity=$outward_row["commodity"];
         $out_delivery = $outward_row["delivery"];
-        $out_date=$outward_row["outward_date"];
-        $out_bags = $outward_row["bags"];
-        $out_gross_wt = $outward_row["gross_wt"];
-        $out_net_wt = $outward_row["net_wt"];
+        $out_bags = round($outward_row["bags"],3);
+        $out_gross_wt = round($outward_row["gross_wt"],3);
+        $out_net_wt = round($outward_row["net_wt"],3);
     }
 
  ?>
@@ -59,59 +95,56 @@
     </h3>
   </div>
 
-  <div class="card-body" style="border: 3px solid var(--primary);">
+<div class="card-body" style="border: 3px solid var(--primary);">
     <div class="header">
         <div class="col-lg-12">
             <center><h2>SHRI CHANDRA BULK CARGO SERVICES PRIVATE LIMITED</h2>
             <h3>Shipping and Logistics</h3></center>
         </div>
-        <div class="row">
-            <div class="col-lg-2">
-            <center><div class="logo_sec">
-                    <img src="../../assests/img/logo-scbc.png" alt="code logo">
-                </div></center>
-            </div>
-       
         
-                <div class="col-lg-8">
-                    <div class="title_wrap">
-                        <center><p class="sub_title" style="font-size:13px;line-height:20px;">Head Office ; D:No. 7g-7-62/A,1st Floor, Ramya Royale, Revenue Ward No. 30, Ramanayyapeta, Kakinada<br>
+    <div class="row">
+        <div class="col-lg-2">
+            <center><div class="logo_sec"> <img src="../../assests/img/logo-scbc.png" alt="code logo">
+        </div></center>
+    </div>
+          
+    <div class="col-lg-8">
+        <div class="title_wrap">
+            <center><p class="sub_title" style="font-size:13px;line-height:20px;">Head Office ; D:No. 7g-7-62/A,1st Floor, Ramya Royale, Revenue Ward No. 30, Ramanayyapeta, Kakinada<br>
 533 003. A.P., lndia, Contact : 9l-884-2361567, 9l-884-2361569, E-mail : scbc@shrichandrabulk.com</p>
 <h6>CIN : U74900AP2009PTC064815 GSTIN : 37AAECR9430I1ZX PAN : AAECR9403L</h6></center>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-            <div class="col-lg-6">
+        </div>
+    </div>
+</div>
+
+<hr>
+    <div class="row">
+        <div class="col-lg-6">
             <div class="title_wrap">
-                        <h4 class="sub_title" style="font-size:16px;line-height:20px;">
-<?php echo $inward_row["customer_name"]; ?></h4>
-       </div>
+                <h4 class="sub_title" style="font-size:16px;line-height:20px;"><?php echo $customer; ?></h4>
             </div>
+        </div>
        
-        
-                <div class="col-lg-6">
-                    <div class="title_wrap" style="float:right;">
-                        <h4 class="sub_title" style="font-size:16px;line-height:20px;">
-Date:<?php echo $currentDate; ?></h4>
-<h4 class="sub_title" style="font-size:16px;line-height:20px; ">
-Report No:36</h4>
-                    </div>
-                </div>
+        <div class="col-lg-6">
+            <div class="title_wrap" style="float:right;"> <h4 class="sub_title" style="font-size:16px;line-height:20px;">Date:<?php echo $rpt_date; ?></h4>
+                <h4 class="sub_title" style="font-size:16px;line-height:20px; ">Report No:36</h4>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <h4 class="sub_title" style="font-size:16px;line-height:20px;">
-ARRIVAL OF <?php echo $inward_row["commodity"]; ?></h4> <br><br>
-                </div>
-                <div class="col-lg-6">
-                    
-                </div>
-            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <h4 class="sub_title" style="font-size:16px;line-height:20px;"><?php if($in_count>0){ echo "ARRIVAL OF ".$in_commodity; } ?></h4> 
+            <br><br>
+        </div>
+
+        <div class="col-lg-6"></div>
+    </div>
+
     <div class="table-responsive">
         <div class="body" >
             <div class="main_table" style="border:1px; border-style: solid;">
+
                 <div class="table_header" style="border:1px; border-style: solid;">
                     <div class="row" style="border:1px; border-style: solid;">
                         <div class="col col_des" style="border:1px; border-style: solid;"><b>PARTICULARS</b></div>
@@ -123,43 +156,128 @@ ARRIVAL OF <?php echo $inward_row["commodity"]; ?></h4> <br><br>
                 </div>
 
                 <div class="table_body" style="border:1px; border-style: solid;">
-                    <div class="row" style="border:1px; border-style: solid;">
-                        
-                        <div class="col col_des" style="border:1px; border-style: solid;">
-                            <p class="bold">OPENING STOCK</p>                            
-                        </div>
-                        <div class="col col_des" style="border:1px; border-style: solid;">
-                            <p class="bold"></p>                            
-                        </div>
-                        <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p><?php echo $in_bags; ?></p>
-                        </div>
-                        <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p><?php echo $in_gross_wt; ?></p>
-                        </div>
-                        <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p><?php echo $in_net_wt; ?></p>
-                        </div>
-                    </div>
+                <?php
+                    $htm = "";
+                    //Inward Stock except for Wagon
+                    if($in_count >0)
+                    {
+                        // Code for printing inward stock all except Wagon.
+                        $htm = "";
+                        $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
+                        $htm .= "<div class='col col_des' style='border:1px; border-style: solid;''>";
+                        $htm .= "<p class='bold'>OPENING STOCK</p>";
+                        $htm .= "</div>";
+                        $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
+                        $htm .= "<p class='bold'></p>";
+                        $htm .= "</div>";
+                        $htm .= "<div class='col col_price' style='border:1px; border-style: solid;'>";
+                        $htm .= "<p>".$in_bags."</p>";
+                        $htm .= "</div>";
+                        $htm .= "<div class='col col_qty' style='border:1px; border-style: solid;'>";
+                        $htm .= "<p>".$in_gross_wt."</p>";
+                        $htm .= "</div>";
+                        $htm .= "<div class='col col_total' style='border:1px; border-style: solid;'>";
+                        $htm .= "<p>".$in_net_wt."</p>";
+                        $htm .= "</div>";
+                        $htm .= "</div>";
 
-                    <div class="row" style="border:1px; border-style: solid;">
-                        <div class="col col_des" style="border:1px; border-style: solid;">
-                            <p class="bold">RECEIVED FROM <?php echo $inward_row["transport_mode"]; echo "  ".$inward_row["commodity"]; ?></p>
-                        </div>
-                    </div>
+                        $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
+                        $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
+                        $htm .= "<p class='bold'>RECEIVED FROM ".$transport_mode." ".$in_commodity."</p>";
+                        $htm .= "</div>";
+                        $htm .= "</div>";
 
-                    <div class="row" style="border:1px; border-style: solid;">
-                        <div class="col col_des" style="border:1px;">
-                            <p></p>
-                        </div>
-                    </div>
+                        $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
+                        $htm .= "<div class='col col_des' style='border:1px;'>";
+                        $htm .= "<p></p>";
+                        $htm .= "</div>";
+                        $htm .= "</div>";
 
-                    <div class="row" style="border:1px; border-style: solid;">
-                        <div class="col col_des" style="border:1px;">
-                            <p></p>
-                        </div>
-                    </div>
+                        $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
+                        $htm .= "<div class='col col_des' style='border:1px;'>";
+                        $htm .= "<p></p>";
+                        $htm .= "</div>";
+                        $htm .= "</div>";
+                    }
+                    echo $htm;
+                ?>
+                
 
+
+                    <?php
+                        if($in_wagon_count >0)
+                        {
+                            // Code for printing Wagon based inward stock.
+                            $htm = "";
+                            $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
+                            $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
+                            $htm .= "<p class='bold'>OPENING STOCK</p>";
+                            $htm .= "</div>";
+                            $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
+                            $htm .= "<p class='bold'></p>";
+                            $htm .= "</div>";
+                            $htm .= "<div class='col col_price' style='border:1px; border-style: solid;'>";
+                            $htm .= "<p>0</p>";
+                            $htm .= "</div>";
+                            $htm .= "<div class='col col_qty' style='border:1px; border-style: solid;'>";
+                            $htm .= "<p>0</p>";
+                            $htm .= "</div>";
+                            $htm .= "<div class='col col_total' style='border:1px; border-style: solid;'>";
+                            $htm .= "<p>0</p>";
+                            $htm .= "</div>";
+                            $htm .= "</div>";
+    
+                    
+                            foreach ($inward_wagon_result as $wg) 
+                            {
+
+                                $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
+                                $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
+                                $htm .= "<p class='bold'>RECEIVED FROM ".$wg["transport_mode"]." ".$wg['commodity']."</p>";
+                                $htm .= "</div>";
+                                $htm .= "</div>";
+        
+                                $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
+                                $htm .= "<div class='col col_des' style='border:1px;'><p></p>";
+                                $htm .= "</div>";
+                                $htm .= "</div>";
+        
+                                // $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
+                                // $htm .= "<div class='col col_des' style='border:1px;'><p></p>";
+                                // $htm .= "</div>";
+                                // $htm .= "</div>";
+
+                                // $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
+                                // $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
+                                // $htm .= "<p class='bold'>RECEIVED FROM ".$wg["transport_mode"]." ".$wg["commodity"]."</p>";
+                                // $htm .= "</div>";
+                                // $htm .= "</div>";
+    
+                                $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
+                                $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
+                                $htm .= "<p class='bold'></p>";
+                                $htm .= "</div>";
+                                $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
+                                $htm .= "<p class='bold'></p>";
+                                $htm .= "</div>";
+                                $htm .= "<div class='col col_price' style='border:1px; border-style: solid;'>";
+                                $htm .= "<p>".round($wg['bags'],3)."</p>";
+                                $htm .= "</div>";
+                                $htm .= "<div class='col col_qty' style='border:1px; border-style: solid;'>";
+                                $htm .= "<p>".round($wg['gross_wt'],3)."</p>";
+                                $htm .= "</div>";
+                                $htm .= "<div class='col col_total' style='border:1px; border-style: solid;'>";
+                                $htm .= "<p>".round($wg['net_wt'],3)."</p>";
+                                $htm .= "</div>";
+                                $htm .= "</div>";    
+
+                                $tot_bags = round($tot_bags + $wg['bags'],3);
+                                $tot_gross_wt = round($tot_gross_wt + $wg['gross_wt'],3);
+                                $tot_net_wt = round($tot_net_wt + $wg['net_wt'],3);
+                            }
+                            echo $htm;
+                        }
+                    ?>
                     <div class="row" style="border:1px; border-style: solid;">                   
                         <div class="col col_des" style="border:1px; border-style: solid;">
                             <p class="bold"><b>TOTAL STOCK</b></p>
@@ -168,13 +286,13 @@ ARRIVAL OF <?php echo $inward_row["commodity"]; ?></h4> <br><br>
                             <p class="bold"></p>                            
                         </div>
                         <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p><?php echo $in_bags; ?></p>
+                            <p><?php echo $tot_bags; ?></p>
                         </div>
                         <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p><?php echo $in_gross_wt; ?></p>
+                            <p><?php echo $tot_gross_wt; ?></p>
                         </div>
                         <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p><?php echo $in_net_wt; ?></p>
+                            <p><?php echo $tot_net_wt; ?></p>
                         </div>
                     </div>
 
@@ -197,13 +315,13 @@ ARRIVAL OF <?php echo $inward_row["commodity"]; ?></h4> <br><br>
                             <p class="bold"></p>                            
                         </div>
                         <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p><?php echo $in_bags; ?></p>
+                            <p><?php echo $tot_bags; ?></p>
                         </div>
                         <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p><?php echo $in_gross_wt; ?></p>
+                            <p><?php echo $tot_gross_wt; ?></p>
                         </div>
                         <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p><?php echo $in_net_wt; ?></p>
+                            <p><?php echo $tot_net_wt; ?></p>
                         </div>
                     </div>
 
@@ -255,7 +373,7 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
 
                     <div class="row" style="border:1px; border-style: solid;">
                         <div class="col col_des" style="border:1px; border-style: solid;">
-                            <p class="bold">DELIVERY OF <?php echo $out_commodity; echo "  TO ".$out_delivery." ON ".$out_date; ?></p>
+                            <p class="bold">DELIVERY OF <?php echo $out_commodity; echo "  TO ".$out_delivery." ON ".$rpt_date; ?></p>
                         </div>
                     </div> 
 
@@ -279,27 +397,24 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
                             <p class="bold"></p>                            
                         </div>
                         <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p><?php echo ($in_bags-$out_bags); ?></p>
+                            <p><?php echo ($tot_bags-$out_bags); ?></p>
                         </div>
                         <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p><?php echo ($in_gross_wt-$out_gross_wt); ?></p>
+                            <p><?php echo ($tot_gross_wt-$out_gross_wt); ?></p>
                         </div>
                         <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p><?php echo ($in_net_wt-$out_net_wt); ?></p>
+                            <p><?php echo ($tot_net_wt-$out_net_wt); ?></p>
                         </div>
                     </div>
                 </div>
             </div>  
           </div>
-        </div>
-            
+        </div>   
 <br>
    <h3 class="m-0 font-weight-bold text-primary"  >
             <!--<a href="department_generate_pdf.php" class="btn btn-primary btn-md float-center" style="margin-left: 20px;" role="button" target="_blank">Generate PDF</a>-->
             <a href="../../reports/current_stock/excel_export.php" class="btn btn-primary btn-md float-center" role="button" target="_blank"> Export Excel</a>
     </h3>
-    
-
     </div>
   </div>
 </div>
@@ -308,6 +423,6 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
 <!-- /.container-fluid -->
 
 <?php
-include($_SERVER['DOCUMENT_ROOT'] .'/includes/scripts.php');
-  include($_SERVER['DOCUMENT_ROOT'] .'/includes/footer.php');
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/scripts.php');
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/footer.php');
 ?>

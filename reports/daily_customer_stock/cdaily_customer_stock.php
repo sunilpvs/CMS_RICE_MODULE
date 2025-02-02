@@ -22,6 +22,7 @@ switch ($action)
             {
                 $report = new AllReports();
                 $inward_result = $report->getCustomerInwardStock($cust, $rpt_date);
+                $inward_wagon_result = $report->getCustomerWagonInwardStock($cust, $rpt_date);
                 $outward_result = $report->getCustomerOutwardStock($cust, $rpt_date);
                 require_once ($_SERVER['DOCUMENT_ROOT'] ."/reports/daily_customer_stock/daily_cust_stock.php");    
             }

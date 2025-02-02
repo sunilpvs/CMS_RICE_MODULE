@@ -49,6 +49,13 @@
             return $result;
         }
 
+        function getCustomerWagonInwardStock($cust, $rpt_date)
+        {
+            $sql = "SELECT * FROM vw_rpt_daily_customer_wagon_inwardstock WHERE customer_id = $cust AND received_date= '$rpt_date';";
+            $result = $this->db_handle->runBaseQuery($sql);
+            return $result;
+        }
+
         function getCustomerOutwardStock($cust, $rpt_date)
         {
             $sql = "SELECT * FROM vw_rpt_daily_customer_outwardstock WHERE customer_id = $cust AND outward_date= '$rpt_date';";
