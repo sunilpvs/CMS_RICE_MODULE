@@ -397,13 +397,13 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
                             <p class="bold"></p>                            
                         </div>
                         <div class="col col_price" style="border:1px; border-style: solid;">
-                            <p><?php echo ($tot_bags-$out_bags); ?></p>
+                            <p><?php if($tot_bags>0) {echo ($tot_bags-$out_bags);} else{echo $out_bags;}?></p>
                         </div>
                         <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p><?php echo ($tot_gross_wt-$out_gross_wt); ?></p>
+                            <p><?php if($tot_gross_wt>0) {echo ($tot_gross_wt-$out_gross_wt);} else{echo $out_gross_wt;}?></p>
                         </div>
                         <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p><?php echo ($tot_net_wt-$out_net_wt); ?></p>
+                            <p><?php if($tot_net_wt>0) {echo ($tot_net_wt-$out_net_wt);} else{echo $out_net_wt;}?></p>
                         </div>
                     </div>
                 </div>
