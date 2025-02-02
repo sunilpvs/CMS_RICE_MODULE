@@ -215,26 +215,7 @@
                         if($in_wagon_count >0)
                         {
                             // Code for printing Wagon based inward stock.
-                            $htm = "";
-                            $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
-                            $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p class='bold'>OPENING STOCK</p>";
-                            $htm .= "</div>";
-                            $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p class='bold'></p>";
-                            $htm .= "</div>";
-                            $htm .= "<div class='col col_price' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p>0</p>";
-                            $htm .= "</div>";
-                            $htm .= "<div class='col col_qty' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p>0</p>";
-                            $htm .= "</div>";
-                            $htm .= "<div class='col col_total' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p>0</p>";
-                            $htm .= "</div>";
-                            $htm .= "</div>";
-    
-                    
+                            $htm = "";                   
                             foreach ($inward_wagon_result as $wg) 
                             {
 
@@ -243,26 +224,10 @@
                                 $htm .= "<p class='bold'>RECEIVED FROM ".$wg["transport_mode"]." ".$wg['commodity']."</p>";
                                 $htm .= "</div>";
                                 $htm .= "</div>";
-        
-                                $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
-                                $htm .= "<div class='col col_des' style='border:1px;'><p></p>";
-                                $htm .= "</div>";
-                                $htm .= "</div>";
-        
-                                // $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
-                                // $htm .= "<div class='col col_des' style='border:1px;'><p></p>";
-                                // $htm .= "</div>";
-                                // $htm .= "</div>";
 
-                                // $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
-                                // $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
-                                // $htm .= "<p class='bold'>RECEIVED FROM ".$wg["transport_mode"]." ".$wg["commodity"]."</p>";
-                                // $htm .= "</div>";
-                                // $htm .= "</div>";
-    
                                 $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
                                 $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
-                                $htm .= "<p class='bold'></p>";
+                                $htm .= "<p class='bold'>OPENING STOCK</p>";
                                 $htm .= "</div>";
                                 $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
                                 $htm .= "<p class='bold'></p>";
@@ -276,7 +241,31 @@
                                 $htm .= "<div class='col col_total' style='border:1px; border-style: solid;'>";
                                 $htm .= "<p>".round($wg['net_wt'],3)."</p>";
                                 $htm .= "</div>";
-                                $htm .= "</div>";    
+                                $htm .= "</div>";
+        
+                                $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
+                                $htm .= "<div class='col col_des' style='border:1px;'><p></p>";
+                                $htm .= "</div>";
+                                $htm .= "</div>";
+        
+    
+                                // $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
+                                // $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
+                                // $htm .= "<p class='bold'></p>";
+                                // $htm .= "</div>";
+                                // $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
+                                // $htm .= "<p class='bold'></p>";
+                                // $htm .= "</div>";
+                                // $htm .= "<div class='col col_price' style='border:1px; border-style: solid;'>";
+                                // $htm .= "<p>".round($wg['bags'],3)."</p>";
+                                // $htm .= "</div>";
+                                // $htm .= "<div class='col col_qty' style='border:1px; border-style: solid;'>";
+                                // $htm .= "<p>".round($wg['gross_wt'],3)."</p>";
+                                // $htm .= "</div>";
+                                // $htm .= "<div class='col col_total' style='border:1px; border-style: solid;'>";
+                                // $htm .= "<p>".round($wg['net_wt'],3)."</p>";
+                                // $htm .= "</div>";
+                                // $htm .= "</div>";    
 
                                 $tot_bags = round($tot_bags + $wg['bags'],3);
                                 $tot_gross_wt = round($tot_gross_wt + $wg['gross_wt'],3);
