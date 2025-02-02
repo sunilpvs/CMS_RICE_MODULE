@@ -165,9 +165,6 @@
                         $htm = "";
                         foreach ($inward_result as $in)
                         {
-                            $tot_bags = round($tot_bags + $in['bags'],3);
-                            $tot_gross_wt = round($tot_gross_wt + $in['gross_wt'],3);
-                            $tot_net_wt = round($tot_net_wt + $in['net_wt'],3);
 
                             $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
                             $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
@@ -204,6 +201,10 @@
                             $htm .= "<p></p>";
                             $htm .= "</div>";
                             $htm .= "</div>";
+
+                            $tot_bags = round($tot_bags + $in['bags'],3);
+                            $tot_gross_wt = round($tot_gross_wt + $in['gross_wt'],3);
+                            $tot_net_wt = round($tot_net_wt + $in['net_wt'],3);
                         }
                     }
                     echo $htm;
