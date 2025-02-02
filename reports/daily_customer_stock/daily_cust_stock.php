@@ -183,7 +183,7 @@
 
                         $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
                         $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
-                        $htm .= "<p class='bold'>RECEIVED FROM ".$transport_mode." ".$in_commodity."</p>";
+                        $htm .= "<p class='bold'>RECEIVED FROM ".$in_transport." ".$in_commodity."</p>";
                         $htm .= "</div>";
                         $htm .= "</div>";
 
