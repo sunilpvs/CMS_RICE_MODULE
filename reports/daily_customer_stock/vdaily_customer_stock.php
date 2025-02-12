@@ -30,9 +30,27 @@
             </select>
         </div> 
 
+
+        <div class="col-md-3 mb-3">
+            <label for="validationDefault05" class="info">Commodity</label><span id="commodity-info" class="info"></span>
+            <select id="commodity" name="commodity" class="form-control demoInputBox" required>
+            <option value ="-1" >Select Commodity</option>
+            <?php
+                $gen = new Generic();
+                $result = $gen->getCommodityList();
+                foreach ($result as $commodity) 
+                {
+            ?>
+            <option value="<?php echo $commodity["id"]; ?>"><?php echo $commodity["commodity"]; ?></option>
+            <?php
+                }
+            ?>
+            </select>
+        </div> 
+
         <div class="col-md-4 mb-3">
             <label for="validationDefault01" class="info">Report Date</label><span id="rptdate-info" class="info"></span>
-            <input type="date" class="form-control demoInputBox" id="rptdate" name= "rptdate" placeholder="dd-mmm-yyyy" value="<?= date('Y-m-d') ?>" required>
+            <input type="date" class="form-control demoInputBox" id="rptdate" name= "rptdate" placeholder="YYYY-mm-dd" value="<?= date('Y-m-d') ?>" required>
         </div>
 
         <div class="col-md-8 mb-3">

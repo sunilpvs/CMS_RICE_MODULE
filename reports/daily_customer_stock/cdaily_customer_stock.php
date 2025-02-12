@@ -16,14 +16,16 @@ switch ($action)
     case "generate_report":
         if(isset($_POST))
         {
-            $cust = $_POST['customer'];
-            $rpt_date = date("d-M-y",strtotime($_POST['rptdate']));
-            if($cust > 0 )
+            $customer = $_POST['customer'];
+            $commodity = $_POST['commodity'];
+            $rpt_date = date("Y-m-d",strtotime($_POST['rptdate']));
+            if($customer > 0 )
             {
                 $report = new AllReports();
-                $inward_result = $report->getCustomerInwardStock($cust, $rpt_date);
-                $inward_wagon_result = $report->getCustomerWagonInwardStock($cust, $rpt_date);
-                $outward_result = $report->getCustomerOutwardStock($cust, $rpt_date);
+                $openstock_result = $report->getCustomerOpeningStock($customer, $commodity, $rpt_date);
+                $inward_result = $report->getCustomerInwardStock($customer, $commodity, $rpt_date);
+                $inward_wagon_result = $report->getCustomerWagonInwardStock($customer, $commodity, $rpt_date);
+                $outward_result = $report->getCustomerOutwardStock($customer, $commodity,  $rpt_date);
                 require_once ($_SERVER['DOCUMENT_ROOT'] ."/reports/daily_customer_stock/daily_cust_stock.php");    
             }
             else{

@@ -332,20 +332,20 @@
         //Generic Functions End
         function getMillerList() 
         {
-            $sql = "SELECT id, miller_name FROM tbl_miller WHERE status = 'A' ORDER BY id";
+            $sql = "SELECT id, miller_name FROM tbl_miller WHERE status = 1 ORDER BY id";
             $result = $this->db_handle->runBaseQuery($sql);
             return $result;
         }
         function getCommodityList() 
         {
-            $sql = "SELECT id, commodity FROM tbl_commodity WHERE status = 'A' ORDER BY id";
+            $sql = "SELECT id, commodity FROM tbl_commodity WHERE status = 1 ORDER BY id";
             $result = $this->db_handle->runBaseQuery($sql);
             return $result;
         }
 
         function getWarehousesList() 
         {
-            $sql = "SELECT id, warehouse_name FROM tbl_warehouse WHERE status = 'A' ORDER BY id";
+            $sql = "SELECT id, warehouse_name FROM tbl_warehouse WHERE status = 1 ORDER BY id";
             $result = $this->db_handle->runBaseQuery($sql);
             return $result;
         }

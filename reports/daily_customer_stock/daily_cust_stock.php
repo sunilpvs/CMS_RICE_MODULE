@@ -1,10 +1,12 @@
 <?php
+    $open_count = mysqli_num_rows($openstock_result);
     $in_count=mysqli_num_rows($inward_result);
     $in_wagon_count=mysqli_num_rows($inward_wagon_result);
     $out_count=mysqli_num_rows($outward_result);
     
     if($in_count > 0 || $out_count > 0 || $in_wagon_count > 0)
     { 
+        $open_row = mysqli_fetch_array($openstock_result, MYSQLI_ASSOC);
         $inward_row = mysqli_fetch_array($inward_result, MYSQLI_ASSOC);
         $inward_wagon_row = mysqli_fetch_array($inward_wagon_result, MYSQLI_ASSOC);
         $outward_row = mysqli_fetch_array($outward_result, MYSQLI_ASSOC);
@@ -17,8 +19,8 @@
 
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');  
-    $currentDateTime = new DateTime('now'); 
-    $currentDate = $currentDateTime->format('d-M-Y'); 
+    //$currentDateTime = new DateTime('now'); 
+    //$currentDate = $currentDateTime->format('d-M-Y'); 
     
     $customer = "";
     $rpt_date="";
