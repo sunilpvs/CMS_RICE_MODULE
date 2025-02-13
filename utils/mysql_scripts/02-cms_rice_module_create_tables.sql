@@ -22,6 +22,7 @@ SET time_zone = "+00:00";
 # 	MASTER DATA TABLES FOR RICE MODULE: START
 ################################################################################################
 DROP TABLE IF EXISTS `tbl_commodity_stock`;
+DROP TABLE IF EXISTS `tbl_opening_stock`;
 DROP TABLE IF EXISTS `tbl_outwardstock`;
 DROP TABLE IF EXISTS `tbl_inwardstock`;
 DROP TABLE IF EXISTS `tbl_inwarddates`;
@@ -198,7 +199,7 @@ CREATE TABLE `tbl_miller` (
 -- Table structure for table `tbl_commodity`
 CREATE TABLE `tbl_commodity` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `commodity` varchar(50) NOT NULL,
+  `commodity` varchar(100) NOT NULL,
   `commodity_name` varchar(75) NOT NULL,
   `cargo_type` int(11) NOT NULL,
   `brand` varchar(50) NOT NULL,
@@ -432,6 +433,23 @@ CREATE TABLE `tbl_commodity_stock` (
 	PRIMARY KEY(customer_id,warehouse_id,compartment_id,commodity_id,mod_transport)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 -- --------------------------------------------------------
+
+-- Table structure for table `tbl_opening_stock`
+CREATE TABLE `tbl_opening_stock` (
+  `customer_id` int(11) NOT NULL,
+  `customer_name` varchar(100) NOT NULL,
+  `warehouse_id` int(11) NOT NULL,
+  `warehouse_name` varchar(100) NOT NULL,
+  `commodity_id` int(5) NOT NULL,
+  `commodity` varchar(100) NOT NULL,
+  `stock_date` date NOT NULL,
+  `bags` int(11) NOT NULL,
+  `gross_wt` int(11) NOT NULL,
+  `net_wt` int(11) NOT NULL,
+  PRIMARY KEY(customer_id,commodity_id,stock_date)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- --------------------------------------------------------
+
 
 ################################################################################################
 # TRANSACTION TABLES FOR RICE MODULE: END

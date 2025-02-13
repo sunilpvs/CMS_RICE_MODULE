@@ -46,7 +46,7 @@ CREATE OR REPLACE VIEW `vw_rpt_currentstock` AS
 
 #View for Daily Customer Stock Report - Inward Summary except for Wagon
 CREATE OR REPLACE VIEW `vw_rpt_daily_customer_open_stock` AS
-	SELECT b.id as customer_id, b.customer_name, c.warehouse_name, e.id as commodity_id,  e.commodity, a.received_date as received_date, 
+	SELECT b.id as customer_id, b.customer_name, c.id as warehouse_id, c.warehouse_name, e.id as commodity_id,  e.commodity, a.received_date as received_date, 
 		SUM(a.inward_bags_stock) as bags, round(SUM(a.inward_wb_gross_wt),3) as gross_wt, round((SUM(a.inward_wb_gross_wt)-(e.empty_bag_wt*SUM(a.inward_bags_stock))),3) as net_wt
 		FROM tbl_inwardstock a, tbl_customer b, tbl_warehouse c, tbl_commodity e, tbl_transport_mode f
 			WHERE a.customer_id = b.id AND a.warehouse_id = c.id AND a.commodity_id = e.id AND a.mod_transport = f.id

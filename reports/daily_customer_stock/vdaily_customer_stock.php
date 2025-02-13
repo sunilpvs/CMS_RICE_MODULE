@@ -49,9 +49,29 @@
         </div> 
 
         <div class="col-md-4 mb-3">
-            <label for="validationDefault01" class="info">Report Date</label><span id="rptdate-info" class="info"></span>
-            <input type="date" class="form-control demoInputBox" id="rptdate" name= "rptdate" placeholder="YYYY-mm-dd" value="<?= date('Y-m-d') ?>" required>
+            <label for="validationDefault01" class="info">Report Date</label><span style="color:red" id="rptdate-info" class="info"></span>
+            <input type="date" class="form-control demoInputBox" id="rptdate" name= "rptdate" placeholder="YYYY-mm-dd" value="<?= date('Y-m-d') ?>" onchange="TDate()" required>
         </div>
+        
+        <script>
+            function TDate() 
+            {
+                let span = document.getElementById("rptdate-info");
+                var UserDate = document.getElementById("rptdate").value;
+                var ToDate = new Date();
+                if (new Date(UserDate).getTime() >= ToDate.getTime()) {
+                    span.textContent = "** Date greater than today.";
+                    document.getElementById("btnSubmit").disabled = true;
+                    return false;
+                }
+                else
+                {
+                    span.textContent = "";
+                    document.getElementById("btnSubmit").disabled = false;
+                    return true;
+                }   
+            }
+        </script>
 
         <div class="col-md-8 mb-3">
             <div class="container">
