@@ -24,9 +24,7 @@
     
     $customer = "";
     $rpt_date="";
-    $in_commodity = "";
-    $wg_commodity = "";
-    $out_commodity = "";
+    $commodity = "";
     $in_transport = "";
     $wg_transport = "";
     $out_delivery = "";
@@ -48,7 +46,7 @@
     $tot_net_wt = 0;
 
 
-    if($in_count >0)
+    if($open_count>0 || $in_count >0)
     {
         $customer = $inward_row["customer_name"];
         $rpt_date = $inward_row["received_date"];
@@ -68,7 +66,6 @@
             $customer = $outward_row["customer_name"];
             $rpt_date = $outward_row["outward_date"];
         }
-        $out_commodity=$outward_row["commodity"];
         $out_delivery = $outward_row["delivery"];
         $out_bags = round($outward_row["bags"],3);
         $out_gross_wt = round($outward_row["gross_wt"],3);
@@ -122,7 +119,7 @@
 
     <div class="row">
         <div class="col-lg-6">
-            <h4 class="sub_title" style="font-size:16px;line-height:20px;"><?php if($in_count>0){ echo "ARRIVAL OF ".$in_commodity; } ?></h4> 
+            <h4 class="sub_title" style="font-size:16px;line-height:20px;"><?php if($open_count>0){ echo "ARRIVAL OF ".$commodity; } ?></h4> 
             <br><br>
         </div>
 
@@ -156,7 +153,7 @@
 
                             $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
                             $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p class='bold'>RECEIVED FROM ".$in['transport_mode']." ".$in['commodity']."</p>";
+                            $htm .= "<p class='bold'>RECEIVED FROM ".$in['transport_mode']." ".$commodity."</p>";
                             $htm .= "</div>";
                             $htm .= "</div>";
 
@@ -208,7 +205,7 @@
 
                             $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
                             $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p class='bold'>RECEIVED FROM ".$wg["transport_mode"]." ".$wg['commodity']."</p>";
+                            $htm .= "<p class='bold'>RECEIVED FROM ".$wg["transport_mode"]." ".$commodity."</p>";
                             $htm .= "</div>";
                             $htm .= "</div>";
 
@@ -356,7 +353,7 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
 
                     <div class="row" style="border:1px; border-style: solid;">
                         <div class="col col_des" style="border:1px; border-style: solid;">
-                            <p class="bold">DELIVERY OF <?php echo $out_commodity; echo "  TO ".$out_delivery." ON ".$rpt_date; ?></p>
+                            <p class="bold">DELIVERY OF <?php echo $commodity; echo "  TO ".$out_delivery." ON ".$rpt_date; ?></p>
                         </div>
                     </div> 
 
