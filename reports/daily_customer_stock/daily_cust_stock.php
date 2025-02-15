@@ -373,8 +373,7 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
                 </div>
 
                 <div class="table_body" style="border:1px; border-style: solid;">
-                    <div class="row" style="border:1px; border-style: solid;">
-                        
+                    <div class="row" style="border:1px; border-style: solid;">        
                         <div class="col col_des" style="border:1px; border-style: solid;">
                             <p class="bold">OPENING STOCK</p>                            
                         </div>
@@ -382,10 +381,10 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
                             <p class="bold"></p>                            
                         </div>
                         <div class="col col_price" style="border:1px; border-style: solid;">
-                        <p></p>
+                            <p></p>
                         </div>
                         <div class="col col_qty" style="border:1px; border-style: solid;">
-                        <p></p>
+                            <p></p>
                         </div>
                         <div class="col col_total" style="border:1px; border-style: solid;">
                             <p></p>
@@ -414,9 +413,7 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
                         <div class="col col_total" style="border:1px; border-style: solid;">
                             <p><?php echo $out_net; ?></p>
                         </div>
-
                     </div> 
-
 
                     <div class="row" style="border:1px; border-style: solid;">
                         <div class="col col_des" style="border:1px;">
@@ -441,7 +438,7 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
                             <p><?php if($tot_net_wt>0) {echo ($tot_net_wt-$out_net);} else{echo $out_net;}?></p>
                         </div>
                     </div>
-                </div>
+                </div>             
             </div>  
           </div>
         </div>   
