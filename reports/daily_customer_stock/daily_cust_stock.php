@@ -177,26 +177,27 @@
                     if($open_count > 0)
                     {                       
                         $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
-                        $htm .= "<div class='col col_des' style='border:1px; border-style: solid;''>";
-                        $htm .= "<p class='bold'>OPENING STOCK</p>";
+                        $htm .= " <div class='col col_des' style='border:1px; border-style: solid;''>";
+                        $htm .= "  <p class='bold'>OPENING STOCK</p>";
+                        $htm .= " </div>";
+                        $htm .= " <div class='col col_des' style='border:1px; border-style: solid;'>";
+                        $htm .= "  <p class='bold'></p>";
+                        $htm .= " </div>";
+                        $htm .= " <div class='col col_price' style='border:1px; border-style: solid;'>";
+                        $htm .= "  <p>".round($open_bags,3)."</p>";
+                        $htm .= " </div>";
+                        $htm .= " <div class='col col_qty' style='border:1px; border-style: solid;'>";
+                        $htm .= "  <p>".round($open_gross,3)."</p>";
+                        $htm .= " </div>";
+                        $htm .= " <div class='col col_total' style='border:1px; border-style: solid;'>";
+                        $htm .= "  <p>".round($open_net,3)."</p>";
+                        $htm .= " </div>";
                         $htm .= "</div>";
-                        $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
-                        $htm .= "<p class='bold'></p>";
-                        $htm .= "</div>";
-                        $htm .= "<div class='col col_price' style='border:1px; border-style: solid;'>";
-                        $htm .= "<p>".round($open_bags,3)."</p>";
-                        $htm .= "</div>";
-                        $htm .= "<div class='col col_qty' style='border:1px; border-style: solid;'>";
-                        $htm .= "<p>".round($open_gross,3)."</p>";
-                        $htm .= "</div>";
-                        $htm .= "<div class='col col_total' style='border:1px; border-style: solid;'>";
-                        $htm .= "<p>".round($open_net,3)."</p>";
-                        $htm .= "</div>";
-                        $htm .= "</div>";
+
                         $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
-                        $htm .= "<div class='col col_des' style='border:1px;'>";
-                        $htm .= "<p></p>";
-                        $htm .= "</div>";
+                        $htm .= " <div class='col col_des' style='border:1px;'>";
+                        $htm .= "  <p></p>";
+                        $htm .= " </div>";
                         $htm .= "</div>";
                         echo $htm;
                         $tot_bags = round($tot_bags + $open_bags,3);
