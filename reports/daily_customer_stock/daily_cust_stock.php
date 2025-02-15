@@ -203,10 +203,6 @@
                         $tot_gross_wt = round($tot_gross_wt + $open_gross,3);
                         $tot_net_wt = round($tot_net_wt + $open_net,3);
                     }
-                    else
-                    {
-
-                    }
                     $htm = "";
                     //Inward Stock except for Wagon
                     if($in_count >0)
@@ -216,43 +212,43 @@
                         foreach ($inward_result as $in)
                         {
                             $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
-                            $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p class='bold'>RECEIVED FROM ".$in['transport_mode']." ".$commodity."</p>";
-                            $htm .= "</div>";
+                            $htm .= " <div class='col col_des' style='border:1px; border-style: solid;'>";
+                            $htm .= "  <p class='bold'>RECEIVED FROM ".$in['transport_mode']." ".$commodity."</p>";
+                            $htm .= " </div>";
                             $htm .= "</div>";
 
                             $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p class='bold'></p>";
+                            $htm .= " <p class='bold'></p>";
                             $htm .= "</div>";
                             $htm .= "<div class='col col_price' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p>".round($in['bags'],3)."</p>";
+                            $htm .= " <p>".round($in['bags'],3)."</p>";
                             $htm .= "</div>";
                             $htm .= "<div class='col col_qty' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p>".round($in['gross_wt'],3)."</p>";
+                            $htm .= " <p>".round($in['gross_wt'],3)."</p>";
                             $htm .= "</div>";
                             $htm .= "<div class='col col_total' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p>".round($in['net_wt'],3)."</p>";
-                            $htm .= "</div>";
-                            $htm .= "</div>";
-
-                            $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
-                            $htm .= "<div class='col col_des' style='border:1px;'>";
-                            $htm .= "<p></p>";
-                            $htm .= "</div>";
+                            $htm .= " <p>".round($in['net_wt'],3)."</p>";
                             $htm .= "</div>";
 
                             $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
-                            $htm .= "<div class='col col_des' style='border:1px;'>";
-                            $htm .= "<p></p>";
+                            $htm .= " <div class='col col_des' style='border:1px;'>";
+                            $htm .= "  <p></p>";
+                            $htm .= " </div>";
                             $htm .= "</div>";
+
+                            $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
+                            $htm .= " <div class='col col_des' style='border:1px;'>";
+                            $htm .= "  <p></p>";
+                            $htm .= " </div>";
                             $htm .= "</div>";
 
                             $tot_bags = round($tot_bags + $in['bags'],3);
                             $tot_gross_wt = round($tot_gross_wt + $in['gross_wt'],3);
                             $tot_net_wt = round($tot_net_wt + $in['net_wt'],3);
+                            echo $htm;
                         }
                     }
-                    echo $htm;
+                    
                 ?>
 
                 <?php
@@ -264,32 +260,32 @@
                         {
 
                             $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
-                            $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p class='bold'>RECEIVED FROM ".$wg["transport_mode"]." ".$commodity."</p>";
-                            $htm .= "</div>";
+                            $htm .= " <div class='col col_des' style='border:1px; border-style: solid;'>";
+                            $htm .= "  <p class='bold'>RECEIVED FROM ".$wg["transport_mode"]." ".$commodity."</p>";
+                            $htm .= " </div>";
                             $htm .= "</div>";
 
                             $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
-                            $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p class='bold'></p>";
-                            $htm .= "</div>";
-                            $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p class='bold'></p>";
-                            $htm .= "</div>";
-                            $htm .= "<div class='col col_price' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p>".round($wg['bags'],3)."</p>";
-                            $htm .= "</div>";
-                            $htm .= "<div class='col col_qty' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p>".round($wg['gross_wt'],3)."</p>";
-                            $htm .= "</div>";
-                            $htm .= "<div class='col col_total' style='border:1px; border-style: solid;'>";
-                            $htm .= "<p>".round($wg['net_wt'],3)."</p>";
-                            $htm .= "</div>";
+                            $htm .= " <div class='col col_des' style='border:1px; border-style: solid;'>";
+                            $htm .= "  <p class='bold'></p>";
+                            $htm .= " </div>";
+                            $htm .= " <div class='col col_des' style='border:1px; border-style: solid;'>";
+                            $htm .= "  <p class='bold'></p>";
+                            $htm .= " </div>";
+                            $htm .= " <div class='col col_price' style='border:1px; border-style: solid;'>";
+                            $htm .= "  <p>".round($wg['bags'],3)."</p>";
+                            $htm .= " </div>";
+                            $htm .= " <div class='col col_qty' style='border:1px; border-style: solid;'>";
+                            $htm .= "  <p>".round($wg['gross_wt'],3)."</p>";
+                            $htm .= " </div>";
+                            $htm .= " <div class='col col_total' style='border:1px; border-style: solid;'>";
+                            $htm .= "  <p>".round($wg['net_wt'],3)."</p>";
+                            $htm .= " </div>";
                             $htm .= "</div>";
     
                             $htm .= "<div class='row' style='border:1px; border-style: solid;'>";
-                            $htm .= "<div class='col col_des' style='border:1px;'><p></p>";
-                            $htm .= "</div>";
+                            $htm .= " <div class='col col_des' style='border:1px;'><p></p>";
+                            $htm .= " </div>";
                             $htm .= "</div>";   
 
                             $tot_bags = round($tot_bags + $wg['bags'],3);
