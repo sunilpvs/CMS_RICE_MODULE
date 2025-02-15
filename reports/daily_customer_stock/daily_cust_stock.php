@@ -443,6 +443,7 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
           </div>
         </div> 
     </div> 
+    </div> 
 <br>
    <h3 class="m-0 font-weight-bold text-primary"  >
             <!--<a href="department_generate_pdf.php" class="btn btn-primary btn-md float-center" style="margin-left: 20px;" role="button" target="_blank">Generate PDF</a>-->
