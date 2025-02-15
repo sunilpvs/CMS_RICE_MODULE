@@ -62,7 +62,7 @@
                 //Entry does not exist in tbl_opening_stock table
                 // Make a new entry and return the result set.
                 $sql = "";
-                $sql = "SELECT * FROM vw_rpt_daily_customer_open_stock WHERE customer_id = $customer AND commodity_id = $commodity AND received_date <= '$rpt_date'; ";
+                $sql = "SELECT * FROM vw_rpt_daily_customer_open_stock WHERE customer_id = $customer AND commodity_id = $commodity AND received_date < '$rpt_date'; ";
                 $result = $this->db_handle->runBaseQuery($sql);
                 $row_count = mysqli_num_rows($result);
                 if($row_count > 0)
