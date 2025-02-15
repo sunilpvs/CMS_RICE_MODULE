@@ -409,10 +409,10 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
                             <p><?php echo $out_bags; ?></p>
                         </div>
                         <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p><?php echo $out_gross_wt; ?></p>
+                            <p><?php echo $out_gross; ?></p>
                         </div>
                         <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p><?php echo $out_net_wt; ?></p>
+                            <p><?php echo $out_net; ?></p>
                         </div>
 
                     </div> 
@@ -435,10 +435,10 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
                             <p><?php if($tot_bags>0) {echo ($tot_bags-$out_bags);} else{echo $out_bags;}?></p>
                         </div>
                         <div class="col col_qty" style="border:1px; border-style: solid;">
-                            <p><?php if($tot_gross_wt>0) {echo ($tot_gross_wt-$out_gross_wt);} else{echo $out_gross_wt;}?></p>
+                            <p><?php if($tot_gross_wt>0) {echo ($tot_gross_wt-$out_gross);} else{echo $out_gross;}?></p>
                         </div>
                         <div class="col col_total" style="border:1px; border-style: solid;">
-                            <p><?php if($tot_net_wt>0) {echo ($tot_net_wt-$out_net_wt);} else{echo $out_net_wt;}?></p>
+                            <p><?php if($tot_net_wt>0) {echo ($tot_net_wt-$out_net);} else{echo $out_net;}?></p>
                         </div>
                     </div>
                 </div>
