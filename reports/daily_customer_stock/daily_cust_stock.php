@@ -220,8 +220,9 @@
                             $htm .= "</div>";
 
                             $htm .= "<div class='col col_des' style='border:1px; border-style: solid;'>";
-                            $htm .= " <p class='bold'></p>";
+                            $htm .= " <p class='bold'>Ding</p>";
                             $htm .= "</div>";
+
                             $htm .= "<div class='col col_price' style='border:1px; border-style: solid;'>";
                             $htm .= " <p>".round($in['bags'],3)."</p>";
                             $htm .= "</div>";
