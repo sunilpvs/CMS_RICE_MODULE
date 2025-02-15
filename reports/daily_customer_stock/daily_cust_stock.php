@@ -436,7 +436,7 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
                     </div>
                 </div>             
             </div>  
-          </div>
+          
         </div> 
     </div> 
     </div> 
