@@ -1,56 +1,57 @@
 <?php
-require('./fpdf/fpdf.php');
-require_once($_SERVER['DOCUMENT_ROOT'] ."/reports/reports.php");
-  $in_count=mysqli_num_rows($inward_result);
-    $out_count=mysqli_num_rows($outward_result);
+    require('./fpdf/fpdf.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/reports/reports.php");
+  
+    // $in_count=mysqli_num_rows($inward_result);
+    // $out_count=mysqli_num_rows($outward_result);
     
-    if($in_count > 0 || $out_count > 0)
-    { 
-        $inward_row = mysqli_fetch_array($inward_result, MYSQLI_ASSOC);
-        $outward_row = mysqli_fetch_array($outward_result, MYSQLI_ASSOC);
-    }
-    else
-    {
-        header("location: ../../daily_customer_stock-rpt");
-        exit;
-    }
+    // if($in_count > 0 || $out_count > 0)
+    // { 
+    //     $inward_row = mysqli_fetch_array($inward_result, MYSQLI_ASSOC);
+    //     $outward_row = mysqli_fetch_array($outward_result, MYSQLI_ASSOC);
+    // }
+    // else
+    // {
+    //     header("location: ../../daily_customer_stock-rpt");
+    //     exit;
+    // }
 
 
-    $currentDateTime = new DateTime('now'); 
-    $currentDate = $currentDateTime->format('d-M-Y'); 
-    $in_bags = 0;
-    $in_gross_wt = 0;
-    $in_net_wt = 0;
-    $out_bags = 0;
-    $out_gross_wt = 0;
-    $out_net_wt = 0;
+    // $currentDateTime = new DateTime('now'); 
+    // $currentDate = $currentDateTime->format('d-M-Y'); 
+    // $in_bags = 0;
+    // $in_gross_wt = 0;
+    // $in_net_wt = 0;
+    // $out_bags = 0;
+    // $out_gross_wt = 0;
+    // $out_net_wt = 0;
 
-    $in_commodity="";
-    $in_delivery = "";
-    $in_date="";
-    $out_commodity="";
-    $out_delivery = "";
-    $out_date="";
+    // $in_commodity="";
+    // $in_delivery = "";
+    // $in_date="";
+    // $out_commodity="";
+    // $out_delivery = "";
+    // $out_date="";
 
-    if($in_count >0)
-    {
-        $in_commodity= $inward_row["commodity"];
-        $in_delivery = $inward_row["transport_mode"];
-        $in_date=$inward_row["received_date"];
-        $in_bags = $inward_row["bags"];
-        $in_gross_wt = $inward_row["gross_wt"];
-        $in_net_wt = $inward_row["net_wt"];
-    }
+    // if($in_count >0)
+    // {
+    //     $in_commodity= $inward_row["commodity"];
+    //     $in_delivery = $inward_row["transport_mode"];
+    //     $in_date=$inward_row["received_date"];
+    //     $in_bags = $inward_row["bags"];
+    //     $in_gross_wt = $inward_row["gross_wt"];
+    //     $in_net_wt = $inward_row["net_wt"];
+    // }
 
-    if($out_count >0)
-    {
-        $out_commodity=$outward_row["commodity"];
-        $out_delivery = $outward_row["delivery"];
-        $out_date=$outward_row["outward_date"];
-        $out_bags = $outward_row["bags"];
-        $out_gross_wt = $outward_row["gross_wt"];
-        $out_net_wt = $outward_row["net_wt"];
-    }
+    // if($out_count >0)
+    // {
+    //     $out_commodity=$outward_row["commodity"];
+    //     $out_delivery = $outward_row["delivery"];
+    //     $out_date=$outward_row["outward_date"];
+    //     $out_bags = $outward_row["bags"];
+    //     $out_gross_wt = $outward_row["gross_wt"];
+    //     $out_net_wt = $outward_row["net_wt"];
+    // }
 
 $pdf = new FPDF();
 $pdf->AddPage();
