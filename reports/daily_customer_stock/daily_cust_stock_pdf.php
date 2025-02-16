@@ -190,9 +190,7 @@
     {
         foreach ($inward_result as $in)
         {
-            $pdf->Cell(130,6,'Received From'.$in["transport_mode"].' '.$commodity,1,0,'C');
-            $pdf->Cell(30,6,'',1,0,'C');
-            $pdf->Cell(30,6,'',1,1,'C');
+            $pdf->Cell(190,6,'Received From'.$in["transport_mode"].' '.$commodity,1,1,'C');
 
             $pdf->Cell(100,6,'',1,0,'C');
             $pdf->Cell(30,6,round($in['bags'],3),1,0,'C');
@@ -215,9 +213,7 @@
         // Code for printing Wagon based inward stock.
         foreach ($inward_wagon_result as $wg) 
         {
-            $pdf->Cell(130,6,'Received From'.$wg["transport_mode"].' '.$commodity,1,0,'C');
-            $pdf->Cell(30,6,'',1,0,'C');
-            $pdf->Cell(30,6,'',1,1,'C');
+            $pdf->Cell(190,6,'Received From'.$wg["transport_mode"].' '.$commodity,1,1,'C');
 
             $pdf->Cell(100,6,'',1,0,'C');
             $pdf->Cell(30,6,round($wg['bags'],3),1,0,'C');
@@ -287,8 +283,7 @@
 
         foreach ($outward_result as $og) 
         {
-            $pdf->Cell(160,6,'DELIVERY OF '.$og['delivery'].' '.$commodity,1,0,'C');
-            $pdf->Cell(30,6,'',1,1,'C');
+            $pdf->Cell(190,6,'DELIVERY OF '.$og['delivery'].' '.$commodity,1,1,'C');
 
             $pdf->Cell(100,6,'',1,0,'C');
             $pdf->Cell(30,6,round($og['bags'],3),1,0,'C');
