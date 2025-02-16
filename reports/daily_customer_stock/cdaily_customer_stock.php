@@ -33,30 +33,6 @@ switch ($action)
                 exit;    
             }
         }
-        // else if (isset($_POST['Stock'])) 
-        // {
-        //     $customer_id = $_POST['customer'];
-        //     $commodity_id = $_POST['commodity'];
-        //     $rpt_date = date("Y-m-d",strtotime($_POST['rptdate']));
-        //     if($customer_id > 0 )
-        //     {
-        //         $report = new AllReports();
-        //         $openstock_result = $report->updateCustomerOpeningStock($customer_id, $commodity_id, $rpt_date);
-        //         if($openstock_result == -1)
-        //         {
-        //             $info_message = "No stock available for Customer/Commodity for update.";
-        //             header("Location: ../../daily_customer_stock-rpt");
-        //             exit;
-        //         }
-        //         else if($openstock_result >= 0)
-        //         {
-        //             $info_message = "Opening Stock details for Customer/Commodity re-validated.";
-        //             header("Location: ../../daily_customer_stock-rpt");
-        //             exit;
-        //         }
-
-        //     }
-        // }
         else
         {
             header("Location: ../daily_customer_stock-rpt");

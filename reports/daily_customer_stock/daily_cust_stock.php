@@ -1,4 +1,10 @@
 <?php
+    if (isset($_POST['Report'])) 
+    {
+        $customer_id = $_POST['customer'];
+        $commodity_id = $_POST['commodity'];
+        $rpt_date = date("Y-m-d",strtotime($_POST['rptdate']));
+    }
     $open_count = mysqli_num_rows($openstock_result);
     $in_count=mysqli_num_rows($inward_result);
     $in_wagon_count=mysqli_num_rows($inward_wagon_result);
@@ -23,8 +29,7 @@
     //$currentDate = $currentDateTime->format('d-M-Y'); 
     $customer = "";
     $commodity = "";
-    $rpt_date="";
-    
+        
     $open_bags = 0.000;
     $open_gross = 0.000;
     $open_net = 0.000;
@@ -389,7 +394,7 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
 
                     <div class="row" style="border:1px; border-style: solid;">
                         <div class="col col_des" style="border:1px;">
-                            <p class="bold">DELIVERY OF <?php echo $commodity; echo "  TO ".$out_delivery." ON ".$rpt_date; ?></p>                            
+                            <p class="bold">DELIVERY OF <?php echo $commodity; echo "  TO ".$out_delivery." ON ".$rpt_date; ?></p>
                         </div>
                     </div>
 
@@ -441,18 +446,21 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
     </div> 
     </div> 
 <br>
-   <h3 class="m-0 font-weight-bold text-primary"  >
-            
-            <a href="daily_cust_stock_pdf.php" class="btn btn-primary btn-md float-center" style="margin-left: 20px;" role="button" target="_blank">Generate PDF</a>
-            
+    <form name="frmAdd" method="post" action="../../reports/daily_customer_stock/daily_cust_stock_pdf.php" id="frmAdd">
+        <h3 class="m-0 font-weight-bold text-primary">
+        <input type="hidden" id="cust_id" name="cust_id" value=<?php echo $customer_id;?>>
+        <input type="hidden" id="comm_id" name="comm_id" value=<?php echo $commodity_id;?>>
+        <input type="hidden" id="pdf_dt" name="pdf_dt" value=<?php echo $rpt_date;?>>
+        <button class="btn btn-primary" type="submit" name="btnSubmit" id="btnSubmit" value="GeneratePDF" target="_blank">Generate PDF</button>
             <!-- 
+                <a href="daily_cust_stock_pdf.php" class="btn btn-primary btn-md float-center" style="margin-left: 20px;" role="button" target="_blank">Generate PDF</a>
                 <a href="../../reports/current_stock/excel_export.php" class="btn btn-primary btn-md float-center" role="button" target="_blank"> Export Excel</a>
             -->
     </h3>
+    </form>
   </div>
 </div>
 <!-- /.container-fluid -->
-
 <?php
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/scripts.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/footer.php');
