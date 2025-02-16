@@ -12,7 +12,11 @@
     <form name="frmAdd" method="post" action="../reports/daily_customer_stock/cdaily_customer_stock.php?action=generate_report" id="frmAdd" onSubmit="return validate();">
     <div class="container">
     <div class="form-row">
-
+        <div class="col-md-12 mb-3">
+            <span id="main-info" class="info"></span>
+        </div>
+    </div>        
+    <div class="form-row">        
         <div class="col-md-3 mb-3">
             <label for="validationDefault05" class="info">Customer</label><span id="customer-info" class="info"></span>
             <select id="customer" name="customer" class="form-control demoInputBox" required>
@@ -77,11 +81,41 @@
             <div class="container">
                 <div class="form-row">
                     <div class="col-md-3" style="margin-left:10px;padding-top: 32px;">
-                        <button class="btn btn-primary" type="submit" name="btnSubmit" id="btnSubmit" value="Fetch Data" >Generate Report</button>
+                        <button class="btn btn-primary" type="submit" name="Report" id="btnSubmit" value="Fetch Data" >Generate Report</button>
+                    </div>
+                    <div class="col-md-3" style="margin-left:10px;padding-top: 32px;">
+                        <a href="#" id="btnStock" name="btnStock" class="btn btn-primary btn-md float-right" role="button">Re-Process OpeningStock</a>
                     </div>
                 </div>
             </div>                               
         </div> 
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+        
+            $(document).ready(function()
+            {
+            $("#btnStock").click(function()
+            {
+                var customer_id = $("#customer").val();
+                var commodity_id = $("#commodity").val();
+                var stk_date = $("#rptdate").val();
+                $.ajax(
+                {
+                    url:"../../reports/daily_customer_stock/recalculate_stock.php",
+                    type:"POST",
+                    data:{customer_id:customer_id,commodity_id:commodity_id,stk_date:stk_date},
+                    success:function(mydata)
+                    {
+                    $("#main-info").html(mydata);
+                    } 
+                }
+                )
+            }
+    
+            )})
+        </script>         
+
    </div>
  </div>
 </form>

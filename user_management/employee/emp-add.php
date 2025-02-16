@@ -37,7 +37,7 @@
       <label for="validationDefault03" class="info">Email</label><span id="email-info" class="info"></span>
       <input type="email" class="form-control demoInputBox" id="email" name= "email" placeholder="Email" required>
     </div>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
       
 	    $(document).ready(function()
