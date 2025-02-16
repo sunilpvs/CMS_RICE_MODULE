@@ -442,8 +442,12 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
     </div> 
 <br>
    <h3 class="m-0 font-weight-bold text-primary"  >
-            <!--<a href="department_generate_pdf.php" class="btn btn-primary btn-md float-center" style="margin-left: 20px;" role="button" target="_blank">Generate PDF</a>-->
-            <a href="../../reports/current_stock/excel_export.php" class="btn btn-primary btn-md float-center" role="button" target="_blank"> Export Excel</a>
+            
+            <a href="daily_cust_stock_pdf.php" class="btn btn-primary btn-md float-center" style="margin-left: 20px;" role="button" target="_blank">Generate PDF</a>
+            
+            <!-- 
+                <a href="../../reports/current_stock/excel_export.php" class="btn btn-primary btn-md float-center" role="button" target="_blank"> Export Excel</a>
+            -->
     </h3>
   </div>
 </div>
