@@ -283,7 +283,7 @@
 
         foreach ($outward_result as $og) 
         {
-            $pdf->Cell(190,6,'DELIVERY OF '.$og['delivery'].' '.$commodity,1,1,'C');
+            $pdf->Cell(190,6,'DELIVERY OF '.$og['delivery'].' '.$commodity,1,1,'L');
 
             $pdf->Cell(100,6,'',1,0,'C');
             $pdf->Cell(30,6,round($og['bags'],3),1,0,'C');
