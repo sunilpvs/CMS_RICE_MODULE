@@ -451,7 +451,7 @@ SUB :DELIVERY DETAILS OF BOILED RICE, BROKEN & REJECTION</h4> <br>
         <input type="hidden" id="cust_id" name="cust_id" value=<?php echo $customer_id;?>>
         <input type="hidden" id="comm_id" name="comm_id" value=<?php echo $commodity_id;?>>
         <input type="hidden" id="pdf_dt" name="pdf_dt" value=<?php echo $rpt_date;?>>
-        <button class="btn btn-primary" type="submit" name="btnSubmit" id="btnSubmit" value="GeneratePDF" target="_blank">Generate PDF</button>
+        <button class="btn btn-primary" type="submit" name="btnSubmit" id="btnSubmit" value="GeneratePDF" target="__blank">Generate PDF</button>
             <!-- 
                 <a href="daily_cust_stock_pdf.php" class="btn btn-primary btn-md float-center" style="margin-left: 20px;" role="button" target="_blank">Generate PDF</a>
                 <a href="../../reports/current_stock/excel_export.php" class="btn btn-primary btn-md float-center" role="button" target="_blank"> Export Excel</a>
