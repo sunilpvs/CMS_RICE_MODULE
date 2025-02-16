@@ -171,7 +171,7 @@
     if($open_count > 0)
     {
         $pdf->SetFont('Arial','',10);
-        $pdf->Cell(80,6,'Opening Stock',1,0,'C');
+        $pdf->Cell(80,6,'Opening Stock',1,0,'L');
         $pdf->Cell(20,6,'',1,0,'C');
         $pdf->Cell(30,6,round($open_bags,3),1,0,'C');
         $pdf->Cell(30,6,round($open_gross,3),1,0,'C');
@@ -228,14 +228,14 @@
         }
     }
 
-    $pdf->Cell(80,6,'Total Stock',1,0,'C');
+    $pdf->Cell(80,6,'Total Stock',1,0,'L');
     $pdf->Cell(20,6,'',1,0,'C');
     $pdf->Cell(30,6,$tot_bags,1,0,'C');
     $pdf->Cell(30,6,$tot_gross_wt,1,0,'C');
     $pdf->Cell(30,6,$tot_net_wt,1,1,'C');
 
 
-    $pdf->Cell(100,6,'Paraboiled Rejection Sale',1,0,'C');
+    $pdf->Cell(100,6,'Paraboiled Rejection Sale',1,0,'L');
     $pdf->Cell(30,6,'',1,0,'C');
     $pdf->Cell(30,6,'',1,0,'C');
     $pdf->Cell(30,6,'',1,1,'C');
@@ -246,7 +246,7 @@
     $pdf->Cell(30,6,'',1,0,'C');
     $pdf->Cell(30,6,'',1,1,'C');
 
-    $pdf->Cell(80,6,'Balance',1,0,'C');
+    $pdf->Cell(80,6,'Balance',1,0,'L');
     $pdf->Cell(20,6,'',1,0,'C');
     $pdf->Cell(30,6,$tot_bags,1,0,'C');
     $pdf->Cell(30,6,$tot_gross_wt,1,0,'C');
@@ -270,7 +270,7 @@
     $pdf->Cell(30,6,'Net Weight',1,1,'C');
 
     $pdf->SetFont('Arial','',10);
-    $pdf->Cell(80,6,'Opening Stock',1,0,'C');
+    $pdf->Cell(80,6,'Opening Stock',1,0,'L');
     $pdf->Cell(20,6,'',1,0,'C');
     $pdf->Cell(30,6,'',1,0,'C');
     $pdf->Cell(30,6,'',1,0,'C');
@@ -305,7 +305,7 @@
         // Blank Row End 
     }
     //Delivery Details
-    $pdf->Cell(80,6,'Closing Stock',1,0,'C');
+    $pdf->Cell(80,6,'Closing Stock',1,0,'L');
     $pdf->Cell(20,6,'',1,0,'C');
     if($tot_bags>0) 
     {
