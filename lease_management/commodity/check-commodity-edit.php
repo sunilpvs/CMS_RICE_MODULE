@@ -6,12 +6,12 @@ $brand = trim($_POST['brand']);
 $marking = trim($_POST['marking']);
 $result = FALSE;
     $blank= FALSE;
-    if($commodity_name == "" || $brand == "" || $marking == "" ||)
+    if($commodity_name == "" || $brand == "" || $marking == "")
     {
         $blank = TRUE;
     }
-$commodity = new Commodity();
-$result = $commodity->validateCommodityEdit($commodity_id, $commodity_name, $brand, $marking);
+    $commodity = new Commodity();
+    $result = $commodity->validateCommodityEdit($commodity_id, $commodity_name, $brand, $marking);
     if(!$result)
     {
         echo "<span style='color:red'> *combination already exists.</span>";
@@ -20,7 +20,7 @@ $result = $commodity->validateCommodityEdit($commodity_id, $commodity_name, $bra
     else if($blank == TRUE)
     {
         echo "<span style='color:red'> *blank record.</span>";
-      
+    }  
     else
     {
         echo "<span style='color:green'></span>";
