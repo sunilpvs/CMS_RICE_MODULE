@@ -61,7 +61,7 @@ switch ($action)
             $add2 = trim($_POST['add2']);
             $city = trim($_POST['city']);
             $state = trim($_POST['state']);
-            $pin = $trim($_POST['pin']);
+            $pin = trim($_POST['pin']);
             $country = trim($_POST['country']);
             $ctype = trim($_POST['ctype']);
             $contact->editContact($f_name, $l_name, $dob, $email, $mobile, $add1, $add2, $city, $state, $pin, $country, $ctype, $contact_id);
