@@ -1,7 +1,7 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] .'/includes/DBController.php');
-include_once('fpdf/fpdf.php'); 
-include_once('index1.php'); 
+    require_once($_SERVER['DOCUMENT_ROOT'] .'/includes/DBController.php');
+    include_once('fpdf/fpdf.php'); 
+    include_once('index1.php'); 
 
 class PDF extends FPDF
 {

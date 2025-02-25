@@ -1,7 +1,7 @@
 <?php
-session_start();
- require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
-require_once($_SERVER['DOCUMENT_ROOT'] ."/admin/city/City.php");
+    session_start();
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/admin/city/City.php");
 
 // $action = "";
 if (! empty($_GET["action"])) {
