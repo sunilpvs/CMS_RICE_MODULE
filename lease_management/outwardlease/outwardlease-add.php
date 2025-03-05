@@ -3,6 +3,7 @@
   require_once($_SERVER['DOCUMENT_ROOT'] .'/lease_management/outwardlease/Outwardlease.php');
   include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
   include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
+  include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
   
   if (!empty($result))
   {

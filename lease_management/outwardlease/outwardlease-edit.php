@@ -1,13 +1,14 @@
 <?php 
-    date_default_timezone_set('Asia/Kolkata');
-   # require_once($_SERVER['DOCUMENT_ROOT'] .'/web/header.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] .'/lease_management/outwardlease/Outwardlease.php');
-       include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+  date_default_timezone_set('Asia/Kolkata');
+  # require_once($_SERVER['DOCUMENT_ROOT'] .'/web/header.php');
+  require_once($_SERVER['DOCUMENT_ROOT'] .'/lease_management/outwardlease/Outwardlease.php');
+  include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
   include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
-    include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
-    if (!empty($result)){
-        $row1 = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    }
+  include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
+
+  if (!empty($result)){
+      $row1 = mysqli_fetch_array($result, MYSQLI_ASSOC);
+  }
 ?>
 
 <div class="container-fluid">

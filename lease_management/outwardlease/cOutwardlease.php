@@ -1,10 +1,11 @@
 <?php
-session_start();
-date_default_timezone_set('Asia/Kolkata');
-require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
-require_once($_SERVER['DOCUMENT_ROOT'] ."/lease_management/outwardlease/Outwardlease.php");
-$db_handle = new DBController();
-// $action = "";
+    session_start();
+    date_default_timezone_set('Asia/Kolkata');
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/lease_management/outwardlease/Outwardlease.php");
+    //$db_handle = new DBController();
+
+    // $action = "";
 if (! empty($_GET["action"])) {
     $action = $_GET["action"];
 }

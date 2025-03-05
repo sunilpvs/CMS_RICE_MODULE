@@ -1,7 +1,7 @@
 <?php 
     date_default_timezone_set('Asia/Kolkata');
     require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/DBController.php");
-  require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/includes/Generic.php");
  
 class Outwardlease
 {
@@ -112,7 +112,7 @@ class Outwardlease
             $sql = "UPDATE tbl_warehouse SET used_sqft = $used_sqft, used_mton = $used_mton, avl_sqft = $avl_sqft, avl_mton = $avl_mton  WHERE id = $warehouse_id;"; 
             $result = $this->db_handle->runBaseQuery($sql);
             //Update Contract_Id of Inward Lease for  new Inserted Row
-            $query = "SELECT id,prefix FROM tbl_outwardlease WHERE id =?;";
+            $query = "SELECT id FROM tbl_outwardlease WHERE id =?;";
             $paramType = "i";
             $paramValue = array(
                 $insertId
