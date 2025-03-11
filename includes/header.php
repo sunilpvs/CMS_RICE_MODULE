@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php  
+<?php
   include($_SERVER['DOCUMENT_ROOT'] .'/config.php'); 
-
-  date_default_timezone_set('Asia/Kolkata'); 
+  date_default_timezone_set('Asia/Kolkata');
   # Start a new session, regenerate a session id if needed.
   if(!isset($_SESSION)) 
   { 
@@ -22,12 +19,14 @@
   {
     $myrole = $_SESSION['user_role_id'];
   }
-  
+
   if($myrole !=1 && $maintenance == 1) 
   {
     header('Location: ../sysmaint');
   }
 ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="refresh" content="900;url=../../user_management/logout.php" />
