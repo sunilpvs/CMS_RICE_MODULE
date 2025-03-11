@@ -1,6 +1,6 @@
 <?php
     date_default_timezone_set('Asia/Kolkata');
-    require_once($_SERVER['DOCUMENT_ROOT'] .'/includes/DBController.php');
+    #require_once($_SERVER['DOCUMENT_ROOT'] .'/includes/DBController.php');
     if(isset($_SESSION['user_role_id']))
     {
       $myrole = $_SESSION['user_role_id'];

@@ -9,7 +9,9 @@
     }
     else
     {
-    $action = "default";}
+        $action = "default";
+    }
+    
     switch ($action) 
     {    
         case "inwardlease-add":

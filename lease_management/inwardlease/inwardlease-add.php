@@ -1,8 +1,7 @@
 <?php 
     date_default_timezone_set('Asia/Kolkata');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
-    include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
-   
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php'); 
 ?>
 
 <div class="container-fluid">

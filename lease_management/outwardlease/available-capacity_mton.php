@@ -1,6 +1,5 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] .'/lease_management/outwardlease/Outwardlease.php');
-
 $lease_capacity_mton = trim($_POST['lease_capacity_mton']); 
 $warehouse_id = trim($_POST["warehouse_id"]);
  $blank= FALSE;
