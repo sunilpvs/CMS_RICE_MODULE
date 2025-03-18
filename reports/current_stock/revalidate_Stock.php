@@ -27,7 +27,6 @@
     {
         echo "header('Location:../../reports/current_stock/vcurrent_stock.php')";
     }
-
 ?> 
 
 

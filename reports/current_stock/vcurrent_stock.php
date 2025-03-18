@@ -87,26 +87,24 @@
                 const comp_id = button.parentNode.parentNode.dataset.comp_id;
                 const trans_id = button.parentNode.parentNode.dataset.trans_id;
                 
-                //alert(cust_id);
+                alert(cust_id);
                 //alert(w_id);
                 //alert(comm_id);
                 //alert(comp_id );
                 //alert(trans_id);
                 $.ajax(
                 {
-                  url:"revalidate_Stock.php",
                   type:"POST",
+                  url:"../../reports/current_stock/revalidate_Stock.php",
                   data:{customer_id:cust_id,warehouse_id:w_id,compartment_id:comp_id,commodity_id:comm_id,mod_transport:trans_id},
                   success:function(mydata)
                   {
                     //$("#current_bags_stock").val(mydata);
                   } 
-                }
-                )
-
+                });
 
                 //var cell = document.getElementsByTagName("td");
-               //const trow = document.getElementById("row");  
+                //const trow = document.getElementById("row");  
                 //const row = trow.getAttribute("data-cust_id");
                 //alert(row); 
                 //var cell = document.getElementsByTagName("td");               
@@ -145,6 +143,6 @@
 
 
 <?php
-include($_SERVER['DOCUMENT_ROOT'] .'/includes/scripts.php');
+  include($_SERVER['DOCUMENT_ROOT'] .'/includes/scripts.php');
   include($_SERVER['DOCUMENT_ROOT'] .'/includes/footer.php');
 ?>
