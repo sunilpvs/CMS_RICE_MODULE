@@ -1,21 +1,17 @@
 <?php 
     date_default_timezone_set('Asia/Kolkata');
- include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php'); 
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
 ?>
-  <div class="container-fluid">
+<div class="container-fluid">
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h3 class="m-0 font-weight-bold text-primary">New Contact Details
-            
-    </h3>
+    <h3 class="m-0 font-weight-bold text-primary">New Contact Details</h3>
   </div>
 
 <div class="card-body">
-<form name="frmAdd" method="post" action="" id="frmAdd"
-    onSubmit="return validate();">
-
+<form name="frmAdd" method="post" action="" id="frmAdd" onSubmit="return validate();">
   <div class="container">
   <div class="form-row">
   

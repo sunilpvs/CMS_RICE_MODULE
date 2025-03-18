@@ -17,41 +17,101 @@
     <div class="table-responsive">
    
     <table id="datatableid" class="table table-bordered table-dark" style="width:100%;" >
-    <thead style="background-color:#4e73df;">
-    
+      <thead style="background-color:#4e73df;">
+        <tr style="font-size:14px">
+            <th><strong>Customer Name</strong></th>
+            <th><strong>Warehouse Name</strong></th>
+            <th><strong>Compartment</strong></th>
+            <th><strong>Commodity</strong></th>
+            <th><strong>Transport Mode</strong></th> 
+            <th><strong>Bags Stock</strong></th>
+            <th><strong>Gross Wt</strong></th>
+            <th><strong>Net Weight</strong></th>
+            <th><strong>Re-Validate</strong></th>
+        </tr>
+      </thead>
+      <tbody style="background-color:#ffffff; color: #000000;">
+        <?php
+        if (! empty($result)) {
+            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+            {    
+        ?>
+        <tr style="font-size:12px" id = "row"
+              data-cust_id=<?php echo $row["customer_id"]; ?>  data-w_id= <?php echo $row["warehouse_id"]; ?>
+              data-comm_id=<?php echo $row["commodity_id"]; ?>  data-comp_id= <?php echo $row["compartment_id"]; ?>
+              data-trans_id=<?php echo $row["mod_transport"]; ?> 
 
-                <tr style="font-size:14px">
-                    <th><strong>Customer Name</strong></th>
-                    <th><strong>Warehouse Name</strong></th>
-                    <th><strong>Compartment</strong></th>
-                    <th><strong>Commodity</strong></th>
-                    <th><strong>Transport Mode</strong></th> 
-                    <th><strong>Bags Stock</strong></th>
-                    <th><strong>Gross Wt</strong></th>
-                    <th><strong>Net Weight</strong></th>
-                </tr>
-            </thead>
-            <tbody style="background-color:#ffffff; color: #000000;">
-                    <?php
-                    if (! empty($result)) {
-                        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-                        {    
-                    ?>
-                    <tr style="font-size:12px">                   
-                      <td><?php echo $row["customer_name"]; ?></td>
-                      <td><?php echo $row["warehouse_name"]; ?></td>
-                      <td><?php echo $row["compartment_name"]; ?></td>
-                      <td><?php echo $row["commodity"]; ?></td>
-                      <td><?php echo $row["transport_mode"]; ?></td>
-                      <td><?php echo $row["bags_stock"]; ?></td>
-                      <td><?php echo $row["gross_wt"]; ?></td>
-                      <td><?php echo $row["net_wt"]; ?></td>
-                    </tr>
-                    <?php
-                        }
-                    }
-                    ?>
-            </tbody>        
+        >     
+                     
+          <td><?php echo $row["customer_name"]; ?></td>
+          <td><?php echo $row["warehouse_name"]; ?></td>
+          <td><?php echo $row["compartment_name"]; ?></td>
+          <td><?php echo $row["commodity"]; ?></td>
+          <td><?php echo $row["transport_mode"]; ?></td>
+          <td><?php echo $row["bags_stock"]; ?></td>
+          <td><?php echo $row["gross_wt"]; ?></td>
+          <td><?php echo $row["net_wt"]; ?></td>
+          <td>
+            <?php
+           
+              //$myrole
+              //1:SUPER USER::2:IT ADMIN::3:MOD_RICE_ADMIN::4:MOD_RICE_USER::5:BASE_EMPLOYEE
+              // Check if System Maintenance Mode
+              $myrole = 0;
+              if(isset($_SESSION['user_role_id']))
+              {
+                $myrole = $_SESSION['user_role_id'];
+              }
+              if ($myrole == 1 || $myrole == 2 || $myrole == 3)
+              {
+                //$eTxt = "<a class='btnEditAction' href='../../user_management/contact/cContact.php?action=contact-edit&id=".$row['customer_name']."'>";
+                //$eTxt .= "<img src='../../assests/img/icon-edit.png'/> </a>";
+                //echo $eTxt;
+               echo"<button onclick='revalidateStock(this)'><img src='../../assests/img/icon-edit.png'></button>";
+                //echo "<input type='image' src='../../assests/img/icon-edit.png' name='Release' onclick='revalidateStock();' value='Click to Re-Validate'>";
+                //echo"<button>Alert the value of each list item</button>";
+                //$eTxt = "<a class='btnEditAction' onclick='setSelectedTestPlan(this);' href='#'>";
+                //$eTxt .= "<img src='../../assests/img/icon-edit.png'/> </a>";
+                //echo $eTxt;
+              }
+            ?>
+          </td>
+           <script type="application/javascript">
+              function revalidateStock(button)
+              {
+                
+                const cust_id = button.parentNode.parentNode.dataset.cust_id;
+                const w_id = button.parentNode.parentNode.dataset.w_id;
+                const comm_id = button.parentNode.parentNode.dataset.comm_id;
+                const comp_id = button.parentNode.parentNode.dataset.comp_id;
+                const trans_id = button.parentNode.parentNode.dataset.trans_id;
+                //const row = trow.getAttribute("data-cust_id");
+                alert(cust_id);
+                alert(w_id);
+                alert(comm_id);
+                alert(comp_id );
+                alert(trans_id);
+
+                //var cell = document.getElementsByTagName("td");
+               //const trow = document.getElementById("row");  
+                //const row = trow.getAttribute("data-cust_id");
+                //alert(row); 
+                //var cell = document.getElementsByTagName("td");
+               
+                
+                //while(cell[i] != undefined)
+                //{ 
+                //  alert(cell[i].innerHTML); //do some alert for test 
+                //  i++; 
+               // }
+              }
+           </script>
+        </tr>
+        <?php
+            }
+        }
+        ?>
+      </tbody>        
    </table>
    <h3 class="m-0 font-weight-bold text-primary"  >
             <!--<a href="department_generate_pdf.php" class="btn btn-primary btn-md float-center" style="margin-left: 20px;" role="button" target="_blank">Generate PDF</a>-->
@@ -71,6 +131,7 @@
 
 </div>
 <!-- /.container-fluid -->
+
 
 <?php
 include($_SERVER['DOCUMENT_ROOT'] .'/includes/scripts.php');

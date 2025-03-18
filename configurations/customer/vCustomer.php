@@ -53,9 +53,12 @@
                         <a class="btnDeleteAction" 
                           href="../../configurations/customer/cCustomer.php?action=customer-delete&id=<?php echo $row["id"]; ?>">
                           <img src="../../assests/img/icon-delete.png" />
-                        </a>
-                        -->
+                        </a>-->
+                    
                     </td>
+                   
+          </td>
+           
                 </tr>
                     <?php
                         

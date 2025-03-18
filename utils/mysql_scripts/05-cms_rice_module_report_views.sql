@@ -37,7 +37,8 @@
 
 #View for Current Stock Report
 CREATE OR REPLACE VIEW `vw_rpt_currentstock` AS
-	SELECT b.customer_name, c.warehouse_name, d.compartment_name, e.commodity, f.transport_mode , a.bags_stock, a.gross_wt, a.net_wt 
+	SELECT b.id as customer_id, b.customer_name, c.id as warehouse_id, c.warehouse_name, d.id as compartment_id, d.compartment_name, 
+			e.id as commodity_id, e.commodity, f.id as mod_transport, f.transport_mode , a.bags_stock, a.gross_wt, a.net_wt 
 		FROM tbl_commodity_stock a, tbl_customer b, tbl_warehouse c, tbl_compartment d, tbl_commodity e, tbl_transport_mode f
 			WHERE a.customer_id = b.id  AND a.warehouse_id = c.id AND a.compartment_id = d.id AND a.commodity_id = e.id AND a.mod_transport = f.id
 				ORDER BY b.customer_name, c.warehouse_name, d.compartment_name, e.commodity, f.transport_mode;
@@ -47,14 +48,16 @@ CREATE OR REPLACE VIEW `vw_rpt_currentstock` AS
 #View for Daily Customer Stock Report - Inward Summary except for Wagon
 CREATE OR REPLACE VIEW `vw_rpt_daily_customer_open_stock` AS
 	SELECT b.id as customer_id, b.customer_name, c.id as warehouse_id, c.warehouse_name, e.id as commodity_id,  e.commodity, a.received_date as received_date, 
-		round(SUM(a.inward_bags_stock),3) as bags, round(SUM(a.inward_wb_gross_wt),3) as gross_wt, round((SUM(a.inward_wb_gross_wt)-(e.empty_bag_wt*SUM(a.inward_bags_stock))),3) as net_wt
+		#round(SUM(a.inward_bags_stock),3) as bags, round(SUM(a.inward_wb_gross_wt),3) as gross_wt, round((SUM(a.inward_wb_gross_wt)-(e.empty_bag_wt*SUM(a.inward_bags_stock))),3) as net_wt //Revised Below
+        round(SUM(a.inward_bags_stock),3) as bags, round(SUM(a.inward_wb_gross_wt),3) as gross_wt, round(SUM(a.inward_wb_net_wt),3) as net_wt
 		FROM tbl_inwardstock a, tbl_customer b, tbl_warehouse c, tbl_commodity e, tbl_transport_mode f
 			WHERE a.customer_id = b.id AND a.warehouse_id = c.id AND a.commodity_id = e.id AND a.mod_transport = f.id
 				GROUP BY b.id, b.customer_name, c.warehouse_name, e.commodity;
 
 CREATE OR REPLACE VIEW `vw_rpt_daily_customer_inwardstock` AS
 	SELECT b.id as customer_id, b.customer_name, e.id as commodity_id, e.commodity, f.transport_mode, a.received_date as received_date, 
-		round(SUM(a.inward_bags_stock),3) as bags, round(SUM(a.inward_wb_gross_wt),3) as gross_wt, round((SUM(a.inward_wb_gross_wt)-(e.empty_bag_wt*SUM(a.inward_bags_stock))),3) as net_wt
+		#round(SUM(a.inward_bags_stock),3) as bags, round(SUM(a.inward_wb_gross_wt),3) as gross_wt, round((SUM(a.inward_wb_gross_wt)-(e.empty_bag_wt*SUM(a.inward_bags_stock))),3) as net_wt //Revised Below
+        round(SUM(a.inward_bags_stock),3) as bags, round(SUM(a.inward_wb_gross_wt),3) as gross_wt, round(SUM(a.inward_wb_net_wt),3) as net_wt
 		FROM tbl_inwardstock a, tbl_customer b, tbl_warehouse c, tbl_compartment d, tbl_commodity e, tbl_transport_mode f
 			WHERE a.customer_id = b.id AND a.warehouse_id = c.id AND a.compartment_id = d.id AND a.commodity_id = e.id AND a.mod_transport = f.id
 				AND f.transport_mode != 'Wagon'
@@ -63,7 +66,8 @@ CREATE OR REPLACE VIEW `vw_rpt_daily_customer_inwardstock` AS
 #View for Daily Customer Stock Report - Inward Summary only Wagon
 CREATE OR REPLACE VIEW `vw_rpt_daily_customer_wagon_inwardstock` AS
 	SELECT b.id as customer_id, b.customer_name, e.id as commodity_id, e.commodity, f.transport_mode, a.received_date as received_date, 
-		round(SUM(a.inward_bags_stock),3) as bags, round(SUM(a.inward_wb_gross_wt),3) as gross_wt, round((SUM(a.inward_wb_gross_wt)-(e.empty_bag_wt*SUM(a.inward_bags_stock))),3) as net_wt
+		#round(SUM(a.inward_bags_stock),3) as bags, round(SUM(a.inward_wb_gross_wt),3) as gross_wt, round((SUM(a.inward_wb_gross_wt)-(e.empty_bag_wt*SUM(a.inward_bags_stock))),3) as net_wt / Revised below
+		round(SUM(a.inward_bags_stock),3) as bags, round(SUM(a.inward_wb_gross_wt),3) as gross_wt, round(SUM(a.inward_wb_net_wt),3) as net_wt
 		FROM tbl_inwardstock a, tbl_customer b, tbl_warehouse c, tbl_compartment d, tbl_commodity e, tbl_transport_mode f
 			WHERE a.customer_id = b.id AND a.warehouse_id = c.id AND a.compartment_id = d.id AND a.commodity_id = e.id AND a.mod_transport = f.id
 				AND f.transport_mode = 'Wagon'
@@ -72,9 +76,10 @@ CREATE OR REPLACE VIEW `vw_rpt_daily_customer_wagon_inwardstock` AS
 #View for Daily Customer Stock Report - Outward Summary
 CREATE OR REPLACE VIEW `vw_rpt_daily_customer_outwardstock` AS 
 	SELECT b.id as customer_id, b.customer_name, e.id as commodity_id, e.commodity, g.name as delivery, a.outward_date, 
-		round(SUM(a.bags_out),3) as bags, round(SUM(a.wb_gross_wt),3) as gross_wt, round((SUM(a.wb_gross_wt)-(e.empty_bag_wt*SUM(a.bags_out))),3) as net_wt
+		#round(SUM(a.bags_out),3) as bags, round(SUM(a.wb_gross_wt),3) as gross_wt, round((SUM(a.wb_gross_wt)-(e.empty_bag_wt*SUM(a.bags_out))),3) as net_wt //Revised below
+        round(SUM(a.bags_out),3) as bags, round(SUM(a.wb_gross_wt),3) as gross_wt, round(SUM(a.wb_net_wt),3) as net_wt
 		FROM tbl_outwardstock a, tbl_customer b, tbl_warehouse c, tbl_compartment d, tbl_commodity e, tbl_transport_mode f, tbl_delivery_details g
 			WHERE a.customer_id = b.id AND a.warehouse_id = c.id AND a.compartment_id = d.id AND a.commodity_id = e.id AND a.delivery_dtl = g.id 
 				GROUP BY b.id, b.customer_name, e.commodity, g.name , a.outward_date; 
-                
+
 #View for Daily Customer Stock Report Ends here
