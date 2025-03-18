@@ -67,7 +67,7 @@
                 //$eTxt = "<a class='btnEditAction' href='../../user_management/contact/cContact.php?action=contact-edit&id=".$row['customer_name']."'>";
                 //$eTxt .= "<img src='../../assests/img/icon-edit.png'/> </a>";
                 //echo $eTxt;
-               echo"<button onclick='revalidateStock(this)'><img src='../../assests/img/icon-edit.png'></button>";
+                echo"<button onclick='revalidateStock(this)'><img src='../../assests/img/icon-edit.png'></button>";
                 //echo "<input type='image' src='../../assests/img/icon-edit.png' name='Release' onclick='revalidateStock();' value='Click to Re-Validate'>";
                 //echo"<button>Alert the value of each list item</button>";
                 //$eTxt = "<a class='btnEditAction' onclick='setSelectedTestPlan(this);' href='#'>";
@@ -76,29 +76,40 @@
               }
             ?>
           </td>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
            <script type="application/javascript">
+
               function revalidateStock(button)
-              {
-                
+              {    
                 const cust_id = button.parentNode.parentNode.dataset.cust_id;
                 const w_id = button.parentNode.parentNode.dataset.w_id;
                 const comm_id = button.parentNode.parentNode.dataset.comm_id;
                 const comp_id = button.parentNode.parentNode.dataset.comp_id;
                 const trans_id = button.parentNode.parentNode.dataset.trans_id;
-                //const row = trow.getAttribute("data-cust_id");
-                alert(cust_id);
-                alert(w_id);
-                alert(comm_id);
-                alert(comp_id );
-                alert(trans_id);
+                
+                //alert(cust_id);
+                //alert(w_id);
+                //alert(comm_id);
+                //alert(comp_id );
+                //alert(trans_id);
+                $.ajax(
+                {
+                  url:"revalidate_Stock.php",
+                  type:"POST",
+                  data:{customer_id:cust_id,warehouse_id:w_id,compartment_id:comp_id,commodity_id:comm_id,mod_transport:trans_id},
+                  success:function(mydata)
+                  {
+                    //$("#current_bags_stock").val(mydata);
+                  } 
+                }
+                )
+
 
                 //var cell = document.getElementsByTagName("td");
                //const trow = document.getElementById("row");  
                 //const row = trow.getAttribute("data-cust_id");
                 //alert(row); 
-                //var cell = document.getElementsByTagName("td");
-               
-                
+                //var cell = document.getElementsByTagName("td");               
                 //while(cell[i] != undefined)
                 //{ 
                 //  alert(cell[i].innerHTML); //do some alert for test 

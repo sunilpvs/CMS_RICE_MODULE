@@ -27,6 +27,13 @@
             return $result;
         } 
 
+        function revalidateStock($customer_id, $warehouse_id, $commodity_id, $compartment_id, $mod_transport)
+        {
+            $sql = "call sp_updateCommodityStock($customer_id,$warehouse_id, $commodity_id, $compartment_id, $mod_transport);";
+            $result = $this->db_handle->runBaseQuery($sql);
+            return $result;
+        }
+
         function getInwardLeaseReport() 
         {
            
