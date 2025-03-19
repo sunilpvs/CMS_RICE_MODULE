@@ -7,7 +7,7 @@
 -- if cursor returns rows it will insert cursor values into table else it will insert 0 for bags,gross_wt,net_wt.
 DROP PROCEDURE IF EXISTS `sp_updateCommodityStock`;
 DELIMITER //
-CREATE PROCEDURE `sp_updateCommodityStock` (cust_id int(11),w_id int(11), comm_id int(11), comp_id int(11), trans_id int(11))
+CREATE PROCEDURE `sp_updateCommodityStock` (cust_id int(11), w_id int(11), comm_id int(11), comp_id int(11), trans_id int(11))
 BEGIN
 	DECLARE done INT DEFAULT 0;
     DECLARE in_bags INT DEFAULT 0;

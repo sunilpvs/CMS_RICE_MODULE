@@ -76,8 +76,8 @@
               }
             ?>
           </td>
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-           <script type="application/javascript">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script>
 
               function revalidateStock(button)
               {    
@@ -87,16 +87,16 @@
                 const comp_id = button.parentNode.parentNode.dataset.comp_id;
                 const trans_id = button.parentNode.parentNode.dataset.trans_id;
                 
-                alert(cust_id);
+                //alert(cust_id);
                 //alert(w_id);
                 //alert(comm_id);
                 //alert(comp_id );
                 //alert(trans_id);
                 $.ajax(
                 {
-                  type:"POST",
                   url:"../../reports/current_stock/revalidate_Stock.php",
-                  data:{customer_id:cust_id,warehouse_id:w_id,compartment_id:comp_id,commodity_id:comm_id,mod_transport:trans_id},
+                  type:"post",
+                  data:{customer_id: cust_id, warehouse_id: w_id, compartment_id: comp_id, commodity_id: comm_id, mod_transport: trans_id},
                   success:function(mydata)
                   {
                     //$("#current_bags_stock").val(mydata);

@@ -29,8 +29,16 @@
 
         function revalidateStock($customer_id, $warehouse_id, $commodity_id, $compartment_id, $mod_transport)
         {
-            $sql = "call sp_updateCommodityStock($customer_id,$warehouse_id, $commodity_id, $compartment_id, $mod_transport);";
-            $result = $this->db_handle->runBaseQuery($sql);
+            $sql = "CALL sp_updateCommodityStock(?, ?, ?, ?, ?)";
+            $paramType = "iiiii";
+            $paramValue = array(
+                $customer_id,
+                $warehouse_id, 
+                $commodity_id, 
+                $compartment_id, 
+                $mod_transport
+            );
+            $result = $this->db_handle->executeQuery($sql, $paramType, $paramValue);
             return $result;
         }
 
