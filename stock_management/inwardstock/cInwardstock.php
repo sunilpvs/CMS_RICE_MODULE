@@ -64,7 +64,7 @@
                 $inwardstock_id = $_GET["id"];
                 $inwardstock = new Inwardstock();
                 if (isset($_POST['add'])){
-                   $customer = trim($_POST['customer']);
+                    $customer = trim($_POST['customer']);
                     $warehouse = trim($_POST['warehouse']);
                     $compartment_id = trim($_POST['compartment']);
                     $commodity_id  = trim($_POST['commodity_id']);
@@ -83,8 +83,21 @@
                     $inward_diff_gross = trim($_POST['inward_diff_gross']);
                     $inward_diff_net = trim($_POST['inward_diff_net']);
                     $remarks = trim($_POST['remarks']);
-                $inwardstock->editInwardstock($customer, $warehouse,$compartment_id, $commodity_id, $mod_transport, $vehicle_no, $current_bags_stock,  $received_date,$invoice_date, $invoice_no, $miller_id, $inward_bags_stock, $inward_gross_wt,  $inward_net_wt, $inward_wb_gross_wt, $inward_wb_net_wt,  $inward_diff_gross, $inward_diff_net, $remarks, $inwardstock_id);
-                header("Location: ../../stock_management/inwardstock/cInwardstock.php");
+                    // Hidden Old Values
+                    $inward_bags_stock_ori = trim($_POST['inward_bags_stock_ori']);
+                    $inward_gross_wt_ori = trim(trim($_POST['inward_gross_wt_ori']));
+                    $inward_net_wt_ori = trim($_POST['inward_net_wt_ori']);
+                    $inward_diff_gross_ori = trim($_POST['inward_diff_gross_ori']);                    
+                    $inward_wb_gross_wt_ori = trim(trim($_POST['inward_wb_gross_wt_ori']));
+                    $inward_wb_net_wt_ori = trim($_POST['inward_wb_net_wt_ori']);
+                    $inward_diff_net_ori = trim($_POST['inward_diff_net_ori']);
+                    $inwardstock->editInwardstock($customer, $warehouse,$compartment_id, $commodity_id, $mod_transport, 
+                                    $vehicle_no, $current_bags_stock,  $received_date,$invoice_date, $invoice_no, 
+                                    $miller_id, $inward_bags_stock, $inward_gross_wt,  $inward_net_wt, $inward_wb_gross_wt,
+                                    $inward_wb_net_wt,  $inward_diff_gross, $inward_diff_net, $remarks, $inwardstock_id,
+                                    $inward_bags_stock_ori,$inward_gross_wt_ori,$inward_net_wt_ori,$inward_diff_gross_ori,
+                                    $inward_wb_gross_wt_ori,$inward_wb_net_wt_ori,$inward_diff_net_ori);
+                    header("Location: ../../stock_management/inwardstock/cInwardstock.php");
                 }
                 $result = $inwardstock->getInwardstockById($inwardstock_id);
                 require_once "../../stock_management/inwardstock/inwardstock-edit.php";

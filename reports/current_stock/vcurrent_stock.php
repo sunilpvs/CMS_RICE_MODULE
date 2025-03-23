@@ -100,6 +100,7 @@
                   success:function(mydata)
                   {
                     //$("#current_bags_stock").val(mydata);
+                    window.location.reload();
                   } 
                 });
 

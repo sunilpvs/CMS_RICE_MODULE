@@ -1,84 +1,93 @@
 <?php 
     date_default_timezone_set('Asia/Kolkata');
-    #require_once($_SERVER['DOCUMENT_ROOT'] .'/web/header.php');
+   # require_once($_SERVER['DOCUMENT_ROOT'] .'/web/header.php');
     require_once($_SERVER['DOCUMENT_ROOT'] .'/stock_management/inwardstock/Inwardstock.php');
     include('../../includes/header.php'); 
     include('../../includes/navbar.php');
-    include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
-    
+      include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
     if (!empty($result)){
         $row1 = mysqli_fetch_array($result, MYSQLI_ASSOC);
     }
 ?>
+
 <div class="container-fluid">
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h3 class="m-0 font-weight-bold text-primary">Edit Inwardstock Details</h3>
+    <h3 class="m-0 font-weight-bold text-primary">Edit Inwardstock Details
+            
+    </h3>
   </div>
-<div class="card-body">
-<form name="frmAdd" method="post" action="" id="frmAdd" onSubmit="return validate();">
-<div class="container">
-  <div class="form-row">
 
-    <div class="col-md-3 mb-3">
-    <label for="validationDefault01" class="info">Customer</label><span id="customer-info" class="info"></span>
-      <select id="customer" name="customer" class="form-control demoInputBox" required>
+<div class="card-body">
+
+<form name="frmAdd" method="post" action="" id="frmAdd" onSubmit="return validate();">
+
+    <div class="container">
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+      <label for="validationDefault01" class="info">Customer</label><span
+            id="customer-info" class="info"></span>
+      <select id="customer" name="customer" class="form-control demoInputBox" onchange="getWarehouse(this.value);" required>
         <option value ="0" >Select Customer</option>
-        <?php
+      <?php
             $gen = new Generic();
             $result = $gen->getCustomerList();
             if (!empty($result)) {
                         while ($row2 = mysqli_fetch_array($result, MYSQLI_ASSOC))
                         { 
-        ?>
-        <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1['customer_id']) { $id = $row1['customer_id']; echo "Selected"; } ?>> <?php echo $row2["customer_name"] ?></option>
+      ?>
+ 
+        <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1['customer_id']) { echo "Selected"; } ?>> <?php echo $row2["customer_name"] ?></option>
       <?php
-                        }
+            }
             }
       ?>
       </select>
     </div>
-
+    
     <div class="col-md-3 mb-3">
-    <label for="validationDefault01" class="info">Warehouse</label><span id="warehouse-info" class="info"></span>
-      <select id="warehouse" name="warehouse" class="form-control demoInputBox" required>
-        <option value ="0" >Select warehouse</option>
-        <?php
+      <label for="validationDefault01" class="info">Warehouse</label><span
+            id="warehouse-info" class="info"></span>
+ <select id="customer" name="customer" class="form-control demoInputBox" onchange="getWarehouse(this.value);" required>
+        <option value ="0" >Select Customer</option>
+      <?php
             $gen = new Generic();
-            $result = $gen->getWarehouseByCustomer($id);
+            $result = $gen->getWarehousesList();
             if (!empty($result)) {
                         while ($row2 = mysqli_fetch_array($result, MYSQLI_ASSOC))
                         { 
-        ?>
-        <option value=<?php echo $row2['warehouse_id']; ?> <?php if($row2['warehouse_id'] == $row1['warehouse_id']) {$id2=$row2['warehouse_id']; echo "Selected"; } ?>> <?php echo $row2["warehouse_name"] ?></option>
+      ?>
+ 
+        <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1['warehouse_id']) { echo "Selected"; } ?>> <?php echo $row2["warehouse_name"] ?></option>
       <?php
-                        }
+            }
             }
       ?>
       </select>
     </div>
-
+    
     <div class="col-md-3 mb-3">
-    <label for="validationDefault01" class="info">Compartment</label><span id="compartment-info" class="info"></span>
-      <select id="compartment" name="compartment" class="form-control demoInputBox" required>
-        <option value ="0" >Select Compartment</option>
-        <?php
-            $gen = new Generic();
-            $result = $gen->getCompartmentByCustomerWarehouse($id, $id2);
-            if (!empty($result)) {
-                        while ($row2 = mysqli_fetch_array($result, MYSQLI_ASSOC))
-                        { 
-        ?>
-        <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1['compartment_id']) { echo "Selected"; } ?>> <?php echo $row2["compartment_name"] ?></option>
-      <?php
-                        }
-            }
-      ?>
-      </select>
+      <label for="validationDefault02" class="info">Compartment</label><span
+            id="compartment-info" class="info"></span>
+ <select id="compartment_id" name="compartment_id" class="form-control demoInputBox">
+          <option value = -1>Select Compartment</option>
+            <?php
+                 $gen = new Inwardstock();
+              $result = $gen->getInwardstockCompartmentList();
+              if (!empty($result)) {
+                  while ($row2 = mysqli_fetch_array($result, MYSQLI_ASSOC))
+                  {   
+            ?> 
+            <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1['compartment_id']) { echo "Selected"; } ?>> <?php echo $row2["compartment_name"] ?></option>
+                      
+            <?php   } 
+                }                
+            ?>         
+        </select>
     </div>
-   
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault02" class="info">Commodity</label><span id="commodity-info" class="info"></span>
+        <div class="col-md-3 mb-3">
+      <label for="validationDefault02" class="info">Commodity</label><span
+            id="commodity-info" class="info"></span>
       <select id="commodity_id" name="commodity_id" class="form-control demoInputBox">
           <option value = -1>Select Commodity</option>
             <?php
@@ -88,16 +97,17 @@
                     while ($row2 = mysqli_fetch_array($result, MYSQLI_ASSOC))
                     {   
             ?> 
-            <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1['commodity_id']) { echo "Selected"; } ?>> <?php echo $row2["commodity"] ?></option>          
+             <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1['commodity_id']) { echo "Selected"; } ?>> <?php echo $row2["commodity"] ?></option>
+                      
             <?php   } 
                 }                
             ?>         
-      </select>
+        </select>
     </div>
-
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault02" class="info">Transportation Mode</label><span id="mod_transport-info" class="info"></span>
-      <select id="mod_transport" name="mod_transport" class="form-control demoInputBox">
+      <div class="col-md-3 mb-3">
+      <label for="validationDefault02" class="info">Transportation Mode</label><span
+            id="mod_transport-info" class="info"></span>
+   <select id="mod_transport" name="mod_transport" class="form-control demoInputBox">
           <option value = -1>Select Transport Mode</option>
             <?php
                 $gen = new Generic();
@@ -106,17 +116,25 @@
                     while ($row2 = mysqli_fetch_array($result, MYSQLI_ASSOC))
                     {   
             ?> 
-             <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1['mod_transport']) { echo "Selected"; } ?>> <?php echo $row2["transport_mode"] ?></option>                
+             <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1['mod_transport']) { echo "Selected"; } ?>> <?php echo $row2["transport_mode"] ?></option>
+                      
             <?php   } 
                 }                
             ?>         
-      </select>
+        </select>
     </div>
-
+       <div class="col-md-3 mb-3">
+      <label for="validationDefault03" class="info">Current Bags Stock</label><span id="current_bags_stock-info" class="info"></span>
+      <input type="text" class="form-control demoInputBox" id="current_bags_stock" name= "current_bags_stock" placeholder="0.00" value="<?php echo $row1['current_bags_stock']; ?>" readonly>
+    </div> 
+  
     <div class="col-md-3 mb-3">
-      <label for="validationDefault03" class="info">Vehicle Number</label><span id="vehicle_no-info" class="info"></span>
+      <label for="validationDefault03" class="info">Vehicle Number</label><span
+            id="vehicle_no-info" class="info"></span>
       <input type="text"  maxlength="10" onKeyDown="return/[a-z0-9⌦←→⌫-]/i.test(event.key)" class="form-control demoInputBox" id="vehicle_no" name= "vehicle_no" placeholder="Vehicle Number" value="<?php echo $row1['vehicle_no']; ?>" required>
     </div> 
+
+
 
     <div class="col-md-3 mb-3">
       <label for="validationDefault01" class="info">Received date</label><span id="received_date-info" class="info"></span>
@@ -132,7 +150,6 @@
       <label for="validationDefault02" class="info">Invoice Number</label><span id="invoice_no-info" class="info"></span>
       <input type="text"  maxlength="15" onKeyDown="return/[a-z0-9⌦←→⌫-]/i.test(event.key)"  class="form-control demoInputBox" id="invoice_no" name= "invoice_no" placeholder="Invoice Number" value="<?php echo $row1['invoice_no']; ?>" required>
     </div>
-
     <div class="col-md-3 mb-3">
       <label for="validationDefault01" class="info">Miller Name</label><span id="miller_id-info" class="miller_id"></span>
       <select id="miller_id" name="miller_id" class="form-control demoInputBox" onchange="myLoadMillerFunction()">
@@ -144,45 +161,49 @@
                   while ($row2 = mysqli_fetch_array($result, MYSQLI_ASSOC))
                   {   
           ?> 
-        <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1['miller_id']) { echo "Selected"; } ?>> <?php echo $row2["miller_name"] ?></option>
+          <option value=<?php echo $row2['id']; ?> <?php if($row2['id'] == $row1['miller_id']) { echo "Selected"; } ?>> <?php echo $row2["miller_name"] ?></option>
           <?php   } 
               }                
           ?>         
       </select>
     </div>
+   
+   
 
-    <div class="col-md-4 mb-3">
+  
+<div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Inward Stock Received</label><span id="inward_bags_stock-info" class="info"></span>
       <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_bags_stock" name= "inward_bags_stock"  min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calculatecost()" value="<?php echo $row1['inward_bags_stock']; ?>" required>
     </div>  
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Inward Gross Weight</label><span id="inward_gross_wt-info" class="info"></span>
+      <label for="validationDefault03" class="info">Bag Gross Weight</label><span id="inward_gross_wt-info" class="info"></span>
       <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_gross_wt" name= "inward_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001"  value="<?php echo $row1['inward_gross_wt']; ?>">
     </div> 
-
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Inward Net Weight</label><span id="inward_net_wt-info" class="info"></span>
-      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_net_wt" name= "inward_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calculatebagdifference()" value="<?php echo $row1['inward_net_wt']; ?>">
-    </div> 
-
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Inward Wt. Difference</label><span id="inward_diff_gross-info" class="info"></span>
-      <input type="text" onkeypress="return validateNumberOnly(event);"  class="form-control demoInputBox" id="inward_diff_gross" name= "inward_diff_gross" min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calculatebridgedifference()" value="<?php echo $row1['inward_diff_gross']; ?>" readonly>
-    </div> 
-
+  
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Weightbridge Gross Weight</label><span id="inward_wb_gross_wt-info" class="info"></span>
       <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_wb_gross_wt" name= "inward_wb_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calculatebagdifference()" value="<?php echo $row1['inward_wb_gross_wt']; ?>">
     </div>
 
     <div class="col-md-4 mb-3">
+      <label for="validationDefault03" class="info">Gross Weight Difference</label><span id="inward_diff_gross-info" class="info"></span>
+      <input type="text" onkeypress="return validateNumberOnly(event);"  class="form-control demoInputBox" id="inward_diff_gross" name= "inward_diff_gross" min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calculatebridgedifference()" value="<?php echo $row1['inward_diff_gross']; ?>" readonly>
+    </div> 
+
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault03" class="info">Bag Net Weight</label><span id="inward_net_wt-info" class="info"></span>
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_net_wt" name= "inward_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calculatebagdifference()" value="<?php echo $row1['inward_net_wt']; ?>">
+    </div> 
+
+    
+    <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Weightbridge Net Weight</label><span id="inward_wb_net_wt-info" class="info"></span>
       <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_wb_net_wt" name= "inward_wb_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calculatebridgedifference()" value="<?php echo $row1['inward_wb_net_wt']; ?>" >
     </div> 
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">WB Weight Difference</label><span id=" inward_diff_net-info" class="info"></span>
+      <label for="validationDefault03" class="info">Net Weight Difference</label><span id=" inward_diff_net-info" class="info"></span>
       <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_diff_net" name= "inward_diff_net" min="0" max="99999999" placeholder="0.00" step="0.001"  value="<?php echo $row1['inward_diff_net']; ?>" readonly>
     </div>
     
@@ -198,7 +219,7 @@
         //var bags_weight = Math.ceil((bags_rec * bag_wt)); 
         //document.getElementById('bags_weight').value = bags_weight;
         var inward_diff_gross = Math.abs((inward_gross_wt) - (inward_net_wt)); 
-        document.getElementsByName("inward_diff_gross")[0].value = inward_diff_gross.toFixed(3);
+        document.getElementsByName("inward_diff_gross")[0].value = inward_diff_gross;
       } 
     </script>
 
@@ -215,7 +236,7 @@
         var bags_weight = Math.ceil((inward_bags_stock * bag_wt)); 
         //document.getElementById('bags_weight').value = bags_weight;
         var netweight = Math.abs((bags_empty) + (bags_weight)).valueOf(); 
-        document.getElementsByName("net_wtg")[0].value = netweight.toFixed(3);
+        document.getElementsByName("net_wtg")[0].value = netweight;
       }               
     </script>
 
@@ -232,27 +253,18 @@
         //var bags_weight = Math.ceil((bags_rec * bag_wt)); 
         //document.getElementById('bags_weight').value = bags_weight;
         var inward_diff_net = Math.abs((inward_wb_gross_wt) - (inward_wb_net_wt)); 
-        document.getElementsByName("inward_diff_net")[0].value = inward_diff_net.toFixed(3);
+        document.getElementsByName("inward_diff_net")[0].value = inward_diff_net;
       } 
     </script>
 
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Remarks</label><span id="remarks-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="remarks" name= "remarks" placeholder="Remarks" value="<?php echo $row1['remarks']; ?>">
-    </div>
-
-    <div class="col-md-4 mb-3">
-      <input type="hidden" class="form-control demoInputBox" id="inwardstock_id" name= "inwardstock_id" placeholder="inwardstock_id" value="<?php echo $row1["id"]; ?>">
-      
-      <input type="hidden" class="form-control demoInputBox" id="inward_bags_stock_ori" name= "inward_bags_stock_ori" placeholder="inward_bags_stock_ori" value="<?php echo $row1['inward_bags_stock']; ?>">
-      <input type="hidden" class="form-control demoInputBox" id="inward_gross_wt_ori" name= "inward_gross_wt_ori" placeholder="inward_gross_wt_ori" value="<?php echo $row1["inward_gross_wt"]; ?>">
-      <input type="hidden" class="form-control demoInputBox" id="inward_net_wt_ori" name= "inward_net_wt_ori" placeholder="inward_net_wt_ori" value="<?php echo $row1["inward_net_wt"]; ?>">
-      <input type="hidden" class="form-control demoInputBox" id="inward_diff_gross_ori" name= "inward_diff_gross_ori" placeholder="inward_diff_gross_ori" value="<?php echo $row1["inward_diff_gross"]; ?>">
-      <input type="hidden" class="form-control demoInputBox" id="inward_wb_gross_wt_ori" name= "inward_wb_gross_wt_ori" placeholder="inward_wb_gross_wt_ori" value="<?php echo $row1["inward_wb_gross_wt"]; ?>">
-      <input type="hidden" class="form-control demoInputBox" id="inward_wb_net_wt_ori" name= "inward_wb_net_wt_ori" placeholder="inward_wb_net_wt_ori" value="<?php echo $row1["inward_wb_net_wt"]; ?>">
-      <input type="hidden" class="form-control demoInputBox" id="inward_diff_net_ori" name= "inward_diff_net_ori" placeholder="inward_diff_net_ori" value="<?php echo $row1["inward_diff_net"]; ?>">      
-    </div>
-
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault03" class="info">Remarks</label><span
+              id="remarks-info" class="info"></span>
+        <input type="text" class="form-control demoInputBox" id="remarks" name= "remarks" placeholder="Remarks" value="<?php echo $row1['remarks']; ?>">
+      </div> 
+         <div class="col-md-4 mb-3">
+                <input type="hidden" class="form-control demoInputBox" id="inwardstock_id" name= "inwardstock_id" placeholder="inwardstock_id" value="<?php echo $row1["id"]; ?>">
+            </div>
     </div>
   </div>    
   <div class="container">

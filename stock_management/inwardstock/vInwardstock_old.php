@@ -68,21 +68,19 @@
             <th><strong>Commodity</strong></th>
             <th><strong>TransMode</strong></th>
             <th><strong>Warehouse</strong></th>
+            <th><strong>Compartment</strong></th>
             <th><strong>Vehicle</strong></th>
             <th><strong>Bags.Revd(No's)</strong></th>
-            <!--
-            <th><strong>Compartment</strong></th>
-
             <th><strong>Inward Gross.Wt</strong></th>
             <th><strong>Inward Net.Wt</strong></th>
             <th><strong>Weighbridge.Gross.Wt</strong></th>
             <th><strong>Weighbridge.Net.Wt</strong></th>
             <th><strong>Inward.Difference</strong></th>
             <th><strong>Wt.Difference</strong></th>
-            <th><strong>Remarks</strong></th>
-            -->
             <th><strong>Current Bags Stock</strong></th>
-            <th><strong>Action</strong></th>              
+            <th><strong>Remarks</strong></th>
+            <th><strong>Actions</strong></th>
+              
         </tr>
     </thead>
     <tbody style="background-color:#ffffff; color: #000000;">
@@ -100,20 +98,17 @@
             <td><?php echo $row["commodity"]; ?></td>
             <td><?php echo $row["source_transport"]; ?></td>
             <td><?php echo $row["warehouse_name"]; ?></td>
+            <td><?php echo $row["compartment_name"]; ?></td>
             <td><?php echo $row["vehicle_no"]; ?></td>
             <td><?php echo $row["inward_bags_stock"]; ?></td>
-            <!--
-            <td><?php //echo $row["compartment_name"]; ?></td>
-
-            <td><?php //echo $row["inward_gross_wt"]; ?></td>
-            <td><?php //echo $row["inward_net_wt"]; ?></td>
-            <td><?php //echo $row["inward_wb_gross_wt"]; ?></td>
-            <td><?php //echo $row["inward_wb_net_wt"]; ?></td>
-            <td><?php //echo $row["inward_diff_gross"]; ?></td>
-            <td><?php //echo $row["inward_diff_net"]; ?></td>
-            <td><?php echo $row["remarks"]; ?></td>
-            -->
+            <td><?php echo $row["inward_gross_wt"]; ?></td>
+            <td><?php echo $row["inward_net_wt"]; ?></td>
+            <td><?php echo $row["inward_wb_gross_wt"]; ?></td>
+            <td><?php echo $row["inward_wb_net_wt"]; ?></td>
+            <td><?php echo $row["inward_diff_gross"]; ?></td>
+            <td><?php echo $row["inward_diff_net"]; ?></td>
             <td><?php echo $row["current_bags_stock"]; ?></td>
+            <td><?php echo $row["remarks"]; ?></td>
             <td>
             <a class="btnEditAction" href="/stock_management/inwardstock/cInwardstock.php?action=inwardstock-edit&id=<?php echo $row["id"]; ?>">
             <img src="../../assests/img/icon-edit.png" /> </a>
