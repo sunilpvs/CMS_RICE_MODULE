@@ -25,109 +25,124 @@ include('../../includes/navbar.php');
     <div class="form-row">
  
     <div class="col-md-4 mb-3">
-      <label for="validationDefault01" class="info">Outward date</label><span
-            id="outward_date-info" class="info"></span>
-      <input type="date" class="form-control demoInputBox" id="outward_date" name= "outward_date" placeholder="outward_date" value="<?php echo $row1["outward_date"]; ?>" required>
+      <label for="validationDefault01" class="info">Customer</label><span
+            id="customer-info" class="info"></span>
+      <input type="date" class="form-control demoInputBox" id="customer" name= "customer" placeholder="Customer" value="<?php echo $row1["customer"]; ?>" required>
     </div>
     
     <div class="col-md-4 mb-3">
-      <label for="validationDefault02" class="info">DC Number</label><span
-            id="dc_no-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="dc_no" name= "dc_no" placeholder="DC Number" value="<?php echo $row1["dc_no"]; ?>" required>
-    </div>
-        <div class="col-md-4 mb-3">
-      <label for="validationDefault02" class="info">DC Date</label><span
-            id="dc_date-info" class="info"></span>
-      <input type="date" class="form-control demoInputBox" id="dc_date" name= "dc_date" placeholder="DC date" value="<?php echo $row1["dc_date"]; ?>" required>
-    </div>
-
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Commodity</label><span id="commodity_id-info" class="info"></span>
-      <select id="commodity_id" name="commodity_id" class="form-control demoInputBox" onchange="myLoadComodityFunction()">
-        <option value = -1>Select Commodity</option>
-          <?php
-              $gen = new Outwardstock();
-              $result = $gen->getOutwardstockcommodityList();
-              if (!empty($result)) {
-                  while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-                  {   
-          ?> 
-          <option  data-empty_bag_wt= <?php echo $row['empty_bag_wt']; ?> 
-                    data-bag_wt= <?php echo $row['bag_wt']; ?> 
-                    
-                value=<?php echo $row['id']; ?>> <?php echo $row["commodity"];?></option>
-          <?php   } 
-              }                
-          ?>         
-      </select>
-    </div>
-
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault01" class="info">Empty Bag Weight</label><span id="empty_bag_wt-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="empty_bag_wt" name= "empty_bag_wt" min="0" max="1000" step="0.001" placeholder="00.00" readonly>
-    </div>
-
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault01" class="info">Bag Weight</label><span id="bag_wt-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="bag_wt" name= "bag_wt" placeholder="Bag Weight" disabled>
+      <label for="validationDefault01" class="info">Warehouse</label><span
+            id="warehouse-info" class="info"></span>
+      <input type="date" class="form-control demoInputBox" id="warehouse" name= "warehouse" placeholder="Warehouse" value="<?php echo $row1["warehouse"]; ?>" required>
     </div>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-      function myLoadComodityFunction()
-      {
-        //id,miller-name,gst_num,place
-        var index = document.getElementById("commodity_id").selectedIndex;
-        var empty_bag_wt = document.getElementById("commodity_id").options[index].getAttribute("data-empty_bag_wt");
-        var bag_wt = document.getElementById("commodity_id").options[index].getAttribute("data-bag_wt"); 
-
-        document.getElementsByName("empty_bag_wt")[0].value = empty_bag_wt;
-        document.getElementsByName("bag_wt")[0].value = bag_wt;  
-      }
-    </script>
-    
     <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Destination - Warehouse-Compartment</label><span id="comp_id-info" class="info"></span>
-      <select id="comp_id" name="comp_id" class="form-control demoInputBox" onchange="myLoadFunction2()">
-        <option value = -1>Select Warehouse-Compartment</option>
-          <?php
-              $ins = new Outwardstock();
-              $result = $ins->getCompartmentList();
-              if (!empty($result)) {
-                  while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-                  {   
-          ?> 
-          <option value=<?php echo $row['comp_id']; ?>><?php echo $row["godown"];?></option>
-          <?php   } 
-              }                
-          ?>         
-      </select>
+      <label for="validationDefault02" class="info">Compartment</label><span
+            id="compartment-info" class="info"></span>
+      <input type="text" class="form-control demoInputBox" id="compartment" name= "compartment" placeholder="Compartment" value="<?php echo $row1["compartment"]; ?>" required>
     </div>
+       <div class="col-md-4 mb-3">
+      <label for="validationDefault02" class="info">Commodity</label><span
+            id="commodity-info" class="info"></span>
+      <input type="date" class="form-control demoInputBox" id="commodity" name= "commodity" placeholder="Commodity" value="<?php echo $row1["commodity"]; ?>" required>
+    </div>
+  <div class="col-md-3 mb-3">
+    <label for="validationDefault01" class="info">Inward Transport</label><span id="transport-info" class="info"></span>
+    <input type="text" class="form-control demoInputBox" id="transport" name= "transport" placeholder="Transport" readonly>
+  </div>
+
+    <div class="col-md-3 mb-3">
+    <label for="validationDefault01" class="info">Empty Bag Weight</label><span id="empty_bag_wt-info" class="info"></span>
+    <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="empty_bag_wt" name= "empty_bag_wt" min="0" max="1000" step="0.001" placeholder="00.00" value="<?php echo $row1["empty_bag_wt"]; ?>" required>
+  </div>
+
+  <div class="col-md-3 mb-3">
+    <label for="validationDefault01" class="info">Bag Weight</label><span id="bag_wt-info" class="info"></span>
+    <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="bag_wt" name= "bag_wt" placeholder="Bag Weight" value="<?php echo $row1["bag_wt"]; ?>" required>
+  </div>
+
+  <div class="col-md-3 mb-3">
+      <label for="validationDefault01" class="info">Inward Bags Count</label><span id="inward_bags_count-info" class="info"></span>
+      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="inward_bags_count" name= "inward_bags_count" min="0" max="1000" step="0.01" placeholder="00.00" value="<?php echo $row1["inward_bags_count"]; ?>" required>
+  </div>
+
+  <div class="col-md-3 mb-3">
+    <label for="validationDefault01" class="info">Current Bags Stock</label><span id="current_bags_stock-info" class="info"></span>
+    <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="current_bags_stock" name= "current_bags_stock" placeholder="00.00" value="<?php echo $row1["current_bags_stock"]; ?>" required>
+  </div>
+
+  <div class="col-md-3 mb-3">
+    <label for="validationDefault01" class="info">Outward Bags Count</label><span id="outward_bags_count-info" class="info"></span>
+    <input type="number" onKeyDown="return/[0-9]/i.test(event.key)"  class="form-control demoInputBox" id="outward_bags_count" name= "outward_bags_count" min="0" max="1000" step="0.01" placeholder="00.00" value="<?php echo $row1["outward_bags_count"]; ?>" required>
+  </div>
+
+  <div class="col-md-3 mb-3">
+      <label for="validationDefault01" class="info">Outward Date</label><span id="outward_date-info" class="info"></span>
+      <input type="date" class="form-control demoInputBox" id="outward_date" name= "outward_date" placeholder="dd-mmm-yyyy" value="<?= date('Y-m-d') ?>" value="<?php echo $row1["outward_date"]; ?>" required>
+    </div>
+    
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault02" class="info">DC Number</label><span id="dc_no-info" class="info"></span>
+      <input type="text" onKeyDown="return/[a-z0-9.⌦←→⌫-]/i.test(event.key)" class="form-control demoInputBox" id="dc_no" name= "dc_no" placeholder="DC Number" value="<?php echo $row1["dc_no"]; ?>" required>
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault02" class="info">DC Date</label><span id="dc_date-info" class="info"></span>
+      <input type="date" class="form-control demoInputBox" id="dc_date" name= "dc_date" placeholder="dd-mmm-yyyy" value="<?= date('Y-m-d') ?>" value="<?php echo $row1["dc_date"]; ?>"required>
+    </div>
+
+    <div class="col-md-3 mb-3">
+     <label for="validationDefault03" class="info">Outward Bags Stock</label><span id="bags_out-info" class="info"></span>
+     <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="bags_out" name="bags_out" placeholder="00" value="<?php echo $row1["bags_out"]; ?>" required>
+    </div>
+
+
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Vehicle Number</label><span
             id="vehicle_no-info" class="info"></span>
       <input type="text" class="form-control demoInputBox" id="vehicle_no" name= "vehicle_no" placeholder="Vehicle Number" value="<?php echo $row1["vehicle_no"]; ?>" required>
     </div>
+
+     <div class="col-md-4 mb-3">
+      <label for="validationDefault03" class="info">Delivery-particulars</label><span
+            id="delivery_dtl-info" class="info"></span>
+      <input type="text" class="form-control demoInputBox" id="delivery_dtl" name= "delivery_dtl" placeholder="Delivery Details" value="<?php echo $row1["delivery_dtl"]; ?>" required>
+    </div>
      
        
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">No.of bags out</label><span
-            id="bags_out-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="bags_out" name= "bags_out" placeholder="No.of bags out" value="<?php echo $row1["bags_out"]; ?>" required>
+   <div class="col-md-3 mb-3">
+
+    <label for="validationDefault03" class="info">Bag Gross Weight</label><span id="outward_gross_wt-info" class="info"></span>
+      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="outward_gross_wt" name= "outward_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" value="<?php echo $row1["outward_gross_wt"]; ?>">
+    </div> 
+  
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault03" class="info">Weightbridge Gross Weight</label><span id="outward_wb_gross_wt-info" class="info"></span>
+      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="outward_wb_gross_wt" name= "outward_wb_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" value="<?php echo $row1["outward_wb_gross_wt"]; ?>">
     </div>
-      
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Weighbridge weight</label><span
-            id="wbridge_wtg-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="wbridge_wtg" name= "wbridge_wtg" placeholder="Weighbridge weight" value="<?php echo $row1["wbridge_wtg"]; ?>" required>
-    </div>
+
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault03" class="info">Gross Weight Difference</label><span id="outward_diff_gross-info" class="info"></span>
+      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="outward_diff_gross" name= "outward_diff_gross" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00"  value="<?php echo $row1["outward_diff_gross"]; ?>">
+    </div> 
+
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault03" class="info">Bag Net Weight</label><span id="outward_net_wt-info" class="info"></span>
+      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="outward_net_wt" name= "outward_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" value="<?php echo $row1["outward_net_wt"]; ?>">
+    </div> 
+
     
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Net weight</label><span
-            id="net_wtg-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="net_wtg" name= "net_wtg" placeholder="Net Weight" value="<?php echo $row1["net_wtg"]; ?>" required>
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault03" class="info">Weightbridge Net Weight</label><span id="outward_wb_net_wt-info" class="info"></span>
+      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="outward_wb_net_wt" name= "outward_wb_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" value="<?php echo $row1["outward_wb_net_wt"]; ?>">
+    </div> 
+
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault03" class="info">Net Weight Difference</label><span id=" outward_diff_net-info" class="info"></span>
+      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="outward_diff_net" name= "outward_diff_net" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" value="<?php echo $row1["outward_diff_net"]; ?>">
     </div>
+
     
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Remarks</label><span
@@ -151,7 +166,7 @@ include('../../includes/navbar.php');
 </div>
 
 
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"
     type="text/javascript"></script>
 <script>
 function validate() {
@@ -182,9 +197,9 @@ function validate() {
         valid = false;
     }
   
-    if(!$("#comp_id").val()) {
-        $("#comp_id-info").html("(required)");
-        $("#comp_id").css('background-color','#FFFFDF');
+    if(!$("#compartment").val()) {
+        $("#compartment-info").html("(required)");
+        $("#compartment").css('background-color','#FFFFDF');
         valid = false;
     }
 
@@ -193,43 +208,66 @@ function validate() {
         $("#vehicle_no").css('background-color','#FFFFDF');
         valid = false;
     }
-
-
-    if(!$("#bags_out").val()) {
+    if($("#bags_out").val()<=0) {
         $("#bags_out-info").html("(required)");
         $("#bags_out").css('background-color','#FFFFDF');
         valid = false;
     }
-
-    if(!$("#wbridge_wtg").val()) {
-        $("#wbridge_wtg-info").html("(required)");
-        $("#wbridge_wtg").css('background-color','#FFFFDF');
-        valid = false;
-    }
-    
-    if(!$("#net_wtg").val()) {
-        $("#net_wtg-info").html("(required)");
-        $("#net_wtg").css('background-color','#FFFFDF');
-        valid = false;
-    }
+   
     if(!$("#delivery_dtl").val()) {
         $("#delivery_dtl-info").html("(required)");
         $("#delivery_dtl").css('background-color','#FFFFDF');
         valid = false;
     }
+    if(!$("#outward_gross_wt").val()) {
+          $("#outward_gross_wt-info").html("(required)");
+          $("#outward_gross_wt").css('background-color','#FFFFDF');
+          valid = false;
+      }
+
+      if(!$("#outward_net_wt").val()) {
+          $("#outward_net_wt-info").html("(required)");
+          $("#outward_net_wt").css('background-color','#FFFFDF');
+          valid = false;
+      }
+
+      if(!$("#outward_wb_gross_wt").val()) {
+          $("#outward_wb_gross_wt-info").html("(required)");
+          $("#outward_wb_gross_wt").css('background-color','#FFFFDF');
+          valid = false;
+      }
+
+      if(!$("#outward_wb_net_wt").val()) {
+          $("#outward_wb_net_wt-info").html("(required)");
+          $("#outward_wb_net_wt").css('background-color','#FFFFDF');
+          valid = false;
+      }
+    
+      if(!$("#outward_diff_gross").val()) {
+          $("#outward_diff_gross-info").html("(required)");
+          $("#outward_diff_gross").css('background-color','#FFFFDF');
+          valid = false;
+      }
+
+      if(!$("#outward_diff_net").val()) {
+          $("#outward_diff_net-info").html("(required)");
+          $("#outward_diff_net").css('background-color','#FFFFDF');
+          valid = false;
+      }
     if(!$("#remarks").val()) {
         $("#remarks-info").html("(required)");
         $("#remarks").css('background-color','#FFFFDF');
         valid = false;
     }
+     
     return valid;
 }
 </script>
 </body>
 </html>
-<?php 
-
-include('../../includes/scripts.php'); 
-include('../../includes/footer.php'); 
-
+<?php
+//include($_SERVER['DOCUMENT_ROOT'] .'/includes/scripts.php');
+//include($_SERVER['DOCUMENT_ROOT'] .'/includes/footer.php');
+include('../../includes/scripts.php');
+include('../../includes/footer.php');
 ?>

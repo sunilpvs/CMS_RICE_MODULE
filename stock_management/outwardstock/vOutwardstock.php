@@ -157,13 +157,13 @@
                 <td><?php echo $row["vehicle_no"]; ?></td>
                 <td><?php echo $row["bags_out"]; ?></td>
                 <td><?php echo $row["delivery_name"] ?></td>
-                <!--<td><a class="btnEditAction" href="../../stock_management/outwardstock/cOutwardstock.php?action=outwardstock-edit&id=<?php #echo $row["id"]; ?>">
+                <td><a class="btnEditAction" href="../../stock_management/outwardstock/cOutwardstock.php?action=outwardstock-edit&id=<?php #echo $row["id"]; ?>">
                     <img src="../../img/icon-edit.png" />
                 </a>
-               <a class="btnDeleteAction" href="../../stock_management/outwardstock/cOutwardstock.php?action=outwardstock-delete&id=<?php #echo $row["id"]; ?>">
+               <!--<a class="btnDeleteAction" href="../../stock_management/outwardstock/cOutwardstock.php?action=outwardstock-delete&id=<?php #echo $row["id"]; ?>">
                     <img src="../../img/icon-delete.png" />
-                </a> 
-                </td>-->
+                </a> -->
+                </td>
             </tr>
         <?php
             

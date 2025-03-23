@@ -108,6 +108,14 @@
             <td><?php echo $row["inward_diff_net"]; ?></td>
             <td><?php echo $row["current_bags_stock"]; ?></td>
             <td><?php echo $row["remarks"]; ?></td>
+            <td>
+            <a class="btnEditAction" href="/stock_management/inwardstock/cInwardstock.php?action=inwardstock-edit&id=<?php echo $row["id"]; ?>">
+            <img src="../../assests/img/icon-edit.png" /> </a>
+          <!--
+            <a class="btnDeleteAction" href="/lease_management/commodity/cCommodity.php?action=commodity-delete&id=<?php //echo $row["id"]; ?>">
+            <img src="../../assests/img/icon-delete.png" /> </a>
+          -->
+        </td>
           
         </tr>
         <?php
