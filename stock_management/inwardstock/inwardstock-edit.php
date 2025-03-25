@@ -1,9 +1,8 @@
 <?php 
     date_default_timezone_set('Asia/Kolkata');
-    #require_once($_SERVER['DOCUMENT_ROOT'] .'/web/header.php');
     require_once($_SERVER['DOCUMENT_ROOT'] .'/stock_management/inwardstock/Inwardstock.php');
-    include('../../includes/header.php'); 
-    include('../../includes/navbar.php');
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/header.php');
+    include($_SERVER['DOCUMENT_ROOT'] .'/includes/navbar.php');
     include($_SERVER['DOCUMENT_ROOT'] .'/includes/Generic.php');
     
     if (!empty($result)){
@@ -120,12 +119,12 @@
 
     <div class="col-md-3 mb-3">
       <label for="validationDefault01" class="info">Received date</label><span id="received_date-info" class="info"></span>
-      <input type="date" class="form-control demoInputBox" id="received_date" name= "received_date" placeholder="dd-mmm-yyyy" value="<?= date('Y-m-d') ?>" value="<?php echo $row1['received_date']; ?>" required>
+      <input type="date" class="form-control demoInputBox" id="received_date" name= "received_date" placeholder="dd-mmm-yyyy" value="<?php echo $row1['received_date']; ?>" required>
     </div>
     
     <div class="col-md-3 mb-3">
       <label for="validationDefault02" class="info">Invoice Date</label><span id="invoice_date-info" class="info"></span>
-      <input type="date" class="form-control demoInputBox" id="invoice_date" name= "invoice_date" placeholder="dd-mmm-yyyy" value="<?= date('Y-m-d') ?>" value="<?php echo $row1['invoice_date']; ?>" required>
+      <input type="date" class="form-control demoInputBox" id="invoice_date" name= "invoice_date" placeholder="dd-mmm-yyyy" value="<?php echo $row1['invoice_date']; ?>" required>
     </div>
 
     <div class="col-md-3 mb-3">

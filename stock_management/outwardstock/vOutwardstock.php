@@ -17,7 +17,7 @@
 <div class="container">
     <div class="form-row">
 
-            <div class="col-md-3 mb-3">
+        <div class="col-md-3 mb-3">
             <label for="validationDefault05" class="info">Customer</label><span id="customer-info" class="info"></span>
             <select id="customer" name="customer" class="form-control demoInputBox" onchange="getWarehouse(this.value);" required>
             <option value ="0" >Select Customer</option>
@@ -136,7 +136,7 @@
                 <th><strong>Vehicle Number</strong></th>
                 <th><strong>No.of bags out</strong></th>
                 <th><strong>Delivery Details</strong></th>
-                <!--<th><strong>Actions</strong></th>-->    
+                <th><strong>Actions</strong></th>  
             </tr>
         </thead>
         <tbody style="background-color:#ffffff; color: #000000;">
@@ -157,11 +157,11 @@
                 <td><?php echo $row["vehicle_no"]; ?></td>
                 <td><?php echo $row["bags_out"]; ?></td>
                 <td><?php echo $row["delivery_name"] ?></td>
-                <td><a class="btnEditAction" href="../../stock_management/outwardstock/cOutwardstock.php?action=outwardstock-edit&id=<?php #echo $row["id"]; ?>">
-                    <img src="../../img/icon-edit.png" />
+                <td><a class="btnEditAction" href="#">
+                    <img src="../../assests/img/icon-edit.png" />
                 </a>
                <!--<a class="btnDeleteAction" href="../../stock_management/outwardstock/cOutwardstock.php?action=outwardstock-delete&id=<?php #echo $row["id"]; ?>">
-                    <img src="../../img/icon-delete.png" />
+                    <img src="../../assests/img/icon-delete.png" />
                 </a> -->
                 </td>
             </tr>
