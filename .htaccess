@@ -79,4 +79,3 @@ RewriteRule ^admperms admin/userpermissions/cUserpermissions.php [L,QSA,NC]
 #Admin pages
 RewriteRule ^admhome admin/adm_index.php  [L,QSA,NC]
 RewriteRule ^admlogin admin/adm_login.php [L,QSA,NC]
-

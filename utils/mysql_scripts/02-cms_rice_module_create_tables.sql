@@ -355,6 +355,8 @@ CREATE TABLE `tbl_outwarddates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 -- --------------------------------------------------------
 -- Table structure for table `tbl_inwardstock`
+-- customer_id, warehouse_id, compartment_id, commodity_id, mod_transport, bags_stock, trans_date, invoice_no, invoice_date, vehicle_no, miller_id, 
+-- wb_gross_wt, gross_wt, gross_diff, wb_net_wt, net_wt, net_diff, remarks, entity_id, created_by, created_datetime, lastupdated_by, lastupdated_datetime
 CREATE TABLE `tbl_inwardstock` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) NOT NULL,
@@ -362,20 +364,18 @@ CREATE TABLE `tbl_inwardstock` (
   `compartment_id` int(11) NOT NULL,
   `commodity_id` int(11) NOT NULL,
   `mod_transport` int(11) NOT NULL,
-  `vehicle_no` varchar(20) NOT NULL,
-  `inward_bags_stock` int(20) NOT NULL,
-  `outward_bags_stock` int(11) NOT NULL DEFAULT 0,
-  `current_bags_stock` int(11) NOT NULL,
-  `received_date` date NOT NULL,
-  `invoice_date` date NOT NULL,
+  `bags_stock` int(20) NOT NULL,
+  `trans_date` date NOT NULL,
   `invoice_no` varchar(50) NOT NULL,
+  `invoice_date` date NOT NULL,  
+  `vehicle_no` varchar(20) NOT NULL,
   `miller_id` int(10) NOT NULL,
-  `inward_gross_wt` float NOT NULL,
-  `inward_net_wt` float NOT NULL,
-  `inward_wb_gross_wt` float NOT NULL,
-  `inward_wb_net_wt` float NOT NULL,
-  `inward_diff_gross` float NOT NULL,
-  `inward_diff_net` float NOT NULL,
+  `wb_gross_wt` float NOT NULL,
+  `gross_wt` float NOT NULL,
+  `gross_diff` float NOT NULL,
+  `wb_net_wt` float NOT NULL,
+  `net_wt` float NOT NULL,
+  `net_diff` float NOT NULL,
   `remarks` varchar(100) NOT NULL,
   `entity_id` int(11) NOT NULL, 
   `created_by` int(11) NOT NULL,
@@ -386,32 +386,33 @@ CREATE TABLE `tbl_inwardstock` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 -- --------------------------------------------------------
 -- Table structure for table `tbl_outwardstock`
+-- customer_id, warehouse_id, compartment_id, commodity_id, mod_transport, bags_stock, trans_date, dc_no, dc_date, vehile_no, delivery_to,
+-- wb_gross_wt, gross_wt, gross_diff, wb_net_wt, net_wt, net_diff, remarks, entity_id , created_by,created_datetime, lastupdated_by, lastupdated_datetime
 CREATE TABLE `tbl_outwardstock` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) NOT NULL,
   `warehouse_id` int(11) NOT NULL,
   `compartment_id` int(11) NOT NULL,
   `commodity_id` int(11) NOT NULL,
-  `inward_transport` int(11) NOT NULL,
-  `current_bags_stock` int(11) NOT NULL DEFAULT 0,
-  `outward_date` date NOT NULL,
+  `mod_transport` int(11) NOT NULL,
+  `bags_stock` int(11) NOT NULL DEFAULT 0,
+  `trans_date` date NOT NULL,
   `dc_no` varchar(50) NOT NULL,
   `dc_date` date NOT NULL,
-  `bags_out` int(11) NOT NULL DEFAULT 0,
   `vehicle_no` varchar(30) NOT NULL,
-  `delivery_dtl` int(11) NOT NULL,
-  `gross_wt` float NOT NULL DEFAULT 0,
+  `delivery_to` int(11) NOT NULL,
   `wb_gross_wt` float NOT NULL DEFAULT 0,
+  `gross_wt` float NOT NULL DEFAULT 0,
   `gross_diff` float NOT NULL DEFAULT 0,
-  `net_wt` float NOT NULL DEFAULT 0,
   `wb_net_wt` float NOT NULL DEFAULT 0,
+  `net_wt` float NOT NULL DEFAULT 0,
   `net_diff` float NOT NULL DEFAULT 0,
   `remarks` varchar(100) NOT NULL,
   `entity_id` int(11) NOT NULL, 
   `created_by` int(11) NOT NULL,
   `created_datetime` datetime NOT NULL DEFAULT current_timestamp(),
   `last_updated` int(11) DEFAULT NULL,
-  `Last_updateddatetime` datetime DEFAULT NULL,
+  `last_updateddatetime` datetime DEFAULT NULL,
   	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 -- --------------------------------------------------------

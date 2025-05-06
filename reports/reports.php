@@ -172,7 +172,7 @@
         function getCustomerOutwardStock($customer, $commodity, $rpt_date)
         {
             $sql = "SELECT * FROM vw_rpt_daily_customer_outwardstock WHERE customer_id = $customer AND ";
-            $sql .= "commodity_id = $commodity  AND outward_date= '$rpt_date';";
+            $sql .= "commodity_id = $commodity  AND trans_date= '$rpt_date';";
             $result = $this->db_handle->runBaseQuery($sql);
             return $result;
         }

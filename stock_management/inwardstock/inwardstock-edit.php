@@ -113,24 +113,24 @@
     </div>
 
     <div class="col-md-3 mb-3">
-      <label for="validationDefault03" class="info">Vehicle Number</label><span id="vehicle_no-info" class="info"></span>
-      <input type="text"  maxlength="10" onKeyDown="return/[a-z0-9⌦←→⌫-]/i.test(event.key)" class="form-control demoInputBox" id="vehicle_no" name= "vehicle_no" placeholder="Vehicle Number" value="<?php echo $row1['vehicle_no']; ?>" required>
-    </div> 
-
-    <div class="col-md-3 mb-3">
       <label for="validationDefault01" class="info">Received date</label><span id="received_date-info" class="info"></span>
-      <input type="date" class="form-control demoInputBox" id="received_date" name= "received_date" placeholder="dd-mmm-yyyy" value="<?php echo $row1['received_date']; ?>" required>
+      <input type="date" class="form-control demoInputBox" id="received_date" name= "received_date" placeholder="dd-mmm-yyyy" value="<?php echo $row1['trans_date']; ?>" required>
     </div>
     
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault02" class="info">Invoice Number</label><span id="invoice_no-info" class="info"></span>
+      <input type="text"  maxlength="15" onKeyDown="return/[a-z0-9⌦←→⌫-]/i.test(event.key)"  class="form-control demoInputBox" id="invoice_no" name= "invoice_no" placeholder="Invoice Number" value="<?php echo $row1['invoice_no']; ?>" required>
+    </div>
+
     <div class="col-md-3 mb-3">
       <label for="validationDefault02" class="info">Invoice Date</label><span id="invoice_date-info" class="info"></span>
       <input type="date" class="form-control demoInputBox" id="invoice_date" name= "invoice_date" placeholder="dd-mmm-yyyy" value="<?php echo $row1['invoice_date']; ?>" required>
     </div>
 
     <div class="col-md-3 mb-3">
-      <label for="validationDefault02" class="info">Invoice Number</label><span id="invoice_no-info" class="info"></span>
-      <input type="text"  maxlength="15" onKeyDown="return/[a-z0-9⌦←→⌫-]/i.test(event.key)"  class="form-control demoInputBox" id="invoice_no" name= "invoice_no" placeholder="Invoice Number" value="<?php echo $row1['invoice_no']; ?>" required>
-    </div>
+      <label for="validationDefault03" class="info">Vehicle Number</label><span id="vehicle_no-info" class="info"></span>
+      <input type="text"  maxlength="10" onKeyDown="return/[a-z0-9⌦←→⌫-]/i.test(event.key)" class="form-control demoInputBox" id="vehicle_no" name= "vehicle_no" placeholder="Vehicle Number" value="<?php echo $row1['vehicle_no']; ?>" required>
+    </div> 
 
     <div class="col-md-3 mb-3">
       <label for="validationDefault01" class="info">Miller Name</label><span id="miller_id-info" class="miller_id"></span>
@@ -152,87 +152,58 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Inward Stock Received</label><span id="inward_bags_stock-info" class="info"></span>
-      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_bags_stock" name= "inward_bags_stock"  min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calculatecost()" value="<?php echo $row1['inward_bags_stock']; ?>" required>
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_bags_stock" name= "inward_bags_stock"  min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calculatecost()" value="<?php echo $row1['bags_stock']; ?>" required>
     </div>  
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Inward Gross Weight</label><span id="inward_gross_wt-info" class="info"></span>
-      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_gross_wt" name= "inward_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001"  value="<?php echo $row1['inward_gross_wt']; ?>">
-    </div> 
-
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Inward Net Weight</label><span id="inward_net_wt-info" class="info"></span>
-      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_net_wt" name= "inward_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calculatebagdifference()" value="<?php echo $row1['inward_net_wt']; ?>">
-    </div> 
-
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Inward Wt. Difference</label><span id="inward_diff_gross-info" class="info"></span>
-      <input type="text" onkeypress="return validateNumberOnly(event);"  class="form-control demoInputBox" id="inward_diff_gross" name= "inward_diff_gross" min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calculatebridgedifference()" value="<?php echo $row1['inward_diff_gross']; ?>" readonly>
-    </div> 
-
-    <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Weightbridge Gross Weight</label><span id="inward_wb_gross_wt-info" class="info"></span>
-      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_wb_gross_wt" name= "inward_wb_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calculatebagdifference()" value="<?php echo $row1['inward_wb_gross_wt']; ?>">
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_wb_gross_wt" name= "inward_wb_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calcGrossDifference()" value="<?php echo round($row1['wb_gross_wt'],3); ?>">
     </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault03" class="info">Gross Weight</label><span id="inward_gross_wt-info" class="info"></span>
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_gross_wt" name= "inward_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calcGrossDifference()" value="<?php echo round($row1['gross_wt'],3); ?>">
+    </div> 
+
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault03" class="info">Gross Wt. Difference</label><span id="inward_diff_gross-info" class="info"></span>
+      <input type="text" onkeypress="return validateNumberOnly(event);"  class="form-control demoInputBox" id="inward_diff_gross" name= "inward_diff_gross" min="0" max="99999999" placeholder="0.00" step="0.001" value="<?php echo round($row1['gross_diff'],3); ?>" readonly>
+    </div> 
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Weightbridge Net Weight</label><span id="inward_wb_net_wt-info" class="info"></span>
-      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_wb_net_wt" name= "inward_wb_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calculatebridgedifference()" value="<?php echo $row1['inward_wb_net_wt']; ?>" >
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_wb_net_wt" name= "inward_wb_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calcNetDifference()" value="<?php echo round($row1['wb_net_wt'],3); ?>" >
     </div> 
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">WB Weight Difference</label><span id=" inward_diff_net-info" class="info"></span>
-      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_diff_net" name= "inward_diff_net" min="0" max="99999999" placeholder="0.00" step="0.001"  value="<?php echo $row1['inward_diff_net']; ?>" readonly>
+      <label for="validationDefault03" class="info">Net Weight</label><span id="inward_net_wt-info" class="info"></span>
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_net_wt" name= "inward_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" onchange="calcNetDifference()" value="<?php echo round($row1['net_wt'],3); ?>">
+    </div> 
+
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault03" class="info">Net Weight Difference</label><span id=" inward_diff_net-info" class="info"></span>
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_diff_net" name= "inward_diff_net" min="0" max="99999999" placeholder="0.00" step="0.001"  value="<?php echo round($row1['net_diff'],3); ?>" readonly>
     </div>
     
     <script>
-      function calculatebagdifference()
+      function calcGrossDifference()
       {  
-        var inward_gross_wt = document.getElementById('inward_gross_wt').value;     
+        var inward_wb_gross_wt = document.getElementById('inward_wb_gross_wt').value;     
+        var inward_gross_wt = document.getElementById('inward_gross_wt').value;
+       
+        var gross_diff = Math.abs((inward_wb_gross_wt) - (inward_gross_wt)); 
+        document.getElementsByName("inward_diff_gross")[0].value = gross_diff.toFixed(3);
+      } 
+
+      function calcNetDifference()
+      {  
+        var inward_wb_net_wt = document.getElementById('inward_wb_net_wt').value;     
         var inward_net_wt = document.getElementById('inward_net_wt').value;
        
-        //no.of bags (empty)
-        //var bags_empty = Math.ceil((bags_rec * empty_bag_wt)).valueOf(); 
-        //no.of bags (bag_wtg)
-        //var bags_weight = Math.ceil((bags_rec * bag_wt)); 
-        //document.getElementById('bags_weight').value = bags_weight;
-        var inward_diff_gross = Math.abs((inward_gross_wt) - (inward_net_wt)); 
-        document.getElementsByName("inward_diff_gross")[0].value = inward_diff_gross.toFixed(3);
+        var net_diff = Math.abs((inward_wb_net_wt) - (inward_net_wt)); 
+        document.getElementsByName("inward_diff_net")[0].value = net_diff.toFixed(3);
       } 
-    </script>
-
-
-    <script>
-      function calculatecost()
-      { 
-        var inward_bags_stock = document.getElementById('inward_bags_stock').value;
-        var empty_bag_wt  = document.getElementById('empty_bag_wt').value;
-        var bag_wt = document.getElementById('bag_wt').value;
-        //no.of bags (empty)
-        var bags_empty = Math.ceil((inward_bags_stock * empty_bag_wt)).valueOf(); 
-        //no.of bags (bag_wtg)
-        var bags_weight = Math.ceil((inward_bags_stock * bag_wt)); 
-        //document.getElementById('bags_weight').value = bags_weight;
-        var netweight = Math.abs((bags_empty) + (bags_weight)).valueOf(); 
-        document.getElementsByName("net_wtg")[0].value = netweight.toFixed(3);
-      }               
-    </script>
-
-
-    <script>
-      function calculatebridgedifference()
-      {       
-        var inward_wb_gross_wt = document.getElementById('inward_wb_gross_wt').value;
-        var inward_wb_net_wt = document.getElementById('inward_wb_net_wt').value;
-        
-        //no.of bags (empty)
-        //var bags_empty = Math.ceil((bags_rec * empty_bag_wt)).valueOf(); 
-        //no.of bags (bag_wtg)
-        //var bags_weight = Math.ceil((bags_rec * bag_wt)); 
-        //document.getElementById('bags_weight').value = bags_weight;
-        var inward_diff_net = Math.abs((inward_wb_gross_wt) - (inward_wb_net_wt)); 
-        document.getElementsByName("inward_diff_net")[0].value = inward_diff_net.toFixed(3);
-      } 
+      
     </script>
 
     <div class="col-md-4 mb-3">
@@ -241,15 +212,14 @@
     </div>
 
     <div class="col-md-4 mb-3">
-      <input type="hidden" class="form-control demoInputBox" id="inwardstock_id" name= "inwardstock_id" placeholder="inwardstock_id" value="<?php echo $row1["id"]; ?>">
-      
-      <input type="hidden" class="form-control demoInputBox" id="inward_bags_stock_ori" name= "inward_bags_stock_ori" placeholder="inward_bags_stock_ori" value="<?php echo $row1['inward_bags_stock']; ?>">
-      <input type="hidden" class="form-control demoInputBox" id="inward_gross_wt_ori" name= "inward_gross_wt_ori" placeholder="inward_gross_wt_ori" value="<?php echo $row1["inward_gross_wt"]; ?>">
-      <input type="hidden" class="form-control demoInputBox" id="inward_net_wt_ori" name= "inward_net_wt_ori" placeholder="inward_net_wt_ori" value="<?php echo $row1["inward_net_wt"]; ?>">
-      <input type="hidden" class="form-control demoInputBox" id="inward_diff_gross_ori" name= "inward_diff_gross_ori" placeholder="inward_diff_gross_ori" value="<?php echo $row1["inward_diff_gross"]; ?>">
-      <input type="hidden" class="form-control demoInputBox" id="inward_wb_gross_wt_ori" name= "inward_wb_gross_wt_ori" placeholder="inward_wb_gross_wt_ori" value="<?php echo $row1["inward_wb_gross_wt"]; ?>">
-      <input type="hidden" class="form-control demoInputBox" id="inward_wb_net_wt_ori" name= "inward_wb_net_wt_ori" placeholder="inward_wb_net_wt_ori" value="<?php echo $row1["inward_wb_net_wt"]; ?>">
-      <input type="hidden" class="form-control demoInputBox" id="inward_diff_net_ori" name= "inward_diff_net_ori" placeholder="inward_diff_net_ori" value="<?php echo $row1["inward_diff_net"]; ?>">      
+      <input type="hidden" class="form-control demoInputBox" id="inwardstock_id" name= "inwardstock_id" placeholder="inwardstock_id" value="<?php echo $row1["id"]; ?>">      
+      <input type="hidden" class="form-control demoInputBox" id="inward_bags_stock_ori" name= "inward_bags_stock_ori" placeholder="inward_bags_stock_ori" value="<?php echo $row1['bags_stock']; ?>">
+      <input type="hidden" class="form-control demoInputBox" id="inward_gross_wt_ori" name= "inward_gross_wt_ori" placeholder="inward_gross_wt_ori" value="<?php echo $row1["gross_wt"]; ?>">
+      <input type="hidden" class="form-control demoInputBox" id="inward_net_wt_ori" name= "inward_net_wt_ori" placeholder="inward_net_wt_ori" value="<?php echo $row1["net_wt"]; ?>">
+      <input type="hidden" class="form-control demoInputBox" id="inward_diff_gross_ori" name= "inward_diff_gross_ori" placeholder="inward_diff_gross_ori" value="<?php echo $row1["gross_diff"]; ?>">
+      <input type="hidden" class="form-control demoInputBox" id="inward_wb_gross_wt_ori" name= "inward_wb_gross_wt_ori" placeholder="inward_wb_gross_wt_ori" value="<?php echo $row1["wb_gross_wt"]; ?>">
+      <input type="hidden" class="form-control demoInputBox" id="inward_wb_net_wt_ori" name= "inward_wb_net_wt_ori" placeholder="inward_wb_net_wt_ori" value="<?php echo $row1["wb_net_wt"]; ?>">
+      <input type="hidden" class="form-control demoInputBox" id="inward_diff_net_ori" name= "inward_diff_net_ori" placeholder="inward_diff_net_ori" value="<?php echo $row1["net_diff"]; ?>">      
     </div>
 
     </div>

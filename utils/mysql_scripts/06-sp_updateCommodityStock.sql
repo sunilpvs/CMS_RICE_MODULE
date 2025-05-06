@@ -20,11 +20,11 @@ BEGIN
     DECLARE out_gross FLOAT DEFAULT 0;
     DECLARE out_net FLOAT DEFAULT 0;
 	DECLARE in_cur CURSOR FOR 
-			SELECT round(sum(inward_bags_stock),3) as bags, round(sum(inward_wb_gross_wt),3) as gross_wt, round(sum(inward_wb_net_wt),3) as net_wt 
+			SELECT round(sum(bags_stock),3) as bags, round(sum(wb_gross_wt),3) as gross_wt, round(sum(wb_net_wt),3) as net_wt 
 				FROM tbl_inwardstock WHERE customer_id = cust_id AND warehouse_id = w_id AND commodity_id = comm_id AND compartment_id = comp_id AND mod_transport = trans_id;
 	DECLARE out_cur CURSOR FOR 
-			SELECT round(sum(bags_out),3) as bags, round(sum(wb_gross_wt),3) as gross_wt, round(sum(wb_net_wt),3) as net_wt 
-				FROM tbl_outwardstock WHERE customer_id = cust_id AND warehouse_id = w_id AND commodity_id = comm_id AND compartment_id = comp_id AND inward_transport = trans_id;
+			SELECT round(sum(bags_stock),3) as bags, round(sum(wb_gross_wt),3) as gross_wt, round(sum(wb_net_wt),3) as net_wt 
+				FROM tbl_outwardstock WHERE customer_id = cust_id AND warehouse_id = w_id AND commodity_id = comm_id AND compartment_id = comp_id AND mod_transport = trans_id;
 	DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
 		OPEN in_cur;	
 			label:LOOP

@@ -29,31 +29,15 @@
 
                 <div class="col-md-2" style="padding-top: 32px;">
                   <label for="validationDefault01" class="info"></label><span id="btnfilter-info" class="info"></span>
-                  <input type="submit" id="btnfilter" name= "btnfilter" value="Filter" class ="btn btn-dark" required>
+                  <input type="submit" id="btnfilter" name= "btnfilter" value="Fetch" class ="btn btn-dark" required>
                 </div>
-                <div class="col-md-3" style="margin-left:-100px;padding-top: 32px;">
+                <div class="col-md-4" style="margin-left:-100px;padding-top: 32px;">
                 <a href="stock_management/inwardstock/excel_export.php" class="btn btn-primary btn-md" role="button" target="_blank"> Export Excel</a>
                 </div>
             </div>
         </div>
   </form>
   </div>
-
-
-<!--
-    <div class="row">
-        <div class="col-md-5 ">
-            <input type="date" name="date_picker" id="date_picker" class = "form-control" />
-        </div>
-        <div class="col-md-2 mb-3">
-            <input type="button" name="btnfilter" id="btnfilter" value="Filter" class = "btn btn-dark" onclick="fetchData()"/>
-        </div>
-        <div class="col-md-3" style="margin-left:-100px;">
-                <a href="../../stock_management/inwardstock/excel_export.php" class="btn btn-primary btn-md" role="button" target="_blank"> Export Excel</a>
-        </div>
-    </div> 
--->
-
 
 <div class="card-body">
 <div class="table-responsive" id="get_data">
@@ -80,8 +64,9 @@
             <th><strong>Inward.Difference</strong></th>
             <th><strong>Wt.Difference</strong></th>
             <th><strong>Remarks</strong></th>
-            -->
             <th><strong>Current Bags Stock</strong></th>
+            -->
+            
             <th><strong>Action</strong></th>              
         </tr>
     </thead>
@@ -93,7 +78,7 @@
         ?>
         <tr style="font-size:12px;">                
             <td><?php echo $row["id"]; ?></td>
-            <td><?php echo $row["received_date"]; ?></td>
+            <td><?php echo $row["trans_date"]; ?></td>
             <td><?php echo $row["invoice_no"]; ?></td>
             <td><?php echo $row["invoice_date"]; ?></td>
             <td><?php echo $row["miller_name"]; ?></td>
@@ -101,7 +86,7 @@
             <td><?php echo $row["source_transport"]; ?></td>
             <td><?php echo $row["warehouse_name"]; ?></td>
             <td><?php echo $row["vehicle_no"]; ?></td>
-            <td><?php echo $row["inward_bags_stock"]; ?></td>
+            <td><?php echo $row["bags_stock"]; ?></td>
             <!--
             <td><?php //echo $row["compartment_name"]; ?></td>
 
@@ -111,9 +96,9 @@
             <td><?php //echo $row["inward_wb_net_wt"]; ?></td>
             <td><?php //echo $row["inward_diff_gross"]; ?></td>
             <td><?php //echo $row["inward_diff_net"]; ?></td>
-            <td><?php echo $row["remarks"]; ?></td>
+            <td><?php //echo $row["remarks"]; ?></td>
+            <td><?php //echo $row["current_bags_stock"]; ?></td>
             -->
-            <td><?php echo $row["current_bags_stock"]; ?></td>
             <td>
             <a class="btnEditAction" href="/stock_management/inwardstock/cInwardstock.php?action=inwardstock-edit&id=<?php echo $row["id"]; ?>">
             <img src="../../assests/img/icon-edit.png" /> </a>

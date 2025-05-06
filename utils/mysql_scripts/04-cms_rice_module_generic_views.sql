@@ -85,17 +85,17 @@ CREATE OR REPLACE VIEW `vw_compartments` AS
 
  #Outward Stock View List 
 CREATE OR REPLACE VIEW  `vw_outwardstock_list` AS 
-	SELECT a.id, date_format(a.outward_date,'%d-%b-%Y') as transaction_date,b.customer_name,c.warehouse_name,d.compartment_name,f.commodity,e.transport_mode,a.vehicle_no,a.current_bags_stock,
-		a.bags_out,g.name as delivery_name,b.id as customer_id,c.id as warehouse_id, d.id as compartment_id, e.id as transport_id, f.id as commodity_id, g.id as delivery_id
+	SELECT a.id, date_format(a.trans_date,'%d-%b-%Y') as transaction_date,b.customer_name,c.warehouse_name,d.compartment_name,f.commodity,e.transport_mode,a.vehicle_no, 
+		a.bags_stock,g.name as delivery_name,b.id as customer_id,c.id as warehouse_id, d.id as compartment_id, e.id as transport_id, f.id as commodity_id, g.id as delivery_id
     FROM tbl_outwardstock a, tbl_customer b, tbl_warehouse c, tbl_compartment d, tbl_transport_mode e, tbl_commodity f, tbl_delivery_details g
-    WHERE a.customer_id = b.id AND a.warehouse_id = c.id AND a.compartment_id = d.id AND a.inward_transport = e.id AND a.commodity_id = f.id
-    AND a.delivery_dtl = g.id;
+    WHERE a.customer_id = b.id AND a.warehouse_id = c.id AND a.compartment_id = d.id AND a.mod_transport = e.id AND a.commodity_id = f.id
+    AND a.delivery_to = g.id;
 
 #Inward Stock View List 
 CREATE OR REPLACE VIEW  `vw_inwardstock` AS 
-	SELECT a.id,a.received_date,a.invoice_no,a.invoice_date,b.miller_name,a.customer_id, a.warehouse_id,a.compartment_id as comp_id, a.mod_transport as transport_id,a.commodity_id,c.commodity,
-			e.transport_mode as source_transport, d.warehouse_name, f.compartment_name,f.compartment_id,
-			a.vehicle_no,a.inward_bags_stock,a.inward_gross_wt,a.inward_net_wt,a.inward_wb_gross_wt, a.inward_wb_net_wt,a.inward_diff_gross,a.inward_diff_net,a.current_bags_stock, a.outward_bags_stock,a.remarks
+	SELECT a.id, a.customer_id, a.warehouse_id, a.compartment_id, a.commodity_id, a.mod_transport, a.trans_date, a.invoice_no, a.invoice_date, b.miller_name, c.commodity,
+			e.transport_mode as source_transport, d.warehouse_name, f.compartment_name, a.vehicle_no, a.bags_stock, a.wb_gross_wt, a.gross_wt, a.gross_diff,
+            a.wb_net_wt, a.net_wt, a.net_diff, a.remarks
 	FROM tbl_inwardstock a, tbl_miller b, vw_commodities c, tbl_warehouse d, tbl_transport_mode e, tbl_compartment f 
 	WHERE a.miller_id = b.id AND a.commodity_id = c.id AND a.compartment_id = f.id AND f.warehouse_id = d .id AND a.mod_transport = e.id;
 
@@ -109,10 +109,9 @@ CREATE OR REPLACE VIEW  `vw_inwardstock_combo` AS
 
 CREATE OR REPLACE VIEW  `vw_outwardstock_combo` AS     
     SELECT d.id as customer_id, c.id as warehouse_id, a.id as compartment_id, e.commodity_id, f.id as mod_transport,
-			 f.transport_mode,d.customer_name, c.warehouse_name, a.compartment_name, 
-         sum(e.inward_bags_stock) as inward_bags_count, sum(e.current_bags_stock) as current_bags_stock, sum(outward_bags_stock) as outward_bags_count
+			 f.transport_mode, d.customer_name, c.warehouse_name, a.compartment_name, 
+         sum(e.bags_stock) as inward_bags_count 
 	FROM tbl_compartment a, tbl_outwardlease b, tbl_warehouse c, tbl_customer d, tbl_inwardstock e, tbl_transport_mode f
 	WHERE a.outwardlease_id = b.id AND a.warehouse_id = c.id AND b.customer_id = d.id AND  e.compartment_id = a.id AND e.mod_transport = f.id
-		AND e.current_bags_stock >0
         GROUP BY d.id, c.id, a.id, e.commodity_id, f.id
         ORDER BY compartment_id;

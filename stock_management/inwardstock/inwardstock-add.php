@@ -126,7 +126,7 @@
     <div class="form-row">
 
     <div class="col-md-4 mb-3">
-      <label for="validationDefault01" class="info">Received date</label><span id="received_date-info" class="info"></span>
+      <label for="validationDefault01" class="info">Transaction date</label><span id="received_date-info" class="info"></span>
       <input type="date" class="form-control demoInputBox" id="received_date" name= "received_date" placeholder="dd-mmm-yyyy" value="<?= date('Y-m-d') ?>" required>
     </div>
     
@@ -138,24 +138,7 @@
     <div class="col-md-4 mb-3">
       <label for="validationDefault02" class="info">Invoice Number</label><span id="invoice_no-info" class="info"></span>
       <input type="text"  maxlength="15" onKeyDown="return/[a-z0-9⌦←→⌫-]/i.test(event.key)"  class="form-control demoInputBox" id="invoice_no" name= "invoice_no" placeholder="Invoice Number"  required>
-    </div>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script>
-      function validateInputInvoiceNumber()
-      {
-        //onKeyDown="return/[a-z][0-9][⌦][←][→][⌫]/i.test(event.key)" 
-        
-        let inp = document.getElementById('invoice_no');  
-        //alert(inp);
-        inp.addEventListener('onKeyDown', function (event) {
-            const key = event.key;
-            if (key === "Backspace" || key === "Delete") {
-              return false;
-            }
-        });
-      }
-    </script>-->
-    
+    </div>   
     
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Miller Name</label><span id="miller_id-info" class="info"></span>
@@ -232,84 +215,62 @@
       <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_bags_stock" name= "inward_bags_stock"  min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatecost()" required>
     </div>  
 
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Bag Gross Weight</label><span id="inward_gross_wt-info" class="info"></span>
-      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_gross_wt" name= "inward_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebagdifference()">
-    </div> 
-  
+    </div>
+</div>    
+
+<div class="form-row">
+
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Weightbridge Gross Weight</label><span id="inward_wb_gross_wt-info" class="info"></span>
-      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_wb_gross_wt" name= "inward_wb_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebridgedifference()">
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_wb_gross_wt" name= "inward_wb_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calGrossDifference()">
     </div>
 
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault03" class="info">Gross Weight</label><span id="inward_gross_wt-info" class="info"></span>
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_gross_wt" name= "inward_gross_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calGrossDifference()">
+    </div> 
+  
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Gross Weight Difference</label><span id="inward_diff_gross-info" class="info"></span>
       <input type="text" onkeypress="return validateNumberOnly(event);"  class="form-control demoInputBox" id="inward_diff_gross" name= "inward_diff_gross" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00"  readonly>
     </div> 
 
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault03" class="info">Bag Net Weight</label><span id="inward_net_wt-info" class="info"></span>
-      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_net_wt" name= "inward_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebagdifference()">
-    </div> 
-
+    <script>
     
+    function calGrossDifference()
+      {       
+        var inward_wb_gross_wt = document.getElementById('inward_wb_gross_wt').value;
+        var inward_gross_wt = document.getElementById('inward_gross_wt').value;     
+
+        var gross_diff = Math.abs((inward_wb_gross_wt) - (inward_gross_wt));        
+        document.getElementsByName("inward_diff_gross")[0].value = gross_diff.toFixed(3);
+      } 
+
+    </script>
+
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Weightbridge Net Weight</label><span id="inward_wb_net_wt-info" class="info"></span>
-      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_wb_net_wt" name= "inward_wb_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calculatebridgedifference()">
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_wb_net_wt" name= "inward_wb_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calNetDifference()">
     </div> 
 
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault03" class="info">Net Weight</label><span id="inward_net_wt-info" class="info"></span>
+      <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_net_wt" name= "inward_net_wt" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00" onchange="calNetDifference()">
+    </div> 
+  
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Net Weight Difference</label><span id="	inward_diff_net-info" class="info"></span>
       <input type="text" onkeypress="return validateNumberOnly(event);" class="form-control demoInputBox" id="inward_diff_net" name= "inward_diff_net" min="0" max="99999999" placeholder="0.00" step="0.001" value="00.00"  readonly>
     </div>
 
     <script>
-      function calculatebagdifference()
+      function calNetDifference()
       {  
-        var inward_gross_wt = document.getElementById('inward_gross_wt').value;     
-        var inward_net_wt = document.getElementById('inward_net_wt').value;
-       
-        //no.of bags (empty)
-        //var bags_empty = Math.ceil((bags_rec * empty_bag_wt)).valueOf(); 
-        //no.of bags (bag_wtg)
-        //var bags_weight = Math.ceil((bags_rec * bag_wt)); 
-        //document.getElementById('bags_weight').value = bags_weight;
-        var inward_diff_gross = Math.abs((inward_gross_wt) - (inward_net_wt)); 
-        document.getElementsByName("inward_diff_gross")[0].value = inward_diff_gross;
-      } 
-    </script>
-
-
-    <script>
-      function calculatecost()
-      { 
-        var inward_bags_stock = document.getElementById('inward_bags_stock').value;
-        var empty_bag_wt  = document.getElementById('empty_bag_wt').value;
-        var bag_wt = document.getElementById('bag_wt').value;
-        //no.of bags (empty)
-        var bags_empty = Math.ceil((inward_bags_stock * empty_bag_wt)).valueOf(); 
-        //no.of bags (bag_wtg)
-        var bags_weight = Math.ceil((inward_bags_stock * bag_wt)); 
-        //document.getElementById('bags_weight').value = bags_weight;
-        var netweight = Math.abs((bags_empty) + (bags_weight)).valueOf(); 
-        document.getElementsByName("net_wtg")[0].value = netweight;
-      }               
-    </script>
-
-
-    <script>
-      function calculatebridgedifference()
-      {       
-        var inward_wb_gross_wt = document.getElementById('inward_wb_gross_wt').value;
         var inward_wb_net_wt = document.getElementById('inward_wb_net_wt').value;
-        
-        //no.of bags (empty)
-        //var bags_empty = Math.ceil((bags_rec * empty_bag_wt)).valueOf(); 
-        //no.of bags (bag_wtg)
-        //var bags_weight = Math.ceil((bags_rec * bag_wt)); 
-        //document.getElementById('bags_weight').value = bags_weight;
-        var inward_diff_net = Math.abs((inward_wb_gross_wt) - (inward_wb_net_wt)); 
-        document.getElementsByName("inward_diff_net")[0].value = inward_diff_net;
+        var inward_net_wt = document.getElementById('inward_net_wt').value;
+
+        var net_diff = Math.abs((inward_wb_net_wt) - (inward_net_wt)); 
+        document.getElementsByName("inward_diff_net")[0].value = net_diff.toFixed(3);
       } 
     </script>
 

@@ -5,6 +5,7 @@
     if(isset($_POST["customer"]))
     {
         $id = $_POST["customer"];
+        $wid= $_POST["w_id"];
         if(!empty($id))
         {
             $gen = new Generic();
@@ -18,7 +19,7 @@
             while($row = mysqli_fetch_array($result))
                 {
     ?>
-                <option value ="<?php echo $row["warehouse_id"]; ?>"><?php echo $row["warehouse_name"]; ?></option>
+                <option value ="<?php echo $row["warehouse_id"]; ?>" <?php if($wid == $row["warehouse_id"]){echo "Selected";} ?> ><?php echo $row["warehouse_name"]; ?></option>
     <?php
                 }
             }

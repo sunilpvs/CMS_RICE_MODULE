@@ -155,9 +155,9 @@
                 <td><?php echo $row["transport_mode"]; ?></td>
                 <td><?php echo $row["commodity"]; ?></td>
                 <td><?php echo $row["vehicle_no"]; ?></td>
-                <td><?php echo $row["bags_out"]; ?></td>
+                <td><?php echo $row["bags_stock"]; ?></td>
                 <td><?php echo $row["delivery_name"] ?></td>
-                <td><a class="btnEditAction" href="#">
+                <td><a class="btnEditAction" href="../../stock_management/outwardstock/cOutwardstock.php?action=outwardstock-edit&id=<?php echo $row["id"]; ?>">
                     <img src="../../assests/img/icon-edit.png" />
                 </a>
                <!--<a class="btnDeleteAction" href="../../stock_management/outwardstock/cOutwardstock.php?action=outwardstock-delete&id=<?php #echo $row["id"]; ?>">

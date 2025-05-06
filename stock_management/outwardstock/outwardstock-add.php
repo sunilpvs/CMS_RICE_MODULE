@@ -104,8 +104,7 @@
                   {   
           ?> 
           <option  data-empty_bag_wt= <?php echo $row['empty_bag_wt']; ?> 
-                    data-bag_wt= <?php echo $row['bag_wt']; ?> 
-                    
+                    data-bag_wt= <?php echo $row['bag_wt']; ?>    
                 value=<?php echo $row['id']; ?>> <?php echo $row["commodity"];?></option>
           <?php   } 
               }                
@@ -157,23 +156,11 @@
       }
     }
   </script>
-  </div>
 
-  <div class="form-row">
-
-  <div class="col-md-3 mb-3">
-      <label for="validationDefault01" class="info">Inward Bags Count</label><span id="inward_bags_count-info" class="info"></span>
-      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="inward_bags_count" name= "inward_bags_count" min="0" max="1000" step="0.01" placeholder="00.00" readonly>
-  </div>
-
-  <div class="col-md-3 mb-3">
-    <label for="validationDefault01" class="info">Current Bags Stock</label><span id="current_bags_stock-info" class="info"></span>
-    <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="current_bags_stock" name= "current_bags_stock" placeholder="00.00" readonly>
-  </div>
-
-  <div class="col-md-3 mb-3">
-    <label for="validationDefault01" class="info">Outward Bags Count</label><span id="outward_bags_count-info" class="info"></span>
-    <input type="number" onKeyDown="return/[0-9]/i.test(event.key)"  class="form-control demoInputBox" id="outward_bags_count" name= "outward_bags_count" min="0" max="1000" step="0.01" placeholder="00.00" readonly>
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault01" class="info">Latest Bags Stock</label><span id="current_bags_stock-info" class="info"></span>
+      <input type="number" onKeyDown="return/[a-z0-9.⌦←→⌫]/i.test(event.key)" class="form-control demoInputBox" id="current_bags_stock" name= "current_bags_stock" placeholder="00.00" readonly>
+    </div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -200,9 +187,9 @@
         success: function(response){
           //alert(response);
           response = JSON.parse(response);
-          $('#inward_bags_count').val(response[0].inward_bags_count);
-          $('#current_bags_stock').val(response[0].current_bags_count);
-          $('#outward_bags_count').val(response[0].outward_bags_count);
+          //$('#inward_bags_count').val(response[0].bags_count);
+          $('#current_bags_stock').val(response[0].bags_count);
+          //$('#outward_bags_count').val(response[0].outward_bags_count);
         }
       })
     }
@@ -235,18 +222,22 @@
       function validateOutwardBagsCount()
       {
       	//var current_bags_stock = $("#current_bags_stock").val();
-        //var bags_out= $("#bags_out").val();
-        
+        //var bags_out= $("#bags_out").val();        
         var current_bags_stock = Number.parseInt(document.getElementById("current_bags_stock").value,10);
         var bags_out = Number.parseInt(document.getElementById("bags_out").value,10);
-
-        //alert ("Entered Stock"+bags_out);
+        
         //alert ("Current Stock"+current_bags_stock);
+        //alert ("Entered Stock"+bags_out);
         
         if(bags_out>current_bags_stock)
         {
-          alert("*New max stock Current Bags Stock exceed.");
+          alert("*No bags stock under this category for outward transaction. Latest stock availble for outward is "+current_bags_stock);
           document.getElementById("bags_out").value=0;
+          $('#btnSubmit').prop('disabled',true);
+        }
+        else
+        {
+          $('#btnSubmit').prop('disabled',false);
         }
       }
     </script>

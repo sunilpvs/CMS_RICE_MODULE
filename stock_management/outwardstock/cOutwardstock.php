@@ -12,41 +12,40 @@ if (! empty($_GET["action"])) {
 else
 {
 
- $action = "default";}
-switch ($action) {    
+ $action = "default";
+}
+
+switch ($action) 
+{    
     case "outwardstock-add":
+
         if (isset($_POST['add'])) {
             $customer_id = trim($_POST['customer']);
             $warehouse_id = trim($_POST['warehouse']);
             $compartment_id =trim($_POST['compartment']);
-            $transport_id = trim(trim($_POST['transport']));
             $commodity_id = trim($_POST['commodity_id']);
-            $outward_date = $_POST['outward_date']; 
+            $mod_transport = trim(trim($_POST['transport']));
+            $bags_stock = trim($_POST['bags_out']);
+            $trans_date = $_POST['outward_date']; 
             $dc_no = trim($_POST['dc_no']);
             $dc_date = $_POST['dc_date'];     
-            $bags_out = trim($_POST['bags_out']);
             $vehicle_no = trim(trim($_POST['vehicle_no']));
-            $delivery_dtl = trim($_POST['delivery_dtl']);            
-            $current_bags_stock = trim($_POST['current_bags_stock']);
-            //$net_wtg = $_POST['net_wtg'];
-            //$wbridge_wtg = $_POST['wbridge_wtg'];
-            //$wbridge_diff = $_POST['wbridge_diff'];
-            $outward_gross_wt = trim($_POST['outward_gross_wt']);
-            $outward_net_wt= trim($_POST['outward_net_wt']);
-            $outward_wb_gross_wt= trim($_POST['outward_wb_gross_wt']); 
-            $outward_wb_net_wt= trim(trim($_POST['outward_wb_net_wt'])); 
-            $outward_diff_gross= trim($_POST['outward_diff_gross']); 
-            $outward_diff_net= trim($_POST['outward_diff_net']);
+            $delivery_to = trim($_POST['delivery_dtl']);            
+            $wb_gross_wt= trim($_POST['outward_wb_gross_wt']); 
+            $gross_wt = trim($_POST['outward_gross_wt']);
+            $gross_diff= trim($_POST['outward_diff_gross']); 
+            $wb_net_wt= trim(trim($_POST['outward_wb_net_wt'])); 
+            $net_wt= trim($_POST['outward_net_wt']);
+            $net_diff= trim($_POST['outward_diff_net']);
             $remarks = trim($_POST['remarks']);
             $entity_id = $_SESSION['entity_id'];
-            $id = $_SESSION['id'];
-            $outwardstock = new Outwardstock();
-            $insertId = $outwardstock->addOutwardstock($customer_id, $warehouse_id, $compartment_id, $commodity_id, $transport_id, $outward_date, $dc_no, $dc_date, 
-                                    $bags_out, $vehicle_no, $current_bags_stock, $delivery_dtl, $outward_gross_wt, $outward_net_wt, $outward_wb_gross_wt, 
-                                    $outward_wb_net_wt, $outward_diff_gross, $outward_diff_net,$remarks,$entity_id,$id);
+            $created_by = $_SESSION['id'];
 
-            //$insertId = $outwardstock->addOutwardstock($outward_date, $dc_no, $dc_date, $commodity_id, $comp_id, $vehicle_no, $current_bags_stock, $bags_out, $delivery_dtl,$outward_gross_wt,$outward_net_wt,$outward_wb_gross_wt, $outward_wb_net_wt, $outward_diff_gross, $outward_diff_net,$remarks,$id);
-            if (empty($insertId)) {
+            $outwardstock = new Outwardstock();
+            $insertId = $outwardstock->addOutwardstock($customer_id, $warehouse_id, $compartment_id, $commodity_id, $mod_transport, $bags_stock, $trans_date, $dc_no, $dc_date, 
+            $vehicle_no, $delivery_to, $wb_gross_wt, $gross_wt, $gross_diff, $wb_net_wt, $net_wt, $net_diff, $remarks, $entity_id, $created_by);    
+            if (empty($insertId) || $insertId == -1) 
+            {
                 $response = array(
                     "message" => "Problem in Adding New Record",
                     "type" => "error"
@@ -61,37 +60,37 @@ switch ($action) {
         break;
     
     case "outwardstock-edit":
+        
         $outwardstock_id = $_GET["id"];
         $outwardstock = new Outwardstock();
-        if (isset($_POST['add'])){
+
+        if (isset($_POST['add']))
+        {
             $customer_id = trim($_POST['customer']);
             $warehouse_id = trim($_POST['warehouse']);
             $compartment_id =trim($_POST['compartment']);
-            $transport_id = trim(trim($_POST['transport']));
             $commodity_id = trim($_POST['commodity_id']);
-            $outward_date = $_POST['outward_date']; 
+            $mod_transport = trim(trim($_POST['mod_transport']));
+            $bags_stock = trim($_POST['bags_out']);
+            $trans_date = $_POST['outward_date']; 
             $dc_no = trim($_POST['dc_no']);
             $dc_date = $_POST['dc_date'];     
-            $bags_out = trim($_POST['bags_out']);
             $vehicle_no = trim(trim($_POST['vehicle_no']));
-            $delivery_dtl = trim($_POST['delivery_dtl']);            
-            $current_bags_stock = trim($_POST['current_bags_stock']);
-            //$net_wtg = $_POST['net_wtg'];
-            //$wbridge_wtg = $_POST['wbridge_wtg'];
-            //$wbridge_diff = $_POST['wbridge_diff'];
-            $outward_gross_wt = trim($_POST['outward_gross_wt']);
-            $outward_net_wt= trim($_POST['outward_net_wt']);
-            $outward_wb_gross_wt= trim($_POST['outward_wb_gross_wt']); 
-            $outward_wb_net_wt= trim(trim($_POST['outward_wb_net_wt'])); 
-            $outward_diff_gross= trim($_POST['outward_diff_gross']); 
-            $outward_diff_net= trim($_POST['outward_diff_net']);
+            $delivery_to = trim($_POST['delivery_dtl']);            
+
+            $wb_gross_wt= trim($_POST['outward_wb_gross_wt']); 
+            $gross_wt = trim($_POST['outward_gross_wt']);            
+            $gross_diff= trim($_POST['outward_diff_gross']); 
+            $wb_net_wt= trim($_POST['outward_wb_net_wt']); 
+            $net_wt= trim($_POST['outward_net_wt']);
+            $net_diff= trim($_POST['outward_diff_net']);
             $remarks = trim($_POST['remarks']);
-            $insertId = $outwardstock->addOutwardstock($customer_id, $warehouse_id, $compartment_id, $commodity_id, $transport_id, $outward_date, $dc_no, $dc_date, 
-                                    $bags_out, $vehicle_no, $current_bags_stock, $delivery_dtl, $outward_gross_wt, $outward_net_wt, $outward_wb_gross_wt, 
-                                    $outward_wb_net_wt, $outward_diff_gross, $outward_diff_net,$remarks,$outwardstock_id);
+            $entity_id = $_SESSION["entity_id"];
             
-            //$outwardstock->editOutwardstock($outward_date, $dc_no, $dc_date, $commodity_id, $comp_id, $vehicle_no,$bags_out, $net_wtg,$wbridge_wtg,$wbridge_diff,$delivery_dtl,$remarks,$outwardstock_id); 
-        header("Location: ../../stock_management/outwardstock/cOutwardstock.php");
+            $editId = $outwardstock->editOutwardstock($customer_id, $warehouse_id, $compartment_id, $commodity_id, $mod_transport, $bags_stock, $trans_date, $dc_no, $dc_date, 
+                                        $vehicle_no, $delivery_to, $wb_gross_wt, $gross_wt, $gross_diff, $wb_net_wt, $net_wt, $net_diff, $remarks, $entity_id, 
+                                        $outwardstock_id);
+            header("Location: ../../stock_management/outwardstock/cOutwardstock.php");
         }
         $result = $outwardstock->getOutwardstockById($outwardstock_id);
         require_once "../../stock_management/outwardstock/outwardstock-edit.php";

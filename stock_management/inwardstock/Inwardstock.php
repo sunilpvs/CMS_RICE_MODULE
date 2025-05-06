@@ -11,51 +11,46 @@
             $this->db_handle = new DBController();
         }
                                 
-//        function addInwardstock($received_date, $invoice_date, $invoice_no, $miller_id, $commodity_id, $mod_transport,
-  //           $compartment_id, $vehicle_no, $inward_bags_stock, $inward_gross_wt, $inward_net_wt, $inward_wb_gross_wt, 
-    //         $inward_wb_net_wt, $inward_diff_gross, $inward_diff_net, $current_bags_stock, $remarks, $created_by)
-
-        function addInwardstock($customer, $warehouse, $compartment_id, $commodity_id, $mod_transport,
-                $vehicle_no, $received_date, $invoice_date, $invoice_no, $miller_id, $inward_bags_stock,
-                $inward_gross_wt, $inward_net_wt, $inward_wb_gross_wt, $inward_wb_net_wt, $inward_diff_gross,  
-                $inward_diff_net, $current_bags_stock, $remarks, $entity_id, $created_by)
+        function addInwardstock($customer, $warehouse, $compartment_id, $commodity_id, $mod_transport, $trans_date, 
+                                $invoice_no, $invoice_date, $miller_id, $vehicle_no, $bags_stock, $wb_gross_wt, $gross_wt, $gross_diff,
+                                $wb_net_wt, $net_wt, $net_diff, $remarks, $entity_id, $created_by)
         {
             $last_UpdatedDateTime =  date("Y-m-d H:i:s");
             $this->db_handle->beginTrans();
             try{
-            $query =    "INSERT INTO tbl_inwardstock (customer_id, warehouse_id, received_date, invoice_date, invoice_no, ";  
-            $query .=   " miller_id, commodity_id, mod_transport, compartment_id, vehicle_no, inward_bags_stock, ";
-            $query .=   " inward_gross_wt, inward_net_wt, inward_wb_gross_wt, inward_wb_net_wt, inward_diff_gross, ";
-            $query .=   " inward_diff_net, current_bags_stock, remarks, entity_id, created_by)  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?)"; 
-            $paramType = "iisssiiiisissssssisii";
+            $query =    "INSERT INTO tbl_inwardstock (customer_id, warehouse_id, compartment_id, commodity_id, mod_transport, trans_date, invoice_no, invoice_date, miller_id, ";
+            $query .=   " vehicle_no, bags_stock, wb_gross_wt, gross_wt, gross_diff, wb_net_wt, net_wt, net_diff,";
+            $query .=   " remarks, entity_id, created_by)  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) "; 
+            $paramType = "iiiiisssisisssssssii";
             $paramValue = array(
                 $customer,
                 $warehouse,
-                $received_date, 
-                $invoice_date,
-                $invoice_no,
-
-                $miller_id,  
+                $compartment_id, 
                 $commodity_id,
                 $mod_transport,
-                $compartment_id, 
+
+                $trans_date, 
+                $invoice_no,
+                $invoice_date,
+                $miller_id, 
                 $vehicle_no,
                 
-                $inward_bags_stock,
-                $inward_gross_wt,
-                $inward_net_wt,
-                $inward_wb_gross_wt,
-                $inward_wb_net_wt,
-                
-                $inward_diff_gross, 
-                $inward_diff_net,
-                $inward_bags_stock, //$current_bags_stock,
+                $bags_stock,
+                $wb_gross_wt,
+                $gross_wt,
+                $gross_diff,
+                $wb_net_wt,
+                $net_wt,
+                $net_diff,
+
                 $remarks,
                 $entity_id,                
                 $created_by
             );
             $insertId = $this->db_handle->insert($query, $paramType, $paramValue);
             //Checking if Compartment and Commodity already existing in Commodity Stock Table
+            
+
             $sql = "SELECT * FROM tbl_commodity_stock WHERE customer_id = $customer AND warehouse_id = $warehouse AND ";
             $sql .= "compartment_id = $compartment_id AND commodity_id = $commodity_id AND mod_transport = $mod_transport LIMIT 1;";
             $result = $this->db_handle->runBaseQuery($sql);
@@ -64,22 +59,13 @@
             //Update bags/stock for new Inserted Row on basis of customer,warehouse,compartment,commodity,transport_mode
             if($count>0)
             { //Compartment + Commodity Exists
-                $bags_stock = $rows['bags_stock'];
-                $gross_wt = $rows['gross_wt'];
-                $net_wt = $rows['net_wt'];
-                $bags_stock = $bags_stock + $inward_bags_stock;
-                $gross_wt = $gross_wt + $inward_gross_wt;                
-                $net_wt = $net_wt + $inward_net_wt;
-                $sql = "UPDATE tbl_commodity_stock SET bags_stock = $bags_stock, gross_wt = $gross_wt, net_wt = $net_wt, last_updated = $created_by, last_updateddatetime = '$last_UpdatedDateTime' ";
-                $sql .= " WHERE customer_id = $customer AND warehouse_id = $warehouse AND compartment_id = $compartment_id AND ";
-                $sql .= " commodity_id = $commodity_id AND mod_transport = $mod_transport;";
-                $stk = $this->db_handle->runBaseQuery($sql);
+                $this->revalidateStock($customer, $warehouse, $commodity_id, $compartment_id, $mod_transport);
             }
             else 
             {
                 # code...
                 $sql = "INSERT INTO tbl_commodity_stock (customer_id, warehouse_id, compartment_id, commodity_id, mod_transport, bags_stock, gross_wt, net_wt, created_by) ";
-                $sql .= " VALUES ($customer, $warehouse, $compartment_id, $commodity_id, $mod_transport, $inward_bags_stock, $inward_gross_wt, $inward_net_wt, $created_by);";
+                $sql .= " VALUES ($customer, $warehouse, $compartment_id, $commodity_id, $mod_transport, $bags_stock, $wb_gross_wt, $wb_net_wt, $created_by);";
                 $stk = $this->db_handle->runBaseQuery($sql);
             }   
 
@@ -112,85 +98,72 @@
         return $result;
     }
     
-     function editInwardstock($customer, $warehouse,$compartment_id, $commodity_id, $mod_transport, 
-                        $vehicle_no, $current_bags_stock,  $received_date,$invoice_date, $invoice_no, 
-                        $miller_id, $inward_bags_stock, $inward_gross_wt,  $inward_net_wt, $inward_wb_gross_wt,
-                        $inward_wb_net_wt,  $inward_diff_gross, $inward_diff_net, $remarks, $inwardstock_id,
-                        $inward_bags_stock_ori,$inward_gross_wt_ori,$inward_net_wt_ori,$inward_diff_gross_ori,
-                        $inward_wb_gross_wt_ori,$inward_wb_net_wt_ori,$inward_diff_net_ori)
+     function editInwardstock($customer_id, $warehouse_id, $compartment_id, $commodity_id, $mod_transport, $bags_stock, 
+                                $trans_date, $invoice_no, $invoice_date, $vehicle_no, $miller_id, $wb_gross_wt, $gross_wt, $gross_diff,
+                                $wb_net_wt, $net_wt, $net_diff, $remarks, $inwardstock_id)
     {
         $last_updated=$_SESSION['id'];
         $last_updatedDateTime =  date("Y-m-d H:i:s");
         $this->db_handle->beginTrans();
-        try{
-            $in_new_bags=$inward_bags_stock-$inward_bags_stock_ori;
-            $in_new_gross_wt = $inward_gross_wt-$inward_gross_wt_ori; 
-            $in_new_net_wt = $inward_net_wt-$inward_net_wt_ori;
-            $in_new_wb_gross_wt = $inward_wb_gross_wt-$inward_wb_gross_wt_ori;
-            $in_new_wb_net_wt = $inward_wb_net_wt-$inward_wb_net_wt_ori;
-                    
-            $query = "UPDATE tbl_inwardstock SET customer_id = ?, warehouse_id = ?, received_date = ?, invoice_date = ?,"; 
-            $query .= "invoice_no = ?, miller_id = ?, commodity_id = ?, mod_transport = ?, compartment_id = ?, vehicle_no = ?,";
-            $query .= "inward_bags_stock = ?, inward_gross_wt = ?, inward_net_wt = ?, inward_wb_gross_wt = ?, inward_wb_net_wt = ?,";
-            $query .= "inward_diff_gross= ?, inward_diff_net = ?, current_bags_stock = ?, remarks = ?, lastupdated_by=?, ";
-            $query .= "lastupdated_datetime = ?"; 
-            $query .= " WHERE id = ?"; 
-            $paramType = "iisssiiiisissssssisssi";
-            $paramValue = array(
-                $customer,
-                $warehouse,
-                $received_date, 
-                $invoice_date,
-                $invoice_no,
-                $miller_id,  
-                $commodity_id,
-                $mod_transport,
-                $compartment_id, 
-                $vehicle_no,
-                
-                $inward_bags_stock,
-                $inward_gross_wt,
-                $inward_net_wt,
-                $inward_wb_gross_wt,
-                $inward_wb_net_wt,
-                $inward_diff_gross, 
-                $inward_diff_net,
-                $inward_bags_stock, //$current_bags_stock,
-                $remarks,
-                $last_updated,
-                $last_updatedDateTime,
-                $inwardstock_id                
-            );
-            $transId = $this->db_handle->update($query, $paramType, $paramValue);
-            //Update tbl_Commodity_Stock table with revisions.
+        try{                
+            
+                $sql = "SELECT * FROM tbl_inwardstock WHERE id = $inwardstock_id;"; 
+                $result = $this->db_handle->runBaseQuery($sql);
+                $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                $cust_old = $row['customer_id'];
+                $wh_old = $row['warehouse_id'];
+                $comp_old = $row['compartment_id'];
+                $comm_old = $row['commodity_id'];
+                $mod_old = $row['mod_transport'];
+            
+                $query = "UPDATE tbl_inwardstock SET customer_id = ?, warehouse_id = ?, compartment_id = ?, commodity_id = ?, mod_transport = ?, bags_stock = ?, trans_date = ?,"; 
+                $query .= " invoice_no = ?, invoice_date = ?, vehicle_no = ?, miller_id = ?,";  
+                $query .= " wb_gross_wt = ?, gross_wt = ?, gross_diff = ?, wb_net_wt = ?, net_wt = ?, net_diff = ?,";
+                $query .= " remarks = ?, lastupdated_by=?, lastupdated_datetime = ? WHERE id = ?"; 
+                $paramType = "iiiiiissssisssssssisi";
+                $paramValue = array(
+                    $customer_id,
+                    $warehouse_id,
+                    $compartment_id, 
+                    $commodity_id,
+                    $mod_transport,
+                    $bags_stock,
+                    $trans_date,
+                    $invoice_no,
+                    $invoice_date,
+                    $vehicle_no,
+                    $miller_id,  
+                    $wb_gross_wt,
+                    $gross_wt,
+                    $gross_diff,
+                    $wb_net_wt,
+                    $net_wt,
+                    $net_diff,
+                    $remarks,
+                    $last_updated,
+                    $last_updatedDateTime,
+                    $inwardstock_id                
+                );
+                $transId = $this->db_handle->update($query, $paramType, $paramValue);
+                //Update tbl_Commodity_Stock table with revisions.
+                //Revise Commodity stock based on old values and new values
+                $this->revalidateStock($cust_old, $wh_old, $comm_old, $comp_old, $mod_old);
+                //Get latest stock and wts.
+                $this->revalidateStock($customer_id, $warehouse_id, $commodity_id, $compartment_id, $mod_transport);
+                //Adding Transaction Log
+                $activity = "Edited inward stock. InwardStockID: $transId :";
+                $log = "For customer_id: $customer_id, warehouse_id: $warehouse_id, compartment_id: $compartment_id, commodity_id: $commodity_id, mod_transport: $mod_transport";
+                $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
+                $paramType = "sis";
+                $paramValue = array(
+                    $activity,
+                    $last_updated,
+                    $log
+                );
+                $transId = $this->db_handle->insert($trans_query, $paramType, $paramValue);
 
-            $query ="UPDATE tbl_commodity_stock SET bags_stock = bags_stock + ?, gross_wt =gross_wt + ?, ";
-            $query .= "net_wt = net_wt + ? WHERE customer_id = ? AND warehouse_id = ?";
-            $query .= " AND compartment_id = ?  AND commodity_id = ? AND mod_transport = ?";
-            $paramType = "sssiiiii";
-            $paramValue = array(
-                $in_new_bags,
-                $in_new_wb_gross_wt,
-                $in_new_wb_net_wt,
-                $customer,
-                $warehouse,
-                $compartment_id,
-                $commodity_id,
-                $mod_transport
-            );
-            $transId = $this->db_handle->update($query, $paramType, $paramValue);
-            //Adding Transaction Log
-            $activity = "Edited inward stock. InwardStockID: $transId :";
-            $trans_query = "INSERT INTO tbl_transaction_log (activity,action_user_id,log) VALUES(? ,?, ?);";
-            $paramType = "sii";
-            $paramValue = array(
-                $activity,
-                $last_updated,
-                0
-            );
-            $transId = $this->db_handle->insert($trans_query, $paramType, $paramValue);
-            $this->db_handle->commitTrans();
-            return $transId;
+                $this->db_handle->commitTrans();
+                return $transId;
             }catch (\Throwable $e){
                 // An exception has been thrown
                 // We must rollback the transaction
@@ -199,6 +172,20 @@
             }
         }
     
+    function revalidateStock($customer_id, $warehouse_id, $commodity_id, $compartment_id, $mod_transport)
+    {
+        $sql = "CALL sp_updateCommodityStock(?, ?, ?, ?, ?)";
+        $paramType = "iiiii";
+        $paramValue = array(
+            $customer_id,
+            $warehouse_id, 
+            $commodity_id, 
+            $compartment_id, 
+            $mod_transport
+        );
+        $result = $this->db_handle->executeQuery($sql, $paramType, $paramValue);
+        return $result;
+    }
 
     function deleteInwardstock($id) {
         $query = "DELETE FROM tbl_inwardstock WHERE id = ?";
@@ -206,7 +193,7 @@
         $paramValue = array(
             $id
         );
-        $this->db_handle->update($query, $paramType, $paramValue);
+        //$this->db_handle->update($query, $paramType, $paramValue);
     }
     
     function getInwardstockById($id) {
@@ -218,7 +205,6 @@
         $result = $this->db_handle->runQuery($query, $paramType, $paramValue);
         return $result;
     }
-    
     
     function getInwardstockmillerList() 
     {
@@ -240,7 +226,6 @@
         $result = $this->db_handle->runBaseQuery($sql);
         return $result;
     } 
-
     
     function getInwardstockcommodityList() 
     {
@@ -255,11 +240,10 @@
         $result = $this->db_handle->runBaseQuery($sql);
         return $result;
     } 
-    
 
     function getAllInwardstock($dt) {
         //$sql = "SELECT * FROM vw_inwardstock ORDER BY id";
-        $sql = "SELECT * FROM vw_inwardstock WHERE date_format(received_date,'%d-%b-%Y') = '$dt' ORDER BY id";
+        $sql = "SELECT * FROM vw_inwardstock WHERE date_format(trans_date,'%d-%b-%Y') = '$dt' ORDER BY id";
         $result = $this->db_handle->runBaseQuery($sql);
         return $result;
     }
