@@ -7,113 +7,6 @@
     }
     //$myrole 1-SUPER USER::2-IT ADMIN::3-MOD_RICE_ADMIN::4-MOD_RICE_USER::5-BASE_EMPLOYEE
 ?>
-    <style>
-  header {
-  min-height: 100px;
-}
-main {
-  min-height: 100vh;
-}
-
-
-.container-fluid {
-  margin: 0;
-  padding: 0;
-  .row {
-    margin: 0;
-    padding: 0;
-  }
-}
-/*
-*
-* ==========================================
-* CUSTOM UTIL CLASSES
-* ==========================================
-*
-*/
-.dropdown {
-  &:hover {
-    > .dropdown-menu {
-      display: block;
-    }
-  }
-}
-.megamenu {
-  position: static !important;
-  .dropdown-menu {
-  border: none;
-  width: 100%;
- 
-  }
-}
-</style>
-
-
-<nav class="navbar navbar-expand-lg navbar-primary bg-primary py-3 shadow-sm fixed-top" style="padding:70px;">
-  <a href="#" class="navbar-brand font-weight-bold mr-auto">Logo</a>
-  <div id="navbarContent" class="collapse navbar-collapse order-sm-12 order-lg-1">
-    <ul class="navbar-nav ml-auto">
-      <!-- Megamenu-->
-      <li class="nav-item dropdown megamenu">
-        <a id="megamenu" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle font-weight-bold text-uppercase">Dropdown Menu</a>
-        <div aria-labelledby="megamenu" class="dropdown-menu border-0 p-0 m-0">
-          <div class="container-fluid">
-            <div class="row bg-primary text-light rounded-0 m-0 shadow-sm">
-              <div class="col-12">
-                <div class="p-4">
-                  <div class="row">
-                    <div class="col-sm-6 col-lg-3 mb-4">
-                      <h6 class="font-weight-bold text-uppercase">Heading 1</h6>
-                      <ul class="list-unstyled">
-                        <li class="nav-item"><a href="#" class="nav-link text-small pb-0">Unique Features</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link text-small pb-0 ">Image Responsive</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link text-small pb-0 ">Auto Carousel</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link text-small pb-0 ">Newsletter Form</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-sm-6 col-lg-3 mb-4">
-                      <h6 class="font-weight-bold text-uppercase">Heading 2</h6>
-                      <ul class="list-unstyled">
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Unique Features</a></li>
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Image Responsive</a></li>
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Auto Carousel</a></li>
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Newsletter Form</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-sm-6 col-lg-3 mb-4">
-                      <h6 class="font-weight-bold text-uppercase">Heading 3</h6>
-                      <ul class="list-unstyled">
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Unique Features</a></li>
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Image Responsive</a></li>
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Auto Carousel</a></li>
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Newsletter Form</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-sm-6 col-lg-3 mb-4">
-                      <h6 class="font-weight-bold text-uppercase">Heading 4</h6>
-                      <ul class="list-unstyled">
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Unique Features</a></li>
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Image Responsive</a></li>
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Auto Carousel</a></li>
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Newsletter Form</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">About</a></li>
-      <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">Services</a></li>
-      <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">Contact</a></li>
-    </ul>
-  </div>  
-  <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler order-md-1">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-</nav>
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -156,16 +49,27 @@ main {
     if($myrole == 1 || $myrole == 2 || $myrole == 3 || $myrole == 4)
     {
 ?>
-
-
-
         <!-- Divider -->
         <hr class="sidebar-divider">
         <!-- Heading -->
         <div class="sidebar-heading">
           Bulk Operations
         </div>
-        
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsecms" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>CMS</span>
+          </a>
+
+          <div id="collapsecms" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <a class="collapse-item" href="../../inward-stock"> Stock Management</a>
+              <a class="collapse-item" href="../../outward-stock">Outward Stock</a>
+            </div>
+          </div>
+        </li>  
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
@@ -176,9 +80,7 @@ main {
 
           <div id="collapsestock" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              
               <a class="collapse-item" href="../../inward-stock">Inward Stock</a>
-
               <a class="collapse-item" href="../../outward-stock">Outward Stock</a>
             </div>
           </div>
@@ -451,4 +353,3 @@ main {
       </div>
     </div>
   </div>
-  
