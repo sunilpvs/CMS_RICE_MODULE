@@ -265,17 +265,17 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Approver Name</label><span id="approver_name-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="approver_name" name= "approver_name" placeholder="Approver Name" disabled>
+      <input type="text" class="form-control demoInputBox" id="approver_name" name= "approver_name" placeholder="Approver Name" readonly>
     </div>
     
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Approver Email</label><span id="approver_email-info" class="info"></span>
-       <input type="text" class="form-control demoInputBox" id="approver_email" name= "approver_email" placeholder="approver_email" disabled>
+       <input type="text" class="form-control demoInputBox" id="approver_email" name= "approver_email" placeholder="approver_email" readonly>
     </div>
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault03" class="info">Request Message:</label><span id="message-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="message" name= "message" placeholder="message" disabled>
+      <input type="text" class="form-control demoInputBox" id="message" name= "message" placeholder="message" readonly>
     </div>
 
     <div class="col-md-4 mb-3">
