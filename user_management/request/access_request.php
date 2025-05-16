@@ -290,7 +290,7 @@
             document.getElementsByName("approver_id")[0].value = id;
             document.getElementsByName("approver_name")[0].value = name;
             document.getElementsByName("approver_email")[0].value = email;
-            alert(email);
+            //alert(email);
         }
     </script>
 
