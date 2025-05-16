@@ -280,7 +280,7 @@
 
     <div class="col-md-4 mb-3">
       <label for="validationDefault01" class="info">Request Status</label><span id="req_status-info" class="info"></span>
-      <input type="text" class="form-control demoInputBox" id="req_status" name= "req_status" placeholder="Request Status" disabled>
+      <input type="text" class="form-control demoInputBox" id="req_status" name= "req_status" placeholder="Requested" value="Requested" readonly>
     </div>
     
     <div class="col-md-4 mb-3">
